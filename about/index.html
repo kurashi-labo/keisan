@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしラボ計算帳について 運営者と作り方 | くらしラボ計算帳</title>
+<meta name="description" content="くらしラボ計算帳を運営するくらしラボの紹介と、AIを使った作り方、広告の方針、出典の扱い方をまとめたページ。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/about/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="くらしラボ計算帳について 運営者と作り方 | くらしラボ計算帳">
+<meta property="og:description" content="くらしラボ計算帳を運営するくらしラボの紹介と、AIを使った作り方、広告の方針、出典の扱い方をまとめたページ。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/about/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "AboutPage",
+   "@id": "https://kurashi-labo.github.io/keisan/about/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/about/",
+   "name": "くらしラボ計算帳について 運営者と作り方",
+   "description": "くらしラボ計算帳を運営するくらしラボの紹介と、AIを使った作り方、広告の方針、出典の扱い方をまとめたページ。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/about/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/about/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "くらしラボ計算帳について 運営者と作り方",
+     "item": "https://kurashi-labo.github.io/keisan/about/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/about/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "このサイトは誰が運営していますか",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "くらしラボが個人で運営している。遺品整理の費用や防災備蓄の量のように、暮らしの中で出てくる計算を出典つきでまとめたサイトだ。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "計算結果はそのまま信用してよいですか",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "数値は出典から転記し、式は公開前に検算している。ただ結果は、家ごとの事情を入れる前の目安だ。見積もりや申し込みの前の見当づけに使い、金額の大きい契約の前には業者や専門家に確かめてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "広告収入があると、内容が偏りませんか",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "案件を選ぶときには報酬の高さも材料に入れている。計算式は広告と切り離してあり、同じ入力には同じ値を返す。広告を含むページには、本文の冒頭にその表示を入れている。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../">トップ</a><span aria-hidden="true">›</span><span>くらしラボ計算帳について 運営者と作り方</span></nav>
+<article class="page">
+<h1>くらしラボ計算帳について 運営者と作り方</h1>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>くらしラボ計算帳は、くらしラボが個人で運営している計算ツール集だ。実家の片付けの費用や停電への備えの量を、出典つきの式で出す。文章は生成AIで下書きし、式は公開前にプログラムで検算して、数値は官公庁や業界団体などのページから転記している。収入はA8.netと楽天アフィリエイトの成果報酬で、広告を含むページには本文の冒頭にその表示を入れている。</p>
+</div>
+<div class="intro"><p>くらしラボ計算帳には、遺品整理の費用や、停電のときにポータブル電源がもつ時間のように、入力すれば答えが出る計算を集めている。同じ相場や必要量でも、サイトによって数字が違うことが多い。くらしラボはページごとに出典と取得日を書き、その数字がどこから来たかをたどれるようにした。</p><p>このページでは、運営者、ページの作り方、広告を載せる基準、数字の出典の扱い、対象外にしている分野を順に説明する。</p></div>
+<section>
+<h2>運営者</h2>
+<p>くらしラボ計算帳は、くらしラボが個人で運営している。ページは1つの問いに1つの計算で答える形にそろえ、答えの数字には出典を付けている。</p><p>法律や税、医療の個別の判断は、資格を持つ専門家に任せる。くらしラボのページが受け持つのは出典の数字から目安を出すところまでで、判断が要る部分には相談先を書き添えた。</p>
+</section>
+<section>
+<h2>作り方</h2>
+<p>ページの文章は生成AIで下書きしている。計算式には、決まった入力と答えの組み合わせをページごとに3件以上用意し、公開前にプログラムで検算する。答えが1%を超えてずれたページや、断定や最上級の言い回しが残ったページは、公開の手順の中で自動的に外れる。</p><p>それでも誤りが残ることはある。数字や計算のおかしな点に気づいたら、プライバシーポリシーのページに載せた窓口(GitHubのIssues)から知らせてほしい。</p>
+</section>
+<section>
+<h2>広告の方針</h2>
+<p>アフィリエイト広告を含むページには、本文の冒頭にその表示を入れている。このサイトの収入はA8.netと楽天アフィリエイトの成果報酬で、計算ツールはどれも無料で使える。</p><p>載せる案件は、計算結果を見た人が次に取りそうな行動に合わせて選ぶ。遺品整理の費用のページには見積もりの依頼先、資格の勉強時間のページには講座の資料請求、という組み合わせだ。案件を選ぶときは報酬の高さも材料に入れている。計算式のほうは広告と切り離してあり、同じ入力には同じ値を返す。</p>
+</section>
+<section>
+<h2>出典と推定の扱い</h2>
+<p>ページに出す数字には、出典のURLと取得日を添える。出典には農林水産省や消費者庁のような官公庁のページを優先して使い、そこに数字が無いときは業界団体や事業者の公開ページから取る。</p><p>出典の無い係数を置くときは、計算の前提の表に推定と書く。計算に使う推定の係数は、なるべく入力欄から自分の家の値に変えられるようにした。出典どうしで数字に幅があるときは、幅のまま出している。</p><p>相場や目安の数字は、見積もりを取る前に見当をつけるためのものだ。実際の金額は、業者の見積もりや契約書で確かめてほしい。</p>
+</section>
+<section>
+<h2>扱わない分野</h2>
+<p>金融、保険、医療、不動産の広告は、このサイトの掲載対象から外している。停電に備えるポータブル電源がもつ時間は計算するが、蓄電池を投資として見た損得は計算の対象外だ。</p><p>相続や遺言、寺院との交渉、退職や退去をめぐるもめごとは、弁護士や税理士が扱う個別の判断になる。持病や薬の量は医師と薬剤師が決めることだ。こうした話題に触れるページでは、計算を目安までにとどめ、消費者ホットライン188や労働局の総合労働相談コーナーのような相談先を本文に書いている。</p>
+</section>
+<section>
+<h2>楽天ウェブサービスの表示について</h2>
+<p>商品の価格と販売状況の一部は、楽天ウェブサービスのAPIから取っている。該当するページには「Supported by Rakuten Developers」の表示を入れ、価格の横に取得日時を添えた。価格は毎日取り直す仕組みで、取得から24時間を超えた価格は「更新待ち」の表示に切り替わる。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>このページは運営者と作り方の説明です。計算の前提は各計算ページに載せています。</p>
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. このサイトは誰が運営していますか</dt>
+<dd>くらしラボが個人で運営している。遺品整理の費用や防災備蓄の量のように、暮らしの中で出てくる計算を出典つきでまとめたサイトだ。</dd>
+<dt>Q. 計算結果はそのまま信用してよいですか</dt>
+<dd>数値は出典から転記し、式は公開前に検算している。ただ結果は、家ごとの事情を入れる前の目安だ。見積もりや申し込みの前の見当づけに使い、金額の大きい契約の前には業者や専門家に確かめてほしい。</dd>
+<dt>Q. 広告収入があると、内容が偏りませんか</dt>
+<dd>案件を選ぶときには報酬の高さも材料に入れている。計算式は広告と切り離してあり、同じ入力には同じ値を返す。広告を含むページには、本文の冒頭にその表示を入れている。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=ja" rel="noopener" target="_blank">Google 検索セントラル 有用で信頼性の高い、ユーザーを第一に考えたコンテンツの作成</a>(2026年9月27日確認)</li><li><a href="https://webservice.rakuten.co.jp/guide/credit" rel="noopener" target="_blank">楽天ウェブサービス クレジット表示</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../bosai/bichiku-keisan/">防災備蓄は何をどれだけ? 家族の人数と日数で計算</a></li><li><a href="../jikka/ihin-seiri-hiyou/">遺品整理の費用を間取りと荷物の量で計算 業者に見積もりを頼む前の目安</a></li><li><a href="../">計算ツールの一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../">トップ</a> / <a href="../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す | くらしラボ計算帳</title>
+<meta name="description" content="退職希望日と残りの有給日数から、有給消化の開始日、最終出社日、会社に伝える期限を計算する。土日祝を除いて数え、民法627条の2週間も参考に表示する。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す | くらしラボ計算帳">
+<meta property="og:description" content="退職希望日と残りの有給日数から、有給消化の開始日、最終出社日、会社に伝える期限を計算する。土日祝を除いて数え、民法627条の2週間も参考に表示する。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/",
+   "name": "退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す",
+   "description": "退職希望日と残りの有給日数から、有給消化の開始日、最終出社日、会社に伝える期限を計算する。土日祝を除いて数え、民法627条の2週間も参考に表示する。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "資格と働き方",
+     "item": "https://kurashi-labo.github.io/keisan/shigoto/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す",
+     "item": "https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shigoto/taishoku-gyakusan/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "退職前に残りの有給をまとめて取りたいと言ったら、会社に断られることはありますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "厚生労働省の解説では、有給の権利は退職日で消えるため、退職間近に残りの有給をまとめて申請した場合、会社は時季変更権を使えず、取得を認めるほかないとされている。一方で、引き継ぎのために退職日を遅らせるよう打診されることはあり、応じるかどうかは本人が決めることだとも書かれている。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "契約社員のように、雇用期間の定めがある契約でも使えますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "日付の計算はそのまま使える。ただし民法627条の2週間は、期間の定めのない契約についての決まりだ。期間の定めがある契約を満了前に辞める場合は民法628条の「やむを得ない事由」が関わる、と厚生労働省の解説にある。この場合の判断はこのページでは扱わないので、契約書と会社の窓口で確かめてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "就業規則の期限と民法の2週間、どちらに合わせればいいですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "くらしラボは、早い方の日付に合わせる前提でこのツールを作った。厚生労働省の解説が、就業規則の退職手続きを確かめて守ることをトラブル防止として勧めているからだ。自社の規則が何か月前を求めているかは、就業規則か人事の窓口で確かめてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "祝日や会社独自の休みはどう計算に入りますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "内閣府が公開している2026年と2027年の祝日データを使っている。この範囲外の年は土日だけを除いて計算する。年末年始の休みのような会社独自の休業日は、フォームの欄にYYYY-MM-DD形式で足すと計算に入る。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "半日単位の有給は入れられますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "このツールは1日単位で数えるので、有給の日数は整数で入れる。10.5日のように半日が残っているときは10日で計算し、残りの半日をどこで使うかは別に決めてほしい。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../shigoto/">資格と働き方</a><span aria-hidden="true">›</span><span>退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す</span></nav>
+<article class="page">
+<h1>退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>退職希望日から、残りの有給日数の分だけ土日祝を除いた営業日をさかのぼると、有給消化の開始日と最終出社日が決まる。会社に伝える期限は、引き継ぎ日数からの逆算と就業規則の申し出期限(初期値は1か月前)からの逆算のうち早い方で、民法627条の2週間はあくまで参考の日付として別に示す(厚生労働省の解説ページで確認、2026-09-27)。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+<div class="kl-field"><label for="kl-taishoku">退職希望日</label>
+<input type="date" id="kl-taishoku" name="taishoku" required></div>
+<div class="kl-field"><label for="kl-yukyu">残りの有給日数</label>
+<input type="number" id="kl-yukyu" name="yukyu" min="0" step="1" value="10" required></div>
+<div class="kl-field"><label for="kl-handover">引き継ぎに必要な出社日数</label>
+<input type="number" id="kl-handover" name="handover_days" min="0" step="1" value="5"></div>
+<div class="kl-field"><label for="kl-rule">就業規則の申し出期限</label>
+<select id="kl-rule" name="rule">
+<option value="2週間前">2週間前</option>
+<option value="1か月前" selected>1か月前</option>
+<option value="2か月前">2か月前</option>
+<option value="3か月前">3か月前</option>
+</select></div>
+<div class="kl-field"><label for="kl-holidays">会社の休日</label>
+<select id="kl-holidays" name="holidays">
+<option value="土日祝" selected>土日祝</option>
+<option value="土日">土日のみ(祝日も出社)</option>
+</select></div>
+<div class="kl-field"><label for="kl-extra">会社独自の休業日(任意。カンマ区切りでYYYY-MM-DD)</label>
+<input type="text" id="kl-extra" name="extra_holidays" placeholder="例:2026-12-30, 2026-12-31"></div>
+<div class="kl-field"><label for="kl-nendai">年代(任意。合う案件だけ下に出します)</label>
+<select id="kl-nendai" name="nendai">
+<option value="">選択しない</option>
+<option value="20代以下">20代以下</option>
+<option value="30代">30代</option>
+<option value="40代以上">40代以上</option>
+</select></div>
+<button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta"><a class="cta-link" href="https://www.mhlw.go.jp/general/seido/chihou/kaiketu/soudan.html" rel="noopener" target="_blank">会社と調整がつかないときの公的な窓口(厚生労働省 総合労働相談コーナー)</a></div>
+<div class="kl-cta" data-when-field="nendai" data-when-op="in" data-when-value="[&quot;20代以下&quot;, &quot;30代&quot;]" hidden><a class="cta-link" href="https://www.hellowork.mhlw.go.jp/" rel="noopener" target="_blank">求人を自分で探すときの公的なサイト(ハローワークインターネットサービス)</a></div>
+<div class="kl-cta"><a class="cta-link" href="../../shigoto/shikaku-gyakusan/">退職後に資格の勉強を考えている人は、試験日からの逆算へ</a></div>
+</section>
+<div class="intro"><p>退職を決めたあとに決める日付は3つある。有給消化をいつから始めるか、最終出社日をいつにするか、会社にいつまでに伝えるか。このページは、退職希望日と残りの有給日数を入れると、その3つを機械的に出すためにくらしラボが作った。</p><p>計算の中身は単純で、退職希望日から有給の日数分だけ営業日を1日ずつさかのぼるだけだ。土日と、内閣府が公開している祝日を除いて数える。会社に伝える期限は、引き継ぎに必要な出社日数からの逆算と、就業規則で決まっている申し出期間(初期値は1か月前にしているが、会社によって違う)からの逆算を両方出し、早い方を採用している。</p><p>民法627条は、期間の定めのない雇用契約なら解約の申し入れから2週間で終了すると定めている。このツールはこの2週間を参考として別に出し、伝える期限は就業規則の側で数える。理由は下の節に書いた。会社との個別の交渉はここでは扱わない。</p></div>
+<section>
+<h2>有給消化の開始日と最終出社日の出し方</h2>
+<p>退職希望日から、会社の休日を除いた営業日を、残りの有給日数の分だけ1日ずつさかのぼる。たとえば退職希望日が2026年12月31日(木)で有給が10日残っているなら、土日を除いて10日分さかのぼった2026年12月18日(金)が有給消化の開始日になる。最終出社日はその前の営業日、2026年12月17日(木)だ。</p><p>祝日をまたぐときは、祝日1日につき開始日が1営業日ずつ前にずれる。試しに退職希望日を2026年11月30日、有給を7日にすると、11月23日の勤労感謝の日を挟むため、開始日は11月19日に早まる。</p>
+</section>
+<section>
+<h2>会社に伝える期限の2つの候補</h2>
+<p>伝える期限には2つの候補がある。1つは、最終出社日から引き継ぎに必要な出社日数分だけ営業日をさかのぼった日。もう1つは、退職希望日から就業規則の申し出期限(このツールの初期値は1か月前。自社の規則に合わせて選び直す)を暦日でさかのぼった日だ。このツールは両方を計算し、早い方をそのまま伝える期限として出している。</p><p>民法627条の2週間は参考の日付として別枠に出すだけで、期限の計算には使っていない。厚生労働省の解説が、就業規則の退職手続きを確かめて守ることをトラブル防止として勧めているからだ。同じ解説には、申し出の期間を大幅に延ばす規定を無効とした裁判例(高野メリヤス事件)も載っている。自社の規則がどう扱われるかの判断は、このページではしていない。</p>
+</section>
+<section>
+<h2>会社と調整がつかないときの相談先</h2>
+<p>引き継ぎが終わるまで退職日を遅らせてほしい、と会社から打診されることはある。厚生労働省の解説では、その打診に応じるかどうかは本人に委ねられているそうだ。</p><p>このページが出すのは日付までで、会社との交渉や個別の労務トラブルの判断はしていない。話し合いで折り合いがつかないときは、都道府県労働局の総合労働相談コーナーが公的な窓口になる。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>有給消化の開始日は、退職希望日から会社の休日(既定は土日祝)を除いた営業日を、残りの有給日数の分だけさかのぼって求めています。最終出社日はその1営業日前です。会社に伝える期限は、引き継ぎに必要な出社日数からの逆算と、就業規則の申し出期限(退職日からの暦日で数えます)からの逆算を比べて、早い方を採用しています。暦日で数えるほうは土日や祝日に当たることがあるので、結果に曜日を付けています。有給と引き継ぎの日数は1日単位の整数で入れてください。</p><p>民法627条が定める2週間は、参考として別に表示しています。祝日は内閣府の公開データ(2026年と2027年の分)を使い、この範囲外の年は土日だけを除いて数えます。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">就業規則の申し出期限(初期値)</th><td class="num">1か月前</td><td><span class="est-tag">推定</span> 画面の初期選択肢。実際の期間は会社ごとの就業規則で異なるため、自社の規則を確認したうえで選び直してください(出典のない初期値なので推定扱いです)。</td></tr>
+<tr><th scope="row">民法627条の解約予告期間</th><td class="num">14日</td><td><a href="https://www.check-roudou.mhlw.go.jp/study/roudousya_taisyoku.html" rel="noopener" target="_blank">期間の定めのない雇用契約は、解約の申し入れから2週間で終了すると定められている(厚生労働省の解説ページで確認、2026-09-27)。</a></td></tr>
+<tr><th scope="row">祝日データの対象年</th><td class="num">2026年-2027年</td><td><a href="https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv" rel="noopener" target="_blank">内閣府「国民の祝日について」のCSVから転記。この範囲外の年の日付は、土日だけを除いて営業日を数える。</a></td></tr>
+<tr><th scope="row">退職時の有給消化と時季変更権</th><td class="num">原則行使できない</td><td><a href="https://www.check-roudou.mhlw.go.jp/study/roudousya_yukyu.html" rel="noopener" target="_blank">有給の権利は退職日で消えるため、退職間近にまとめて申請された有給について会社は時季変更権を使えない、と厚生労働省の解説にある。引き継ぎのために退職日を遅らせる打診に応じるかは本人が決める、とも書かれている(2026-09-27確認)。</a></td></tr>
+</tbody></table></div>
+
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. 退職前に残りの有給をまとめて取りたいと言ったら、会社に断られることはありますか。</dt>
+<dd>厚生労働省の解説では、有給の権利は退職日で消えるため、退職間近に残りの有給をまとめて申請した場合、会社は時季変更権を使えず、取得を認めるほかないとされている。一方で、引き継ぎのために退職日を遅らせるよう打診されることはあり、応じるかどうかは本人が決めることだとも書かれている。</dd>
+<dt>Q. 契約社員のように、雇用期間の定めがある契約でも使えますか。</dt>
+<dd>日付の計算はそのまま使える。ただし民法627条の2週間は、期間の定めのない契約についての決まりだ。期間の定めがある契約を満了前に辞める場合は民法628条の「やむを得ない事由」が関わる、と厚生労働省の解説にある。この場合の判断はこのページでは扱わないので、契約書と会社の窓口で確かめてほしい。</dd>
+<dt>Q. 就業規則の期限と民法の2週間、どちらに合わせればいいですか。</dt>
+<dd>くらしラボは、早い方の日付に合わせる前提でこのツールを作った。厚生労働省の解説が、就業規則の退職手続きを確かめて守ることをトラブル防止として勧めているからだ。自社の規則が何か月前を求めているかは、就業規則か人事の窓口で確かめてほしい。</dd>
+<dt>Q. 祝日や会社独自の休みはどう計算に入りますか。</dt>
+<dd>内閣府が公開している2026年と2027年の祝日データを使っている。この範囲外の年は土日だけを除いて計算する。年末年始の休みのような会社独自の休業日は、フォームの欄にYYYY-MM-DD形式で足すと計算に入る。</dd>
+<dt>Q. 半日単位の有給は入れられますか。</dt>
+<dd>このツールは1日単位で数えるので、有給の日数は整数で入れる。10.5日のように半日が残っているときは10日で計算し、残りの半日をどこで使うかは別に決めてほしい。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.check-roudou.mhlw.go.jp/study/roudousya_taisyoku.html" rel="noopener" target="_blank">厚生労働省 確かめよう労働条件「退職、解雇、雇止めなど」</a>(2026年9月27日確認)</li><li><a href="https://www.check-roudou.mhlw.go.jp/study/roudousya_yukyu.html" rel="noopener" target="_blank">厚生労働省 確かめよう労働条件「年次有給休暇」</a>(2026年9月27日確認)</li><li><a href="https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv" rel="noopener" target="_blank">内閣府「国民の祝日について」祝日データCSV</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/129AC0000000089" rel="noopener" target="_blank">e-Gov法令検索 民法(第627条を含む債権編)</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../shigoto/shikaku-gyakusan/">資格の勉強時間を試験日から逆算 平日30分でも間に合うかを計算</a></li><li><a href="../../bosai/bichiku-keisan/">防災備蓄は何をどれだけ? 家族の人数と日数で計算</a></li><li><a href="../../shigoto/">資格と働き方の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>window.KL_REFDATA = {"taishoku-gyakusan__holidays_jp": [{"date": "2026-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-01-12", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-06", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-07-20", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-21", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-22", "name": "国民の休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-10-12", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-11", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-21", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-22", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-07-19", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-20", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-10-11", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}]};</script>
+<script>
+function KL_CALC(input, refdata) {
+  refdata = refdata || {};
+  var REFNAME = "taishoku-gyakusan__holidays_jp";
+  var holidayRows = refdata[REFNAME] || [];
+  var holidaysJp = {};
+  for (var hi = 0; hi < holidayRows.length; hi++) {
+    if (holidayRows[hi] && holidayRows[hi].date) holidaysJp[holidayRows[hi].date] = holidayRows[hi].name || true;
+  }
+
+  function pad2(n) { return (n < 10 ? "0" : "") + n; }
+  function toDateStr(d) { return d.getUTCFullYear() + "-" + pad2(d.getUTCMonth() + 1) + "-" + pad2(d.getUTCDate()); }
+  function parseDate(s) {
+    var p = String(s).split("-");
+    return new Date(Date.UTC(parseInt(p[0], 10), parseInt(p[1], 10) - 1, parseInt(p[2], 10)));
+  }
+  function addDays(d, n) {
+    var r = new Date(d.getTime());
+    r.setUTCDate(r.getUTCDate() + n);
+    return r;
+  }
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  function weekdayJa(d) { return WEEKDAY_JA[d.getUTCDay()]; }
+
+  var extraHolidays = {};
+  var extraList = Array.isArray(input.extra_holidays) ? input.extra_holidays : [];
+  for (var ei = 0; ei < extraList.length; ei++) { extraHolidays[extraList[ei]] = true; }
+  var holidayMode = input.holidays || "土日祝";
+
+  function isHoliday(d) {
+    var w = d.getUTCDay();
+    if (w === 0 || w === 6) return true;
+    var key = toDateStr(d);
+    if (extraHolidays[key]) return true;
+    if (holidayMode === "土日祝" && holidaysJp[key]) return true;
+    return false;
+  }
+
+  // 起点日を1日目として、休みでない日を数えながらさかのぼり、n日目に当たる営業日を返す
+  function nthBusinessDayAtOrBefore(startDate, n) {
+    if (!(n > 0)) return null;
+    var current = new Date(startDate.getTime());
+    var count = 0;
+    for (var guard = 0; guard < 3660; guard++) {
+      if (!isHoliday(current)) {
+        count++;
+        if (count === n) return current;
+      }
+      current = addDays(current, -1);
+    }
+    return null;
+  }
+
+  // fromDateExclusive の翌日から toDateInclusive までの営業日数を数える
+  function countBusinessDaysAfter(fromDateExclusive, toDateInclusive) {
+    if (toDateInclusive.getTime() < fromDateExclusive.getTime()) return null;
+    var current = addDays(fromDateExclusive, 1);
+    var count = 0;
+    for (var guard = 0; guard < 3660 && current.getTime() <= toDateInclusive.getTime(); guard++) {
+      if (!isHoliday(current)) count++;
+      current = addDays(current, 1);
+    }
+    return count;
+  }
+
+  function subtractCalendar(dateObj, n, unit) {
+    if (unit === "日") return addDays(dateObj, -n);
+    if (unit === "週間") return addDays(dateObj, -7 * n);
+    if (unit === "か月") {
+      var y = dateObj.getUTCFullYear();
+      var m = dateObj.getUTCMonth();
+      var d = dateObj.getUTCDate();
+      var targetIndex = m - n;
+      var targetYear = y + Math.floor(targetIndex / 12);
+      var targetMonth = ((targetIndex % 12) + 12) % 12;
+      var lastDay = new Date(Date.UTC(targetYear, targetMonth + 1, 0)).getUTCDate();
+      var day = Math.min(d, lastDay);
+      return new Date(Date.UTC(targetYear, targetMonth, day));
+    }
+    return null;
+  }
+
+  function parseRule(rule) {
+    if (!rule) return null;
+    var m = String(rule).match(/^(\d+)\s*(日|週間|ヶ月|か月|カ月)\s*前?$/);
+    if (!m) return null;
+    var n = parseInt(m[1], 10);
+    var unitRaw = m[2];
+    var unit = (unitRaw === "ヶ月" || unitRaw === "カ月") ? "か月" : unitRaw;
+    return { n: n, unit: unit };
+  }
+
+  var errors = [];
+  if (!input || !input.taishoku) errors.push("taishoku_required");
+  var yukyu = Number(input && input.yukyu);
+  if (!(yukyu >= 0) || Math.floor(yukyu) !== yukyu) errors.push("yukyu_invalid");
+  var handoverIn = Number((input && input.handover_days) || 0);
+  if (!(handoverIn >= 0) || Math.floor(handoverIn) !== handoverIn) errors.push("handover_invalid");
+
+  if (errors.length) {
+    return {
+      error: errors.join(","),
+      yukyu_start: null, yukyu_start_weekday: null,
+      last_day: null, last_day_weekday: null,
+      tell_by: null, tell_by_weekday: null, tell_by_by_handover: null, tell_by_by_rule: null,
+      minpou_reference: null, days_until_tell_by: null, overdue: null,
+      nendai: (input && input.nendai) || null
+    };
+  }
+
+  var taishokuDate = parseDate(input.taishoku);
+  var handoverDays = Number(input.handover_days || 0);
+
+  var yukyuStartDate, lastDayDate;
+  if (yukyu > 0) {
+    yukyuStartDate = nthBusinessDayAtOrBefore(taishokuDate, yukyu);
+    lastDayDate = yukyuStartDate ? nthBusinessDayAtOrBefore(addDays(yukyuStartDate, -1), 1) : null;
+  } else {
+    yukyuStartDate = null;
+    lastDayDate = nthBusinessDayAtOrBefore(taishokuDate, 1);
+  }
+
+  var tellByHandoverDate = (handoverDays > 0 && lastDayDate) ? nthBusinessDayAtOrBefore(lastDayDate, handoverDays) : null;
+
+  var ruleParsed = parseRule(input.rule);
+  var tellByRuleDate = ruleParsed ? subtractCalendar(taishokuDate, ruleParsed.n, ruleParsed.unit) : null;
+
+  var candidates = [];
+  if (tellByHandoverDate) candidates.push(tellByHandoverDate);
+  if (tellByRuleDate) candidates.push(tellByRuleDate);
+  var tellByDate = null;
+  for (var ci = 0; ci < candidates.length; ci++) {
+    if (tellByDate === null || candidates[ci].getTime() < tellByDate.getTime()) tellByDate = candidates[ci];
+  }
+
+  var minpouRefDate = addDays(taishokuDate, -14);
+
+  var result = {
+    error: null,
+    yukyu_start: yukyuStartDate ? toDateStr(yukyuStartDate) : null,
+    yukyu_start_weekday: yukyuStartDate ? weekdayJa(yukyuStartDate) : null,
+    last_day: lastDayDate ? toDateStr(lastDayDate) : null,
+    last_day_weekday: lastDayDate ? weekdayJa(lastDayDate) : null,
+    tell_by: tellByDate ? toDateStr(tellByDate) : null,
+    tell_by_weekday: tellByDate ? weekdayJa(tellByDate) : null,
+    tell_by_by_handover: tellByHandoverDate ? toDateStr(tellByHandoverDate) : null,
+    tell_by_by_rule: tellByRuleDate ? toDateStr(tellByRuleDate) : null,
+    minpou_reference: toDateStr(minpouRefDate),
+    nendai: input.nendai || null,
+    days_until_tell_by: null,
+    overdue: null
+  };
+
+  if (input.today && tellByDate) {
+    var todayDate = parseDate(input.today);
+    var days = countBusinessDaysAfter(todayDate, tellByDate);
+    result.days_until_tell_by = days;
+    result.overdue = (days === null);
+  }
+
+  return result;
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("kl-form");
+  var resultEl = document.getElementById("kl-result");
+  if (!form || !resultEl) return;
+
+  var lastIcsUrl = null;
+
+  function todayStr() {
+    var d = new Date();
+    var m = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + d.getDate()).slice(-2);
+    return d.getFullYear() + "-" + m + "-" + day;
+  }
+
+  function readInput() {
+    var fd = new FormData(form);
+    var extraRaw = String(fd.get("extra_holidays") || "");
+    var extra = extraRaw.split(",").map(function (s) { return s.trim(); })
+      .filter(function (s) { return /^\d{4}-\d{2}-\d{2}$/.test(s); });
+    return {
+      taishoku: fd.get("taishoku"),
+      yukyu: Number(fd.get("yukyu") || 0),
+      handover_days: Number(fd.get("handover_days") || 0),
+      rule: fd.get("rule"),
+      holidays: fd.get("holidays"),
+      extra_holidays: extra,
+      nendai: fd.get("nendai") || null,
+      today: todayStr()
+    };
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function pad2(n) { return (n < 10 ? "0" : "") + n; }
+
+  function icsDate(dateStr) {
+    return String(dateStr).replace(/-/g, "");
+  }
+
+  function icsDateNext(dateStr) {
+    var p = dateStr.split("-").map(Number);
+    var d = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+    d.setUTCDate(d.getUTCDate() + 1);
+    return d.getUTCFullYear() + pad2(d.getUTCMonth() + 1) + pad2(d.getUTCDate());
+  }
+
+  function icsTimestampNow() {
+    var d = new Date();
+    return d.getUTCFullYear() + pad2(d.getUTCMonth() + 1) + pad2(d.getUTCDate()) + "T" +
+      pad2(d.getUTCHours()) + pad2(d.getUTCMinutes()) + pad2(d.getUTCSeconds()) + "Z";
+  }
+
+  function icsEscape(s) {
+    return String(s).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,");
+  }
+
+  function buildIcs(result) {
+    var events = [];
+    function addEvent(dateStr, summary, uidSeed) {
+      if (!dateStr) return;
+      events.push(
+        "BEGIN:VEVENT\r\n" +
+        "UID:" + icsDate(dateStr) + "-" + uidSeed + "@kurashi-labo.github.io\r\n" +
+        "DTSTAMP:" + icsTimestampNow() + "\r\n" +
+        "DTSTART;VALUE=DATE:" + icsDate(dateStr) + "\r\n" +
+        "DTEND;VALUE=DATE:" + icsDateNext(dateStr) + "\r\n" +
+        "SUMMARY:" + icsEscape(summary) + "\r\n" +
+        "END:VEVENT"
+      );
+    }
+    addEvent(result.tell_by, "会社に伝える期限(退職逆算計算)", "tellby");
+    addEvent(result.yukyu_start, "有給消化の開始日(退職逆算計算)", "yukyustart");
+    addEvent(result.last_day, "最終出社日(退職逆算計算)", "lastday");
+    if (!events.length) return null;
+    return "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//kurashi-labo//taishoku-gyakusan//JA\r\nCALSCALE:GREGORIAN\r\n" +
+      events.join("\r\n") + "\r\nEND:VCALENDAR\r\n";
+  }
+
+  function icsLinkHtml(result) {
+    var text = buildIcs(result);
+    if (!text) return "";
+    if (typeof Blob === "undefined" || typeof URL === "undefined" || !URL.createObjectURL) return "";
+    if (lastIcsUrl) {
+      try { URL.revokeObjectURL(lastIcsUrl); } catch (e) { /* 無視 */ }
+      lastIcsUrl = null;
+    }
+    var blob = new Blob([text], { type: "text/calendar;charset=utf-8" });
+    lastIcsUrl = URL.createObjectURL(blob);
+    return '<p><a class="kl-ics-link" href="' + lastIcsUrl + '" download="taishoku-gyakusan.ics">カレンダーに追加(.ics)</a></p>';
+  }
+
+  function render() {
+    var input = readInput();
+    if (!input.taishoku) {
+      resultEl.innerHTML = "<p>退職希望日を入れると計算します。</p>";
+      return;
+    }
+    var result;
+    try {
+      result = KL_CALC(input, (window.KL_REFDATA || {}));
+    } catch (e) {
+      resultEl.innerHTML = '<p class="kl-error">計算でエラーが発生しました。入力を見直してください。</p>';
+      return;
+    }
+    if (!result || result.error) {
+      var msg = (result && /yukyu_invalid|handover_invalid/.test(result.error))
+        ? "有給と引き継ぎの日数は、0以上の整数で入れてください。"
+        : "入力を確認してください。";
+      resultEl.innerHTML = '<p class="kl-error">' + msg + '</p>';
+      return;
+    }
+    var rows = "";
+    rows += "<tr><th>有給消化の開始日</th><td>" + esc(result.yukyu_start || "-") +
+      (result.yukyu_start_weekday ? "(" + esc(result.yukyu_start_weekday) + "曜)" : "") + "</td></tr>";
+    rows += "<tr><th>最終出社日</th><td>" + esc(result.last_day || "-") +
+      (result.last_day_weekday ? "(" + esc(result.last_day_weekday) + "曜)" : "") + "</td></tr>";
+    rows += "<tr><th>会社に伝える期限</th><td>" + esc(result.tell_by || "-") +
+      (result.tell_by_weekday ? "(" + esc(result.tell_by_weekday) + "曜)" : "") + "</td></tr>";
+    var note = "";
+    var basis = "";
+    if (result.tell_by_by_handover && result.tell_by_by_rule) {
+      basis = "引き継ぎからの逆算(" + esc(result.tell_by_by_handover) + ")と、就業規則の申し出期限からの逆算(" +
+        esc(result.tell_by_by_rule) + ")のうち、早い方を伝える期限にしています。";
+    } else if (result.tell_by_by_rule) {
+      basis = "伝える期限は、就業規則の申し出期限から暦日で逆算した日です。";
+    } else if (result.tell_by_by_handover) {
+      basis = "伝える期限は、引き継ぎに必要な出社日数から逆算した日です。";
+    }
+    if (result.tell_by_weekday === "土" || result.tell_by_weekday === "日") {
+      basis += "期限が休日に当たっているので、その前の出社日までに伝える計算になります。";
+    }
+    if (result.minpou_reference) {
+      basis += "民法627条の2週間で数えた日付は" + esc(result.minpou_reference) + "ですが、参考として出しているだけで期限の計算には使っていません。";
+    }
+    if (basis) note += "<p>" + basis + "</p>";
+    if (result.overdue === true) {
+      note += '<p class="kl-warning">会社に伝える期限をすでに過ぎています。退職希望日を後ろにずらした場合も試せます。</p>';
+    } else if (result.days_until_tell_by === 0) {
+      note += "<p>今日が会社に伝える期限です。</p>";
+    } else if (typeof result.days_until_tell_by === "number") {
+      note += "<p>今日から数えると、あと" + result.days_until_tell_by + "営業日以内に伝える計算になります。</p>";
+    }
+    note += icsLinkHtml(result);
+    resultEl.innerHTML = '<table class="kl-table"><tbody>' + rows + "</tbody></table>" + note;
+    window.KL_UI && window.KL_UI.applyWhen(result);
+  }
+
+  form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+  form.addEventListener("change", render);
+  if (form.taishoku && form.taishoku.value) render();
+});
+</script>
+</body>
+</html>

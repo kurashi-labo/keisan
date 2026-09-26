@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>資格の勉強時間を試験日から逆算 平日30分でも間に合うかを計算 | くらしラボ計算帳</title>
+<meta name="description" content="試験日と開始日から、平日と休日に分けて確保できる勉強時間を計算します。FPや簿記、宅建の目安時間つきで、予備日率は画面で変えられます。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資格の勉強時間を試験日から逆算 平日30分でも間に合うかを計算 | くらしラボ計算帳">
+<meta property="og:description" content="試験日と開始日から、平日と休日に分けて確保できる勉強時間を計算します。FPや簿記、宅建の目安時間つきで、予備日率は画面で変えられます。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/",
+   "name": "資格の勉強時間を試験日から逆算 平日30分でも間に合うかを計算",
+   "description": "試験日と開始日から、平日と休日に分けて確保できる勉強時間を計算します。FPや簿記、宅建の目安時間つきで、予備日率は画面で変えられます。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "資格と働き方",
+     "item": "https://kurashi-labo.github.io/keisan/shigoto/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "資格の勉強時間を試験日から逆算 平日30分でも間に合うかを計算",
+     "item": "https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shigoto/shikaku-gyakusan/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "予備日率の10%はどこから来ていますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "出典のある数字ではなく、くらしラボが置いた推定値です。体調不良や予定変更に備える分として、画面の入力欄で0%から90%まで変更できます。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "このツールを使えば合格できますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "いいえ。必要時間に対して確保できる時間の見込みを出すだけで、合格を保証するものではありません。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "FPを選ぶと金融商品についても教えてもらえますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "扱っていません。このページは勉強時間の計算だけを対象にしていて、金融商品の説明や助言はしていません。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "2028年以降の試験日でも計算できますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "計算はできますが、内閣府の祝日データが2027年11月23日までのため、それより先の日付は祝日を考慮せず土日だけで数えます。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "受けたい資格がプリセットにありません。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "「その他」を選び、自分で調べた必要時間を入力してください。出典を確認できた資格は今後追加していく予定です。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../shigoto/">資格と働き方</a><span aria-hidden="true">›</span><span>資格の勉強時間を試験日から逆算 平日30分でも間に合うかを計算</span></nav>
+<article class="page">
+<h1>資格の勉強時間を試験日から逆算 平日30分でも間に合うかを計算</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>このページのツールは、開始日から試験前日までの平日と休日(土日と祝日)を数え、確保できる勉強時間を必要時間の目安と比べる。目安はFP3級80〜150時間、FP2級150〜300時間、日商簿記3級50〜100時間、2級は3級合格後に200〜300時間(モアライセンス)、宅地建物取引士200〜300時間(スタディング)で、2026-09-27に確認した。くらしラボの計算では、2026年10月1日から12月30日までの91日間に平日30分と休日90分を積み、予備日率10%を引くと67.1時間になり、FP3級の下限80時間に届かせるには平日を約44分に増やす必要がある。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form"><div class="kl-field"><label for="kl-shikaku">資格</label><select id="kl-shikaku" name="shikaku"><option value="fp3" data-h-min="80" data-h-max="150" selected>FP3級(80〜150時間)</option><option value="fp2" data-h-min="150" data-h-max="300">FP2級(150〜300時間)</option><option value="boki3" data-h-min="50" data-h-max="100">日商簿記3級(50〜100時間)</option><option value="boki2" data-h-min="200" data-h-max="300">日商簿記2級(3級合格後200〜300時間)</option><option value="takken" data-h-min="200" data-h-max="300">宅地建物取引士(200〜300時間)</option><option value="career_consultant">キャリアコンサルタント(時間は自分で入力)</option><option value="other">その他(時間は自分で入力)</option></select></div><div class="kl-field"><label for="kl-required-h">必要時間の目安(時間)</label><input type="number" id="kl-required-h" name="required_h" min="1" step="1" value="115" inputmode="numeric"></div><div class="kl-field"><label for="kl-start-date">勉強を始める日</label><input type="date" id="kl-start-date" name="start_date"></div><div class="kl-field"><label for="kl-exam-date">試験日</label><input type="date" id="kl-exam-date" name="exam_date"></div><div class="kl-field"><label for="kl-weekday-min">平日1日にあてられる分数</label><input type="number" id="kl-weekday-min" name="weekday_min" min="0" step="5" value="30" inputmode="numeric"></div><div class="kl-field"><label for="kl-holiday-min">休日1日にあてられる分数</label><input type="number" id="kl-holiday-min" name="holiday_min" min="0" step="5" value="90" inputmode="numeric"></div><fieldset class="kl-fieldset"><legend>勉強しない曜日(あれば)</legend><label><input type="checkbox" class="kl-no-study" value="0"> 日</label><label><input type="checkbox" class="kl-no-study" value="1"> 月</label><label><input type="checkbox" class="kl-no-study" value="2"> 火</label><label><input type="checkbox" class="kl-no-study" value="3"> 水</label><label><input type="checkbox" class="kl-no-study" value="4"> 木</label><label><input type="checkbox" class="kl-no-study" value="5"> 金</label><label><input type="checkbox" class="kl-no-study" value="6"> 土</label></fieldset><div class="kl-field"><label for="kl-reserve-rate">予備日率(%、初期値10は推定)</label><input type="number" id="kl-reserve-rate" name="reserve_rate_percent" min="0" max="90" step="1" value="10" inputmode="numeric"></div><button type="submit">計算する</button></form><div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<div class="intro"><p>試験日が決まっていて、今のペースで間に合うかを先に数字で見たい人のために、くらしラボがこの計算ツールを作った。入れるのは試験日と開始日、平日と休日にあてられる分数が中心で、結果は平日と休日に分けて出る。週ごとの累計は、カレンダーに取り込める.icsファイルにもできる。</p><p>目安時間はモアライセンスとスタディングが公開している幅をそのまま転記した。どちらも解説サイトやスクールの公表値で、試験の実施団体が定めた基準ではない。予備日率だけは出典がなく、くらしラボが置いた推定値だ。</p><p>合格を保証するツールではない。必要とされる勉強時間に対して、今のペースで確保できる時間がどれくらいかを数字で見るだけのものだ。受かるかどうかは、この画面の外で決まる。FPを選んでも、扱うのは勉強時間だけで、金融商品の説明はしていない。</p></div>
+<section>
+<h2>予備日を先に引いておく理由</h2>
+<p>体調を崩す日や急な用事は、計画を立てた時点では見えない。くらしラボは予備日率の初期値を10%にして、確保できる時間からあらかじめ差し引いている。10%は、10日に1日は勉強できない日が出るという見立てにあたる。出典のある数字ではなく推定なので、画面で0%から90%まで変えられる。試験の直前に繁忙期が重なると分かっているなら、率を高めにしておくといい。</p>
+</section>
+<section>
+<h2>平日と休日を分けて数える理由</h2>
+<p>休日の数は時期で変わる。内閣府の祝日CSVで数えると、2026年11月1日から23日までの23日間には土日が7日、祝日が2日(文化の日と勤労感謝の日)あり、休日は9日になる。平日30分、休日2時間の人がこれを1日平均でならすと、祝日の多い時期と少ない時期の差が消えてしまう。そこでこのツールでは平日1日の分数と休日1日の分数を別々に入れ、開始日から試験前日までの日数にそれぞれ掛けて足している。</p>
+</section>
+<section>
+<h2>勉強しない曜日を外す機能</h2>
+<p>家族の予定や当直で、決まった曜日に勉強できない人もいる。チェックを入れた曜日は、平日でも土日でも祝日でも日数から外れる。上の11月の例で日曜を外すと休日は9日から5日に減り、平日30分と休日2時間、予備日率10%のままなら、確保できる時間は22.5時間から15.3時間に下がる。</p>
+</section>
+<section>
+<h2>目安時間の出典とスクールごとの幅</h2>
+<p>FP3級は80〜150時間、FP2級は150〜300時間(モアライセンス)。日商簿記3級は50〜100時間、2級は3級に合格した人で200〜300時間(モアライセンス)。宅地建物取引士は200〜300時間(スタディング)。どれも解説サイトやスクールの公表値で、試験の実施団体が定めた基準ではない。キャリアコンサルタントのようにプリセットに時間の入っていない資格は、自分で調べた時間を入力してほしい。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>確保できる時間は、平日数×平日1日の分数と休日数×休日1日の分数を足して60で割り、予備日率の分だけ差し引いて出す。休日には土曜、日曜、内閣府が公表する祝日を含める。充足率は確保できる時間÷必要時間の目安。間に合わせるのに要る平日1日の分数は、必要時間を1から予備日率を引いた値で割って分に直し、休日側で積める分を引いてから平日数で割る。資格を選ぶと、必要時間の欄には出典の幅のまん中の値(FP3級なら80と150の間の115時間)が入る。幅のどこを使うかは欄を書き換えて決められる。係数の出典は下の「計算の前提」にまとめた。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">FP3級 勉強時間の下限</th><td class="num">80時間</td><td><a href="https://moalicense.jp/fp/houhou.htm" rel="noopener" target="_blank">モアライセンス「FP技能検定の勉強法」。目安は100時間(80〜150時間)としている(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">FP3級 勉強時間の上限</th><td class="num">150時間</td><td><a href="https://moalicense.jp/fp/houhou.htm" rel="noopener" target="_blank">モアライセンス(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">FP2級 勉強時間の下限</th><td class="num">150時間</td><td><a href="https://moalicense.jp/fp/houhou.htm" rel="noopener" target="_blank">モアライセンス。目安は200時間(150〜300時間)としている(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">FP2級 勉強時間の上限</th><td class="num">300時間</td><td><a href="https://moalicense.jp/fp/houhou.htm" rel="noopener" target="_blank">モアライセンス(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">日商簿記3級 勉強時間の下限</th><td class="num">50時間</td><td><a href="https://moalicense.jp/boki/gaiyou_nanido.htm" rel="noopener" target="_blank">モアライセンス「日商簿記検定の概要と難易度」(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">日商簿記3級 勉強時間の上限</th><td class="num">100時間</td><td><a href="https://moalicense.jp/boki/gaiyou_nanido.htm" rel="noopener" target="_blank">モアライセンス(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">日商簿記2級 勉強時間の下限(3級合格後)</th><td class="num">200時間</td><td><a href="https://moalicense.jp/boki/gaiyou_nanido.htm" rel="noopener" target="_blank">モアライセンス「日商簿記検定の概要と難易度」。3級の合格者が2級に合格するまでの目安(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">日商簿記2級 勉強時間の上限(3級合格後)</th><td class="num">300時間</td><td><a href="https://moalicense.jp/boki/gaiyou_nanido.htm" rel="noopener" target="_blank">モアライセンス(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">宅地建物取引士 勉強時間の下限</th><td class="num">200時間</td><td><a href="https://studying.jp/takken/about-more/studyhours.html" rel="noopener" target="_blank">スタディング「宅建士 独学の勉強時間」(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">宅地建物取引士 勉強時間の上限</th><td class="num">300時間</td><td><a href="https://studying.jp/takken/about-more/studyhours.html" rel="noopener" target="_blank">スタディング(2026-09-27確認)</a></td></tr>
+<tr><th scope="row">予備日率の初期値</th><td class="num">0.1割合</td><td><span class="est-tag">推定</span> 体調不良や予定変更に備えるくらしラボの目安で、出典のある数字ではない。画面の入力欄で0%から90%まで変更できる</td></tr>
+<tr><th scope="row">祝日データの対象期間</th><td class="num">2025-01-01〜2027-11-23</td><td><a href="https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv" rel="noopener" target="_blank">内閣府「国民の祝日・休日」のCSV。この範囲より先の試験日は、祝日を考慮せず土日だけで日数を数える(2026-09-27取得)</a></td></tr>
+</tbody></table></div>
+
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. 予備日率の10%はどこから来ていますか。</dt>
+<dd>出典のある数字ではなく、くらしラボが置いた推定値です。体調不良や予定変更に備える分として、画面の入力欄で0%から90%まで変更できます。</dd>
+<dt>Q. このツールを使えば合格できますか。</dt>
+<dd>いいえ。必要時間に対して確保できる時間の見込みを出すだけで、合格を保証するものではありません。</dd>
+<dt>Q. FPを選ぶと金融商品についても教えてもらえますか。</dt>
+<dd>扱っていません。このページは勉強時間の計算だけを対象にしていて、金融商品の説明や助言はしていません。</dd>
+<dt>Q. 2028年以降の試験日でも計算できますか。</dt>
+<dd>計算はできますが、内閣府の祝日データが2027年11月23日までのため、それより先の日付は祝日を考慮せず土日だけで数えます。</dd>
+<dt>Q. 受けたい資格がプリセットにありません。</dt>
+<dd>「その他」を選び、自分で調べた必要時間を入力してください。出典を確認できた資格は今後追加していく予定です。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://moalicense.jp/fp/houhou.htm" rel="noopener" target="_blank">モアライセンス「FP技能検定の勉強法」</a>(2026年9月27日確認)</li><li><a href="https://moalicense.jp/boki/gaiyou_nanido.htm" rel="noopener" target="_blank">モアライセンス「日商簿記検定の概要と難易度」</a>(2026年9月27日確認)</li><li><a href="https://studying.jp/takken/about-more/studyhours.html" rel="noopener" target="_blank">スタディング「宅建士 独学の勉強時間」</a>(2026年9月27日確認)</li><li><a href="https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv" rel="noopener" target="_blank">内閣府「国民の祝日・休日」(祝日データCSV)</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../shigoto/taishoku-gyakusan/">退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す</a></li><li><a href="../../bosai/bichiku-keisan/">防災備蓄は何をどれだけ? 家族の人数と日数で計算</a></li><li><a href="../../shigoto/">資格と働き方の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>window.KL_REFDATA = {"shikaku-gyakusan__shukujitsu": [{"date": "2025-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-01-13", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-02-24", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-05-06", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-07-21", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-09-15", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-10-13", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2025-11-24", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-01-12", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-06", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-07-20", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-21", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-22", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-10-12", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-11", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-21", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-22", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-07-19", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-20", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-10-11", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}]};</script>
+<script>
+function KL_CALC(input, refdata) {
+  input = input || {};
+
+  var DEFAULT_RESERVE_RATE = 0.10;
+
+  function toNum(v, def) {
+    var n = Number(v);
+    return isFinite(n) ? n : def;
+  }
+  function round1(n) { return Math.round(n * 10) / 10; }
+  function round3(n) { return Math.round(n * 1000) / 1000; }
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function toISO(d) {
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+  }
+  function parseISO(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(s));
+    if (!m) { return null; }
+    var d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+    if (isNaN(d.getTime())) { return null; }
+    return d;
+  }
+  function getHolidayRows(rd) {
+    if (!rd) { return []; }
+    for (var k in rd) {
+      if (Object.prototype.hasOwnProperty.call(rd, k)) {
+        var v = rd[k];
+        if (Array.isArray(v) && v.length && v[0] && typeof v[0].date === 'string') {
+          return v;
+        }
+      }
+    }
+    return [];
+  }
+
+  var reserveRate = (input.reserve_rate === undefined || input.reserve_rate === null || input.reserve_rate === '')
+    ? DEFAULT_RESERVE_RATE
+    : toNum(input.reserve_rate, DEFAULT_RESERVE_RATE);
+  if (reserveRate < 0) { reserveRate = 0; }
+  if (reserveRate > 0.9) { reserveRate = 0.9; }
+
+  var weekdayMin = toNum(input.weekday_min, 0);
+  var holidayMin = toNum(input.holiday_min, 0);
+  var requiredH = toNum(input.required_h, 0);
+  var noStudyDays = [];
+  if (Array.isArray(input.no_study_days)) {
+    for (var i = 0; i < input.no_study_days.length; i++) {
+      var nd = Number(input.no_study_days[i]);
+      if (isFinite(nd)) { noStudyDays.push(nd); }
+    }
+  }
+
+  var W = 0;
+  var E = 0;
+  var holidayDataCovered = true;
+  var maxHolidayDate = null;
+  var weekly = [];
+
+  var hasDirectCounts = typeof input.weekdays === 'number' && typeof input.holidays === 'number';
+
+  if (hasDirectCounts) {
+    W = input.weekdays;
+    E = input.holidays;
+  } else if (input.start_date && input.exam_date) {
+    var start = parseISO(input.start_date);
+    var exam = parseISO(input.exam_date);
+    if (start && exam) {
+      var holidayRows = getHolidayRows(refdata);
+      var holidaySet = {};
+      for (var j = 0; j < holidayRows.length; j++) {
+        var row = holidayRows[j];
+        if (row && typeof row.date === 'string') {
+          holidaySet[row.date] = true;
+          if (maxHolidayDate === null || row.date > maxHolidayDate) { maxHolidayDate = row.date; }
+        }
+      }
+      var last = new Date(exam.getTime());
+      last.setDate(last.getDate() - 1); // 試験前日まで
+      var cursor = new Date(start.getTime());
+      var runningMinutes = 0;
+      var dayCount = 0;
+      while (cursor.getTime() <= last.getTime()) {
+        var iso = toISO(cursor);
+        if (maxHolidayDate !== null && iso > maxHolidayDate) { holidayDataCovered = false; }
+        var dow = cursor.getDay(); // 0=日,1=月,...,6=土
+        var isHolidayType = (dow === 0 || dow === 6 || !!holidaySet[iso]);
+        var excluded = noStudyDays.indexOf(dow) !== -1;
+        if (!excluded) {
+          if (isHolidayType) {
+            E++;
+            runningMinutes += holidayMin;
+          } else {
+            W++;
+            runningMinutes += weekdayMin;
+          }
+        }
+        dayCount++;
+        if (dayCount % 7 === 0) {
+          weekly.push({
+            week: weekly.length + 1,
+            until: iso,
+            cumulative_h: round1(runningMinutes / 60 * (1 - reserveRate))
+          });
+        }
+        cursor.setDate(cursor.getDate() + 1);
+      }
+      if (dayCount > 0 && dayCount % 7 !== 0) {
+        weekly.push({
+          week: weekly.length + 1,
+          until: toISO(last),
+          cumulative_h: round1(runningMinutes / 60 * (1 - reserveRate))
+        });
+      }
+    }
+  }
+
+  var securedHours = (W * weekdayMin + E * holidayMin) / 60 * (1 - reserveRate);
+  var ratio = requiredH > 0 ? securedHours / requiredH : null;
+  var shortageHours = Math.max(0, requiredH - securedHours);
+  var needWeekdayMin = null;
+  if (W > 0 && reserveRate < 1) {
+    needWeekdayMin = (requiredH / (1 - reserveRate) * 60 - E * holidayMin) / W;
+    needWeekdayMin = Math.max(0, needWeekdayMin);
+  }
+
+  var judgement;
+  if (W === 0 && E === 0) {
+    judgement = 'no_data';
+  } else if (ratio === null) {
+    judgement = 'no_data';
+  } else if (ratio >= 1) {
+    judgement = 'enough';
+  } else if (ratio >= 0.7) {
+    judgement = 'tight';
+  } else {
+    judgement = 'short';
+  }
+
+  return {
+    shikaku: input.shikaku || null,
+    max_holiday_date: maxHolidayDate,
+    weekdays: W,
+    holidays: E,
+    required_h: requiredH,
+    secured_h: round1(securedHours),
+    ratio: ratio === null ? null : round3(ratio),
+    shortage_h: round1(shortageHours),
+    need_weekday_min: needWeekdayMin === null ? null : round1(needWeekdayMin),
+    reserve_rate: reserveRate,
+    judgement: judgement,
+    holiday_data_covered: holidayDataCovered,
+    weekly: weekly
+  };
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    var form = document.getElementById('kl-form');
+    var resultEl = document.getElementById('kl-result');
+    if (!form || !resultEl) { return; }
+
+    var shikakuSelect = document.getElementById('kl-shikaku');
+    var requiredInput = document.getElementById('kl-required-h');
+    var lastIcsUrl = null;
+
+    function applyPreset(clearIfNone) {
+      if (!shikakuSelect || !requiredInput) { return; }
+      var opt = shikakuSelect.options[shikakuSelect.selectedIndex];
+      if (!opt) { return; }
+      var hMin = opt.getAttribute('data-h-min');
+      var hMax = opt.getAttribute('data-h-max');
+      if (hMin && hMax) {
+        requiredInput.value = Math.round((Number(hMin) + Number(hMax)) / 2);
+        requiredInput.placeholder = hMin + '〜' + hMax + '時間の目安';
+      } else {
+        // 目安の無い資格で前の資格の値が残ると、その時間で計算してしまうため空にする
+        if (clearIfNone) { requiredInput.value = ''; }
+        requiredInput.placeholder = '目安を調べて入力してください';
+      }
+    }
+    if (shikakuSelect) {
+      shikakuSelect.addEventListener('change', function () { applyPreset(true); });
+    }
+
+    function fmt(n) {
+      try { return Number(n).toLocaleString('ja-JP'); } catch (e) { return String(n); }
+    }
+
+    function formatJaDate(iso) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ''));
+      if (!m) { return ''; }
+      return m[1] + '年' + Number(m[2]) + '月' + Number(m[3]) + '日';
+    }
+
+    function judgementText(code) {
+      if (code === 'enough') { return '今の入力どおりに進めれば、目安の時間を確保できる見込みです。'; }
+      if (code === 'tight') { return '目安の7割以上は確保できる見込みです。平日の分数を上の表の値まで増やすと目安に届きます。'; }
+      if (code === 'short') { return 'このままでは目安の時間に届きません。開始日を早めるか、1日の学習時間を見直してください。'; }
+      return '勉強にあてられる日が0日です。試験日が開始日より後になっているか、勉強しない曜日を外しすぎていないかを確かめてください。';
+    }
+
+    function getShikakuLabel() {
+      if (!shikakuSelect) { return ''; }
+      var opt = shikakuSelect.options[shikakuSelect.selectedIndex];
+      // カレンダーの件名には括弧内の時間の説明を入れない
+      return opt ? String(opt.textContent).replace(/\(.*\)$/, '') : '';
+    }
+
+    function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+    function icsDate(dateStr) {
+      return String(dateStr).replace(/-/g, '');
+    }
+
+    function icsDateNext(dateStr) {
+      var p = dateStr.split('-').map(Number);
+      var d = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+      d.setUTCDate(d.getUTCDate() + 1);
+      return d.getUTCFullYear() + pad2(d.getUTCMonth() + 1) + pad2(d.getUTCDate());
+    }
+
+    function icsTimestampNow() {
+      var d = new Date();
+      return d.getUTCFullYear() + pad2(d.getUTCMonth() + 1) + pad2(d.getUTCDate()) + 'T' +
+        pad2(d.getUTCHours()) + pad2(d.getUTCMinutes()) + pad2(d.getUTCSeconds()) + 'Z';
+    }
+
+    function icsEscape(s) {
+      return String(s).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,');
+    }
+
+    // 週ごとの累計目標と試験日を .ics の VEVENT にする(画面の状態を読むため calc_js には置かず、
+    // ここに置く。taishoku-gyakusan の buildIcs / icsLinkHtml と同じ組み立て方に合わせた)。
+    function buildIcs(result, input) {
+      if (!result || !result.weekly || !result.weekly.length) { return null; }
+      var shikakuLabel = getShikakuLabel();
+      var events = [];
+      function addEvent(dateStr, summary, description, uidSeed) {
+        if (!dateStr) { return; }
+        events.push(
+          'BEGIN:VEVENT\r\n' +
+          'UID:' + icsDate(dateStr) + '-' + uidSeed + '@kurashi-labo.github.io\r\n' +
+          'DTSTAMP:' + icsTimestampNow() + '\r\n' +
+          'DTSTART;VALUE=DATE:' + icsDate(dateStr) + '\r\n' +
+          'DTEND;VALUE=DATE:' + icsDateNext(dateStr) + '\r\n' +
+          'SUMMARY:' + icsEscape(summary) + '\r\n' +
+          'DESCRIPTION:' + icsEscape(description) + '\r\n' +
+          'END:VEVENT'
+        );
+      }
+      if (input && input.exam_date) {
+        addEvent(
+          input.exam_date,
+          (shikakuLabel ? shikakuLabel + ' ' : '') + '試験日',
+          '必要時間の目安' + fmt(result.required_h) + '時間、確保できる時間の見込み' + fmt(result.secured_h) + '時間(くらしラボの計算)',
+          'exam'
+        );
+      }
+      for (var i = 0; i < result.weekly.length; i++) {
+        var w = result.weekly[i];
+        addEvent(
+          w.until,
+          w.week + '週目の累計目標',
+          'この週の終わりまでの累計目安は' + fmt(w.cumulative_h) + '時間(くらしラボの計算、予備日率を差し引いた後の値)',
+          'week' + w.week
+        );
+      }
+      if (!events.length) { return null; }
+      return 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//kurashi-labo//shikaku-gyakusan//JA\r\nCALSCALE:GREGORIAN\r\n' +
+        events.join('\r\n') + '\r\nEND:VCALENDAR\r\n';
+    }
+
+    function icsLinkHtml(result, input) {
+      var text = buildIcs(result, input);
+      if (!text) { return ''; }
+      if (typeof Blob === 'undefined' || typeof URL === 'undefined' || !URL.createObjectURL) { return ''; }
+      if (lastIcsUrl) {
+        try { URL.revokeObjectURL(lastIcsUrl); } catch (e) { /* 無視 */ }
+        lastIcsUrl = null;
+      }
+      var blob = new Blob([text], { type: 'text/calendar;charset=utf-8' });
+      lastIcsUrl = URL.createObjectURL(blob);
+      return '<p><a class="kl-ics-link" href="' + lastIcsUrl + '" download="shikaku-gyakusan.ics">週ごとの累計目標をカレンダーに追加(.ics)</a></p>';
+    }
+
+    function render(result, input) {
+      var html = '';
+      html += '<table class="kl-table">';
+      html += '<tr><th>平日の日数</th><td>' + fmt(result.weekdays) + '日</td></tr>';
+      html += '<tr><th>休日の日数(土日と祝日)</th><td>' + fmt(result.holidays) + '日</td></tr>';
+      html += '<tr><th>確保できる時間</th><td>' + fmt(result.secured_h) + '時間</td></tr>';
+      html += '<tr><th>必要時間の目安</th><td>' + fmt(result.required_h) + '時間</td></tr>';
+      html += '<tr><th>充足率</th><td>' + (result.ratio === null ? '-' : Math.round(result.ratio * 100) + '%') + '</td></tr>';
+      html += '<tr><th>不足時間</th><td>' + fmt(result.shortage_h) + '時間</td></tr>';
+      if (result.need_weekday_min !== null) {
+        html += '<tr><th>間に合わせるなら平日1日</th><td>' + fmt(result.need_weekday_min) + '分</td></tr>';
+      }
+      html += '</table>';
+      html += '<p class="kl-judgement">' + judgementText(result.judgement) + '</p>';
+      if (result.weekly && result.weekly.length) {
+        html += '<table class="kl-table kl-weekly">';
+        html += '<caption>週ごとの累計目標(参考)</caption>';
+        html += '<tr><th>週</th><th>その週の終わり</th><th>累計の確保時間</th></tr>';
+        for (var i = 0; i < result.weekly.length; i++) {
+          var w = result.weekly[i];
+          html += '<tr><td>' + w.week + '週目</td><td>' + w.until + '</td><td>' + fmt(w.cumulative_h) + '時間</td></tr>';
+        }
+        html += '</table>';
+        html += icsLinkHtml(result, input);
+      }
+      if (!result.holiday_data_covered) {
+        var maxDateText = formatJaDate(result.max_holiday_date);
+        html += '<p class="kl-note">試験日が' + (maxDateText || '祝日データの対象期間') + 'より先のため、それより先の祝日は考慮せず土日だけで数えています。</p>';
+      }
+      resultEl.innerHTML = html;
+      try {
+        if (window.KL_UI && typeof window.KL_UI.applyWhen === 'function') {
+          window.KL_UI.applyWhen(result);
+        }
+      } catch (e2) {}
+    }
+
+    function readInput() {
+      var data = new FormData(form);
+      var input = {
+        shikaku: data.get('shikaku') || null,
+        required_h: Number(data.get('required_h')) || 0,
+        weekday_min: Number(data.get('weekday_min')) || 0,
+        holiday_min: Number(data.get('holiday_min')) || 0
+      };
+      var startDate = data.get('start_date');
+      var examDate = data.get('exam_date');
+      if (startDate) { input.start_date = startDate; }
+      if (examDate) { input.exam_date = examDate; }
+      var reservePercent = data.get('reserve_rate_percent');
+      if (reservePercent !== null && reservePercent !== '') {
+        input.reserve_rate = Number(reservePercent) / 100;
+      }
+      var noStudy = [];
+      var boxes = form.querySelectorAll('.kl-no-study');
+      for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].checked) { noStudy.push(Number(boxes[i].value)); }
+      }
+      input.no_study_days = noStudy;
+      return input;
+    }
+
+    // 講座の出し分けは資格だけで決まるので、日付が未入力でも資格に合うリンクを出す
+    function applyWhenShikaku(input) {
+      try {
+        if (window.KL_UI && typeof window.KL_UI.applyWhen === 'function') {
+          window.KL_UI.applyWhen({ shikaku: input.shikaku });
+        }
+      } catch (e4) {}
+    }
+
+    function run(e) {
+      if (e && e.preventDefault) { e.preventDefault(); }
+      var input = readInput();
+      if (!input.start_date || !input.exam_date) {
+        resultEl.innerHTML = '<p>勉強を始める日と試験日を入れると計算します。資格を選ぶと必要時間の目安が自動で入ります。</p>';
+        applyWhenShikaku(input);
+        return;
+      }
+      if (!(input.required_h > 0)) {
+        resultEl.innerHTML = '<p>必要時間の目安を入れると計算します。キャリアコンサルタントと「その他」は、自分で調べた時間を入れてください。</p>';
+        applyWhenShikaku(input);
+        return;
+      }
+      var refdata = window.KL_REFDATA || {};
+      var result = KL_CALC(input, refdata);
+      render(result, input);
+    }
+
+    applyPreset(false);
+    form.addEventListener('submit', run);
+    form.addEventListener('change', run);
+    run();
+  } catch (err) {
+    try {
+      var el = document.getElementById('kl-result');
+      if (el) { el.textContent = '計算でエラーが発生しました。入力内容を確認してください。'; }
+    } catch (e3) {}
+  }
+});
+</script>
+</body>
+</html>

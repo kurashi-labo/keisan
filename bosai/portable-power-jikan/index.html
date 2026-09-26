@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ポータブル電源は停電で何時間もつ? 使う家電を選んで計算 | くらしラボ計算帳</title>
+<meta name="description" content="使う家電と冷蔵庫の消費電力を入力すると、ポータブル電源が停電で何時間もつかと、必要な容量の目安を計算します。気温やバッテリーの劣化で変わるため、結果は目安です。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ポータブル電源は停電で何時間もつ? 使う家電を選んで計算 | くらしラボ計算帳">
+<meta property="og:description" content="使う家電と冷蔵庫の消費電力を入力すると、ポータブル電源が停電で何時間もつかと、必要な容量の目安を計算します。気温やバッテリーの劣化で変わるため、結果は目安です。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/",
+   "name": "ポータブル電源は停電で何時間もつ? 使う家電を選んで計算",
+   "description": "使う家電と冷蔵庫の消費電力を入力すると、ポータブル電源が停電で何時間もつかと、必要な容量の目安を計算します。気温やバッテリーの劣化で変わるため、結果は目安です。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "防災と停電",
+     "item": "https://kurashi-labo.github.io/keisan/bosai/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "ポータブル電源は停電で何時間もつ? 使う家電を選んで計算",
+     "item": "https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/bosai/portable-power-jikan/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "スマートフォンの充電1回を15Whとしているのはなぜですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "公的な資料で充電1回あたりの電力量を示すものが見当たらなかったため、一般的なスマートフォンのバッテリー容量から概算した推定値です。フォーム内の数値は変更できます。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "冷蔵庫の年間消費電力量が分からないときはどうすればいいですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "カタログか、冷蔵室のドア内側にある品質表示ラベルに年間消費電力量(kWh/年)が書かれています。見当たらない場合は既定値(推定)のまま計算しますが、実際の値に置き換えたほうが目安の精度は上がります。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "エアコンや電子レンジも計算に入れられますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "この表には含めていません。消費電力が数百Wを超える家電は、家電本体の定格消費電力と、ポータブル電源側の定格出力を商品ページで見比べたうえで使えるかどうかを判断してください。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "もつ時間の目安はどれくらい正確ですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "気温やバッテリーの経年劣化、実際の家電の消費電力のばらつきによって変わるため、あくまで目安です。もつ時間を断定するものではありません。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "「同時に使う」のチェックは何のためにありますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "その家電を同時に動かす前提で、ポータブル電源に必要な定格出力(W)の目安を出すためのチェックです。チェックしなかった家電は、1日の消費電力量の計算にだけ使われます。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../bosai/">防災と停電</a><span aria-hidden="true">›</span><span>ポータブル電源は停電で何時間もつ? 使う家電を選んで計算</span></nav>
+<article class="page">
+<h1>ポータブル電源は停電で何時間もつ? 使う家電を選んで計算</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>目安は「容量(Wh)×80%÷1日の消費電力(Wh)×24」で、80%は、電力のロスを見込んでJackeryが計算式に入れている割合です。使う家電と冷蔵庫の年間消費電力量を入れると、停電でポータブル電源が何時間もつかと、想定した日数分に必要な容量が分かります。実際の稼働時間は気温やバッテリーの状態で変わるため、ここでの数値は目安です。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+  <fieldset>
+    <legend>ポータブル電源の容量</legend>
+    <p><label for="wh">容量(Wh)</label>
+    <select id="wh">
+      <option value="300">300Wh</option>
+      <option value="500">500Wh</option>
+      <option value="700">700Wh</option>
+      <option value="1000" selected>1000Wh</option>
+      <option value="1500">1500Wh</option>
+      <option value="2000">2000Wh</option>
+      <option value="3000">3000Wh</option>
+    </select></p>
+    <p><label for="wh_custom">一覧に無い容量を使う場合(Wh、任意)</label>
+    <input type="number" id="wh_custom" min="0" step="1" placeholder="例 1200"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>停電の想定日数</legend>
+    <p><label for="days">何日分の容量を見ておくか(日)</label>
+    <input type="number" id="days" min="1" step="1" value="3"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>冷蔵庫とスマートフォン</legend>
+    <p><label for="fridge_kwh_year">冷蔵庫の年間消費電力量(kWh/年)</label>
+    <input type="number" id="fridge_kwh_year" min="0" step="1" value="300"></p>
+    <p class="kl-hint">冷蔵室のドア内側やカタログに書かれた年間消費電力量があれば、その数字に置き換えると目安の精度が上がります。分からない場合は既定値(推定)のまま計算します。</p>
+    <p><label for="phone_charges">スマートフォンの充電回数(回/日)</label>
+    <input type="number" id="phone_charges" min="0" step="1" value="2"></p>
+    <p><label for="phone_wh_per_charge">1回の充電で使う電力量(Wh、推定)</label>
+    <input type="number" id="phone_wh_per_charge" min="0" step="1" value="15"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>使う家電</legend>
+    <table class="kl-device-table">
+      <caption>消費電力と台数、1日の使用時間を入れてください</caption>
+      <thead>
+        <tr><th scope="col">家電</th><th scope="col">消費電力(W)</th><th scope="col">台数</th><th scope="col">1日の使用時間(h)</th><th scope="col">同時に使う</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LED照明</td>
+          <td><input type="number" id="led_w" min="0" value="10" aria-label="LED照明の消費電力"></td>
+          <td><input type="number" id="led_count" min="0" value="1" aria-label="LED照明の台数"></td>
+          <td><input type="number" id="led_h" min="0" step="0.5" value="5" aria-label="LED照明の1日の使用時間"></td>
+          <td><input type="checkbox" id="led_simul" aria-label="LED照明を同時に使う"></td>
+        </tr>
+        <tr>
+          <td>ノートPC</td>
+          <td><input type="number" id="notepc_w" min="0" value="45" aria-label="ノートPCの消費電力"></td>
+          <td><input type="number" id="notepc_count" min="0" value="1" aria-label="ノートPCの台数"></td>
+          <td><input type="number" id="notepc_h" min="0" step="0.5" value="0" aria-label="ノートPCの1日の使用時間"></td>
+          <td><input type="checkbox" id="notepc_simul" aria-label="ノートPCを同時に使う"></td>
+        </tr>
+        <tr>
+          <td>扇風機</td>
+          <td><input type="number" id="fan_w" min="0" value="30" aria-label="扇風機の消費電力"></td>
+          <td><input type="number" id="fan_count" min="0" value="1" aria-label="扇風機の台数"></td>
+          <td><input type="number" id="fan_h" min="0" step="0.5" value="0" aria-label="扇風機の1日の使用時間"></td>
+          <td><input type="checkbox" id="fan_simul" aria-label="扇風機を同時に使う"></td>
+        </tr>
+        <tr>
+          <td>電気毛布</td>
+          <td><input type="number" id="blanket_w" min="0" value="55" aria-label="電気毛布の消費電力"></td>
+          <td><input type="number" id="blanket_count" min="0" value="1" aria-label="電気毛布の台数"></td>
+          <td><input type="number" id="blanket_h" min="0" step="0.5" value="0" aria-label="電気毛布の1日の使用時間"></td>
+          <td><input type="checkbox" id="blanket_simul" aria-label="電気毛布を同時に使う"></td>
+        </tr>
+        <tr>
+          <td>Wi-Fiルーター</td>
+          <td><input type="number" id="wifi_w" min="0" value="10" aria-label="Wi-Fiルーターの消費電力"></td>
+          <td><input type="number" id="wifi_count" min="0" value="1" aria-label="Wi-Fiルーターの台数"></td>
+          <td><input type="number" id="wifi_h" min="0" step="0.5" value="0" aria-label="Wi-Fiルーターの1日の使用時間"></td>
+          <td><input type="checkbox" id="wifi_simul" aria-label="Wi-Fiルーターを同時に使う"></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="kl-hint">「同時に使う」は、その家電を同時に動かす前提で必要な定格出力(W)を出すためのチェックです。消費電力は家電本体や取扱説明書の表示に置き換えられます。</p>
+  </fieldset>
+
+  <button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta"><a class="cta-link" href="https://px.a8.net/svt/ejp?a8mat=4BCJJT+GCTTX6+4NJ4+5ZMCI" rel="sponsored noopener" target="_blank">Jackeryのポータブル電源を見る</a><span class="cta-pr">PR</span><span class="cta-note">容量帯ごとの選び方はこのページの計算結果を参考にしてください</span></div>
+<div class="kl-cta"><a class="cta-link" href="https://px.a8.net/svt/ejp?a8mat=4BCJJT+GE0P4Q+4TLQ+5YRHE" rel="sponsored noopener" target="_blank">BLUETTIのポータブル電源を見る</a><span class="cta-pr">PR</span><span class="cta-note">定格出力が必要な値を上回っているか商品ページで確認してから選んでください</span></div>
+<div class="kl-cta"><a class="cta-link" href="https://px.a8.net/svt/ejp?a8mat=4BCJJT+GDF9IY+5MSA+5YJRM" rel="sponsored noopener" target="_blank">Dabbssonのポータブル電源を見る</a><span class="cta-pr">PR</span><span class="cta-note">定格出力が必要な値を上回っているか商品ページで確認してから選んでください</span></div>
+<div class="kl-cta"><a class="cta-link" href="../../bosai/bichiku-keisan/">家族の人数と日数から備蓄の量を計算する</a></div>
+</section>
+<div class="intro"><p>このページは、くらしラボが運営しています。ポータブル電源の売り場やカタログにはWh(容量)とW(定格出力)の数字が並びますが、自分の家で何時間使えるのかは、実際に使う家電を当てはめないと分かりません。容量Whと家電の消費電力Wから、稼働時間と必要な容量の目安を計算する道具として作りました。</p><p>計算に使っているのはLED照明やノートPCなど消費電力の小さい家電と、冷蔵庫、スマートフォンの充電です。エアコンのような大型家電は範囲外にしています。含めている項目と含めていない項目は下の「計算に入れている電力と入れていないもの」にまとめました。</p><p>ページの下書きは生成AIで作成し、計算式は自動テストで検算しています。係数の出典は「計算の前提」の表で確認できます。</p></div>
+<section>
+<h2>計算に入れている電力と入れていないもの</h2>
+<p>この計算に入れているのは、LED照明やノートPC、扇風機、電気毛布、Wi-Fiルーターといった消費電力の小さい家電と、冷蔵庫、スマートフォンの充電です。停電時にまず動かしたい機器を想定しています。</p><p>エアコンや電子レンジ、電気ケトル、IH調理器のように消費電力が数百Wを超える家電は、この表には含めていません。動かしたい場合は、その家電の定格消費電力(W)を本体の表示や取扱説明書で確認したうえで、ポータブル電源の定格出力(W)がそれを上回っているかを商品ページで確かめてください。</p>
+</section>
+<section>
+<h2>容量帯ごとのおおまかな向き</h2>
+<p>入力した容量は、700Wh未満、700〜1500Wh、1500〜3000Wh、3000Wh超の4段階に分けて表示します。数字が大きいほど長く電気を使えますが、その分本体も重く、価格も上がります。</p><p>スマホの充電とLED照明くらいなら700Wh未満でも計算上は数日分になりますが、冷蔵庫を1日中つないでおくと消費電力量は一気に増えます。何を、どれくらいの時間動かしたいかを先に決めてから容量を選ぶと、必要以上に大きい機種を買わずに済みます。</p>
+</section>
+<section>
+<h2>在宅医療機器とPSE表示の注意</h2>
+<p>酸素濃縮器や人工呼吸器など在宅医療機器への給電は、この計算では判断できません。停電時に使えるかどうかは、機器のメーカーと主治医に確認してください。</p><p>中古のポータブル電源を検討する場合は、商品ページでPSE(電気用品安全法の表示)が確認できるものを選んでください。表示が確認できない機種は、このサイトでは紹介していません。</p>
+</section>
+<section>
+<h2>停電対策の他の計算とのつながり</h2>
+<p>ポータブル電源だけで数日分の停電をまかなおうとすると、必要な容量はすぐに大きくなります。備蓄する水や食料、簡易トイレの量は、下の「関連する計算」で人数と日数から出せます。</p><p>必要容量が手持ちの機種を大きく上回ったら、照明を1か所にまとめる、ノートPCの使用時間を減らすといった入力に変えて、もう一度計算してみてください。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>計算式はJackeryが公開している「稼働時間=容量(Wh)×80%÷消費電力(W)」をもとにしています。80%(変換効率0.8)は、バッテリーから家電に電気を送る間に生じるロス分を差し引いた値です。冷蔵庫は年間消費電力量を8760時間(1年の時間数)で割って1時間あたりの平均消費電力に直し、24時間動き続けるものとして加えています。スマートフォンの充電1回あたりの電力量は公表資料が見当たらず、推定値として置いています。係数の出典と推定の別は下の「計算の前提」にまとめました。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">変換効率(バッテリーの放電ロス分)</th><td class="num">0.8倍</td><td><a href="https://www.jackery.jp/blogs/power-station/using-time-of-power-station" rel="noopener" target="_blank">Jackeryが公開している計算式「容量(Wh)×80%÷消費電力(W)」による</a></td></tr>
+<tr><th scope="row">スマートフォン1回の充電で使う電力量</th><td class="num">15Wh</td><td><span class="est-tag">推定</span> 公的な資料が見当たらず、一般的なスマートフォンのバッテリー容量から概算した推定値。フォームで変更できる</td></tr>
+<tr><th scope="row">冷蔵庫の年間消費電力量(既定値)</th><td class="num">300kWh/年</td><td><span class="est-tag">推定</span> <a href="https://kadenfan.hitachi.co.jp/support/rei/q_a/a115.html" rel="noopener" target="_blank">日立の例(R-HX60Nで254kWh/年)などを参考にした概算の既定値。実際は自宅の冷蔵庫の表示に置き換えられる</a></td></tr>
+<tr><th scope="row">LED照明の消費電力(初期値)</th><td class="num">10W</td><td><span class="est-tag">推定</span> 一般的なLED照明器具の目安。家電本体の表示に置き換えられる</td></tr>
+<tr><th scope="row">ノートPCの消費電力(初期値)</th><td class="num">45W</td><td><span class="est-tag">推定</span> 一般的なノートPCの目安。家電本体の表示に置き換えられる</td></tr>
+<tr><th scope="row">扇風機の消費電力(初期値)</th><td class="num">30W</td><td><span class="est-tag">推定</span> 一般的な扇風機の目安。家電本体の表示に置き換えられる</td></tr>
+<tr><th scope="row">電気毛布の消費電力(初期値)</th><td class="num">55W</td><td><span class="est-tag">推定</span> <a href="https://www.jackery.jp/blogs/power-station/using-time-of-power-station" rel="noopener" target="_blank">Jackeryの使用時間一覧表にある電気毛布(55W)の例を参考にした初期値。家電本体の表示に置き換えられる</a></td></tr>
+<tr><th scope="row">Wi-Fiルーターの消費電力(初期値)</th><td class="num">10W</td><td><span class="est-tag">推定</span> 一般的なWi-Fiルーターの目安。家電本体の表示に置き換えられる</td></tr>
+</tbody></table></div>
+
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. スマートフォンの充電1回を15Whとしているのはなぜですか。</dt>
+<dd>公的な資料で充電1回あたりの電力量を示すものが見当たらなかったため、一般的なスマートフォンのバッテリー容量から概算した推定値です。フォーム内の数値は変更できます。</dd>
+<dt>Q. 冷蔵庫の年間消費電力量が分からないときはどうすればいいですか。</dt>
+<dd>カタログか、冷蔵室のドア内側にある品質表示ラベルに年間消費電力量(kWh/年)が書かれています。見当たらない場合は既定値(推定)のまま計算しますが、実際の値に置き換えたほうが目安の精度は上がります。</dd>
+<dt>Q. エアコンや電子レンジも計算に入れられますか。</dt>
+<dd>この表には含めていません。消費電力が数百Wを超える家電は、家電本体の定格消費電力と、ポータブル電源側の定格出力を商品ページで見比べたうえで使えるかどうかを判断してください。</dd>
+<dt>Q. もつ時間の目安はどれくらい正確ですか。</dt>
+<dd>気温やバッテリーの経年劣化、実際の家電の消費電力のばらつきによって変わるため、あくまで目安です。もつ時間を断定するものではありません。</dd>
+<dt>Q. 「同時に使う」のチェックは何のためにありますか。</dt>
+<dd>その家電を同時に動かす前提で、ポータブル電源に必要な定格出力(W)の目安を出すためのチェックです。チェックしなかった家電は、1日の消費電力量の計算にだけ使われます。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.jackery.jp/blogs/power-station/using-time-of-power-station" rel="noopener" target="_blank">Jackery Japan「ポータブル電源で家電を使える時間は？使用時間の計算方法を徹底解説」</a>(2026年9月27日確認)</li><li><a href="https://kadenfan.hitachi.co.jp/support/rei/q_a/a115.html" rel="noopener" target="_blank">日立の家電品サポート「冷蔵庫の電気代、消費電力量の目安を教えてください」</a>(2026年9月27日確認)</li><li><a href="https://www.jema-net.or.jp/living/reizouko/knowledge3.html" rel="noopener" target="_blank">日本電機工業会(JEMA)「冷蔵庫の省エネのポイント」</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../bosai/bichiku-keisan/">防災備蓄は何をどれだけ? 家族の人数と日数で計算</a></li><li><a href="../../bosai/kan-i-toilet/">簡易トイレは何回分いる? 人数と日数から必要な回数と1回あたりの値段を出す</a></li><li><a href="../../bosai/">防災と停電の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>
+function KL_CALC(input, refdata) {
+  input = input || {};
+  function num(v, d) { v = Number(v); return isFinite(v) ? v : (d || 0); }
+  var eta = num(input.eta, 0.8);
+  var wh = num(input.wh, 0);
+  var days = num(input.days, 1);
+  var fridge_kwh_year = num(input.fridge_kwh_year, 0);
+  var fridge_avg_w = fridge_kwh_year > 0 ? (fridge_kwh_year / 8760 * 1000) : 0;
+  var phone_charges = num(input.phone_charges, 0);
+  var phone_wh_per_charge = num(input.phone_wh_per_charge, 15);
+
+  var presets = ['led', 'notepc', 'fan', 'blanket', 'wifi'];
+  var device_list = [];
+  presets.forEach(function (key) {
+    var w = num(input[key + '_w'], 0);
+    var h = num(input[key + '_h'], 0);
+    if (w > 0 && h > 0) {
+      var count = input[key + '_count'] !== undefined ? num(input[key + '_count'], 1) : 1;
+      var simul = !!input[key + '_simul'];
+      device_list.push({ key: key, w: w, count: count, h: h, simul: simul });
+    }
+  });
+  var extra = Array.isArray(input.extra_devices) ? input.extra_devices : [];
+  extra.forEach(function (d, i) {
+    var w = num(d && d.w, 0);
+    var h = num(d && d.h, 0);
+    if (w > 0 && h > 0) {
+      var count = num(d && d.count, 1);
+      var simul = !!(d && d.simul);
+      device_list.push({ key: 'extra' + i, w: w, count: count, h: h, simul: simul });
+    }
+  });
+
+  var device_energy = 0;
+  device_list.forEach(function (d) { device_energy += d.w * d.count * d.h; });
+
+  var E_day_wh = device_energy + fridge_avg_w * 24 + phone_charges * phone_wh_per_charge;
+  var usable_wh = wh * eta;
+  var hours = E_day_wh > 0 ? (usable_wh / E_day_wh * 24) : 0;
+  var lasting_days = E_day_wh > 0 ? (usable_wh / E_day_wh) : 0;
+  var need_days_wh = eta > 0 ? (E_day_wh * days / eta) : 0;
+
+  var rated_w = 0;
+  device_list.forEach(function (d) { if (d.simul) { rated_w += d.w * d.count; } });
+
+  var band, band_label;
+  if (wh < 700) { band = 'under700'; band_label = '700Wh未満'; }
+  else if (wh < 1500) { band = 'b700_1500'; band_label = '700〜1500Wh'; }
+  else if (wh < 3000) { band = 'b1500_3000'; band_label = '1500〜3000Wh'; }
+  else { band = 'over3000'; band_label = '3000Wh超'; }
+
+  function round1(x) { return Math.round(x * 10) / 10; }
+  function round0(x) { return Math.round(x); }
+
+  return {
+    E_day_wh: round1(E_day_wh),
+    hours: round1(hours),
+    lasting_days: round1(lasting_days),
+    need_days_wh: round0(need_days_wh),
+    rated_w: round0(rated_w),
+    capacity_band: band,
+    capacity_band_label: band_label,
+    device_count: device_list.length
+  };
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('kl-form');
+  var out = document.getElementById('kl-result');
+  if (!form || !out) { return; }
+
+  function readNum(id, d) {
+    var el = document.getElementById(id);
+    if (!el) { return d; }
+    var v = parseFloat(el.value);
+    return isFinite(v) ? v : d;
+  }
+  function readChecked(id) {
+    var el = document.getElementById(id);
+    return !!(el && el.checked);
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c];
+    });
+  }
+  function fmt(n) {
+    try { return Number(n).toLocaleString('ja-JP'); } catch (e) { return String(n); }
+  }
+
+  function buildInput() {
+    var whCustom = readNum('wh_custom', 0);
+    var whSelect = readNum('wh', 1000);
+    return {
+      wh: whCustom > 0 ? whCustom : whSelect,
+      days: readNum('days', 3),
+      fridge_kwh_year: readNum('fridge_kwh_year', 300),
+      phone_charges: readNum('phone_charges', 2),
+      phone_wh_per_charge: readNum('phone_wh_per_charge', 15),
+      led_w: readNum('led_w', 0), led_count: readNum('led_count', 1), led_h: readNum('led_h', 0), led_simul: readChecked('led_simul'),
+      notepc_w: readNum('notepc_w', 0), notepc_count: readNum('notepc_count', 1), notepc_h: readNum('notepc_h', 0), notepc_simul: readChecked('notepc_simul'),
+      fan_w: readNum('fan_w', 0), fan_count: readNum('fan_count', 1), fan_h: readNum('fan_h', 0), fan_simul: readChecked('fan_simul'),
+      blanket_w: readNum('blanket_w', 0), blanket_count: readNum('blanket_count', 1), blanket_h: readNum('blanket_h', 0), blanket_simul: readChecked('blanket_simul'),
+      wifi_w: readNum('wifi_w', 0), wifi_count: readNum('wifi_count', 1), wifi_h: readNum('wifi_h', 0), wifi_simul: readChecked('wifi_simul')
+    };
+  }
+
+  function render(r, input) {
+    var ratedNote = r.rated_w > 0
+      ? '<p>「同時に使う」を選んだ家電をまとめて動かすなら、定格出力がおよそ' + fmt(r.rated_w) + 'W以上の機種を選んでください。</p>'
+      : '';
+    out.innerHTML =
+      '<table class="kl-result-table">' +
+      '<caption>入力した条件での目安</caption>' +
+      '<tbody>' +
+      '<tr><th scope="row">1日の消費電力量</th><td>' + fmt(r.E_day_wh) + ' Wh/日</td></tr>' +
+      '<tr><th scope="row">もつ時間の目安</th><td>約' + fmt(r.hours) + '時間(約' + fmt(r.lasting_days) + '日)</td></tr>' +
+      '<tr><th scope="row">' + esc(input.days) + '日分の必要容量の目安</th><td>' + fmt(r.need_days_wh) + ' Wh</td></tr>' +
+      '<tr><th scope="row">今回の容量帯</th><td>' + esc(r.capacity_band_label) + '</td></tr>' +
+      '</tbody></table>' +
+      ratedNote +
+      '<p class="kl-hint">数値はいずれも目安です。気温やバッテリーの劣化、実際の消費電力で変わります。</p>';
+  }
+
+  function calcAndRender() {
+    var input = buildInput();
+    var result;
+    try {
+      result = window.KL_CALC(input);
+    } catch (err) {
+      out.innerHTML = '<p>入力値を計算できませんでした。数値を見直してください。</p>';
+      return;
+    }
+    render(result, input);
+    if (window.KL_UI && typeof window.KL_UI.applyWhen === 'function') {
+      try { window.KL_UI.applyWhen(result); } catch (e2) { /* KL_UI が無い環境でも落とさない */ }
+    }
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); calcAndRender(); });
+  form.addEventListener('change', calcAndRender);
+  calcAndRender();
+});
+</script>
+</body>
+</html>
