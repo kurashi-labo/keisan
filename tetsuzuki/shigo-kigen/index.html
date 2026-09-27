@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる | くらしラボ計算帳</title>
+<meta name="description" content="亡くなった日と知った日を入れると、死亡届、年金と国保の届出、相続放棄、準確定申告、相続税、相続登記、葬祭費、未支給年金の期限を計算します。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる | くらしラボ計算帳">
+<meta property="og:description" content="亡くなった日と知った日を入れると、死亡届、年金と国保の届出、相続放棄、準確定申告、相続税、相続登記、葬祭費、未支給年金の期限を計算します。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/",
+   "name": "亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる",
+   "description": "亡くなった日と知った日を入れると、死亡届、年金と国保の届出、相続放棄、準確定申告、相続税、相続登記、葬祭費、未支給年金の期限を計算します。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "手続き暦(介護と相続の期限)",
+     "item": "https://kurashi-labo.github.io/keisan/tetsuzuki/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる",
+     "item": "https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/shigo-kigen/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "亡くなった日と、相続人になったことを知った日が違うときは、どちらを入れればいいですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "両方を入れてほしい。死亡届は「知った日」を1日目として数え、相続放棄や相続税の申告などは「知った日の翌日」を1日目として数える。同居していた家族なら通常は同じ日になるが、離れて暮らしていて後から連絡を受けた場合などは、実際に知った日を入れないと期限がずれる。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "相続放棄の3か月をわずかに過ぎてしまったら、もう手続きはできませんか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "このページでは日付の計算だけを扱っていて、期限を過ぎた場合にどうなるかの判断はしていない。3か月を過ぎていても、亡くなったことを知った時期などの事情によっては申述が認められることがあるとされている。個別の判断が必要なので、家庭裁判所の手続案内窓口か、法テラス、市区町村の無料法律相談で確かめてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "相続税の基礎控除を超えるかどうかが自分では分かりません。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "基礎控除は3,000万円+600万円×法定相続人の数で計算する(国税庁の説明で確認)。遺産の総額や法定相続人の数え方が分からないときは、国税庁の相談窓口か税理士に聞いたほうが早い。このツールの「遺産が基礎控除を超えそう」のチェックは、あくまで相続税の申告期限を表に出すかどうかの目安として使っている。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "表示された日付の祝日はどこまで正確ですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "内閣府が公開している2026年と2027年の祝日データを使っている年は「確定」として計算し、それ以外の年は祝日法の決まり(ハッピーマンデーや振替休日、春分・秋分の日の近似式)で計算した上で「祝日は推定」と表示する。相続登記や未支給年金のように期限が数年先になる手続きでは、この推定の祝日を使うことがある。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "葬祭費や未支給年金の期限は、なぜ「推定」が付くのですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "協会けんぽの埋葬料は亡くなった日の翌日から2年で時効になり、この日付はツールの計算と同じになる。埋葬費は埋葬した日の翌日から2年(協会けんぽ)、国民健康保険の葬祭費も葬儀の日を起点にする扱いがある。未支給年金は、年金の支払日の翌月1日から5年で時効になる(日本年金機構)。このツールは葬儀の日や年金の支払月を入力してもらっていないため、亡くなった日を起点に計算しており、埋葬料以外は実際の期限より数日から数十日早い日付が出る。期限が近づいたら市区町村や年金事務所の窓口で確かめてほしい。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+<script>
+/* kl_date.js: くらしラボ計算帳の日付部品。グローバル KL_DATE(ブラウザは window、calc_test.js の vm は context)。
+   日付は Date か "YYYY-MM-DD" で受け取り、その端末の0時の Date で返す(文字列にするときは fmt)。
+   内部は 1970-01-01 からの通し日数で数えるので、タイムゾーンと夏時間の影響を受けない。
+   条文: 民法140条〜143条、国税通則法10条2項と同法施行令2条2項、祝日法(国民の祝日に関する法律)2条・3条。 */
+(function (root) {
+  "use strict";
+  var DAY_MS = 86400000;
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  var HOLIDAY_REF = /holiday|shukujitsu|syukujitsu/i;
+  var UNITS = ["days", "weeks", "months", "years"];
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function serialOf(y, m, d) { return Math.round(Date.UTC(y, m - 1, d) / DAY_MS); }
+  function partsOf(s) {
+    var t = new Date(s * DAY_MS);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+  }
+  function iso(y, m, d) { return y + "-" + pad(m) + "-" + pad(d); }
+  function isoOf(s) { var p = partsOf(s); return iso(p.y, p.m, p.d); }
+  function compact(s) { return isoOf(s).replace(/-/g, ""); }
+  function dow(s) { return ((s + 4) % 7 + 7) % 7; } // 1970-01-01 は木曜
+  function daysInMonth(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function isDate(v) { return Object.prototype.toString.call(v) === "[object Date]"; }
+
+  // Date(0時ちょうどなら端末の日付、UTC の0時ちょうどなら UTC の日付)、"YYYY-MM-DD"、"YYYY/M/D"、"YYYY年M月D日"、
+  // taxDeadline などの結果({date})を通し日数にする。読めなければ NaN
+  function toSerial(v) {
+    if (v === null || v === undefined || v === "") { return NaN; }
+    if (isDate(v)) {
+      if (isNaN(v.getTime())) { return NaN; }
+      if (v.getHours() === 0 && v.getMinutes() === 0 && v.getSeconds() === 0 && v.getMilliseconds() === 0) {
+        return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+      }
+      if (v.getUTCHours() === 0 && v.getUTCMinutes() === 0 && v.getUTCSeconds() === 0 && v.getUTCMilliseconds() === 0) {
+        return serialOf(v.getUTCFullYear(), v.getUTCMonth() + 1, v.getUTCDate());
+      }
+      return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+    }
+    if (typeof v === "object") { return v.date !== undefined && v.date !== v ? toSerial(v.date) : NaN; }
+    var m = /^\s*(\d{4})\s*[-\/.年]\s*(\d{1,2})\s*[-\/.月]\s*(\d{1,2})\s*日?\s*(?:$|T)/.exec(String(v));
+    if (!m) { return NaN; }
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y < 1000 || mo < 1 || mo > 12 || d < 1 || d > daysInMonth(y, mo)) { return NaN; }
+    return serialOf(y, mo, d);
+  }
+  function need(v, fn) {
+    var s = toSerial(v);
+    if (isNaN(s)) { throw new Error("KL_DATE." + fn + ": 日付を読めません(" + String(v) + ")"); }
+    return s;
+  }
+  function int(n, fn, what) {
+    var x = Number(n);
+    if (n === null || n === "" || !isFinite(x) || Math.floor(x) !== x) {
+      throw new Error("KL_DATE." + fn + ": " + what + "は整数で指定してください(" + String(n) + ")");
+    }
+    return x;
+  }
+  function toDate(s) {
+    var p = partsOf(s);
+    var t = new Date(2000, 0, 1);
+    t.setFullYear(p.y, p.m - 1, p.d);
+    t.setHours(0, 0, 0, 0);
+    return t;
+  }
+  function shiftMonths(s, n) {
+    var p = partsOf(s);
+    var idx = p.y * 12 + (p.m - 1) + n;
+    var y = Math.floor(idx / 12), m = idx - y * 12 + 1;
+    return { y: y, m: m, d: p.d, last: daysInMonth(y, m) };
+  }
+
+  function parse(v) { var s = toSerial(v); return isNaN(s) ? null : toDate(s); }
+  function fmt(v) { var s = toSerial(v); return isNaN(s) ? "" : isoOf(s); }
+  function weekdayJa(v) { return WEEKDAY_JA[dow(need(v, "weekdayJa"))]; }
+  function addDays(date, n) { return toDate(need(date, "addDays") + int(n, "addDays", "日数")); }
+  // 月の足し引き。応当日が無い月は月末にする(民法143条2項ただし書と同じ考え方。1月31日の1か月後は2月末日)
+  function addMonths(date, n) {
+    var t = shiftMonths(need(date, "addMonths"), int(n, "addMonths", "月数"));
+    return toDate(serialOf(t.y, t.m, Math.min(t.d, t.last)));
+  }
+  function addYears(date, n) { return addMonths(date, 12 * int(n, "addYears", "年数")); }
+  function endOfMonth(date) {
+    var p = partsOf(need(date, "endOfMonth"));
+    return toDate(serialOf(p.y, p.m, daysInMonth(p.y, p.m)));
+  }
+  function diffDays(from, to) { return need(to, "diffDays") - need(from, "diffDays"); }
+
+  // 期間の末日。spec は {days:n} {weeks:n} {months:n} {years:n} のどれか1つ
+  function periodEnd(start, spec, opts) {
+    var s = need(start, "periodEnd"), found = [];
+    for (var i = 0; i < UNITS.length; i++) {
+      if (spec && spec[UNITS[i]] !== undefined && spec[UNITS[i]] !== null) { found.push(UNITS[i]); }
+    }
+    if (found.length !== 1) {
+      throw new Error("KL_DATE.periodEnd: 期間は days、weeks、months、years のどれか1つで指定してください");
+    }
+    var unit = found[0], n = int(spec[unit], "periodEnd", unit);
+    if (n < 1) { throw new Error("KL_DATE.periodEnd: " + unit + "は1以上にしてください"); }
+    // 民法140条: 初日は算入しない(起算日は翌日)。午前0時から始まる期間だけ initialDayCounted:true で初日を数える
+    var first = s + (opts && opts.initialDayCounted === true ? 0 : 1);
+    // 民法141条: 期間は末日の終了をもって満了する。返すのはその末日
+    if (unit === "days") { return toDate(first + n - 1); }
+    // 民法143条: 週・月・年は暦に従い、最後の週・月・年で起算日に応当する日の前日に満了する(2項本文)
+    if (unit === "weeks") { return toDate(first + 7 * n - 1); }
+    var t = shiftMonths(first, unit === "years" ? 12 * n : n);
+    // 143条2項ただし書: 最後の月に応当する日が無いときは、その月の末日に満了する
+    if (t.d > t.last) { return toDate(serialOf(t.y, t.m, t.last)); }
+    return toDate(serialOf(t.y, t.m, t.d) - 1);
+  }
+
+  // ---- 祝日(祝日法)
+  // 春分・秋分の日は前年2月の官報で決まる。ここでは広く使われている近似式で出す(1980〜2150年)
+  function equinoxDay(year, spring) {
+    var base;
+    if (year >= 1980 && year <= 2099) { base = spring ? 20.8431 : 23.2488; }
+    else if (year >= 2100 && year <= 2150) { base = spring ? 21.8510 : 24.2488; }
+    else { return 0; }
+    return Math.floor(base + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function nthMonday(y, m, n) { return 1 + ((8 - dow(serialOf(y, m, 1))) % 7) + 7 * (n - 1); }
+
+  var ruleCache = {};
+  function ruleHolidays(year) {
+    if (ruleCache[year]) { return ruleCache[year]; }
+    var sai = {}, map = {}, k, s, t;
+    function put(m, d, name) { if (d) { sai[iso(year, m, d)] = name; } }
+    // 祝日法2条
+    put(1, 1, "元日");
+    put(1, nthMonday(year, 1, 2), "成人の日");
+    put(2, 11, "建国記念の日");
+    if (year >= 2020) { put(2, 23, "天皇誕生日"); }
+    put(3, equinoxDay(year, true), "春分の日");
+    put(4, 29, "昭和の日");
+    put(5, 3, "憲法記念日");
+    put(5, 4, "みどりの日");
+    put(5, 5, "こどもの日");
+    if (year === 2020) { put(7, 23, "海の日"); put(7, 24, "スポーツの日"); put(8, 10, "山の日"); }
+    else if (year === 2021) { put(7, 22, "海の日"); put(7, 23, "スポーツの日"); put(8, 8, "山の日"); }
+    else { put(7, nthMonday(year, 7, 3), "海の日"); put(8, 11, "山の日"); put(10, nthMonday(year, 10, 2), "スポーツの日"); }
+    put(9, nthMonday(year, 9, 3), "敬老の日");
+    put(9, equinoxDay(year, false), "秋分の日");
+    put(11, 3, "文化の日");
+    put(11, 23, "勤労感謝の日");
+    for (k in sai) { if (hasOwn.call(sai, k)) { map[k] = sai[k]; } }
+    for (k in sai) {
+      if (!hasOwn.call(sai, k)) { continue; }
+      s = toSerial(k);
+      // 3条2項(振替休日): 祝日が日曜日に当たるときは、その日後で最も近い祝日でない日を休日とする
+      if (dow(s) === 0) {
+        t = s + 1;
+        while (hasOwn.call(sai, isoOf(t))) { t += 1; }
+        map[isoOf(t)] = "振替休日";
+      }
+      // 3条3項(国民の休日): 前日と翌日が祝日である日(祝日でない日に限る)は休日とする
+      if (hasOwn.call(sai, isoOf(s + 2)) && !hasOwn.call(sai, isoOf(s + 1)) && !hasOwn.call(map, isoOf(s + 1))) {
+        map[isoOf(s + 1)] = "国民の休日";
+      }
+    }
+    var note = year < 2020 ? "2019年以前は祝日の決まりが今と違うため、参考の値です"
+      : (equinoxDay(year, true) ? "内閣府の祝日データに無い年のため、祝日法の決まりと春分・秋分の近似式で出しました"
+        : "春分と秋分の日を近似式で出せない年です(1980〜2150年のみ)");
+    ruleCache[year] = { map: map, note: note };
+    return ruleCache[year];
+  }
+
+  // refdata のうち、名前か出典URLに holiday / shukujitsu を含むものを祝日データとして読む。
+  // 形は {"rows": [{"date": "YYYY-MM-DD", "name": "…"}]}(taishoku-gyakusan__holidays_jp と shikaku-gyakusan__shukujitsu)
+  var refCache = { src: undefined, idx: null };
+  function holidayRows(source) {
+    if (Array.isArray(source)) { return source; }
+    var out = [];
+    if (source && typeof source === "object") {
+      for (var k in source) {
+        if (!hasOwn.call(source, k) || !Array.isArray(source[k])) { continue; }
+        var first = source[k][0];
+        if (HOLIDAY_REF.test(k) || (first && typeof first === "object" && HOLIDAY_REF.test(String(first.source_url || "")))) {
+          out = out.concat(source[k]);
+        }
+      }
+    }
+    return out;
+  }
+  function refIndex(source) {
+    if (source === undefined || source === null) { source = root.KL_REFDATA; }
+    if (refCache.idx && refCache.src === source) { return refCache.idx; }
+    var rows = holidayRows(source), map = {}, years = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+      if (isNaN(s)) { continue; }
+      k = isoOf(s);
+      map[k] = (r && typeof r === "object" && r.name) || map[k] || "祝日";
+    }
+    // 元日と勤労感謝の日の両方がある年を「その年の祝日がすべて載っている」とみなす
+    for (k in map) {
+      if (hasOwn.call(map, k) && map[k.slice(0, 4) + "-01-01"] && map[k.slice(0, 4) + "-11-23"]) { years[k.slice(0, 4)] = true; }
+    }
+    refCache = { src: source, idx: { map: map, years: years } };
+    return refCache.idx;
+  }
+
+  function holidaysFor(year, source) {
+    var y = int(year, "holidaysFor", "年"), idx = refIndex(source), prefix = String(y) + "-";
+    var fromRef = hasOwn.call(idx.years, String(y)), rule = fromRef ? null : ruleHolidays(y);
+    var src = fromRef ? idx.map : rule.map, map = {}, list = [], keys = [], k, i;
+    for (k in src) { if (hasOwn.call(src, k) && k.indexOf(prefix) === 0) { keys.push(k); } }
+    keys.sort();
+    for (i = 0; i < keys.length; i++) { map[keys[i]] = src[keys[i]]; list.push({ date: keys[i], name: src[keys[i]] }); }
+    var out = { year: y, estimated: !fromRef, source: fromRef ? "refdata" : "rule", holidays: list, map: map };
+    if (rule) { out.note = rule.note; }
+    return out;
+  }
+
+  // holidays の渡し方: 省略(KL_REFDATA の祝日、無い年は祝日法で計算)/ refdata オブジェクト / 日付か {date,name} の配列 /
+  // {"YYYY-MM-DD": 名前} / holidaysFor の結果。配列と {"日付": 名前} は「それが祝日のすべて」として扱う
+  function lookup(holidays) {
+    var fixed = null, source, perYear = {}, estimated = false;
+    if (Array.isArray(holidays)) {
+      fixed = {};
+      for (var i = 0; i < holidays.length; i++) {
+        var r = holidays[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+        if (!isNaN(s)) { fixed[isoOf(s)] = (r && typeof r === "object" && r.name) || "休日"; }
+      }
+    } else if (holidays && typeof holidays === "object") {
+      if (holidays.map && typeof holidays.map === "object" && holidays.year !== undefined) { fixed = holidays.map; }
+      else {
+        for (var key in holidays) {
+          if (hasOwn.call(holidays, key)) { fixed = /^\d{4}-\d{2}-\d{2}$/.test(key) ? holidays : null; break; }
+        }
+        if (!fixed) { source = holidays; }
+      }
+    }
+    return {
+      name: function (s) {
+        var k = isoOf(s);
+        if (fixed) { return hasOwn.call(fixed, k) ? String(fixed[k] === true ? "休日" : fixed[k]) : ""; }
+        var y = k.slice(0, 4);
+        if (!perYear[y]) {
+          perYear[y] = holidaysFor(Number(y), source);
+          if (perYear[y].estimated) { estimated = true; }
+        }
+        return hasOwn.call(perYear[y].map, k) ? perYear[y].map[k] : "";
+      },
+      estimated: function () { return estimated; }
+    };
+  }
+  function yearEnd(s) { var p = partsOf(s); return (p.m === 12 && p.d >= 29) || (p.m === 1 && p.d <= 3); }
+  function closedReason(s, look, withYearEnd) {
+    var name = look.name(s), w = dow(s);
+    if (name) { return name; }
+    if (w === 0) { return "日曜日"; }
+    if (w === 6) { return "土曜日"; }
+    if (withYearEnd && yearEnd(s)) { return "年末年始"; }
+    return "";
+  }
+
+  function holidayName(date, holidays) { return lookup(holidays).name(need(date, "holidayName")); }
+  // 土日と祝日(振替休日・国民の休日を含む)なら true
+  function isHoliday(date, holidays) { return !!closedReason(need(date, "isHoliday"), lookup(holidays), false); }
+  function businessDay(date, opts, fn, step) {
+    opts = opts || {};
+    var s = need(date, fn), look = lookup(opts.holidays);
+    if (opts.strict === true) { s += step; }
+    for (var i = 0; i < 400; i++, s += step) {
+      if (!closedReason(s, look, opts.yearEnd === true)) { return toDate(s); }
+    }
+    throw new Error("KL_DATE." + fn + ": 400日以内に営業日がありません");
+  }
+  // その日が営業日ならその日、休みなら次(前)の営業日。{strict:true} で必ず翌日以降(前日以前)にする。
+  // {yearEnd:true} で12月29日〜1月3日も休みとして数える
+  function nextBusinessDay(date, opts) { return businessDay(date, opts, "nextBusinessDay", 1); }
+  function prevBusinessDay(date, opts) { return businessDay(date, opts, "prevBusinessDay", -1); }
+
+  function shiftDeadline(date, opts, fn, basis) {
+    opts = opts || {};
+    var s0 = need(date, fn), s = s0, look = lookup(opts.holidays), skipped = [], why;
+    for (var i = 0; i < 400; i++) {
+      why = closedReason(s, look, true);
+      if (!why) { break; }
+      skipped.push({ date: isoOf(s), why: why });
+      s += 1;
+    }
+    return { date: toDate(s), ymd: isoOf(s), original: isoOf(s0), shifted: s !== s0, skipped: skipped,
+      estimated: look.estimated(), unconfirmed: false, basis: basis };
+  }
+  // 国税通則法10条2項: 期限が日曜日・祝日法の休日・その他一般の休日・政令で定める日に当たるときは、翌日を期限とみなす。
+  // 政令で定める日は土曜日と12月29日〜31日(施行令2条2項)。1月2日と3日は一般の休日として数える
+  function taxDeadline(date, opts) { return shiftDeadline(date, opts, "taxDeadline", "国税通則法10条2項"); }
+  // 民法142条: 期間の末日が日曜日・祝日法の休日その他の休日に当たるときは、その日に取引をしない慣習がある場合に限り翌日に満了する。
+  // 慣習の有無はここでは確かめられないので、繰り下げたときは unconfirmed:true を返す(土曜日と12月29日〜1月3日も休みとして数える)。
+  // 裁判所への申述など民事訴訟法95条3項(家事事件は家事事件手続法34条4項で準用)が使える手続は {basis:"minso"}。慣習の条件が無い
+  function courtDeadline(date, opts) {
+    var minso = !!(opts && opts.basis === "minso");
+    var r = shiftDeadline(date, opts, "courtDeadline", minso ? "民事訴訟法95条3項" : "民法142条");
+    r.unconfirmed = !minso && r.shifted;
+    return r;
+  }
+
+  // ---- カレンダー(RFC 5545)
+  function icsText(v) {
+    return String(v === undefined || v === null ? "" : v).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+      .replace(/,/g, "\\,").replace(/\r\n|\r|\n/g, "\\n");
+  }
+  // 1行75オクテット(UTF-8)を超えたら CRLF+空白で折り返す。文字の途中では切らない
+  function fold(line) {
+    var out = [], cur = "", bytes = 0, i = 0;
+    while (i < line.length) {
+      var c = line.charCodeAt(i), ch = line.charAt(i), n;
+      if (c >= 0xd800 && c <= 0xdbff && i + 1 < line.length) { ch = line.substr(i, 2); n = 4; }
+      else { n = c < 0x80 ? 1 : (c < 0x800 ? 2 : 3); }
+      if (bytes + n > 75) { out.push(cur); cur = " "; bytes = 1; }
+      cur += ch;
+      bytes += n;
+      i += ch.length;
+    }
+    out.push(cur);
+    return out.join("\r\n");
+  }
+  function hash(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul ? Math.imul(h, 0x01000193) : (h * 0x01000193) | 0; }
+    return ("0000000" + (h >>> 0).toString(16)).slice(-8);
+  }
+  function stamp(now) {
+    var t = isDate(now) ? now.getTime() : (typeof now === "string" ? Date.parse(now) : (typeof now === "number" ? now : Date.now()));
+    if (!isFinite(t)) { throw new Error("KL_DATE.toICS: now を読めません(" + String(now) + ")"); }
+    var d = new Date(t);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+  }
+  // events: [{title, date, description}]。終日の予定(DTSTART;VALUE=DATE、DTEND は翌日)。opts.now で DTSTAMP を固定できる
+  function toICS(events, calName, opts) {
+    opts = opts || {};
+    var dtstamp = stamp(opts.now), name = calName ? String(calName) : "くらしラボ計算帳";
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//kurashi-labo//keisan//JA", "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH", "X-WR-CALNAME:" + icsText(name)];
+    var list = Array.isArray(events) ? events : [];
+    for (var i = 0; i < list.length; i++) {
+      var ev = list[i] || {}, s = need(ev.date, "toICS"), title = String(ev.title || "予定"), day = compact(s);
+      lines.push("BEGIN:VEVENT",
+        "UID:" + day + "-" + (i + 1) + "-" + hash(name + "\n" + title + "\n" + day + "\n" + i) + "@kurashi-labo.github.io",
+        "DTSTAMP:" + dtstamp, "DTSTART;VALUE=DATE:" + day, "DTEND;VALUE=DATE:" + compact(s + 1),
+        "SUMMARY:" + icsText(title));
+      if (ev.description) { lines.push("DESCRIPTION:" + icsText(ev.description)); }
+      lines.push("TRANSP:TRANSPARENT", "END:VEVENT");
+    }
+    lines.push("END:VCALENDAR");
+    var out = [];
+    for (var j = 0; j < lines.length; j++) { out.push(fold(lines[j])); }
+    return out.join("\r\n") + "\r\n";
+  }
+  function icsDataUrl(ics) { return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+
+  var api = {
+    version: "1", parse: parse, fmt: fmt, weekdayJa: weekdayJa, addDays: addDays, addMonths: addMonths,
+    addYears: addYears, endOfMonth: endOfMonth, diffDays: diffDays, periodEnd: periodEnd,
+    holidaysFor: holidaysFor, holidayName: holidayName, isHoliday: isHoliday,
+    nextBusinessDay: nextBusinessDay, prevBusinessDay: prevBusinessDay,
+    taxDeadline: taxDeadline, courtDeadline: courtDeadline, toICS: toICS, icsDataUrl: icsDataUrl
+  };
+  root.KL_DATE = api;
+  if (typeof module === "object" && module && module.exports) { module.exports = api; }
+})(typeof globalThis !== "undefined" ? globalThis : this);
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../tetsuzuki/">手続き暦(介護と相続の期限)</a><span aria-hidden="true">›</span><span>亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる</span></nav>
+<article class="page">
+<h1>亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>死亡届は死亡の事実を知った日から7日以内(戸籍法86条)、相続放棄は知った時から3か月以内(民法915条)、準確定申告は知った日の翌日から4か月以内、相続税の申告は同じく10か月以内(国税庁の説明で確認、2026年9月27日)。相続登記は不動産の取得を知った日から3年以内で、2024年4月より前の相続は2027年3月31日までの経過措置がある(法務省)。下のツールに亡くなった日を入れると、これらを含む10の手続きの期限を日付で並べる。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+<div class="kl-field"><label for="kl-death">亡くなった日</label>
+<input type="date" id="kl-death" name="death" required></div>
+<div class="kl-field"><label for="kl-knew">相続人になったことを知った日(空欄なら亡くなった日と同じ)</label>
+<input type="date" id="kl-knew" name="knew"></div>
+<div class="kl-field"><label for="kl-pension">年金の受給</label>
+<select id="kl-pension" name="pension">
+<option value="nashi" selected>年金は受けていなかった</option>
+<option value="kokumin">国民年金だけ受けていた</option>
+<option value="kousei">厚生年金を受けていた</option>
+</select></div>
+<div class="kl-field"><label><input type="checkbox" id="kl-business" name="business_income"> 事業の収入や、家賃などの不動産収入があった(準確定申告が要ることがある)</label></div>
+<div class="kl-field"><label><input type="checkbox" id="kl-realestate" name="realestate"> 土地や建物を持っていた</label></div>
+<div class="kl-field"><label><input type="checkbox" id="kl-estate" name="estate_over_kiso"> 遺産の合計が基礎控除(3,000万円+600万円×法定相続人の数)を超えそう</label></div>
+<div class="kl-field"><label><input type="checkbox" id="kl-setainushi" name="setainushi" checked> 亡くなった人が世帯主だった</label></div>
+<button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta" data-when-field="days_since" data-when-op="&gt;=" data-when-value="14" hidden><a class="cta-link" href="https://www.houterasu.or.jp/" rel="noopener" target="_blank">無料の法律相談を探す(法テラス)</a></div>
+<div class="kl-cta"><a class="cta-link" href="../../jikka/ihin-seiri-hiyou/">遺品整理の費用を間取りから計算する</a></div>
+<div class="kl-cta"><a class="cta-link" href="../../jikka/kaitori-shindan/">遺品を自分で売るか、業者に頼むかを診断する</a></div>
+</section>
+<div class="intro"><p>親が亡くなったあと、死亡届から相続登記まで、期限のある手続きが10近く並ぶ。窓口ごとに数え方の基準が違い、3か月や10か月のような月単位の期間は、うっかり数えると1日ずれる。くらしラボはこの数え間違いを減らすために、亡くなった日と、相続人になったことを知った日を入れると、主な手続きの期限を日付で一覧にするツールを作った。一覧は印刷でき、各期限の7日前に通知が出る .ics ファイルとしてカレンダーにも入れられる。</p><p>計算には民法140条から143条の期間の数え方と、税の申告に使う国税通則法10条2項(期限が休日なら翌日)を当てている。期限が休日に当たったときの扱いを窓口の一次資料で確かめられなかった手続きは、法律どおりの末日に「未確認」と書き、その日以前で役所が開いている最後の日を推奨日として並べた。</p><p>このページは期限の一覧を出すところまでで、相続放棄をすべきかどうかの判断や、相続税の税額計算、登記書類の作成は行っていない。判断が必要な場面の相談先は、下の「よくある質問」にまとめた。</p></div>
+<section>
+<h2>起算点になる2つの日付</h2>
+<p>死亡届は、戸籍法43条1項が「届出期間は、届出事件発生の日からこれを起算する」と定めているため、死亡の事実を知った日そのものを1日目として数える。7日以内(戸籍法86条、法務省の届出案内でも確認、2026年9月27日)という期限は、知った日を含めて7日目までという意味になる。国外で亡くなったときは3か月以内だが、このツールは国内の7日で計算している。</p><p>これに対して相続放棄、準確定申告、相続税の申告、相続登記は、知った日の翌日を1日目として数える(民法140条。国税庁の説明も「知った日の翌日から」と書いている)。同じ日に知っても、死亡届と相続放棄では1日目が1日ずれる。このツールは手続きごとに数え方を分けている。亡くなった日と、相続人になったことを知った日が同じ人がほとんどだが、疎遠だった親族の死亡をあとから知った場合などは、この2つを分けて入れる必要がある。</p>
+</section>
+<section>
+<h2>期限が休日に当たったときの扱い</h2>
+<p>相続放棄と限定承認の申述は、知った時から3か月以内に家庭裁判所へ出す(民法915条1項)。3か月の末日が土日祝や年末年始に当たったときに翌開庁日まで延びるかどうかは、裁判所の説明ページに書かれていなかった(2026年9月27日確認)。このツールは法律どおりの末日を出し、末日が閉庁日に当たるときは「未確認」と書いて、その前の開庁日を推奨日として添える。財産の調査が間に合わないときは、期限内に期間の伸長を申し立てる方法がある(裁判所の説明ページ)。</p><p>準確定申告(4か月)と相続税の申告(10か月)は税務署への手続きなので、国税通則法10条2項が適用される。こちらは条文に、期限が土日祝や年末年始に当たれば翌日が期限になると書かれている(国税庁の説明ページで確認)。</p><p>死亡届、国民健康保険、世帯主変更は市区町村、年金の届出と相続登記は国の役所が相手になる。役所の休日に当たる期限を翌日とみなす決まりは地方自治法4条の2第4項と行政機関の休日に関する法律2条にあるが、くらしラボは各窓口の案内でこの扱いを確かめられていない。葬祭費と未支給年金は請求できる権利の時効で、届出の期限とは性質が違う。これらもすべて「未確認」として、法律どおりの日付とその前の開庁日を並べている。死亡届は、夜間や休日も宿直の窓口で預かる市区町村がある。</p>
+</section>
+<section>
+<h2>相続登記の経過措置と、対象にしていない手続き</h2>
+<p>相続登記は2024年4月1日に義務化され、不動産の取得を知った日から3年以内に申請する必要がある(不動産登記法76条の2第1項)。法務省のQ&Aによると、2024年4月1日より前に相続したことを知った不動産は、2027年3月31日までに登記すればよい。このツールは、亡くなった日と知った日がどちらも2024年4月1日以前のときに、この日付を期限として出す。</p><p>空き家の3,000万円控除の売却期限、成年後見の費用、葬祭費の市区町村別の金額は、この一覧には入れていない。空き家の特例は別のページで扱う。相続放棄をすべきかどうかの判断、相続税がいくらになるかの計算、相続登記の書類の作り方は、弁護士法72条、税理士法52条、司法書士法73条に触れる可能性があるため、このページでは扱わない。判断が必要なときの窓口は、下の「よくある質問」にまとめている。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>この一覧は、亡くなった日と、相続人になったことを知った日の2つを起点に計算している。死亡届は戸籍法43条1項の特則で知った日を1日目に数えるが、相続放棄や相続税など残りの大半は民法140条の原則どおり、知った日の翌日を1日目に数える。起点がずれると全部の期限がずれるので、2つの日付が違うときは両方を入れてほしい。</p><p>期限が休日に当たったときの扱いは手続きごとに違う。準確定申告と相続税の申告は国税通則法10条2項により、土日祝と12月29日から1月3日なら翌日が期限になる。相続放棄の申述は、3か月の末日が家庭裁判所の閉まる日に当たったときに翌開庁日まで延びるという記載が裁判所の説明ページに無かった(2026年9月27日確認)。市区町村や国の役所への届出には、期限が役所の休日に当たれば翌日を期限とみなす一般の決まり(地方自治法4条の2第4項、行政機関の休日に関する法律2条)があるが、死亡届、年金や国保の届出、世帯主変更、相続登記にそのまま当てはまるかは各窓口の案内で確かめられなかった。そこで税の申告以外は、法律どおりの末日をそのまま出し、末日が土日祝か12月29日から1月3日に当たる回だけ「未確認」の注記と、その日以前で役所が開いている最後の日(推奨日)を添えている。</p><p>相続登記には経過措置がある。法務省のQ&Aは、2024年4月1日より前に相続したことを知った不動産の期限を2027年3月31日としている。このツールは、亡くなった日と知った日がどちらも2024年4月1日以前なら2027年3月31日を出す。祝日は内閣府の公開データがある2026年と2027年はそれを使い、それ以外の年は祝日法の決まりで計算するため「推定」と表示される。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">死亡届の期限と数え方</th><td class="num">知った日を含めて7日</td><td><a href="https://laws.e-gov.go.jp/law/322AC0000000224" rel="noopener" target="_blank">戸籍法86条の7日と、43条1項の初日算入の特則(e-Gov法令で確認)。7日以内は法務省の届出案内でも確認。</a></td></tr>
+<tr><th scope="row">年金受給権者死亡届の期限</th><td class="num">厚生年金10日・国民年金14日</td><td><a href="https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html" rel="noopener" target="_blank">日本年金機構のよくある質問で確認。日本年金機構にマイナンバーが収録されている人は、この届出を原則として省略できる。</a></td></tr>
+<tr><th scope="row">国民健康保険・後期高齢者医療の資格喪失届</th><td class="num">14日</td><td><a href="https://laws.e-gov.go.jp/law/333M50000100053/" rel="noopener" target="_blank">国民健康保険法施行規則12条(e-Gov法令で確認)。会社の健康保険だけだった人には要らない。</a></td></tr>
+<tr><th scope="row">世帯主変更届</th><td class="num">14日</td><td><a href="https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/05519670725081.htm" rel="noopener" target="_blank">住民基本台帳法25条。残る世帯員が2人以上のときに必要。</a></td></tr>
+<tr><th scope="row">相続放棄・限定承認の申述期限</th><td class="num">3か月</td><td><a href="https://www.courts.go.jp/saiban/syurui/syurui_kazi/kazi_06_13/index.html" rel="noopener" target="_blank">民法915条1項。起算点は自己のために相続の開始があったことを知った時。末日が閉庁日に当たるときの扱いは未確認。</a></td></tr>
+<tr><th scope="row">準確定申告の期限</th><td class="num">4か月</td><td><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2022.htm" rel="noopener" target="_blank">所得税法124条・125条。起算点は知った日の翌日。</a></td></tr>
+<tr><th scope="row">相続税の申告期限</th><td class="num">10か月</td><td><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4205.htm" rel="noopener" target="_blank">相続税法27条1項。起算点は知った日の翌日。</a></td></tr>
+<tr><th scope="row">相続税の基礎控除</th><td class="num">3,000万円+600万円×法定相続人の数</td><td><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4102.htm" rel="noopener" target="_blank">この金額を超えそうなときだけ、相続税の申告期限を目安として表示する。</a></td></tr>
+<tr><th scope="row">相続登記の申請期限と経過措置</th><td class="num">3年、2024年4月1日より前に相続を知った不動産は2027年3月31日まで</td><td><a href="https://www.moj.go.jp/MINJI/minji05_00565.html" rel="noopener" target="_blank">不動産登記法76条の2第1項と、令和3年の改正法の附則(法務省Q&amp;Aで確認)。</a></td></tr>
+<tr><th scope="row">葬祭費・埋葬料の請求期限(時効)</th><td class="num">2年</td><td><span class="est-tag">推定</span> <a href="https://www.kyoukaikenpo.or.jp/application_form/benefit/012/index.html" rel="noopener" target="_blank">協会けんぽの埋葬料は死亡日の翌日から2年。埋葬費や国民健康保険の葬祭費は葬儀や埋葬の日が起点になるため、死亡日で計算するこのツールの日付は実際より早めになる(推定)。</a></td></tr>
+<tr><th scope="row">未支給年金の請求期限</th><td class="num">5年</td><td><span class="est-tag">推定</span> <a href="https://www.nenkin.go.jp/service/jukyu/seido/kyotsu/shikyu/20140421-01.html" rel="noopener" target="_blank">本来の起算点は年金の支払日の翌月1日。支払月を入力していないため、死亡日で近似している(推定)。</a></td></tr>
+<tr><th scope="row">祝日データの対象年</th><td class="num">2026年-2027年</td><td><a href="https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv" rel="noopener" target="_blank">内閣府「国民の祝日について」のCSVから転記。この範囲外の年は祝日法の決まりで計算し「推定」と表示する。</a></td></tr>
+</tbody></table></div>
+
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. 亡くなった日と、相続人になったことを知った日が違うときは、どちらを入れればいいですか。</dt>
+<dd>両方を入れてほしい。死亡届は「知った日」を1日目として数え、相続放棄や相続税の申告などは「知った日の翌日」を1日目として数える。同居していた家族なら通常は同じ日になるが、離れて暮らしていて後から連絡を受けた場合などは、実際に知った日を入れないと期限がずれる。</dd>
+<dt>Q. 相続放棄の3か月をわずかに過ぎてしまったら、もう手続きはできませんか。</dt>
+<dd>このページでは日付の計算だけを扱っていて、期限を過ぎた場合にどうなるかの判断はしていない。3か月を過ぎていても、亡くなったことを知った時期などの事情によっては申述が認められることがあるとされている。個別の判断が必要なので、家庭裁判所の手続案内窓口か、法テラス、市区町村の無料法律相談で確かめてほしい。</dd>
+<dt>Q. 相続税の基礎控除を超えるかどうかが自分では分かりません。</dt>
+<dd>基礎控除は3,000万円+600万円×法定相続人の数で計算する(国税庁の説明で確認)。遺産の総額や法定相続人の数え方が分からないときは、国税庁の相談窓口か税理士に聞いたほうが早い。このツールの「遺産が基礎控除を超えそう」のチェックは、あくまで相続税の申告期限を表に出すかどうかの目安として使っている。</dd>
+<dt>Q. 表示された日付の祝日はどこまで正確ですか。</dt>
+<dd>内閣府が公開している2026年と2027年の祝日データを使っている年は「確定」として計算し、それ以外の年は祝日法の決まり(ハッピーマンデーや振替休日、春分・秋分の日の近似式)で計算した上で「祝日は推定」と表示する。相続登記や未支給年金のように期限が数年先になる手続きでは、この推定の祝日を使うことがある。</dd>
+<dt>Q. 葬祭費や未支給年金の期限は、なぜ「推定」が付くのですか。</dt>
+<dd>協会けんぽの埋葬料は亡くなった日の翌日から2年で時効になり、この日付はツールの計算と同じになる。埋葬費は埋葬した日の翌日から2年(協会けんぽ)、国民健康保険の葬祭費も葬儀の日を起点にする扱いがある。未支給年金は、年金の支払日の翌月1日から5年で時効になる(日本年金機構)。このツールは葬儀の日や年金の支払月を入力してもらっていないため、亡くなった日を起点に計算しており、埋葬料以外は実際の期限より数日から数十日早い日付が出る。期限が近づいたら市区町村や年金事務所の窓口で確かめてほしい。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.moj.go.jp/MINJI/minji05_00565.html" rel="noopener" target="_blank">法務省 相続登記の申請義務化Q&amp;A(3年の期限と経過措置)</a>(2026年9月27日確認)</li><li><a href="https://www.courts.go.jp/saiban/syurui/syurui_kazi/kazi_06_13/index.html" rel="noopener" target="_blank">裁判所 相続の放棄の申述(3か月の起算点)</a>(2026年9月27日確認)</li><li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2022.htm" rel="noopener" target="_blank">国税庁 No.2022 納税者が死亡したときの確定申告(準確定申告)</a>(2026年9月27日確認)</li><li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4205.htm" rel="noopener" target="_blank">国税庁 No.4205 相続税の申告と納税(申告期限)</a>(2026年9月27日確認)</li><li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4102.htm" rel="noopener" target="_blank">国税庁 No.4102 相続税がかかる場合(基礎控除の計算式)</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/322AC0000000224" rel="noopener" target="_blank">e-Gov法令検索 戸籍法(43条・86条)</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/129AC0000000089" rel="noopener" target="_blank">e-Gov法令検索 民法(140条から143条、915条を含む)</a>(2026年9月27日確認)</li><li><a href="https://www.nenkin.go.jp/service/jukyu/tetsuduki/kyotsu/jukyu/20140731-01.html" rel="noopener" target="_blank">日本年金機構 年金を受けている方が亡くなったとき(マイナンバー収録者は死亡届を省略できる)</a>(2026年9月27日確認)</li><li><a href="https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html" rel="noopener" target="_blank">日本年金機構 よくある質問 年金受給者が亡くなりました(死亡届は10日、国民年金は14日以内)</a>(2026年9月27日確認)</li><li><a href="https://www.nenkin.go.jp/service/jukyu/seido/kyotsu/shikyu/20140421-01.html" rel="noopener" target="_blank">日本年金機構 年金の時効(未支給年金の請求期限)</a>(2026年9月27日確認)</li><li><a href="https://www.kyoukaikenpo.or.jp/application_form/benefit/012/index.html" rel="noopener" target="_blank">全国健康保険協会 健康保険埋葬料(費)支給申請書(時効は2年、埋葬料は死亡日の翌日が起算日)</a>(2026年9月27日確認)</li><li><a href="https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/05519670725081.htm" rel="noopener" target="_blank">衆議院 住民基本台帳法(25条、世帯変更届14日以内)</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/333M50000100053/" rel="noopener" target="_blank">e-Gov法令検索 国民健康保険法施行規則(資格喪失の届出14日以内)</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/322AC0000000067" rel="noopener" target="_blank">e-Gov法令検索 地方自治法(4条の2、地方公共団体の休日と期限の特例)</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/363AC0000000091" rel="noopener" target="_blank">e-Gov法令検索 行政機関の休日に関する法律(2条、期限の特例)</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../tetsuzuki/souzoku-touki-kigen/">相続登記はいつまで? 不動産の相続を知った日から期限を出す(2024年4月より前の相続は2027年3月31日まで)</a></li><li><a href="../../tetsuzuki/souzoku-houki-kigen/">相続放棄の3か月はいつまで? 自分が相続人になったと知った日から期限を出す</a></li><li><a href="../../jikka/ihin-seiri-hiyou/">遺品整理の費用を間取りと荷物の量で計算 業者に見積もりを頼む前の目安</a></li><li><a href="../../tetsuzuki/seinen-kouken-hiyou/">成年後見の申立て費用と後見人の報酬の目安を、財産額と年数から計算する</a></li><li><a href="../../tetsuzuki/kaigo-rishoku-sa/">介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す</a></li><li><a href="../../tetsuzuki/">手続き暦(介護と相続の期限)の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>window.KL_REFDATA = {"shigo-kigen__deadline_rules": [{"key": "shibou_todoke", "label": "死亡届", "basis": "knew", "unit": "days", "amount": 7, "initial_day_counted": true, "holiday_rule": "unconfirmed", "article": "戸籍法86条(期限)・43条(初日を算入する特則)", "source_url": "https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-4.html", "checked": "2026-09-27", "note": "起算点は死亡の事実を知った日。戸籍法43条1項が「届出期間は、届出事件発生の日からこれを起算する」と定めるため、民法140条の初日不算入の原則と違い、知った日を1日目に数える(e-Gov法令APIで43条と86条の本文を確認)。市区町村への届出の期限が休日に当たるときは翌日を期限とみなす一般の決まり(地方自治法4条の2第4項)があるが、死亡届にそのまま当てはまるかを窓口の案内で確かめられていないため未確認として扱う。夜間や休日も宿直の窓口で死亡届を預かる市区町村がある。"}, {"key": "nenkin_todoke_kousei", "label": "年金受給権者死亡届(厚生年金)", "basis": "death", "unit": "days", "amount": 10, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "厚生年金保険法98条4項", "source_url": "https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html", "checked": "2026-09-27", "note": "日本年金機構のよくある質問に「10日(国民年金は14日)以内」とある。日本年金機構にマイナンバーが収録されている人は、この届出を原則として省略できる。期限が休日に当たる場合の扱いは記載が無かった(未確認)。"}, {"key": "nenkin_todoke_kokumin", "label": "年金受給権者死亡届(国民年金)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民年金法105条4項", "source_url": "https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html", "checked": "2026-09-27", "note": "日本年金機構のよくある質問で14日以内を確認。マイナンバー収録者は原則として省略できる。休日の扱いは未確認。"}, {"key": "kokuho_soshitsu", "label": "国民健康保険・後期高齢者医療の資格喪失届(加入していた場合)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民健康保険法施行規則12条(住所を有しなくなったことによる資格喪失の届出、14日以内)", "source_url": "https://laws.e-gov.go.jp/law/333M50000100053/", "checked": "2026-09-27", "note": "亡くなった人が国民健康保険か後期高齢者医療制度に入っていた場合。会社の健康保険(被用者保険)だけだったときは、この届出は要らない。休日の扱いは一次資料で確認できなかった(未確認)。"}, {"key": "setainushi_henko", "label": "世帯主変更届(残る世帯員が2人以上のとき)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "住民基本台帳法25条", "source_url": "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/05519670725081.htm", "checked": "2026-09-27", "note": "亡くなった人が世帯主で、残る世帯員が2人以上のときに必要(1人だけになる場合は世帯そのものが無くなるため原則不要)。休日の扱いは未確認。"}, {"key": "souzoku_houki", "label": "相続放棄・限定承認の申述", "basis": "knew", "unit": "months", "amount": 3, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "民法915条1項", "source_url": "https://www.courts.go.jp/saiban/syurui/syurui_kazi/kazi_06_13/index.html", "checked": "2026-09-27", "note": "起算点は自己のために相続の開始があったことを知った時(裁判所の説明ページで確認)。3か月の末日が家庭裁判所の閉まる日(土日祝、12月29日から1月3日)に当たったときに翌開庁日まで延びるという記載は、裁判所の説明ページに無かった(2026-09-27確認)。同じサイトの相続放棄の期限のページと同じく未確認として扱い、法定の末日と推奨日を両方出す。"}, {"key": "jun_kakutei", "label": "準確定申告", "basis": "knew", "unit": "months", "amount": 4, "initial_day_counted": false, "holiday_rule": "tax", "article": "所得税法124条・125条", "source_url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2022.htm", "checked": "2026-09-27", "note": "起算点は相続の開始があったことを知った日の翌日。事業収入や不動産収入があった、給与以外の所得があったなど、確定申告が必要だった人が対象。"}, {"key": "souzokuzei", "label": "相続税の申告と納税", "basis": "knew", "unit": "months", "amount": 10, "initial_day_counted": false, "holiday_rule": "tax", "article": "相続税法27条1項", "source_url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4205.htm", "checked": "2026-09-27", "note": "起算点は被相続人が死亡したことを知った日(通常は死亡の日)の翌日。遺産が基礎控除(3,000万円+600万円×法定相続人の数)を超えそうなときに申告が要る。"}, {"key": "souzoku_touki", "label": "相続登記の申請", "basis": "knew", "unit": "years", "amount": 3, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "不動産登記法76条の2第1項、令和3年の改正法の附則(2024年4月1日より前に相続を知った不動産は2027年3月31日まで)", "source_url": "https://www.moj.go.jp/MINJI/minji05_00565.html", "checked": "2026-09-27", "note": "起算点は不動産を相続で取得したことを知った日。法務省Q&Aは、2024年4月1日より前に相続したことを知った不動産の期限を2027年3月31日としている。このツールは、相続の開始が2024年4月1日より前で知った日も同日以前なら2027年3月31日を出す(知った日がちょうど2024年4月1日のときは早いほうの日付)。休日の扱いは法務省のページに記載が無く未確認。"}, {"key": "sousaihi", "label": "葬祭費・埋葬料の請求", "basis": "funeral", "unit": "years", "amount": 2, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "健康保険法193条、国民健康保険法110条1項", "source_url": "https://www.kyoukaikenpo.or.jp/application_form/benefit/012/index.html", "checked": "2026-09-27", "note": "協会けんぽの埋葬料は、死亡日の翌日から2年で時効になる(申請書のページで確認)。埋葬費は埋葬した日の翌日から2年。国民健康保険の葬祭費も葬儀の日を起点にする扱いがある(推定)。葬儀の日を入力していないときは死亡日で計算するため、埋葬費や葬祭費の実際の期限より早めの日付になる。"}, {"key": "mishikyu_nenkin", "label": "未支給年金の請求", "basis": "death", "unit": "years", "amount": 5, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民年金法102条5項、厚生年金保険法92条5項", "source_url": "https://www.nenkin.go.jp/service/jukyu/seido/kyotsu/shikyu/20140421-01.html", "checked": "2026-09-27", "note": "本来の起算日は年金の支払日の翌月の初日だが、ここでは分かりやすさのため死亡日を起点に5年で近似している(実際の時効日と数日から数十日ずれることがある、推定)。年金を受けていなかった人には出ない。"}], "taishoku-gyakusan__holidays_jp": [{"date": "2026-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-01-12", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-06", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-07-20", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-21", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-22", "name": "国民の休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-10-12", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-11", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-21", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-22", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-07-19", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-20", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-10-11", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}]};</script>
+<script>
+function KL_CALC(input, refdata) {
+  refdata = refdata || {};
+  var RULES_NAME = "shigo-kigen__deadline_rules";
+  var rules = refdata[RULES_NAME] || [];
+  function ruleFor(key) {
+    for (var i = 0; i < rules.length; i++) { if (rules[i] && rules[i].key === key) { return rules[i]; } }
+    return null;
+  }
+
+  function invalid(v) {
+    if (!v) { return true; }
+    return !KL_DATE.parse(v);
+  }
+
+  var errors = [];
+  if (!input || !input.death) { errors.push("death_required"); }
+  else if (invalid(input.death)) { errors.push("death_invalid"); }
+  var knewRaw = (input && input.knew) ? input.knew : (input && input.death);
+  if (knewRaw && invalid(knewRaw)) { errors.push("knew_invalid"); }
+  if (!errors.length && KL_DATE.diffDays(input.death, knewRaw) < 0) { errors.push("knew_before_death"); }
+
+  if (errors.length) {
+    return { error: errors.join(","), items: [], days_since: null, days_since_over_kiso: null };
+  }
+
+  var death = KL_DATE.fmt(input.death);
+  var knew = KL_DATE.fmt(knewRaw);
+  var pension = input.pension || "nashi";
+  var estateOverKiso = !!input.estate_over_kiso;
+  var realestate = !!input.realestate;
+  var setainushi = input.setainushi !== false;
+  var businessIncome = !!input.business_or_realestate_income;
+  var funeralRaw = input.funeral_date ? input.funeral_date : death;
+  var funeral = invalid(funeralRaw) ? death : KL_DATE.fmt(funeralRaw);
+
+  function baseFor(basis) {
+    if (basis === "knew") { return knew; }
+    if (basis === "funeral") { return funeral; }
+    return death;
+  }
+
+  // 末日が役所の閉まる日(土日祝と12月29日から1月3日)に当たるか。当たれば「未確認」とし、その日以前の最後の開庁日を推奨日にする
+  function closedCheck(ymd) {
+    var rec = KL_DATE.prevBusinessDay(ymd, { yearEnd: true });
+    var closed = KL_DATE.diffDays(rec, ymd) !== 0;
+    return {
+      unconfirmed: closed,
+      recommended: closed ? KL_DATE.fmt(rec) : null,
+      estimated: KL_DATE.holidaysFor(Number(ymd.slice(0, 4))).estimated
+    };
+  }
+
+  // 汎用計算: refdata の1行(起算点、期間、初日の扱い、休日の扱い)から期限を出す
+  function computeItem(rule) {
+    var spec = {};
+    spec[rule.unit] = rule.amount;
+    var base = baseFor(rule.basis);
+    var end = KL_DATE.periodEnd(base, spec, { initialDayCounted: !!rule.initial_day_counted });
+    var out = {
+      key: rule.key, label: rule.label, article: rule.article, source_url: rule.source_url,
+      legal_end: KL_DATE.fmt(end), shifted: false, estimated: false, unconfirmed: false, recommended: null, basis_law: rule.article
+    };
+    if (rule.holiday_rule === "tax") {
+      // 国税通則法10条2項: 土日祝と12月29日から1月3日なら翌日が期限
+      var td = KL_DATE.taxDeadline(end);
+      out.date = td.ymd; out.shifted = td.shifted; out.estimated = td.estimated; out.basis_law = td.basis;
+    } else {
+      // 休日の扱いを窓口の一次資料で確かめられなかった期限は、法律どおりの末日と推奨日を両方出す
+      out.date = out.legal_end;
+      var cc = closedCheck(out.date);
+      out.unconfirmed = cc.unconfirmed; out.recommended = cc.recommended; out.estimated = cc.estimated;
+    }
+    out.weekday = KL_DATE.weekdayJa(KL_DATE.parse(out.date));
+    return out;
+  }
+
+  var items = [];
+
+  var shibou = computeItem(ruleFor("shibou_todoke"));
+  items.push(Object.assign({ needed: true }, shibou));
+
+  var nenkin = null;
+  if (pension === "kousei" || pension === "kokumin") {
+    nenkin = computeItem(ruleFor(pension === "kousei" ? "nenkin_todoke_kousei" : "nenkin_todoke_kokumin"));
+    items.push(Object.assign({ needed: true }, nenkin));
+  }
+
+  var kokuho = computeItem(ruleFor("kokuho_soshitsu"));
+  items.push(Object.assign({ needed: true }, kokuho));
+
+  var setainushiHenko = null;
+  if (setainushi) {
+    setainushiHenko = computeItem(ruleFor("setainushi_henko"));
+    items.push(Object.assign({ needed: true }, setainushiHenko));
+  }
+
+  var houki = computeItem(ruleFor("souzoku_houki"));
+  items.push(Object.assign({ needed: true }, houki));
+
+  var jun = computeItem(ruleFor("jun_kakutei"));
+  items.push(Object.assign({ needed: businessIncome }, jun));
+
+  var zei = computeItem(ruleFor("souzokuzei"));
+  items.push(Object.assign({ needed: estateOverKiso }, zei));
+
+  // 相続登記: 2024年4月1日より前に相続が始まり、知った日も2024年4月1日以前なら、経過措置の2027年3月31日(法務省Q&A)。
+  // 知った日がちょうど2024年4月1日のときは早いほうの2027年3月31日を出す
+  var touki = computeItem(ruleFor("souzoku_touki"));
+  var toukiKeikaSochi = false;
+  var SEKOU = "2024-04-01", KEIKA_GO = "2027-03-31";
+  if (KL_DATE.diffDays(death, SEKOU) > 0 && KL_DATE.diffDays(knew, SEKOU) >= 0) {
+    toukiKeikaSochi = true;
+    var kc = closedCheck(KEIKA_GO);
+    touki = Object.assign({}, touki, {
+      date: KEIKA_GO, legal_end: KEIKA_GO, weekday: KL_DATE.weekdayJa(KL_DATE.parse(KEIKA_GO)), shifted: false,
+      unconfirmed: kc.unconfirmed, recommended: kc.recommended, estimated: kc.estimated
+    });
+  }
+  items.push(Object.assign({ needed: realestate, keika_sochi: toukiKeikaSochi }, touki));
+
+  var sousai = computeItem(ruleFor("sousaihi"));
+  items.push(Object.assign({ needed: true }, sousai));
+
+  var mishikyu = null;
+  if (pension === "kousei" || pension === "kokumin") {
+    mishikyu = computeItem(ruleFor("mishikyu_nenkin"));
+    items.push(Object.assign({ needed: true }, mishikyu));
+  }
+
+  items.sort(function (a, b) { return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0); });
+
+  var daysSince = input.today ? KL_DATE.diffDays(death, input.today) : null;
+
+  return {
+    error: null,
+    death: death,
+    knew: knew,
+    days_since: daysSince,
+    // 税理士紹介のリンクは「基礎控除を超えそう」かつ亡くなって14日以上のときだけ出す(when で使う)
+    days_since_over_kiso: estateOverKiso ? daysSince : null,
+    items: items,
+    shibou_todoke: shibou.date, shibou_todoke_weekday: shibou.weekday,
+    shibou_todoke_unconfirmed: shibou.unconfirmed, shibou_todoke_recommended: shibou.recommended,
+    nenkin_todoke: nenkin ? nenkin.date : null,
+    nenkin_todoke_weekday: nenkin ? nenkin.weekday : null,
+    nenkin_todoke_days: pension === "kousei" ? 10 : (pension === "kokumin" ? 14 : null),
+    nenkin_todoke_unconfirmed: nenkin ? nenkin.unconfirmed : null,
+    nenkin_todoke_recommended: nenkin ? nenkin.recommended : null,
+    kokuho_soshitsu: kokuho.date, kokuho_soshitsu_weekday: kokuho.weekday,
+    kokuho_soshitsu_unconfirmed: kokuho.unconfirmed, kokuho_soshitsu_recommended: kokuho.recommended,
+    setainushi_henko: setainushiHenko ? setainushiHenko.date : null,
+    souzoku_houki: houki.date, souzoku_houki_weekday: houki.weekday,
+    souzoku_houki_unconfirmed: houki.unconfirmed, souzoku_houki_recommended: houki.recommended,
+    souzoku_houki_estimated: houki.estimated,
+    jun_kakutei: jun.date, jun_kakutei_weekday: jun.weekday, jun_kakutei_shifted: jun.shifted, jun_kakutei_needed: businessIncome,
+    souzokuzei: zei.date, souzokuzei_weekday: zei.weekday, souzokuzei_shifted: zei.shifted, souzokuzei_needed: estateOverKiso,
+    souzoku_touki: touki.date, souzoku_touki_weekday: touki.weekday, touki_needed: realestate, touki_keika_sochi: toukiKeikaSochi,
+    souzoku_touki_unconfirmed: touki.unconfirmed, souzoku_touki_recommended: touki.recommended,
+    sousaihi: sousai.date, sousaihi_weekday: sousai.weekday,
+    mishikyu_nenkin: mishikyu ? mishikyu.date : null
+  };
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("kl-form");
+  var resultEl = document.getElementById("kl-result");
+  if (!form || !resultEl) return;
+
+  var lastIcsUrl = null;
+
+  function todayStr() {
+    var d = new Date();
+    var m = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + d.getDate()).slice(-2);
+    return d.getFullYear() + "-" + m + "-" + day;
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function readInput() {
+    var fd = new FormData(form);
+    return {
+      death: fd.get("death"),
+      knew: fd.get("knew") || fd.get("death"),
+      pension: fd.get("pension") || "nashi",
+      business_or_realestate_income: fd.get("business_income") === "on",
+      realestate: fd.get("realestate") === "on",
+      estate_over_kiso: fd.get("estate_over_kiso") === "on",
+      setainushi: fd.get("setainushi") === "on",
+      today: todayStr()
+    };
+  }
+
+  function dateCell(it) {
+    if (!it.date) return "-";
+    var s = esc(it.date) + (it.weekday ? "(" + esc(it.weekday) + "曜)" : "");
+    if (it.unconfirmed) {
+      s += '<br><span class="kl-warning">法律どおりの末日が役所の閉まる日に当たります。翌開庁日まで延びるかは未確認です。推奨日は' +
+        esc(it.recommended || it.date) + "です。</span>";
+    } else if (it.shifted) {
+      s += '<br><span class="kl-note">法律どおりの末日(' + esc(it.legal_end || "") + ")が休日のため、国税通則法10条2項で翌開庁日が期限です。</span>";
+    }
+    if (it.estimated) {
+      s += '<br><span class="kl-note">この年の祝日は内閣府のデータが無く、祝日法の決まりから計算した推定です。</span>';
+    }
+    return s;
+  }
+
+  function itemRow(it) {
+    var label = esc(it.label);
+    if (it.needed === false) { label += '<br><span class="kl-note">(該当する場合だけ必要)</span>'; }
+    if (it.keika_sochi) { label += '<br><span class="kl-note">(2024年4月より前の相続の経過措置)</span>'; }
+    return "<tr><th>" + label + "</th><td>" + dateCell(it) + "</td></tr>";
+  }
+
+  function buildEvents(items) {
+    var events = [];
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      if (!it.date) { continue; }
+      var desc = it.basis_law || "";
+      if (it.unconfirmed) { desc += "(休日に当たるため延びるかは未確認。推奨日は" + (it.recommended || it.date) + ")"; }
+      events.push({ title: it.label + "の期限" + (it.needed === false ? "(該当する場合)" : ""), date: it.date, description: desc });
+    }
+    return events;
+  }
+
+  // 各期限の7日前に通知が出るよう、予定ごとに VALARM を足す
+  function addAlarms(text) {
+    return text.replace(/END:VEVENT/g,
+      "BEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:期限の7日前\r\nTRIGGER:-P7D\r\nEND:VALARM\r\nEND:VEVENT");
+  }
+
+  function icsLinkHtml(items) {
+    if (typeof KL_DATE === "undefined" || !KL_DATE.toICS) { return ""; }
+    var events = buildEvents(items);
+    if (!events.length) { return ""; }
+    var text;
+    try { text = addAlarms(KL_DATE.toICS(events, "手続き暦(亡くなったあと)")); } catch (e) { return ""; }
+    if (typeof Blob === "undefined" || typeof URL === "undefined" || !URL.createObjectURL) { return ""; }
+    if (lastIcsUrl) { try { URL.revokeObjectURL(lastIcsUrl); } catch (e) { /* 無視 */ } lastIcsUrl = null; }
+    var blob = new Blob([text], { type: "text/calendar;charset=utf-8" });
+    lastIcsUrl = URL.createObjectURL(blob);
+    return '<p><a class="kl-ics-link" href="' + lastIcsUrl + '" download="shigo-kigen.ics">この一覧をカレンダーに追加(.ics、各期限の7日前に通知)</a> ' +
+      '<button type="button" onclick="window.print()">印刷する</button></p>';
+  }
+
+  function render() {
+    var input = readInput();
+    if (!input.death) {
+      resultEl.innerHTML = "<p>亡くなった日を入れると計算します。</p>";
+      return;
+    }
+    var result;
+    try {
+      result = KL_CALC(input, (window.KL_REFDATA || {}));
+    } catch (e) {
+      resultEl.innerHTML = '<p class="kl-error">計算でエラーが発生しました。日付の入力を見直してください。</p>';
+      return;
+    }
+    if (!result || result.error) {
+      var msg = "日付を確認してください。";
+      if (result && result.error === "knew_before_death") { msg = "「知った日」は「亡くなった日」と同じか、それより後の日にしてください。"; }
+      resultEl.innerHTML = '<p class="kl-error">' + msg + "</p>";
+      window.KL_UI && window.KL_UI.applyWhen(null);
+      return;
+    }
+    var rows = "";
+    for (var i = 0; i < result.items.length; i++) { rows += itemRow(result.items[i]); }
+    var html = '<table class="kl-table"><tbody>' + rows + "</tbody></table>";
+    html += icsLinkHtml(result.items);
+    html += '<p class="kl-note">この一覧は期限の目安です。相続放棄をするかどうか、相続税の額、登記の書類は、家庭裁判所、税務署、法務局の窓口か専門家に確かめてください。</p>';
+    if (typeof result.days_since === "number" && result.days_since < 0) {
+      html += '<p class="kl-note">亡くなった日が今日より後の日付になっています。入力を確かめてください。</p>';
+    } else if (typeof result.days_since === "number" && result.days_since < 14) {
+      html += '<p class="kl-note">亡くなってから' + result.days_since + "日の入力なので、この下には広告のリンクを出していません。</p>";
+    }
+    resultEl.innerHTML = html;
+    window.KL_UI && window.KL_UI.applyWhen(result);
+  }
+
+  form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+  form.addEventListener("change", render);
+  if (form.death && form.death.value) { render(); }
+});
+</script>
+</body>
+</html>

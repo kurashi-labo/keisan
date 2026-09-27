@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す | くらしラボ計算帳</title>
+<meta name="description" content="介護で仕事を辞めた場合と続けた場合で、定年までの収入と厚生年金(報酬比例部分)の年額がいくら変わるかを、年収と年齢、再就職までの年数から計算する。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す | くらしラボ計算帳">
+<meta property="og:description" content="介護で仕事を辞めた場合と続けた場合で、定年までの収入と厚生年金(報酬比例部分)の年額がいくら変わるかを、年収と年齢、再就職までの年数から計算する。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/",
+   "name": "介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す",
+   "description": "介護で仕事を辞めた場合と続けた場合で、定年までの収入と厚生年金(報酬比例部分)の年額がいくら変わるかを、年収と年齢、再就職までの年数から計算する。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "手続き暦(介護と相続の期限)",
+     "item": "https://kurashi-labo.github.io/keisan/tetsuzuki/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す",
+     "item": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-rishoku-sa/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "この計算はどれくらい正確ですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "年収の伸びや昇進、転職による変化を入れず、今の年収が定年まで続く前提の目安。年金の正確な見込み額は、ねんきん定期便、ねんきんネット、年金事務所で確かめられる。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "再就職しない場合はどう計算すればいいですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "再就職後の年収の割合を0%にする。辞めた場合の収入は辞めるまでの分だけになり、年金の差も、辞めてから定年まで厚生年金に入らない前提で出る。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "退職金や失業給付(基本手当)は入っていますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "入っていない。退職金は会社の規程で決まり、失業給付も年齢や被保険者期間で変わるため、このページでは扱っていない。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "70%という再就職後の年収の割合は、どこから来た数字ですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "出典のない初期値。介護で離職した人の再就職後の年収は条件による差が大きいので、画面で自分の見込みに合わせて変えてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "国民年金(基礎年金)はどうなりますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "このページは厚生年金の報酬比例部分だけを計算している。仕事を辞めて厚生年金に入らない期間も、国民年金の保険料を納めていれば基礎年金の額に響かない場合がある。個別の扱いは年金事務所で聞ける。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+<script>
+/* kl_date.js: くらしラボ計算帳の日付部品。グローバル KL_DATE(ブラウザは window、calc_test.js の vm は context)。
+   日付は Date か "YYYY-MM-DD" で受け取り、その端末の0時の Date で返す(文字列にするときは fmt)。
+   内部は 1970-01-01 からの通し日数で数えるので、タイムゾーンと夏時間の影響を受けない。
+   条文: 民法140条〜143条、国税通則法10条2項と同法施行令2条2項、祝日法(国民の祝日に関する法律)2条・3条。 */
+(function (root) {
+  "use strict";
+  var DAY_MS = 86400000;
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  var HOLIDAY_REF = /holiday|shukujitsu|syukujitsu/i;
+  var UNITS = ["days", "weeks", "months", "years"];
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function serialOf(y, m, d) { return Math.round(Date.UTC(y, m - 1, d) / DAY_MS); }
+  function partsOf(s) {
+    var t = new Date(s * DAY_MS);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+  }
+  function iso(y, m, d) { return y + "-" + pad(m) + "-" + pad(d); }
+  function isoOf(s) { var p = partsOf(s); return iso(p.y, p.m, p.d); }
+  function compact(s) { return isoOf(s).replace(/-/g, ""); }
+  function dow(s) { return ((s + 4) % 7 + 7) % 7; } // 1970-01-01 は木曜
+  function daysInMonth(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function isDate(v) { return Object.prototype.toString.call(v) === "[object Date]"; }
+
+  // Date(0時ちょうどなら端末の日付、UTC の0時ちょうどなら UTC の日付)、"YYYY-MM-DD"、"YYYY/M/D"、"YYYY年M月D日"、
+  // taxDeadline などの結果({date})を通し日数にする。読めなければ NaN
+  function toSerial(v) {
+    if (v === null || v === undefined || v === "") { return NaN; }
+    if (isDate(v)) {
+      if (isNaN(v.getTime())) { return NaN; }
+      if (v.getHours() === 0 && v.getMinutes() === 0 && v.getSeconds() === 0 && v.getMilliseconds() === 0) {
+        return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+      }
+      if (v.getUTCHours() === 0 && v.getUTCMinutes() === 0 && v.getUTCSeconds() === 0 && v.getUTCMilliseconds() === 0) {
+        return serialOf(v.getUTCFullYear(), v.getUTCMonth() + 1, v.getUTCDate());
+      }
+      return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+    }
+    if (typeof v === "object") { return v.date !== undefined && v.date !== v ? toSerial(v.date) : NaN; }
+    var m = /^\s*(\d{4})\s*[-\/.年]\s*(\d{1,2})\s*[-\/.月]\s*(\d{1,2})\s*日?\s*(?:$|T)/.exec(String(v));
+    if (!m) { return NaN; }
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y < 1000 || mo < 1 || mo > 12 || d < 1 || d > daysInMonth(y, mo)) { return NaN; }
+    return serialOf(y, mo, d);
+  }
+  function need(v, fn) {
+    var s = toSerial(v);
+    if (isNaN(s)) { throw new Error("KL_DATE." + fn + ": 日付を読めません(" + String(v) + ")"); }
+    return s;
+  }
+  function int(n, fn, what) {
+    var x = Number(n);
+    if (n === null || n === "" || !isFinite(x) || Math.floor(x) !== x) {
+      throw new Error("KL_DATE." + fn + ": " + what + "は整数で指定してください(" + String(n) + ")");
+    }
+    return x;
+  }
+  function toDate(s) {
+    var p = partsOf(s);
+    var t = new Date(2000, 0, 1);
+    t.setFullYear(p.y, p.m - 1, p.d);
+    t.setHours(0, 0, 0, 0);
+    return t;
+  }
+  function shiftMonths(s, n) {
+    var p = partsOf(s);
+    var idx = p.y * 12 + (p.m - 1) + n;
+    var y = Math.floor(idx / 12), m = idx - y * 12 + 1;
+    return { y: y, m: m, d: p.d, last: daysInMonth(y, m) };
+  }
+
+  function parse(v) { var s = toSerial(v); return isNaN(s) ? null : toDate(s); }
+  function fmt(v) { var s = toSerial(v); return isNaN(s) ? "" : isoOf(s); }
+  function weekdayJa(v) { return WEEKDAY_JA[dow(need(v, "weekdayJa"))]; }
+  function addDays(date, n) { return toDate(need(date, "addDays") + int(n, "addDays", "日数")); }
+  // 月の足し引き。応当日が無い月は月末にする(民法143条2項ただし書と同じ考え方。1月31日の1か月後は2月末日)
+  function addMonths(date, n) {
+    var t = shiftMonths(need(date, "addMonths"), int(n, "addMonths", "月数"));
+    return toDate(serialOf(t.y, t.m, Math.min(t.d, t.last)));
+  }
+  function addYears(date, n) { return addMonths(date, 12 * int(n, "addYears", "年数")); }
+  function endOfMonth(date) {
+    var p = partsOf(need(date, "endOfMonth"));
+    return toDate(serialOf(p.y, p.m, daysInMonth(p.y, p.m)));
+  }
+  function diffDays(from, to) { return need(to, "diffDays") - need(from, "diffDays"); }
+
+  // 期間の末日。spec は {days:n} {weeks:n} {months:n} {years:n} のどれか1つ
+  function periodEnd(start, spec, opts) {
+    var s = need(start, "periodEnd"), found = [];
+    for (var i = 0; i < UNITS.length; i++) {
+      if (spec && spec[UNITS[i]] !== undefined && spec[UNITS[i]] !== null) { found.push(UNITS[i]); }
+    }
+    if (found.length !== 1) {
+      throw new Error("KL_DATE.periodEnd: 期間は days、weeks、months、years のどれか1つで指定してください");
+    }
+    var unit = found[0], n = int(spec[unit], "periodEnd", unit);
+    if (n < 1) { throw new Error("KL_DATE.periodEnd: " + unit + "は1以上にしてください"); }
+    // 民法140条: 初日は算入しない(起算日は翌日)。午前0時から始まる期間だけ initialDayCounted:true で初日を数える
+    var first = s + (opts && opts.initialDayCounted === true ? 0 : 1);
+    // 民法141条: 期間は末日の終了をもって満了する。返すのはその末日
+    if (unit === "days") { return toDate(first + n - 1); }
+    // 民法143条: 週・月・年は暦に従い、最後の週・月・年で起算日に応当する日の前日に満了する(2項本文)
+    if (unit === "weeks") { return toDate(first + 7 * n - 1); }
+    var t = shiftMonths(first, unit === "years" ? 12 * n : n);
+    // 143条2項ただし書: 最後の月に応当する日が無いときは、その月の末日に満了する
+    if (t.d > t.last) { return toDate(serialOf(t.y, t.m, t.last)); }
+    return toDate(serialOf(t.y, t.m, t.d) - 1);
+  }
+
+  // ---- 祝日(祝日法)
+  // 春分・秋分の日は前年2月の官報で決まる。ここでは広く使われている近似式で出す(1980〜2150年)
+  function equinoxDay(year, spring) {
+    var base;
+    if (year >= 1980 && year <= 2099) { base = spring ? 20.8431 : 23.2488; }
+    else if (year >= 2100 && year <= 2150) { base = spring ? 21.8510 : 24.2488; }
+    else { return 0; }
+    return Math.floor(base + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function nthMonday(y, m, n) { return 1 + ((8 - dow(serialOf(y, m, 1))) % 7) + 7 * (n - 1); }
+
+  var ruleCache = {};
+  function ruleHolidays(year) {
+    if (ruleCache[year]) { return ruleCache[year]; }
+    var sai = {}, map = {}, k, s, t;
+    function put(m, d, name) { if (d) { sai[iso(year, m, d)] = name; } }
+    // 祝日法2条
+    put(1, 1, "元日");
+    put(1, nthMonday(year, 1, 2), "成人の日");
+    put(2, 11, "建国記念の日");
+    if (year >= 2020) { put(2, 23, "天皇誕生日"); }
+    put(3, equinoxDay(year, true), "春分の日");
+    put(4, 29, "昭和の日");
+    put(5, 3, "憲法記念日");
+    put(5, 4, "みどりの日");
+    put(5, 5, "こどもの日");
+    if (year === 2020) { put(7, 23, "海の日"); put(7, 24, "スポーツの日"); put(8, 10, "山の日"); }
+    else if (year === 2021) { put(7, 22, "海の日"); put(7, 23, "スポーツの日"); put(8, 8, "山の日"); }
+    else { put(7, nthMonday(year, 7, 3), "海の日"); put(8, 11, "山の日"); put(10, nthMonday(year, 10, 2), "スポーツの日"); }
+    put(9, nthMonday(year, 9, 3), "敬老の日");
+    put(9, equinoxDay(year, false), "秋分の日");
+    put(11, 3, "文化の日");
+    put(11, 23, "勤労感謝の日");
+    for (k in sai) { if (hasOwn.call(sai, k)) { map[k] = sai[k]; } }
+    for (k in sai) {
+      if (!hasOwn.call(sai, k)) { continue; }
+      s = toSerial(k);
+      // 3条2項(振替休日): 祝日が日曜日に当たるときは、その日後で最も近い祝日でない日を休日とする
+      if (dow(s) === 0) {
+        t = s + 1;
+        while (hasOwn.call(sai, isoOf(t))) { t += 1; }
+        map[isoOf(t)] = "振替休日";
+      }
+      // 3条3項(国民の休日): 前日と翌日が祝日である日(祝日でない日に限る)は休日とする
+      if (hasOwn.call(sai, isoOf(s + 2)) && !hasOwn.call(sai, isoOf(s + 1)) && !hasOwn.call(map, isoOf(s + 1))) {
+        map[isoOf(s + 1)] = "国民の休日";
+      }
+    }
+    var note = year < 2020 ? "2019年以前は祝日の決まりが今と違うため、参考の値です"
+      : (equinoxDay(year, true) ? "内閣府の祝日データに無い年のため、祝日法の決まりと春分・秋分の近似式で出しました"
+        : "春分と秋分の日を近似式で出せない年です(1980〜2150年のみ)");
+    ruleCache[year] = { map: map, note: note };
+    return ruleCache[year];
+  }
+
+  // refdata のうち、名前か出典URLに holiday / shukujitsu を含むものを祝日データとして読む。
+  // 形は {"rows": [{"date": "YYYY-MM-DD", "name": "…"}]}(taishoku-gyakusan__holidays_jp と shikaku-gyakusan__shukujitsu)
+  var refCache = { src: undefined, idx: null };
+  function holidayRows(source) {
+    if (Array.isArray(source)) { return source; }
+    var out = [];
+    if (source && typeof source === "object") {
+      for (var k in source) {
+        if (!hasOwn.call(source, k) || !Array.isArray(source[k])) { continue; }
+        var first = source[k][0];
+        if (HOLIDAY_REF.test(k) || (first && typeof first === "object" && HOLIDAY_REF.test(String(first.source_url || "")))) {
+          out = out.concat(source[k]);
+        }
+      }
+    }
+    return out;
+  }
+  function refIndex(source) {
+    if (source === undefined || source === null) { source = root.KL_REFDATA; }
+    if (refCache.idx && refCache.src === source) { return refCache.idx; }
+    var rows = holidayRows(source), map = {}, years = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+      if (isNaN(s)) { continue; }
+      k = isoOf(s);
+      map[k] = (r && typeof r === "object" && r.name) || map[k] || "祝日";
+    }
+    // 元日と勤労感謝の日の両方がある年を「その年の祝日がすべて載っている」とみなす
+    for (k in map) {
+      if (hasOwn.call(map, k) && map[k.slice(0, 4) + "-01-01"] && map[k.slice(0, 4) + "-11-23"]) { years[k.slice(0, 4)] = true; }
+    }
+    refCache = { src: source, idx: { map: map, years: years } };
+    return refCache.idx;
+  }
+
+  function holidaysFor(year, source) {
+    var y = int(year, "holidaysFor", "年"), idx = refIndex(source), prefix = String(y) + "-";
+    var fromRef = hasOwn.call(idx.years, String(y)), rule = fromRef ? null : ruleHolidays(y);
+    var src = fromRef ? idx.map : rule.map, map = {}, list = [], keys = [], k, i;
+    for (k in src) { if (hasOwn.call(src, k) && k.indexOf(prefix) === 0) { keys.push(k); } }
+    keys.sort();
+    for (i = 0; i < keys.length; i++) { map[keys[i]] = src[keys[i]]; list.push({ date: keys[i], name: src[keys[i]] }); }
+    var out = { year: y, estimated: !fromRef, source: fromRef ? "refdata" : "rule", holidays: list, map: map };
+    if (rule) { out.note = rule.note; }
+    return out;
+  }
+
+  // holidays の渡し方: 省略(KL_REFDATA の祝日、無い年は祝日法で計算)/ refdata オブジェクト / 日付か {date,name} の配列 /
+  // {"YYYY-MM-DD": 名前} / holidaysFor の結果。配列と {"日付": 名前} は「それが祝日のすべて」として扱う
+  function lookup(holidays) {
+    var fixed = null, source, perYear = {}, estimated = false;
+    if (Array.isArray(holidays)) {
+      fixed = {};
+      for (var i = 0; i < holidays.length; i++) {
+        var r = holidays[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+        if (!isNaN(s)) { fixed[isoOf(s)] = (r && typeof r === "object" && r.name) || "休日"; }
+      }
+    } else if (holidays && typeof holidays === "object") {
+      if (holidays.map && typeof holidays.map === "object" && holidays.year !== undefined) { fixed = holidays.map; }
+      else {
+        for (var key in holidays) {
+          if (hasOwn.call(holidays, key)) { fixed = /^\d{4}-\d{2}-\d{2}$/.test(key) ? holidays : null; break; }
+        }
+        if (!fixed) { source = holidays; }
+      }
+    }
+    return {
+      name: function (s) {
+        var k = isoOf(s);
+        if (fixed) { return hasOwn.call(fixed, k) ? String(fixed[k] === true ? "休日" : fixed[k]) : ""; }
+        var y = k.slice(0, 4);
+        if (!perYear[y]) {
+          perYear[y] = holidaysFor(Number(y), source);
+          if (perYear[y].estimated) { estimated = true; }
+        }
+        return hasOwn.call(perYear[y].map, k) ? perYear[y].map[k] : "";
+      },
+      estimated: function () { return estimated; }
+    };
+  }
+  function yearEnd(s) { var p = partsOf(s); return (p.m === 12 && p.d >= 29) || (p.m === 1 && p.d <= 3); }
+  function closedReason(s, look, withYearEnd) {
+    var name = look.name(s), w = dow(s);
+    if (name) { return name; }
+    if (w === 0) { return "日曜日"; }
+    if (w === 6) { return "土曜日"; }
+    if (withYearEnd && yearEnd(s)) { return "年末年始"; }
+    return "";
+  }
+
+  function holidayName(date, holidays) { return lookup(holidays).name(need(date, "holidayName")); }
+  // 土日と祝日(振替休日・国民の休日を含む)なら true
+  function isHoliday(date, holidays) { return !!closedReason(need(date, "isHoliday"), lookup(holidays), false); }
+  function businessDay(date, opts, fn, step) {
+    opts = opts || {};
+    var s = need(date, fn), look = lookup(opts.holidays);
+    if (opts.strict === true) { s += step; }
+    for (var i = 0; i < 400; i++, s += step) {
+      if (!closedReason(s, look, opts.yearEnd === true)) { return toDate(s); }
+    }
+    throw new Error("KL_DATE." + fn + ": 400日以内に営業日がありません");
+  }
+  // その日が営業日ならその日、休みなら次(前)の営業日。{strict:true} で必ず翌日以降(前日以前)にする。
+  // {yearEnd:true} で12月29日〜1月3日も休みとして数える
+  function nextBusinessDay(date, opts) { return businessDay(date, opts, "nextBusinessDay", 1); }
+  function prevBusinessDay(date, opts) { return businessDay(date, opts, "prevBusinessDay", -1); }
+
+  function shiftDeadline(date, opts, fn, basis) {
+    opts = opts || {};
+    var s0 = need(date, fn), s = s0, look = lookup(opts.holidays), skipped = [], why;
+    for (var i = 0; i < 400; i++) {
+      why = closedReason(s, look, true);
+      if (!why) { break; }
+      skipped.push({ date: isoOf(s), why: why });
+      s += 1;
+    }
+    return { date: toDate(s), ymd: isoOf(s), original: isoOf(s0), shifted: s !== s0, skipped: skipped,
+      estimated: look.estimated(), unconfirmed: false, basis: basis };
+  }
+  // 国税通則法10条2項: 期限が日曜日・祝日法の休日・その他一般の休日・政令で定める日に当たるときは、翌日を期限とみなす。
+  // 政令で定める日は土曜日と12月29日〜31日(施行令2条2項)。1月2日と3日は一般の休日として数える
+  function taxDeadline(date, opts) { return shiftDeadline(date, opts, "taxDeadline", "国税通則法10条2項"); }
+  // 民法142条: 期間の末日が日曜日・祝日法の休日その他の休日に当たるときは、その日に取引をしない慣習がある場合に限り翌日に満了する。
+  // 慣習の有無はここでは確かめられないので、繰り下げたときは unconfirmed:true を返す(土曜日と12月29日〜1月3日も休みとして数える)。
+  // 裁判所への申述など民事訴訟法95条3項(家事事件は家事事件手続法34条4項で準用)が使える手続は {basis:"minso"}。慣習の条件が無い
+  function courtDeadline(date, opts) {
+    var minso = !!(opts && opts.basis === "minso");
+    var r = shiftDeadline(date, opts, "courtDeadline", minso ? "民事訴訟法95条3項" : "民法142条");
+    r.unconfirmed = !minso && r.shifted;
+    return r;
+  }
+
+  // ---- カレンダー(RFC 5545)
+  function icsText(v) {
+    return String(v === undefined || v === null ? "" : v).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+      .replace(/,/g, "\\,").replace(/\r\n|\r|\n/g, "\\n");
+  }
+  // 1行75オクテット(UTF-8)を超えたら CRLF+空白で折り返す。文字の途中では切らない
+  function fold(line) {
+    var out = [], cur = "", bytes = 0, i = 0;
+    while (i < line.length) {
+      var c = line.charCodeAt(i), ch = line.charAt(i), n;
+      if (c >= 0xd800 && c <= 0xdbff && i + 1 < line.length) { ch = line.substr(i, 2); n = 4; }
+      else { n = c < 0x80 ? 1 : (c < 0x800 ? 2 : 3); }
+      if (bytes + n > 75) { out.push(cur); cur = " "; bytes = 1; }
+      cur += ch;
+      bytes += n;
+      i += ch.length;
+    }
+    out.push(cur);
+    return out.join("\r\n");
+  }
+  function hash(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul ? Math.imul(h, 0x01000193) : (h * 0x01000193) | 0; }
+    return ("0000000" + (h >>> 0).toString(16)).slice(-8);
+  }
+  function stamp(now) {
+    var t = isDate(now) ? now.getTime() : (typeof now === "string" ? Date.parse(now) : (typeof now === "number" ? now : Date.now()));
+    if (!isFinite(t)) { throw new Error("KL_DATE.toICS: now を読めません(" + String(now) + ")"); }
+    var d = new Date(t);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+  }
+  // events: [{title, date, description}]。終日の予定(DTSTART;VALUE=DATE、DTEND は翌日)。opts.now で DTSTAMP を固定できる
+  function toICS(events, calName, opts) {
+    opts = opts || {};
+    var dtstamp = stamp(opts.now), name = calName ? String(calName) : "くらしラボ計算帳";
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//kurashi-labo//keisan//JA", "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH", "X-WR-CALNAME:" + icsText(name)];
+    var list = Array.isArray(events) ? events : [];
+    for (var i = 0; i < list.length; i++) {
+      var ev = list[i] || {}, s = need(ev.date, "toICS"), title = String(ev.title || "予定"), day = compact(s);
+      lines.push("BEGIN:VEVENT",
+        "UID:" + day + "-" + (i + 1) + "-" + hash(name + "\n" + title + "\n" + day + "\n" + i) + "@kurashi-labo.github.io",
+        "DTSTAMP:" + dtstamp, "DTSTART;VALUE=DATE:" + day, "DTEND;VALUE=DATE:" + compact(s + 1),
+        "SUMMARY:" + icsText(title));
+      if (ev.description) { lines.push("DESCRIPTION:" + icsText(ev.description)); }
+      lines.push("TRANSP:TRANSPARENT", "END:VEVENT");
+    }
+    lines.push("END:VCALENDAR");
+    var out = [];
+    for (var j = 0; j < lines.length; j++) { out.push(fold(lines[j])); }
+    return out.join("\r\n") + "\r\n";
+  }
+  function icsDataUrl(ics) { return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+
+  var api = {
+    version: "1", parse: parse, fmt: fmt, weekdayJa: weekdayJa, addDays: addDays, addMonths: addMonths,
+    addYears: addYears, endOfMonth: endOfMonth, diffDays: diffDays, periodEnd: periodEnd,
+    holidaysFor: holidaysFor, holidayName: holidayName, isHoliday: isHoliday,
+    nextBusinessDay: nextBusinessDay, prevBusinessDay: prevBusinessDay,
+    taxDeadline: taxDeadline, courtDeadline: courtDeadline, toICS: toICS, icsDataUrl: icsDataUrl
+  };
+  root.KL_DATE = api;
+  if (typeof module === "object" && module && module.exports) { module.exports = api; }
+})(typeof globalThis !== "undefined" ? globalThis : this);
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../tetsuzuki/">手続き暦(介護と相続の期限)</a><span aria-hidden="true">›</span><span>介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す</span></nav>
+<article class="page">
+<h1>介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>年収500万円の50歳が同じ年に介護で辞め、2年働かずに前の7割の年収で再就職すると、65歳までの収入は続けた場合より2,950万円少なくなる(このページの計算)。厚生年金(報酬比例部分)は年に約16万2千円減る目安になる。総務省の令和4年就業構造基本調査では、2022年10月までの1年間に介護・看護のために前の仕事を辞めた人は10万6千人いた(2026-09-27確認)。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+<div class="kl-field"><label for="kl-income">今の年収(額面、円)</label>
+<input type="number" id="kl-income" name="income" min="0" step="10000" value="4000000" required></div>
+<div class="kl-field"><label for="kl-age">今の年齢</label>
+<input type="number" id="kl-age" name="age" min="18" max="79" step="1" value="45" required></div>
+<div class="kl-field"><label for="kl-quit-age">介護のために辞める年齢</label>
+<input type="number" id="kl-quit-age" name="quit_age" min="18" max="90" step="1" value="45" required></div>
+<div class="kl-field"><label for="kl-blank-years">仕事から離れる年数(働かない年数)</label>
+<input type="number" id="kl-blank-years" name="blank_years" min="0" max="30" step="1" value="1" required></div>
+<div class="kl-field"><label for="kl-rehire-ratio">再就職後の年収の割合(%、今の年収に対して)</label>
+<input type="number" id="kl-rehire-ratio" name="rehire_ratio_pct" min="0" max="150" step="1" value="70" required></div>
+<div class="kl-field"><label for="kl-retire-age">定年の年齢</label>
+<input type="number" id="kl-retire-age" name="retire_age" min="50" max="80" step="1" value="65" required></div>
+<div class="kl-field"><label for="kl-gaibu-getsugaku">続けるために外へ頼む費用の月額(任意。家事代行や宅配食、デイサービスの自己負担など、円)</label>
+<input type="number" id="kl-gaibu-getsugaku" name="gaibu_getsugaku" min="0" step="1000" value="0"></div>
+<div class="kl-field"><label for="kl-gaibu-tsuki">その費用がかかる月数(任意)</label>
+<input type="number" id="kl-gaibu-tsuki" name="gaibu_tsuki" min="0" step="1" value="0"></div>
+<button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<div class="intro"><p>介護をしながら働く人は増えている。総務省の令和4年就業構造基本調査では、介護をしている629万人のうち仕事を持つ人は365万人で、割合は58.0%、5年前より2.8ポイント上がった。一方で、2022年10月までの1年間に介護・看護のために前の仕事を辞めた人は10万6千人で、5年前の9万9千人より多い(いずれも2026-09-27確認)。</p><p>くらしラボは、辞めるかどうかを決める前に、失う収入と年金を数字で見られるようにこのページを作った。今の年収と年齢、辞める年齢、働かない年数、再就職後の年収の割合、定年の年齢を入れると、定年までの収入の差と厚生年金(報酬比例部分)の年額差の目安が出る。家事代行やデイサービスの自己負担のように、外へ頼んで働き続ける費用も同じ画面で並べられる。</p><p>くらしラボは、辞めるか続けるかを勧めない。退職金、失業給付、税金と社会保険料の違いも計算に入れていない。年金の正確な見込み額は、ねんきん定期便かねんきんネット、年金事務所で確かめてほしい。</p></div>
+<section>
+<h2>収入の差の出し方</h2>
+<p>続けた場合の収入は、今の年収に定年までの年数を掛けて出す。辞めた場合は、辞めるまでの年収と再就職後の年収を足す。再就職後の年収は今の年収に割合を掛けた額で、初期値の70%は出典のない仮の数字だから、自分の見込みに合わせて変えてほしい。</p><p>例を1つ挙げる。年収500万円の50歳が同じ年に辞め、2年働かずに7割の年収で再就職すると、65歳までの収入は4,550万円になる。続けた場合の7,500万円より2,950万円少ない。働かない年数が1年延びると、差はさらに350万円広がる。</p><p>定年の初期値は65歳にした。高年齢者雇用安定法第9条は、定年を65歳未満に定める事業主に65歳までの雇用確保措置を義務づけている(厚生労働省とハローワークの資料で確認、2026-09-27)。65歳を超えて働ける制度があるかは、勤め先の就業規則で決まる。</p>
+</section>
+<section>
+<h2>厚生年金(報酬比例部分)の年額差の目安</h2>
+<p>老齢厚生年金の報酬比例部分は、2003年4月以降の加入期間について「平均標準報酬額×5.481/1000×加入月数」で決まる(日本年金機構の用語集と厚生労働省の説明で確認、2026-09-27)。平均標準報酬額には賞与も入る。このページは、失う分を2つに分けて出す。働かない期間に厚生年金に入らない分と、再就職後に年収が下がって報酬比例部分が小さくなる分だ。</p><p>上の例では、働かない2年分が年54,810円、再就職後の13年間に年収が3割下がる分が年約10万7千円で、合わせて年約16万2千円になる。再就職後も厚生年金に入る前提なので、入らない働き方なら差はもっと大きい(推定)。厚生年金に入れるのは70歳未満で(日本年金機構、2026-09-27確認)、定年を70歳より後に入れても、年金の差は70歳までの分で出す。</p><p>平均標準報酬額は年収を12で割った額で近似した。標準報酬月額の上限は65万円、標準賞与額の上限は1回150万円で(日本年金機構、2026-09-27確認)、月の報酬が65万円を超える人や、1回の賞与が150万円を超える人ほど、このページの数字は実際より大きく出る。2003年3月以前の加入期間の乗率(7.125/1000)は計算に入れていない。</p>
+</section>
+<section>
+<h2>外部サービスの費用と比べる</h2>
+<p>仕事を続けるために、家事代行や宅配食、デイサービスの自己負担のように外へお金を払う方法もある。計算欄の最後の2つに月額と月数を入れると、その総額が収入の差と並んで出る。</p><p>介護休業を3回に分けて取る計画と介護休業給付金は、<a href="../kaigo-kyugyo-keikaku/">介護休業93日の分け方のページ</a>で計算できる。</p>
+</section>
+<section>
+<h2>困ったときの相談先</h2>
+<p>仕事と介護の両立で困ったときは、勤め先の人事や総務の窓口のほか、介護を受ける家族が住む地域の地域包括支援センター、都道府県労働局の総合労働相談コーナーに相談できる。会社との交渉の進め方や、家族で介護をどう分けるかは、このページでは扱わない。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>続けた場合の収入は、今の年収に定年までの残り年数を掛けて出す。辞めた場合の収入は、辞めるまでの年収と、再就職してから定年までの年収(今の年収に再就職後の年収の割合を掛けた額)の合計。厚生年金(報酬比例部分)の年額差は、平均標準報酬額(ここでは年収を12で割った額で近似)に5.481/1000を掛け、失う加入期間の月数を掛けて出す。失う月数は、辞めてから定年か70歳の早いほうまでの期間で数え、働かない月数と、再就職後の月数に年収が下がった割合を掛けたものの合計で、再就職後も厚生年金に入る前提にしている。厚生年金に入れるのは70歳未満なので、定年を70歳より後にしても年金の差は70歳までで止まる。税金、社会保険料、退職金、失業給付の違いは含めていない。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">厚生年金 報酬比例部分の乗率(2003年4月以降の加入期間分)</th><td class="num">5.481/1000</td><td><a href="https://www.nenkin.go.jp/service/yougo/hagyo/hoshuhirei.html" rel="noopener" target="_blank">2003年4月以降の加入期間は、平均標準報酬額(賞与を含む)に5.481/1000と加入月数を掛けて計算する(日本年金機構の用語集、2026-09-27確認)。2003年3月以前の期間の乗率7.125/1000は、このページでは使っていない。</a></td></tr>
+<tr><th scope="row">平均標準報酬額の近似(年収÷12)</th><td class="num">年収÷12</td><td><span class="est-tag">推定</span> <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-01.html" rel="noopener" target="_blank">実際の平均標準報酬額は、標準報酬月額(上限65万円)と標準賞与額(1回150万円が上限)から決まる(日本年金機構、2026-09-27確認)。このページは年収を12で割った額で近似していて、月の報酬や賞与が上限を超える人ほど年金の差が実際より大きく出る(推定)。</a></td></tr>
+<tr><th scope="row">厚生年金に入れる年齢の上限</th><td class="num">70歳未満</td><td><a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/20150518.html" rel="noopener" target="_blank">適用事業所に常用的に使用される70歳未満の人が厚生年金保険の被保険者になる(日本年金機構、2026-09-27確認)。このページは年金の差を70歳までの期間で数える。</a></td></tr>
+<tr><th scope="row">再就職後の厚生年金への加入</th><td class="num">加入する前提</td><td><span class="est-tag">推定</span> 再就職後も厚生年金に入り、年収の割合に応じて報酬比例部分が小さくなるとして計算している。厚生年金に入らない働き方で再就職した場合、年金の差はこのページの数字より大きくなる(推定)。</td></tr>
+<tr><th scope="row">再就職後の年収の割合(初期値)</th><td class="num">70%</td><td><span class="est-tag">推定</span> 出典のない初期値。再就職後の年収は人によって差が大きいため、画面で変えられる。</td></tr>
+<tr><th scope="row">定年の年齢(初期値)</th><td class="num">65歳</td><td><a href="https://www.mhlw.go.jp/content/11700000/001245647.pdf" rel="noopener" target="_blank">高年齢者雇用安定法第9条は、定年を65歳未満に定めている事業主に65歳までの雇用確保措置を義務づけている(厚生労働省の資料で確認、2026-09-27)。実際の定年年齢は会社の規則により異なるため、画面で変更できる。</a></td></tr>
+</tbody></table></div>
+
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. この計算はどれくらい正確ですか。</dt>
+<dd>年収の伸びや昇進、転職による変化を入れず、今の年収が定年まで続く前提の目安。年金の正確な見込み額は、ねんきん定期便、ねんきんネット、年金事務所で確かめられる。</dd>
+<dt>Q. 再就職しない場合はどう計算すればいいですか。</dt>
+<dd>再就職後の年収の割合を0%にする。辞めた場合の収入は辞めるまでの分だけになり、年金の差も、辞めてから定年まで厚生年金に入らない前提で出る。</dd>
+<dt>Q. 退職金や失業給付(基本手当)は入っていますか。</dt>
+<dd>入っていない。退職金は会社の規程で決まり、失業給付も年齢や被保険者期間で変わるため、このページでは扱っていない。</dd>
+<dt>Q. 70%という再就職後の年収の割合は、どこから来た数字ですか。</dt>
+<dd>出典のない初期値。介護で離職した人の再就職後の年収は条件による差が大きいので、画面で自分の見込みに合わせて変えてほしい。</dd>
+<dt>Q. 国民年金(基礎年金)はどうなりますか。</dt>
+<dd>このページは厚生年金の報酬比例部分だけを計算している。仕事を辞めて厚生年金に入らない期間も、国民年金の保険料を納めていれば基礎年金の額に響かない場合がある。個別の扱いは年金事務所で聞ける。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.stat.go.jp/data/shugyou/2022/pdf/kgaiyou.pdf" rel="noopener" target="_blank">総務省統計局 令和4年就業構造基本調査 結果の概要(介護をしている者の就業状態、前職の離職理由)</a>(2026年9月27日確認)</li><li><a href="https://www.nenkin.go.jp/service/yougo/hagyo/hoshuhirei.html" rel="noopener" target="_blank">日本年金機構 用語集「報酬比例部分」</a>(2026年9月27日確認)</li><li><a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-01.html" rel="noopener" target="_blank">日本年金機構 厚生年金保険の保険料(標準報酬月額の等級と標準賞与額の上限)</a>(2026年9月27日確認)</li><li><a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/20150518.html" rel="noopener" target="_blank">日本年金機構 適用事業所と被保険者(70歳未満が被保険者)</a>(2026年9月27日確認)</li><li><a href="https://www.mhlw.go.jp/stf/nenkin_shikumi_003.html" rel="noopener" target="_blank">厚生労働省 老齢厚生年金の年金額の算定(報酬比例部分の計算式)</a>(2026年9月27日確認)</li><li><a href="https://www.mhlw.go.jp/content/11700000/001245647.pdf" rel="noopener" target="_blank">厚生労働省・ハローワーク 高年齢者雇用安定法の概要(65歳までの雇用確保措置)</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../shigoto/taishoku-gyakusan/">退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す</a></li><li><a href="../../tetsuzuki/seinen-kouken-hiyou/">成年後見の申立て費用と後見人の報酬の目安を、財産額と年数から計算する</a></li><li><a href="../../tetsuzuki/souzoku-touki-kigen/">相続登記はいつまで? 不動産の相続を知った日から期限を出す(2024年4月より前の相続は2027年3月31日まで)</a></li><li><a href="../../tetsuzuki/souzoku-houki-kigen/">相続放棄の3か月はいつまで? 自分が相続人になったと知った日から期限を出す</a></li><li><a href="../../tetsuzuki/shigo-kigen/">亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる</a></li><li><a href="../../tetsuzuki/">手続き暦(介護と相続の期限)の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>
+function KL_CALC(input) {
+  function toNum(v) {
+    if (v === undefined || v === null || v === "") return NaN;
+    return Number(v);
+  }
+  function withDefault(v, d) {
+    if (v === undefined || v === null || v === "") return d;
+    return toNum(v);
+  }
+
+  var income = toNum(input && input.income);
+  var age = toNum(input && input.age);
+  var quit_age = toNum(input && input.quit_age);
+  var blank_years = toNum(input && input.blank_years);
+  var rehire_ratio = withDefault(input && input.rehire_ratio, 0.7);
+  var retire_age = withDefault(input && input.retire_age, 65);
+  var gaibu_getsugaku = withDefault(input && input.gaibu_getsugaku, 0);
+  var gaibu_tsuki = withDefault(input && input.gaibu_tsuki, 0);
+
+  var errors = [];
+  if (!(income >= 0) || !isFinite(income)) errors.push("income_invalid");
+  if (!(age >= 0 && age <= 100) || !isFinite(age)) errors.push("age_invalid");
+  if (!(retire_age > age) || !isFinite(retire_age)) errors.push("retire_age_invalid");
+  if (!(quit_age >= age) || !isFinite(quit_age)) errors.push("quit_age_invalid");
+  else if (quit_age > retire_age) errors.push("quit_age_after_retire");
+  if (!(blank_years >= 0) || !isFinite(blank_years)) errors.push("blank_years_invalid");
+  if (!(rehire_ratio >= 0) || !isFinite(rehire_ratio)) errors.push("rehire_ratio_invalid");
+  if (!(gaibu_getsugaku >= 0) || !isFinite(gaibu_getsugaku)) errors.push("gaibu_getsugaku_invalid");
+  if (!(gaibu_tsuki >= 0) || !isFinite(gaibu_tsuki)) errors.push("gaibu_tsuki_invalid");
+
+  if (errors.length) {
+    return {
+      error: errors.join(","),
+      income_continue: null,
+      income_quit: null,
+      income_diff: null,
+      years_after_rehire: null,
+      nenkin_diff_year: null,
+      nenkin_diff_blank_year: null,
+      nenkin_diff_rehire_year: null,
+      gaibu_total: null
+    };
+  }
+
+  var income_continue = income * (retire_age - age);
+
+  var years_before_quit = quit_age - age;
+  var years_after_quit = retire_age - quit_age;
+  var years_after_rehire = Math.max(0, years_after_quit - blank_years);
+  var income_quit = income * years_before_quit + income * rehire_ratio * years_after_rehire;
+  var income_diff = income_continue - income_quit;
+
+  // 老齢厚生年金の報酬比例部分(2003年4月以降の加入期間)= 平均標準報酬額 x 5.481/1000 x 加入月数
+  // (日本年金機構の用語集、厚生労働省の説明で確認、2026-09-27)。
+  // 平均標準報酬額は年収/12 で近似する(推定。assumptions 参照)。
+  // 失う分 = 働かない月数ぶん + 再就職後に年収が下がった割合 x 再就職後の月数ぶん(再就職後も厚生年金に入る前提)。
+  // 厚生年金の被保険者は70歳未満(日本年金機構「適用事業所と被保険者」、2026-09-27確認)。
+  // 年金の差は、辞めた年齢から「定年と70歳の早いほう」までの期間だけで数える
+  // (定年を超えた空白は、続けた場合にも働いていないので数えない)。
+  var KOUNEN_END_AGE = 70;
+  var kounen_after_quit = Math.max(0, Math.min(retire_age, KOUNEN_END_AGE) - quit_age);
+  var blank_kounen = Math.min(blank_years, kounen_after_quit);
+  var rehire_kounen = Math.max(0, kounen_after_quit - blank_years);
+  var HOSHU_HIREI_RITSU = 5.481 / 1000;
+  var per_month = (income / 12) * HOSHU_HIREI_RITSU;
+  var nenkin_diff_blank_year = Math.round(per_month * blank_kounen * 12);
+  var nenkin_diff_rehire_year = Math.round(per_month * (1 - rehire_ratio) * rehire_kounen * 12);
+  var nenkin_diff_year = nenkin_diff_blank_year + nenkin_diff_rehire_year;
+
+  var gaibu_total = gaibu_getsugaku * gaibu_tsuki;
+
+  return {
+    error: null,
+    income_continue: income_continue,
+    income_quit: income_quit,
+    income_diff: income_diff,
+    years_after_rehire: years_after_rehire,
+    nenkin_diff_year: nenkin_diff_year,
+    nenkin_diff_blank_year: nenkin_diff_blank_year,
+    nenkin_diff_rehire_year: nenkin_diff_rehire_year,
+    gaibu_total: gaibu_total
+  };
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("kl-form");
+  var resultEl = document.getElementById("kl-result");
+  if (!form || !resultEl) return;
+
+  function num(fd, name) {
+    var v = fd.get(name);
+    if (v === null || v === "") return null;
+    return Number(v);
+  }
+
+  function readInput() {
+    var fd = new FormData(form);
+    var pct = num(fd, "rehire_ratio_pct");
+    return {
+      income: num(fd, "income"),
+      age: num(fd, "age"),
+      quit_age: num(fd, "quit_age"),
+      blank_years: num(fd, "blank_years"),
+      rehire_ratio: pct === null ? null : pct / 100,
+      retire_age: num(fd, "retire_age"),
+      gaibu_getsugaku: num(fd, "gaibu_getsugaku"),
+      gaibu_tsuki: num(fd, "gaibu_tsuki")
+    };
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function yen(n) {
+    if (n === null || n === undefined || !isFinite(n)) return "-";
+    return Math.round(n).toLocaleString("ja-JP") + "円";
+  }
+
+  var ERROR_MESSAGES = {
+    income_invalid: "今の年収は0以上の数で入れてください。",
+    age_invalid: "今の年齢は0から100の数で入れてください。",
+    retire_age_invalid: "定年の年齢は、今の年齢より大きい数で入れてください。",
+    quit_age_invalid: "辞める年齢は、今の年齢以上にしてください。",
+    quit_age_after_retire: "辞める年齢が定年の年齢を超えています。見直してください。",
+    blank_years_invalid: "働かない年数は0以上の数で入れてください。",
+    rehire_ratio_invalid: "再就職後の年収の割合は0以上の数で入れてください。",
+    gaibu_getsugaku_invalid: "外部サービスの月額は0以上の数で入れてください。",
+    gaibu_tsuki_invalid: "外部サービスの月数は0以上の数で入れてください。"
+  };
+
+  function render() {
+    var input = readInput();
+    if (input.income === null || input.age === null || input.quit_age === null ||
+        input.blank_years === null) {
+      resultEl.innerHTML = "<p>年収、年齢、辞める年齢、働かない年数を入れると計算します。</p>";
+      return;
+    }
+    var result;
+    try {
+      result = KL_CALC(input);
+    } catch (e) {
+      resultEl.innerHTML = '<p class="kl-error">計算でエラーが発生しました。入力を見直してください。</p>';
+      return;
+    }
+    if (!result || result.error) {
+      var codes = result && result.error ? result.error.split(",") : [];
+      var msgs = [];
+      for (var i = 0; i < codes.length; i++) {
+        msgs.push(ERROR_MESSAGES[codes[i]] || "入力を見直してください。");
+      }
+      resultEl.innerHTML = '<p class="kl-error">' + esc(msgs.join(" ")) + "</p>";
+      return;
+    }
+    var rows = "";
+    rows += "<tr><th>続けた場合の定年までの収入</th><td>" + esc(yen(result.income_continue)) + "</td></tr>";
+    rows += "<tr><th>辞めた場合の定年までの収入</th><td>" + esc(yen(result.income_quit)) + "</td></tr>";
+    rows += "<tr><th>収入の差(続けた場合との差)</th><td>" + esc(yen(result.income_diff)) + "</td></tr>";
+    rows += "<tr><th>厚生年金(報酬比例部分)の年額差の目安</th><td>" + esc(yen(result.nenkin_diff_year)) + "</td></tr>";
+    rows += "<tr><th>うち働かない期間の分</th><td>" + esc(yen(result.nenkin_diff_blank_year)) + "</td></tr>";
+    rows += "<tr><th>うち再就職後に年収が下がる分</th><td>" + esc(yen(result.nenkin_diff_rehire_year)) + "</td></tr>";
+    if (result.gaibu_total) {
+      rows += "<tr><th>外部サービスにかかる総額</th><td>" + esc(yen(result.gaibu_total)) + "</td></tr>";
+    }
+    var note = "";
+    if (result.gaibu_total) {
+      if (result.income_diff > result.gaibu_total) {
+        note += "<p>入力した条件では、辞めた場合の収入の差(" + esc(yen(result.income_diff)) +
+          ")のほうが、外部サービスの総額(" + esc(yen(result.gaibu_total)) + ")より大きい。</p>";
+      } else if (result.income_diff < result.gaibu_total) {
+        note += "<p>入力した条件では、外部サービスの総額(" + esc(yen(result.gaibu_total)) +
+          ")のほうが、辞めた場合の収入の差(" + esc(yen(result.income_diff)) + ")より大きい。</p>";
+      } else {
+        note += "<p>入力した条件では、収入の差と外部サービスの総額が同じ額になった。</p>";
+      }
+    }
+    note += "<p>年金の差は、平均標準報酬額を年収の12分の1で近似し、再就職後も厚生年金に入る前提で、厚生年金に入れる70歳までの分だけを数えた目安。" +
+      "正確な見込み額はねんきん定期便、ねんきんネット、年金事務所で確かめられる。退職金、失業給付、税金と社会保険料の違いは含めていない。</p>";
+    resultEl.innerHTML = '<table class="kl-table"><tbody>' + rows + "</tbody></table>" + note;
+    window.KL_UI && window.KL_UI.applyWhen(result);
+  }
+
+  form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+  form.addEventListener("change", render);
+  if (form.income && form.income.value) render();
+});
+</script>
+</body>
+</html>
