@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>介護休業93日を3回に分けるなら 開始日から各回の終わりの日、残りの日数、給付金の目安を出す | くらしラボ計算帳</title>
+<meta name="description" content="介護休業を最大3回に分けて計画するツール。各回の終了日と残りの日数と回数、給付金の目安をまとめて出す。数字は厚生労働省のリーフレットから転記。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="介護休業93日を3回に分けるなら 開始日から各回の終わりの日、残りの日数、給付金の目安を出す | くらしラボ計算帳">
+<meta property="og:description" content="介護休業を最大3回に分けて計画するツール。各回の終了日と残りの日数と回数、給付金の目安をまとめて出す。数字は厚生労働省のリーフレットから転記。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/",
+   "name": "介護休業93日を3回に分けるなら 開始日から各回の終わりの日、残りの日数、給付金の目安を出す",
+   "description": "介護休業を最大3回に分けて計画するツール。各回の終了日と残りの日数と回数、給付金の目安をまとめて出す。数字は厚生労働省のリーフレットから転記。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "手続き暦(介護と相続の期限)",
+     "item": "https://kurashi-labo.github.io/keisan/tetsuzuki/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "介護休業93日を3回に分けるなら 開始日から各回の終わりの日、残りの日数、給付金の目安を出す",
+     "item": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/tetsuzuki/kaigo-kyugyo-keikaku/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "介護休業給付金は、いつ、どうやって振り込まれますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "原則として事業主がハローワークに申請する。申請は1回の休業が終わるごとに必要で、終了日の翌日から2か月を経過する日の属する月の末日までに行う決まりだ。支給が決まると、本人の口座に決定から約1週間後に振り込まれる(厚生労働省リーフレット、2026-09-27確認)。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "休業中に会社から給与が出ている場合、給付金は減りますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "減る場合がある。休業中の期間を対象に会社から出た賃金が、賃金日額×支給日数の13%以下なら賃金月額の67%相当額、13%を超えて80%未満なら賃金月額の80%相当額と賃金の差額、80%以上なら給付金は出ない(厚生労働省リーフレット、2026-09-27確認)。このページの計算はこの減額を考えていないので、給与が出る人は目安として使ってほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "対象になる家族の範囲を教えてください。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "配偶者(事実上婚姻関係と同様の事情にある人を含む)、父母(養父母を含む)、子(養子を含む)、配偶者の父母(養父母を含む)、祖父母、兄弟姉妹、孫のいずれかで、同居しているかどうかは問われない(厚生労働省リーフレット、同居の扱いは東京労働局「常時介護を必要とする状態に関する判断基準」の注1、2026-09-27確認)。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "介護休業中の社会保険料はどうなりますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "介護休業取扱通知書の参考様式(厚生労働省リーフレット)では、給与から天引きできなくなる本人負担分を、会社が月ごとに請求書で知らせて本人が振り込む書き方になっている。税は市区町村から直接納税通知書が届くと書かれている。実際の額と払い方は勤務先の担当窓口に確認してほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "2週間前の申し出に間に合わなかったら、休業を取れなくなりますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "取れなくなるとは限らない。申し出が遅れたときは、会社が休業の開始日を後ろにずらせる(育児・介護休業法第12条第3項)。ずらせるのは、申し出た日の翌日から数えて2週間を経過する日までの範囲だ。希望どおりの日から休めるとは限らないので、早めに会社の担当窓口へ相談したほうがよい。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+<script>
+/* kl_date.js: くらしラボ計算帳の日付部品。グローバル KL_DATE(ブラウザは window、calc_test.js の vm は context)。
+   日付は Date か "YYYY-MM-DD" で受け取り、その端末の0時の Date で返す(文字列にするときは fmt)。
+   内部は 1970-01-01 からの通し日数で数えるので、タイムゾーンと夏時間の影響を受けない。
+   条文: 民法140条〜143条、国税通則法10条2項と同法施行令2条2項、祝日法(国民の祝日に関する法律)2条・3条。 */
+(function (root) {
+  "use strict";
+  var DAY_MS = 86400000;
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  var HOLIDAY_REF = /holiday|shukujitsu|syukujitsu/i;
+  var UNITS = ["days", "weeks", "months", "years"];
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function serialOf(y, m, d) { return Math.round(Date.UTC(y, m - 1, d) / DAY_MS); }
+  function partsOf(s) {
+    var t = new Date(s * DAY_MS);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+  }
+  function iso(y, m, d) { return y + "-" + pad(m) + "-" + pad(d); }
+  function isoOf(s) { var p = partsOf(s); return iso(p.y, p.m, p.d); }
+  function compact(s) { return isoOf(s).replace(/-/g, ""); }
+  function dow(s) { return ((s + 4) % 7 + 7) % 7; } // 1970-01-01 は木曜
+  function daysInMonth(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function isDate(v) { return Object.prototype.toString.call(v) === "[object Date]"; }
+
+  // Date(0時ちょうどなら端末の日付、UTC の0時ちょうどなら UTC の日付)、"YYYY-MM-DD"、"YYYY/M/D"、"YYYY年M月D日"、
+  // taxDeadline などの結果({date})を通し日数にする。読めなければ NaN
+  function toSerial(v) {
+    if (v === null || v === undefined || v === "") { return NaN; }
+    if (isDate(v)) {
+      if (isNaN(v.getTime())) { return NaN; }
+      if (v.getHours() === 0 && v.getMinutes() === 0 && v.getSeconds() === 0 && v.getMilliseconds() === 0) {
+        return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+      }
+      if (v.getUTCHours() === 0 && v.getUTCMinutes() === 0 && v.getUTCSeconds() === 0 && v.getUTCMilliseconds() === 0) {
+        return serialOf(v.getUTCFullYear(), v.getUTCMonth() + 1, v.getUTCDate());
+      }
+      return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+    }
+    if (typeof v === "object") { return v.date !== undefined && v.date !== v ? toSerial(v.date) : NaN; }
+    var m = /^\s*(\d{4})\s*[-\/.年]\s*(\d{1,2})\s*[-\/.月]\s*(\d{1,2})\s*日?\s*(?:$|T)/.exec(String(v));
+    if (!m) { return NaN; }
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y < 1000 || mo < 1 || mo > 12 || d < 1 || d > daysInMonth(y, mo)) { return NaN; }
+    return serialOf(y, mo, d);
+  }
+  function need(v, fn) {
+    var s = toSerial(v);
+    if (isNaN(s)) { throw new Error("KL_DATE." + fn + ": 日付を読めません(" + String(v) + ")"); }
+    return s;
+  }
+  function int(n, fn, what) {
+    var x = Number(n);
+    if (n === null || n === "" || !isFinite(x) || Math.floor(x) !== x) {
+      throw new Error("KL_DATE." + fn + ": " + what + "は整数で指定してください(" + String(n) + ")");
+    }
+    return x;
+  }
+  function toDate(s) {
+    var p = partsOf(s);
+    var t = new Date(2000, 0, 1);
+    t.setFullYear(p.y, p.m - 1, p.d);
+    t.setHours(0, 0, 0, 0);
+    return t;
+  }
+  function shiftMonths(s, n) {
+    var p = partsOf(s);
+    var idx = p.y * 12 + (p.m - 1) + n;
+    var y = Math.floor(idx / 12), m = idx - y * 12 + 1;
+    return { y: y, m: m, d: p.d, last: daysInMonth(y, m) };
+  }
+
+  function parse(v) { var s = toSerial(v); return isNaN(s) ? null : toDate(s); }
+  function fmt(v) { var s = toSerial(v); return isNaN(s) ? "" : isoOf(s); }
+  function weekdayJa(v) { return WEEKDAY_JA[dow(need(v, "weekdayJa"))]; }
+  function addDays(date, n) { return toDate(need(date, "addDays") + int(n, "addDays", "日数")); }
+  // 月の足し引き。応当日が無い月は月末にする(民法143条2項ただし書と同じ考え方。1月31日の1か月後は2月末日)
+  function addMonths(date, n) {
+    var t = shiftMonths(need(date, "addMonths"), int(n, "addMonths", "月数"));
+    return toDate(serialOf(t.y, t.m, Math.min(t.d, t.last)));
+  }
+  function addYears(date, n) { return addMonths(date, 12 * int(n, "addYears", "年数")); }
+  function endOfMonth(date) {
+    var p = partsOf(need(date, "endOfMonth"));
+    return toDate(serialOf(p.y, p.m, daysInMonth(p.y, p.m)));
+  }
+  function diffDays(from, to) { return need(to, "diffDays") - need(from, "diffDays"); }
+
+  // 期間の末日。spec は {days:n} {weeks:n} {months:n} {years:n} のどれか1つ
+  function periodEnd(start, spec, opts) {
+    var s = need(start, "periodEnd"), found = [];
+    for (var i = 0; i < UNITS.length; i++) {
+      if (spec && spec[UNITS[i]] !== undefined && spec[UNITS[i]] !== null) { found.push(UNITS[i]); }
+    }
+    if (found.length !== 1) {
+      throw new Error("KL_DATE.periodEnd: 期間は days、weeks、months、years のどれか1つで指定してください");
+    }
+    var unit = found[0], n = int(spec[unit], "periodEnd", unit);
+    if (n < 1) { throw new Error("KL_DATE.periodEnd: " + unit + "は1以上にしてください"); }
+    // 民法140条: 初日は算入しない(起算日は翌日)。午前0時から始まる期間だけ initialDayCounted:true で初日を数える
+    var first = s + (opts && opts.initialDayCounted === true ? 0 : 1);
+    // 民法141条: 期間は末日の終了をもって満了する。返すのはその末日
+    if (unit === "days") { return toDate(first + n - 1); }
+    // 民法143条: 週・月・年は暦に従い、最後の週・月・年で起算日に応当する日の前日に満了する(2項本文)
+    if (unit === "weeks") { return toDate(first + 7 * n - 1); }
+    var t = shiftMonths(first, unit === "years" ? 12 * n : n);
+    // 143条2項ただし書: 最後の月に応当する日が無いときは、その月の末日に満了する
+    if (t.d > t.last) { return toDate(serialOf(t.y, t.m, t.last)); }
+    return toDate(serialOf(t.y, t.m, t.d) - 1);
+  }
+
+  // ---- 祝日(祝日法)
+  // 春分・秋分の日は前年2月の官報で決まる。ここでは広く使われている近似式で出す(1980〜2150年)
+  function equinoxDay(year, spring) {
+    var base;
+    if (year >= 1980 && year <= 2099) { base = spring ? 20.8431 : 23.2488; }
+    else if (year >= 2100 && year <= 2150) { base = spring ? 21.8510 : 24.2488; }
+    else { return 0; }
+    return Math.floor(base + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function nthMonday(y, m, n) { return 1 + ((8 - dow(serialOf(y, m, 1))) % 7) + 7 * (n - 1); }
+
+  var ruleCache = {};
+  function ruleHolidays(year) {
+    if (ruleCache[year]) { return ruleCache[year]; }
+    var sai = {}, map = {}, k, s, t;
+    function put(m, d, name) { if (d) { sai[iso(year, m, d)] = name; } }
+    // 祝日法2条
+    put(1, 1, "元日");
+    put(1, nthMonday(year, 1, 2), "成人の日");
+    put(2, 11, "建国記念の日");
+    if (year >= 2020) { put(2, 23, "天皇誕生日"); }
+    put(3, equinoxDay(year, true), "春分の日");
+    put(4, 29, "昭和の日");
+    put(5, 3, "憲法記念日");
+    put(5, 4, "みどりの日");
+    put(5, 5, "こどもの日");
+    if (year === 2020) { put(7, 23, "海の日"); put(7, 24, "スポーツの日"); put(8, 10, "山の日"); }
+    else if (year === 2021) { put(7, 22, "海の日"); put(7, 23, "スポーツの日"); put(8, 8, "山の日"); }
+    else { put(7, nthMonday(year, 7, 3), "海の日"); put(8, 11, "山の日"); put(10, nthMonday(year, 10, 2), "スポーツの日"); }
+    put(9, nthMonday(year, 9, 3), "敬老の日");
+    put(9, equinoxDay(year, false), "秋分の日");
+    put(11, 3, "文化の日");
+    put(11, 23, "勤労感謝の日");
+    for (k in sai) { if (hasOwn.call(sai, k)) { map[k] = sai[k]; } }
+    for (k in sai) {
+      if (!hasOwn.call(sai, k)) { continue; }
+      s = toSerial(k);
+      // 3条2項(振替休日): 祝日が日曜日に当たるときは、その日後で最も近い祝日でない日を休日とする
+      if (dow(s) === 0) {
+        t = s + 1;
+        while (hasOwn.call(sai, isoOf(t))) { t += 1; }
+        map[isoOf(t)] = "振替休日";
+      }
+      // 3条3項(国民の休日): 前日と翌日が祝日である日(祝日でない日に限る)は休日とする
+      if (hasOwn.call(sai, isoOf(s + 2)) && !hasOwn.call(sai, isoOf(s + 1)) && !hasOwn.call(map, isoOf(s + 1))) {
+        map[isoOf(s + 1)] = "国民の休日";
+      }
+    }
+    var note = year < 2020 ? "2019年以前は祝日の決まりが今と違うため、参考の値です"
+      : (equinoxDay(year, true) ? "内閣府の祝日データに無い年のため、祝日法の決まりと春分・秋分の近似式で出しました"
+        : "春分と秋分の日を近似式で出せない年です(1980〜2150年のみ)");
+    ruleCache[year] = { map: map, note: note };
+    return ruleCache[year];
+  }
+
+  // refdata のうち、名前か出典URLに holiday / shukujitsu を含むものを祝日データとして読む。
+  // 形は {"rows": [{"date": "YYYY-MM-DD", "name": "…"}]}(taishoku-gyakusan__holidays_jp と shikaku-gyakusan__shukujitsu)
+  var refCache = { src: undefined, idx: null };
+  function holidayRows(source) {
+    if (Array.isArray(source)) { return source; }
+    var out = [];
+    if (source && typeof source === "object") {
+      for (var k in source) {
+        if (!hasOwn.call(source, k) || !Array.isArray(source[k])) { continue; }
+        var first = source[k][0];
+        if (HOLIDAY_REF.test(k) || (first && typeof first === "object" && HOLIDAY_REF.test(String(first.source_url || "")))) {
+          out = out.concat(source[k]);
+        }
+      }
+    }
+    return out;
+  }
+  function refIndex(source) {
+    if (source === undefined || source === null) { source = root.KL_REFDATA; }
+    if (refCache.idx && refCache.src === source) { return refCache.idx; }
+    var rows = holidayRows(source), map = {}, years = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+      if (isNaN(s)) { continue; }
+      k = isoOf(s);
+      map[k] = (r && typeof r === "object" && r.name) || map[k] || "祝日";
+    }
+    // 元日と勤労感謝の日の両方がある年を「その年の祝日がすべて載っている」とみなす
+    for (k in map) {
+      if (hasOwn.call(map, k) && map[k.slice(0, 4) + "-01-01"] && map[k.slice(0, 4) + "-11-23"]) { years[k.slice(0, 4)] = true; }
+    }
+    refCache = { src: source, idx: { map: map, years: years } };
+    return refCache.idx;
+  }
+
+  function holidaysFor(year, source) {
+    var y = int(year, "holidaysFor", "年"), idx = refIndex(source), prefix = String(y) + "-";
+    var fromRef = hasOwn.call(idx.years, String(y)), rule = fromRef ? null : ruleHolidays(y);
+    var src = fromRef ? idx.map : rule.map, map = {}, list = [], keys = [], k, i;
+    for (k in src) { if (hasOwn.call(src, k) && k.indexOf(prefix) === 0) { keys.push(k); } }
+    keys.sort();
+    for (i = 0; i < keys.length; i++) { map[keys[i]] = src[keys[i]]; list.push({ date: keys[i], name: src[keys[i]] }); }
+    var out = { year: y, estimated: !fromRef, source: fromRef ? "refdata" : "rule", holidays: list, map: map };
+    if (rule) { out.note = rule.note; }
+    return out;
+  }
+
+  // holidays の渡し方: 省略(KL_REFDATA の祝日、無い年は祝日法で計算)/ refdata オブジェクト / 日付か {date,name} の配列 /
+  // {"YYYY-MM-DD": 名前} / holidaysFor の結果。配列と {"日付": 名前} は「それが祝日のすべて」として扱う
+  function lookup(holidays) {
+    var fixed = null, source, perYear = {}, estimated = false;
+    if (Array.isArray(holidays)) {
+      fixed = {};
+      for (var i = 0; i < holidays.length; i++) {
+        var r = holidays[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+        if (!isNaN(s)) { fixed[isoOf(s)] = (r && typeof r === "object" && r.name) || "休日"; }
+      }
+    } else if (holidays && typeof holidays === "object") {
+      if (holidays.map && typeof holidays.map === "object" && holidays.year !== undefined) { fixed = holidays.map; }
+      else {
+        for (var key in holidays) {
+          if (hasOwn.call(holidays, key)) { fixed = /^\d{4}-\d{2}-\d{2}$/.test(key) ? holidays : null; break; }
+        }
+        if (!fixed) { source = holidays; }
+      }
+    }
+    return {
+      name: function (s) {
+        var k = isoOf(s);
+        if (fixed) { return hasOwn.call(fixed, k) ? String(fixed[k] === true ? "休日" : fixed[k]) : ""; }
+        var y = k.slice(0, 4);
+        if (!perYear[y]) {
+          perYear[y] = holidaysFor(Number(y), source);
+          if (perYear[y].estimated) { estimated = true; }
+        }
+        return hasOwn.call(perYear[y].map, k) ? perYear[y].map[k] : "";
+      },
+      estimated: function () { return estimated; }
+    };
+  }
+  function yearEnd(s) { var p = partsOf(s); return (p.m === 12 && p.d >= 29) || (p.m === 1 && p.d <= 3); }
+  function closedReason(s, look, withYearEnd) {
+    var name = look.name(s), w = dow(s);
+    if (name) { return name; }
+    if (w === 0) { return "日曜日"; }
+    if (w === 6) { return "土曜日"; }
+    if (withYearEnd && yearEnd(s)) { return "年末年始"; }
+    return "";
+  }
+
+  function holidayName(date, holidays) { return lookup(holidays).name(need(date, "holidayName")); }
+  // 土日と祝日(振替休日・国民の休日を含む)なら true
+  function isHoliday(date, holidays) { return !!closedReason(need(date, "isHoliday"), lookup(holidays), false); }
+  function businessDay(date, opts, fn, step) {
+    opts = opts || {};
+    var s = need(date, fn), look = lookup(opts.holidays);
+    if (opts.strict === true) { s += step; }
+    for (var i = 0; i < 400; i++, s += step) {
+      if (!closedReason(s, look, opts.yearEnd === true)) { return toDate(s); }
+    }
+    throw new Error("KL_DATE." + fn + ": 400日以内に営業日がありません");
+  }
+  // その日が営業日ならその日、休みなら次(前)の営業日。{strict:true} で必ず翌日以降(前日以前)にする。
+  // {yearEnd:true} で12月29日〜1月3日も休みとして数える
+  function nextBusinessDay(date, opts) { return businessDay(date, opts, "nextBusinessDay", 1); }
+  function prevBusinessDay(date, opts) { return businessDay(date, opts, "prevBusinessDay", -1); }
+
+  function shiftDeadline(date, opts, fn, basis) {
+    opts = opts || {};
+    var s0 = need(date, fn), s = s0, look = lookup(opts.holidays), skipped = [], why;
+    for (var i = 0; i < 400; i++) {
+      why = closedReason(s, look, true);
+      if (!why) { break; }
+      skipped.push({ date: isoOf(s), why: why });
+      s += 1;
+    }
+    return { date: toDate(s), ymd: isoOf(s), original: isoOf(s0), shifted: s !== s0, skipped: skipped,
+      estimated: look.estimated(), unconfirmed: false, basis: basis };
+  }
+  // 国税通則法10条2項: 期限が日曜日・祝日法の休日・その他一般の休日・政令で定める日に当たるときは、翌日を期限とみなす。
+  // 政令で定める日は土曜日と12月29日〜31日(施行令2条2項)。1月2日と3日は一般の休日として数える
+  function taxDeadline(date, opts) { return shiftDeadline(date, opts, "taxDeadline", "国税通則法10条2項"); }
+  // 民法142条: 期間の末日が日曜日・祝日法の休日その他の休日に当たるときは、その日に取引をしない慣習がある場合に限り翌日に満了する。
+  // 慣習の有無はここでは確かめられないので、繰り下げたときは unconfirmed:true を返す(土曜日と12月29日〜1月3日も休みとして数える)。
+  // 裁判所への申述など民事訴訟法95条3項(家事事件は家事事件手続法34条4項で準用)が使える手続は {basis:"minso"}。慣習の条件が無い
+  function courtDeadline(date, opts) {
+    var minso = !!(opts && opts.basis === "minso");
+    var r = shiftDeadline(date, opts, "courtDeadline", minso ? "民事訴訟法95条3項" : "民法142条");
+    r.unconfirmed = !minso && r.shifted;
+    return r;
+  }
+
+  // ---- カレンダー(RFC 5545)
+  function icsText(v) {
+    return String(v === undefined || v === null ? "" : v).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+      .replace(/,/g, "\\,").replace(/\r\n|\r|\n/g, "\\n");
+  }
+  // 1行75オクテット(UTF-8)を超えたら CRLF+空白で折り返す。文字の途中では切らない
+  function fold(line) {
+    var out = [], cur = "", bytes = 0, i = 0;
+    while (i < line.length) {
+      var c = line.charCodeAt(i), ch = line.charAt(i), n;
+      if (c >= 0xd800 && c <= 0xdbff && i + 1 < line.length) { ch = line.substr(i, 2); n = 4; }
+      else { n = c < 0x80 ? 1 : (c < 0x800 ? 2 : 3); }
+      if (bytes + n > 75) { out.push(cur); cur = " "; bytes = 1; }
+      cur += ch;
+      bytes += n;
+      i += ch.length;
+    }
+    out.push(cur);
+    return out.join("\r\n");
+  }
+  function hash(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul ? Math.imul(h, 0x01000193) : (h * 0x01000193) | 0; }
+    return ("0000000" + (h >>> 0).toString(16)).slice(-8);
+  }
+  function stamp(now) {
+    var t = isDate(now) ? now.getTime() : (typeof now === "string" ? Date.parse(now) : (typeof now === "number" ? now : Date.now()));
+    if (!isFinite(t)) { throw new Error("KL_DATE.toICS: now を読めません(" + String(now) + ")"); }
+    var d = new Date(t);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+  }
+  // events: [{title, date, description}]。終日の予定(DTSTART;VALUE=DATE、DTEND は翌日)。opts.now で DTSTAMP を固定できる
+  function toICS(events, calName, opts) {
+    opts = opts || {};
+    var dtstamp = stamp(opts.now), name = calName ? String(calName) : "くらしラボ計算帳";
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//kurashi-labo//keisan//JA", "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH", "X-WR-CALNAME:" + icsText(name)];
+    var list = Array.isArray(events) ? events : [];
+    for (var i = 0; i < list.length; i++) {
+      var ev = list[i] || {}, s = need(ev.date, "toICS"), title = String(ev.title || "予定"), day = compact(s);
+      lines.push("BEGIN:VEVENT",
+        "UID:" + day + "-" + (i + 1) + "-" + hash(name + "\n" + title + "\n" + day + "\n" + i) + "@kurashi-labo.github.io",
+        "DTSTAMP:" + dtstamp, "DTSTART;VALUE=DATE:" + day, "DTEND;VALUE=DATE:" + compact(s + 1),
+        "SUMMARY:" + icsText(title));
+      if (ev.description) { lines.push("DESCRIPTION:" + icsText(ev.description)); }
+      lines.push("TRANSP:TRANSPARENT", "END:VEVENT");
+    }
+    lines.push("END:VCALENDAR");
+    var out = [];
+    for (var j = 0; j < lines.length; j++) { out.push(fold(lines[j])); }
+    return out.join("\r\n") + "\r\n";
+  }
+  function icsDataUrl(ics) { return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+
+  var api = {
+    version: "1", parse: parse, fmt: fmt, weekdayJa: weekdayJa, addDays: addDays, addMonths: addMonths,
+    addYears: addYears, endOfMonth: endOfMonth, diffDays: diffDays, periodEnd: periodEnd,
+    holidaysFor: holidaysFor, holidayName: holidayName, isHoliday: isHoliday,
+    nextBusinessDay: nextBusinessDay, prevBusinessDay: prevBusinessDay,
+    taxDeadline: taxDeadline, courtDeadline: courtDeadline, toICS: toICS, icsDataUrl: icsDataUrl
+  };
+  root.KL_DATE = api;
+  if (typeof module === "object" && module && module.exports) { module.exports = api; }
+})(typeof globalThis !== "undefined" ? globalThis : this);
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../tetsuzuki/">手続き暦(介護と相続の期限)</a><span aria-hidden="true">›</span><span>介護休業93日を3回に分けるなら 開始日から各回の終わりの日、残りの日数、給付金の目安を出す</span></nav>
+<article class="page">
+<h1>介護休業93日を3回に分けるなら 開始日から各回の終わりの日、残りの日数、給付金の目安を出す</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>介護休業は、同じ対象家族について通算93日まで、3回に分けて取れる。1回ごとの介護休業給付金は、休業前6か月の賃金を180で割った賃金日額に、支給日数(1か月ごとに区切った期間の日数で、休業が終わる期間だけ実際の日数、それ以外は30日)と67%をかけて出す(厚生労働省「介護休業給付の内容及び支給申請手続について」、2026-09-27確認)。賃金月額には上限546,600円と下限96,090円があり、2026年8月1日から2027年7月31日まではこの額を使う。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+<div class="kl-field"><label for="kl-wage">休業を始める前6か月の、賞与を除いた月給の目安(円)</label>
+<input type="number" id="kl-wage" name="wage_month" min="0" step="1000" value="300000" required></div>
+<fieldset class="kl-field"><legend>1回目の介護休業</legend>
+<label for="kl-p1-start">開始日</label>
+<input type="date" id="kl-p1-start" name="p1_start" required>
+<label for="kl-p1-days">日数</label>
+<input type="number" id="kl-p1-days" name="p1_days" min="1" step="1" value="30" required>
+</fieldset>
+<fieldset class="kl-field"><legend>2回目の介護休業(分けて取るときだけ入力)</legend>
+<label for="kl-p2-start">開始日</label>
+<input type="date" id="kl-p2-start" name="p2_start">
+<label for="kl-p2-days">日数</label>
+<input type="number" id="kl-p2-days" name="p2_days" min="1" step="1">
+</fieldset>
+<fieldset class="kl-field"><legend>3回目の介護休業(分けて取るときだけ入力)</legend>
+<label for="kl-p3-start">開始日</label>
+<input type="date" id="kl-p3-start" name="p3_start">
+<label for="kl-p3-days">日数</label>
+<input type="number" id="kl-p3-days" name="p3_days" min="1" step="1">
+</fieldset>
+<div class="kl-field"><label for="kl-mokuteki">休業のあいだ、主に何をする予定か(任意。合う案内だけ下に出します)</label>
+<select id="kl-mokuteki" name="mokuteki">
+<option value="">選択しない</option>
+<option value="施設を探す・見学する">施設を探す・見学する</option>
+<option value="在宅の介護・家事を頼む">在宅の介護・家事を頼む</option>
+</select></div>
+<button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta" data-when-field="mokuteki" data-when-op="==" data-when-value="&quot;施設を探す・見学する&quot;" hidden><a class="cta-link" href="../../tetsuzuki/kaigo-rishoku-sa/">介護を理由に働き方を変えた場合の収入差は、こちらのページへ</a></div>
+<div class="kl-cta"><a class="cta-link" href="../../tetsuzuki/kaigo-rishoku-sa/">介護を理由に働き方を変えた場合の収入差も計算できます</a></div>
+</section>
+<div class="intro"><p>介護休業を考えはじめると、いつからいつまで休むか、給付金がいくらになるか、3回まで分けられる残りが何日あるかを、同時に把握しておきたくなる。このページは、開始日と日数を入れると、その3つをまとめて出すためにくらしラボが作った。</p><p>手間をかけたのは給付金の日数の数え方だ。暦の休業日数に67%をかけると、31日の月や2月をまたぐ休業で額がずれる。雇用保険法と厚生労働省のリーフレットでは、休業を開始日から1か月ごとに区切り、休業が終わる期間だけ実際の日数、それ以外の期間は30日として数える。たとえば10月1日から40日休むと、支給日数は30日と9日で39日になる。このツールもそのとおりに数え、1回の休業につき3か月分(3期間)までを給付金の対象にしている。賃金月額の上限と下限は、2026年8月1日から2027年7月31日までの額を使う。</p><p>休業を取れるかどうかは、育児・介護休業法の条件(期間を定めて雇われている人の契約期間の条件など)と、会社が労使協定で対象外にしている人(入社1年未満の人など)に当たるかどうかで決まる。親の病状や施設の良し悪しについて、このページは判断しない。</p></div>
+<section>
+<h2>介護休業93日と3回までの数え方</h2>
+<p>介護休業は、同じ対象家族(配偶者〈事実上婚姻関係と同様の事情にある人を含む〉、父母〈養父母を含む〉、子〈養子を含む〉、配偶者の父母〈養父母を含む〉、祖父母、兄弟姉妹、孫のいずれか。同居の有無は問わない)について、通算93日を上限に、3回まで分けて取れる(厚生労働省「介護休業給付の内容及び支給申請手続について」、同居の扱いは東京労働局「常時介護を必要とする状態に関する判断基準」の注1、2026-09-27確認)。同じ資料には、1回目に61日、2回目に32日を取り、合わせて93日になる例が載っている。このページは、決めている回だけ開始日と日数を入れれば、通算日数と残りの日数と回数を一度に出す。</p><p>対象になるのは、負傷、疾病または身体上もしくは精神上の障害により、2週間以上にわたり常時介護(歩行、排泄、食事などの日常生活に必要な便宜を供与すること)を必要とする状態にある家族だ。「常時介護を必要とする状態」は、12項目のうち状態2(一部介助や見守りが必要など)が2つ以上、または状態3(全面的な介助が必要など)が1つ以上あって、その状態が続くと認められる場合か、介護保険の要介護2以上のどちらかで判断する(厚生労働省・東京労働局「常時介護を必要とする状態に関する判断基準」〈令和7年4月1日適用〉、2026-09-27確認)。この判断は会社が行い、このページでは扱わない。</p>
+</section>
+<section>
+<h2>介護休業給付金の67%はどう決まるか</h2>
+<p>1回の介護休業給付金は、原則として「休業開始時賃金日額×支給日数×67%」で決まる。賃金日額は、休業開始前6か月間の賃金を180で割った額だ。この賃金日額に支給日数の30を掛けて求めた「賃金月額」が上限額を超えるときは上限額に、下限額を下回るときは下限額に置き換える。2026年8月1日から2027年7月31日までは、上限額546,600円(1支給対象期間あたりの上限366,222円)と下限額96,090円が使われている(厚生労働省リーフレット、2026-09-27確認)。この額は毎年8月1日に改定される。</p><p>休業中に会社から賃金が出ている場合は、給付金が減る。会社から出た賃金が賃金日額×支給日数の13%以下なら賃金月額の67%相当額、13%を超えて80%未満なら賃金月額の80%相当額と賃金の差額、80%以上なら給付金は出ない(厚生労働省リーフレット、2026-09-27確認)。このページの計算は、この減額を考えずに67%だけで出した目安なので、会社から給与が出る人は、勤務先かハローワークで実際の額を確認してほしい。</p>
+</section>
+<section>
+<h2>申し出の目安日と、遅れたときの扱い</h2>
+<p>介護休業は、書面(介護休業申出書)で事業主に申し出る。根拠は育児・介護休業法第11条第3項と施行規則で、厚生労働省リーフレットの申出書の参考様式に注として書かれている(2026-09-27確認)。2週間の目安は同法第12条第3項から来ている。申し出た日の翌日から数えて2週間を経過する日より前を開始予定日にすると、会社はその日までの間で開始日を指定できる。このページが出す「申し出る目安」は開始予定日から14日を引いた日で、この日までに申し出れば、この指定の対象にならない。会社の就業規則に申し出の手順が書かれていれば、あわせて確かめてほしい。</p><p>遅れたときは、会社が開始日を後ろにずらすことがある。リーフレットの介護休業取扱通知書の参考様式にも「申し出た期日が遅かったので休業開始日を(  )日にしてください」という書き方が載っている。一方で、会社は条件を満たした申し出を拒めない(同法第12条第1項)。対象外にできるのは、入社1年未満の人など法律と省令が決めた範囲の人を、労使協定で定めた場合に限られる(同条第2項)。自分がその対象外に当たるかどうかと、家族の病状や施設の良し悪しは、このページでは判断しない。</p>
+</section>
+<section>
+<h2>介護休業中の社会保険料の扱い</h2>
+<p>厚生労働省リーフレットに載っている介護休業取扱通知書の参考様式では、休業に入ると社会保険料の本人負担分を給与から天引きできなくなるため、会社が月ごとに支払請求書を送り、本人が指定の口座へ振り込む書き方になっている(2026-09-27確認)。税についても、市区町村から直接納税通知書が届くと同じ様式に書かれている。休業中の保険料をいくら、どう払うかは会社ごとに違うので、休業前に会社の担当窓口に確認しておくと、休業中にあわてずに済む。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>1回ごとの給付金の目安は、休業を始める前6か月の賃金の月額を30で割った「賃金日額」に、支給日数(1か月ごとに区切った支給対象期間の日数で、休業が終わる期間だけ実際の日数、それ以外は30日。1回の休業で支給対象になるのは3期間まで)と67%をかけて出している(休業開始前6か月間の賃金の合計を180で割る計算と、数字のうえでは同じになる)。賃金月額が上限額(2026年8月1日から2027年7月31日は546,600円)を超えるときは上限額を、下限額(同じ期間は96,090円)を下回るときは下限額を使う。この上限と下限は毎年8月1日に改定されるため、一覧に無い期間の休業は直近の額をそのまま使い、「推定」と表示する。</p><p>会社から休業中に賃金が出ている場合の減額(下の節で説明)は、このツールでは計算していない。実際の受給額は、勤務先が提出する「雇用保険被保険者休業開始時賃金月額証明書」をもとにハローワークが決める。ここに出す額はその前段階の見積もりだ。会社に申し出る目安の日付も、開始予定日から2週間を引いただけの参考日で、会社の締切日そのものではない。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">介護休業給付金の通算日数の上限</th><td class="num">93日</td><td><a href="https://www.mhlw.go.jp/content/11600000/001741883.pdf" rel="noopener" target="_blank">同じ対象家族について、3回までに限り通算93日を上限に支給される(厚生労働省リーフレット、2026-09-27確認)。</a></td></tr>
+<tr><th scope="row">分割して取れる回数の上限</th><td class="num">3回</td><td><a href="https://www.mhlw.go.jp/content/11600000/001741883.pdf" rel="noopener" target="_blank">同上の資料で確認(2026-09-27)。</a></td></tr>
+<tr><th scope="row">支給率</th><td class="num">67%</td><td><a href="https://www.mhlw.go.jp/content/11600000/001741883.pdf" rel="noopener" target="_blank">休業開始時賃金日額×支給日数×67%が原則の支給額。会社から賃金が出る場合の減額は、このツールでは計算していない。</a></td></tr>
+<tr><th scope="row">賃金月額の上限額(2026年8月1日〜2027年7月31日)</th><td class="num">546,600円</td><td><a href="https://www.mhlw.go.jp/content/11600000/001741883.pdf" rel="noopener" target="_blank">この額を超える分は計算に使われない(1支給対象期間あたりの上限は366,222円)。翌年8月にまた改定される。</a></td></tr>
+<tr><th scope="row">賃金月額の下限額(2026年8月1日〜2027年7月31日)</th><td class="num">96,090円</td><td><a href="https://www.mhlw.go.jp/content/11600000/001741883.pdf" rel="noopener" target="_blank">この額を下回るときは、この額で計算する。</a></td></tr>
+<tr><th scope="row">介護休業の申し出期限(原則)</th><td class="num">14日前</td><td><a href="https://laws.e-gov.go.jp/law/403AC0000000076" rel="noopener" target="_blank">書面で申し出ることは育児・介護休業法第11条第3項と施行規則による(リーフレット7頁の注)。2週間は同法第12条第3項による(開始予定日が、申し出た日の翌日から2週間を経過する日より前なら、会社はその日までの間で開始日を指定できる)。申出書の参考様式にも「休業開始予定日の2週間前に申し出ているか」の欄がある。このページの「申し出る目安」は開始予定日から14日を引いた参考日で、会社の締切日そのものではない。</a></td></tr>
+</tbody></table></div>
+
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. 介護休業給付金は、いつ、どうやって振り込まれますか。</dt>
+<dd>原則として事業主がハローワークに申請する。申請は1回の休業が終わるごとに必要で、終了日の翌日から2か月を経過する日の属する月の末日までに行う決まりだ。支給が決まると、本人の口座に決定から約1週間後に振り込まれる(厚生労働省リーフレット、2026-09-27確認)。</dd>
+<dt>Q. 休業中に会社から給与が出ている場合、給付金は減りますか。</dt>
+<dd>減る場合がある。休業中の期間を対象に会社から出た賃金が、賃金日額×支給日数の13%以下なら賃金月額の67%相当額、13%を超えて80%未満なら賃金月額の80%相当額と賃金の差額、80%以上なら給付金は出ない(厚生労働省リーフレット、2026-09-27確認)。このページの計算はこの減額を考えていないので、給与が出る人は目安として使ってほしい。</dd>
+<dt>Q. 対象になる家族の範囲を教えてください。</dt>
+<dd>配偶者(事実上婚姻関係と同様の事情にある人を含む)、父母(養父母を含む)、子(養子を含む)、配偶者の父母(養父母を含む)、祖父母、兄弟姉妹、孫のいずれかで、同居しているかどうかは問われない(厚生労働省リーフレット、同居の扱いは東京労働局「常時介護を必要とする状態に関する判断基準」の注1、2026-09-27確認)。</dd>
+<dt>Q. 介護休業中の社会保険料はどうなりますか。</dt>
+<dd>介護休業取扱通知書の参考様式(厚生労働省リーフレット)では、給与から天引きできなくなる本人負担分を、会社が月ごとに請求書で知らせて本人が振り込む書き方になっている。税は市区町村から直接納税通知書が届くと書かれている。実際の額と払い方は勤務先の担当窓口に確認してほしい。</dd>
+<dt>Q. 2週間前の申し出に間に合わなかったら、休業を取れなくなりますか。</dt>
+<dd>取れなくなるとは限らない。申し出が遅れたときは、会社が休業の開始日を後ろにずらせる(育児・介護休業法第12条第3項)。ずらせるのは、申し出た日の翌日から数えて2週間を経過する日までの範囲だ。希望どおりの日から休めるとは限らないので、早めに会社の担当窓口へ相談したほうがよい。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.mhlw.go.jp/content/11600000/001741883.pdf" rel="noopener" target="_blank">厚生労働省・ハローワーク「介護休業給付の内容及び支給申請手続について」(PL080801保06)</a>(2026年9月27日確認)</li><li><a href="https://jsite.mhlw.go.jp/tokyo-roudoukyoku/content/contents/002140717.pdf" rel="noopener" target="_blank">厚生労働省・東京労働局「常時介護を必要とする状態に関する判断基準」(令和7年4月1日適用)</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/349AC0000000116" rel="noopener" target="_blank">e-Gov法令検索「雇用保険法」第61条の4(支給単位期間、支給日数、93日と3回)</a>(2026年9月27日確認)</li><li><a href="https://laws.e-gov.go.jp/law/403AC0000000076" rel="noopener" target="_blank">e-Gov法令検索「育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律」第11条、第12条</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../tetsuzuki/kaigo-rishoku-sa/">介護で仕事を辞めたら、続けた場合と比べていくら減る? 年収、年齢、再就職までの年数から収入と年金の差を出す</a></li><li><a href="../../tetsuzuki/seinen-kouken-hiyou/">成年後見の申立て費用と後見人の報酬の目安を、財産額と年数から計算する</a></li><li><a href="../../tetsuzuki/souzoku-touki-kigen/">相続登記はいつまで? 不動産の相続を知った日から期限を出す(2024年4月より前の相続は2027年3月31日まで)</a></li><li><a href="../../tetsuzuki/souzoku-houki-kigen/">相続放棄の3か月はいつまで? 自分が相続人になったと知った日から期限を出す</a></li><li><a href="../../tetsuzuki/shigo-kigen/">亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる</a></li><li><a href="../../tetsuzuki/akiya-tokurei-kigen/">相続した空き家を売る期限はいつか 3,000万円控除(空き家特例)の売却期限を計算する</a></li><li><a href="../../tetsuzuki/">手続き暦(介護と相続の期限)の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>window.KL_REFDATA = {"kaigo-kyugyo-keikaku__chingin_gendogaku": [{"key": "2026-08-01_2027-07-31", "period_start": "2026-08-01", "period_end": "2027-07-31", "wage_month_max": 546600, "wage_month_min": 96090, "benefit_max_per_unit": 366222, "shikyuritsu": 0.67, "source_url": "https://www.mhlw.go.jp/content/11600000/001741883.pdf", "checked": "2026-09-27"}]};</script>
+<script>
+function KL_CALC(input, refdata) {
+  refdata = refdata || {};
+  var REFNAME = "kaigo-kyugyo-keikaku__chingin_gendogaku";
+  var rows = refdata[REFNAME] || [];
+  var LIMIT_DAYS = 93;
+  var LIMIT_TIMES = 3;
+  var LIMIT_UNITS_PER_LEAVE = 3;
+  var RATE = 0.67;
+  var NOTICE_DAYS = 14;
+
+  function findLimitRow(dateStr) {
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      if (r && r.period_start && r.period_end && dateStr >= r.period_start && dateStr <= r.period_end) return r;
+    }
+    return null;
+  }
+  function latestRow() {
+    if (!rows.length) return null;
+    var latest = rows[0];
+    for (var i = 1; i < rows.length; i++) {
+      if (rows[i] && rows[i].period_start > latest.period_start) latest = rows[i];
+    }
+    return latest;
+  }
+
+  var mokuteki = (input && input.mokuteki) || null;
+  var errors = [];
+
+  var wageMonth = Number(input && input.wage_month);
+  if (!(wageMonth > 0)) errors.push("wage_month_invalid");
+
+  var periodsInRaw = (input && Object.prototype.toString.call(input.periods) === "[object Array]") ? input.periods : [];
+  if (periodsInRaw.length > 3) errors.push("too_many_periods");
+  var periodsIn = periodsInRaw.slice(0, 3);
+
+  var cleanPeriods = [];
+  for (var i = 0; i < periodsIn.length; i++) {
+    var raw = periodsIn[i] || {};
+    if (raw.start === undefined || raw.start === null || raw.start === "") continue; // 空の回は無視する
+    var parsed = KL_DATE.parse(raw.start);
+    if (!parsed) { errors.push("start_invalid_" + (i + 1)); continue; }
+    var days = Number(raw.days);
+    if (!(days > 0) || Math.floor(days) !== days) { errors.push("days_invalid_" + (i + 1)); continue; }
+    cleanPeriods.push({ start: raw.start, days: days });
+  }
+
+  if (errors.length) {
+    return {
+      error: errors.join(","), mokuteki: mokuteki, periods: [], total_days: null,
+      remaining_days: null, remaining_times: null, over_limit_days: null, over_limit_times: null,
+      wage_daily: null, benefit: null, chingaku_estimated: null, notify_by: null, notify_days_left: null,
+      total_paid_days: null, any_over_3months: null, any_unconfirmed_unit: null, any_over_93_excluded: null
+    };
+  }
+
+  if (!cleanPeriods.length) {
+    return {
+      error: "no_period", mokuteki: mokuteki, periods: [], total_days: 0,
+      remaining_days: LIMIT_DAYS, remaining_times: LIMIT_TIMES, over_limit_days: false, over_limit_times: false,
+      wage_daily: null, benefit: null, chingaku_estimated: null, notify_by: null, notify_days_left: null,
+      total_paid_days: 0, any_over_3months: false, any_unconfirmed_unit: false, any_over_93_excluded: false
+    };
+  }
+
+  var totalDays = 0;
+  for (i = 0; i < cleanPeriods.length; i++) totalDays += cleanPeriods[i].days;
+  var overLimitDays = totalDays > LIMIT_DAYS;
+  var overLimitTimes = cleanPeriods.length > LIMIT_TIMES;
+
+  // 賃金日額(回ごとに、その回の開始日が属する上限・下限額の行を使う)
+  function wageInfoFor(startStr) {
+    var limitRow = findLimitRow(startStr);
+    var estimated = false;
+    if (!limitRow) { limitRow = latestRow(); estimated = true; }
+    var capMax = limitRow ? Number(limitRow.wage_month_max) : null;
+    var capMin = limitRow ? Number(limitRow.wage_month_min) : null;
+    var effWage = wageMonth;
+    var cappedAs = "none";
+    if (capMax !== null && effWage > capMax) { effWage = capMax; cappedAs = "max"; }
+    if (capMin !== null && effWage < capMin) { effWage = capMin; cappedAs = "min"; }
+    return { wageDaily: Math.floor(effWage / 30), wageMonthUsed: effWage, cappedAs: cappedAs, estimated: estimated };
+  }
+
+  // 1回の休業のうち、支給の対象になる日数だけを支給対象期間(最長3期間)に分ける。
+  // 厚生労働省リーフレット3頁(3)(4): 期間は開始日から1か月ごとに区切り、応当日が無い月は月末で区切る。
+  // 最後以外の期間は30日、休業終了日を含む期間はその期間の実日数。1回の休業で支給されるのは3期間まで。
+  function splitUnits(startStr, payableDays) {
+    var startDate = KL_DATE.parse(startStr);
+    var endDate = KL_DATE.addDays(startDate, payableDays - 1);
+    var units = [];
+    for (var k = 0; k < LIMIT_UNITS_PER_LEAVE; k++) {
+      var unitStart = KL_DATE.addMonths(startDate, k);
+      var isThirdUnit = (k === LIMIT_UNITS_PER_LEAVE - 1);
+      // 1つ目と2つ目の期間の末日は、次の期間の初日(翌月の応当日。無い月は月末)の前日。
+      // 3つ目の期間の末日は「開始日から3か月を経過する日」(3か月目の応当日の前日。応当日が無い月はその月の末日)。
+      // 雇用保険法第61条の4第3項、リーフレット4頁の注1の例(8月31日開始なら11月30日、5月31日開始なら8月30日)
+      var boundary = isThirdUnit
+        ? KL_DATE.periodEnd(startDate, { months: LIMIT_UNITS_PER_LEAVE }, { initialDayCounted: true })
+        : KL_DATE.addDays(KL_DATE.addMonths(startDate, k + 1), -1);
+      if (KL_DATE.diffDays(endDate, boundary) >= 0) {
+        // 休業終了日がこの期間の境界日以前 -> ここが実日数で数える最後の期間
+        var actualDays = KL_DATE.diffDays(unitStart, endDate) + 1;
+        units.push({
+          index: k + 1, start: KL_DATE.fmt(unitStart), end: KL_DATE.fmt(endDate),
+          days: actualDays, kind: "final", unconfirmed: false
+        });
+        return { units: units, overThreeMonths: false };
+      }
+      if (!isThirdUnit) {
+        units.push({
+          index: k + 1, start: KL_DATE.fmt(unitStart), end: KL_DATE.fmt(boundary),
+          days: 30, kind: "full", unconfirmed: false
+        });
+        continue;
+      }
+      // 3期間目に入っても休業が続く場合、1回の休業として支給されるのはここまで(リーフレット3頁(3))。
+      // 雇用保険法第61条の4第4項の文言どおりなら、休業終了日を含まないこの期間は30日。
+      // ただしリーフレットの申請の手引きは、3か月を超える休業を「3か月を経過する日」で区切って書かせるため、
+      // 実日数(days_alt)で数える扱いの可能性を消せない。計算は控えめな30日を使い、画面には「未確認」と出す
+      var boundaryActualDays = KL_DATE.diffDays(unitStart, boundary) + 1;
+      units.push({
+        index: k + 1, start: KL_DATE.fmt(unitStart), end: KL_DATE.fmt(boundary),
+        days: 30, days_alt: boundaryActualDays, kind: "capped", unconfirmed: true
+      });
+      return { units: units, overThreeMonths: true };
+    }
+    return { units: units, overThreeMonths: false };
+  }
+
+  var results = [];
+  var benefitTotal = 0;
+  var anyEstimatedWage = false;
+  var anyUnconfirmedUnit = false;
+  var anyOver3Months = false;
+  var anyOver93Excluded = false;
+  var runningRawDays = 0; // 通算93日(法律上の休業日数の上限)の判定に使う、生の入力日数の累計
+  var totalPaidDays = 0;
+
+  for (i = 0; i < cleanPeriods.length; i++) {
+    var p = cleanPeriods[i];
+    var startDate = KL_DATE.parse(p.start);
+    var fullEndDate = KL_DATE.addDays(startDate, p.days - 1);
+    var notifyByDate = KL_DATE.addDays(startDate, -NOTICE_DAYS);
+
+    // 通算93日の枠に収まる日数だけを支給計算の対象にする。枠を超えた日数は支給対象期間に分けず、0円のまま
+    var remainingQuota = Math.max(LIMIT_DAYS - runningRawDays, 0);
+    var payableRawDays = Math.min(p.days, remainingQuota);
+    var excludedDays = p.days - payableRawDays;
+    runningRawDays += p.days;
+
+    var wageInfo = wageInfoFor(p.start);
+    if (wageInfo.estimated) anyEstimatedWage = true;
+
+    var units = [];
+    var over3ThisPeriod = false;
+    var periodPaidDays = 0;
+    var periodBenefit = 0;
+    if (payableRawDays > 0) {
+      var split = splitUnits(p.start, payableRawDays);
+      units = split.units;
+      over3ThisPeriod = split.overThreeMonths;
+      if (over3ThisPeriod) anyOver3Months = true;
+      for (var u = 0; u < units.length; u++) {
+        if (units[u].unconfirmed) anyUnconfirmedUnit = true;
+        var unitBenefit = Math.floor(wageInfo.wageDaily * units[u].days * RATE);
+        units[u].benefit = unitBenefit;
+        periodBenefit += unitBenefit;
+        periodPaidDays += units[u].days;
+      }
+    }
+    if (excludedDays > 0) anyOver93Excluded = true;
+
+    totalPaidDays += periodPaidDays;
+    benefitTotal += periodBenefit;
+
+    results.push({
+      index: i + 1,
+      start: KL_DATE.fmt(startDate),
+      start_weekday: KL_DATE.weekdayJa(startDate),
+      days: p.days,
+      end: KL_DATE.fmt(fullEndDate),
+      end_weekday: KL_DATE.weekdayJa(fullEndDate),
+      notify_by: KL_DATE.fmt(notifyByDate),
+      wage_month_used: wageInfo.wageMonthUsed,
+      wage_month_capped: wageInfo.cappedAs,
+      wage_daily: wageInfo.wageDaily,
+      units: units,
+      shikyuu_nissu: periodPaidDays,
+      benefit: periodBenefit,
+      chingaku_estimated: wageInfo.estimated,
+      over_3months: over3ThisPeriod,
+      over_93_excluded: excludedDays > 0,
+      excluded_days: excludedDays
+    });
+  }
+
+  var notifyDaysLeft = null;
+  if (input && input.today) {
+    var todayDate = KL_DATE.parse(input.today);
+    var firstNotify = KL_DATE.parse(results[0].notify_by);
+    if (todayDate && firstNotify) notifyDaysLeft = KL_DATE.diffDays(todayDate, firstNotify);
+  }
+
+  return {
+    error: null,
+    mokuteki: mokuteki,
+    periods: results,
+    total_days: totalDays,
+    total_paid_days: totalPaidDays,
+    remaining_days: Math.max(LIMIT_DAYS - totalDays, 0),
+    remaining_times: Math.max(LIMIT_TIMES - cleanPeriods.length, 0),
+    over_limit_days: overLimitDays,
+    over_limit_times: overLimitTimes,
+    wage_daily: results[0].wage_daily,
+    benefit: benefitTotal,
+    chingaku_estimated: anyEstimatedWage,
+    notify_by: results[0].notify_by,
+    notify_days_left: notifyDaysLeft,
+    any_over_3months: anyOver3Months,
+    any_unconfirmed_unit: anyUnconfirmedUnit,
+    any_over_93_excluded: anyOver93Excluded
+  };
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("kl-form");
+  var resultEl = document.getElementById("kl-result");
+  if (!form || !resultEl) return;
+
+  var lastIcsUrl = null;
+
+  function todayStr() {
+    var d = new Date();
+    var m = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + d.getDate()).slice(-2);
+    return d.getFullYear() + "-" + m + "-" + day;
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function yen(n) {
+    if (n === null || n === undefined) return "-";
+    return Number(n).toLocaleString("ja-JP") + "円";
+  }
+
+  function readInput() {
+    var fd = new FormData(form);
+    var periods = [];
+    for (var i = 1; i <= 3; i++) {
+      var start = fd.get("p" + i + "_start");
+      var days = fd.get("p" + i + "_days");
+      if (start) periods.push({ start: start, days: Number(days || 0) });
+    }
+    return {
+      wage_month: Number(fd.get("wage_month") || 0),
+      periods: periods,
+      mokuteki: fd.get("mokuteki") || "",
+      today: todayStr()
+    };
+  }
+
+  function icsLinkHtml(result) {
+    if (typeof KL_DATE === "undefined" || typeof KL_DATE.toICS !== "function") return "";
+    if (!result.periods || !result.periods.length) return "";
+    var events = [];
+    for (var i = 0; i < result.periods.length; i++) {
+      var p = result.periods[i];
+      events.push({ title: (i + 1) + "回目の介護休業(開始)", date: p.start, description: "終了予定日 " + p.end });
+      events.push({ title: (i + 1) + "回目の介護休業(終了予定)", date: p.end });
+      events.push({ title: (i + 1) + "回目 会社に申し出る目安(2週間前)", date: p.notify_by });
+    }
+    var text = KL_DATE.toICS(events, "介護休業計画(くらしラボ)");
+    if (typeof Blob === "undefined" || typeof URL === "undefined" || !URL.createObjectURL) return "";
+    if (lastIcsUrl) {
+      try { URL.revokeObjectURL(lastIcsUrl); } catch (e) { /* 無視 */ }
+      lastIcsUrl = null;
+    }
+    var blob = new Blob([text], { type: "text/calendar;charset=utf-8" });
+    lastIcsUrl = URL.createObjectURL(blob);
+    return '<p><a class="kl-ics-link" href="' + lastIcsUrl + '" download="kaigo-kyugyo-keikaku.ics">カレンダーに追加(.ics)</a></p>';
+  }
+
+  function unitRowsHtml(p) {
+    if (!p.units || !p.units.length) return "";
+    var out = "";
+    for (var i = 0; i < p.units.length; i++) {
+      var u = p.units[i];
+      var daysLabel = u.days + "日";
+      if (u.unconfirmed) {
+        daysLabel = u.days + "日(未確認。" + u.days_alt + "日になる可能性があります)";
+      }
+      out += "<li>" + esc(u.start) + "から" + esc(u.end) + "まで: 支給日数 " + daysLabel +
+        "、給付金の目安 " + yen(u.benefit) + "</li>";
+    }
+    return '<ul class="kl-units">' + out + "</ul>";
+  }
+
+  function render() {
+    var input = readInput();
+    if (!input.periods.length) {
+      resultEl.innerHTML = "<p>1回目の開始日と日数を入れると計算します。</p>";
+      return;
+    }
+    var result;
+    try {
+      result = KL_CALC(input, (window.KL_REFDATA || {}));
+    } catch (e) {
+      resultEl.innerHTML = '<p class="kl-error">計算でエラーが発生しました。入力を見直してください。</p>';
+      return;
+    }
+    if (!result || result.error) {
+      var msg = "入力を確認してください。休業前の賃金月額と、各回の開始日と日数(1以上の整数)が必要です。";
+      if (result && /too_many_periods/.test(result.error)) {
+        msg = "同じ対象家族については、介護休業は3回までです。4回目以降は入力できません。";
+      }
+      resultEl.innerHTML = '<p class="kl-error">' + esc(msg) + "</p>";
+      return;
+    }
+    var rows = "";
+    for (var i = 0; i < result.periods.length; i++) {
+      var p = result.periods[i];
+      var capNote = "";
+      if (p.wage_month_capped === "max") capNote = "(賃金月額の上限を適用)";
+      else if (p.wage_month_capped === "min") capNote = "(賃金月額の下限を適用)";
+      rows += "<tr><th>" + (i + 1) + "回目</th><td>" + esc(p.start) + "(" + esc(p.start_weekday) + "曜)から" +
+        esc(p.end) + "(" + esc(p.end_weekday) + "曜)まで、" + p.days + "日間</td></tr>";
+      rows += "<tr><th></th><td>この回の支給日数は" + p.shikyuu_nissu + "日、給付金の目安 " + yen(p.benefit) + capNote +
+        "、会社に申し出る目安 " + esc(p.notify_by) + "(開始予定日の2週間前)" +
+        unitRowsHtml(p) + "</td></tr>";
+      if (p.over_3months) {
+        rows += "<tr><th></th><td class=\"kl-warning\">この回は3か月(3支給対象期間)を超えて続くため、それ以降の日数は介護休業給付金の対象になりません。3つ目の期間の支給日数は未確認です。</td></tr>";
+      }
+      if (p.over_93_excluded) {
+        rows += "<tr><th></th><td class=\"kl-warning\">この回のうち" + p.excluded_days + "日分は、通算93日を超えるため給付金の対象になりません。</td></tr>";
+      }
+    }
+    var summary = "<p>通算" + result.total_days + "日を使う計画です。残りは" + result.remaining_days +
+      "日と" + result.remaining_times + "回になります。支給日数の合計は" + result.total_paid_days +
+      "日、給付金の合計は目安で" + yen(result.benefit) + "です。</p>";
+    if (result.over_limit_days) {
+      summary += '<p class="kl-warning">入力した日数の合計が93日を超えています。法律で取れる介護休業は同じ家族について通算93日までで、93日を超える分は介護休業給付金の対象にもなりません。</p>';
+    }
+    if (result.any_unconfirmed_unit) {
+      summary += "<p>3か月を超えて続く回があり、支給日数の一部が未確認です(表の該当箇所に日数の幅を示しています)。正式な日数はハローワークで確認してください。</p>";
+    }
+    if (result.chingaku_estimated) {
+      summary += "<p>この期間の賃金月額の上限と下限はまだ確認できていないため、直近の額をそのまま使って推定しています。正式な額はハローワークで確認してください。</p>";
+    }
+    if (typeof result.notify_days_left === "number") {
+      if (result.notify_days_left < 0) {
+        summary += "<p>1回目の申し出の目安日をすでに過ぎています。休業の開始日が遅れることがあるので、早めに会社に相談してください。</p>";
+      } else if (result.notify_days_left === 0) {
+        summary += "<p>今日が1回目の申し出の目安日です。</p>";
+      } else {
+        summary += "<p>今日から1回目の申し出の目安日まで、あと" + result.notify_days_left + "日です。</p>";
+      }
+    }
+    resultEl.innerHTML = '<table class="kl-table"><tbody>' + rows + "</tbody></table>" + summary + icsLinkHtml(result);
+    window.KL_UI && window.KL_UI.applyWhen(result);
+  }
+
+  form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+  form.addEventListener("change", render);
+  if (form.p1_start && form.p1_start.value) render();
+});
+</script>
+</body>
+</html>

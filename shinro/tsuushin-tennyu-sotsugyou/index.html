@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算 | くらしラボ計算帳</title>
+<meta name="description" content="通信制高校に転入した場合の卒業の目安年月を、入学した年月と転入する年月、認定済みの単位、転入先の年間の履修上限、9月卒業の有無から計算する。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算 | くらしラボ計算帳">
+<meta property="og:description" content="通信制高校に転入した場合の卒業の目安年月を、入学した年月と転入する年月、認定済みの単位、転入先の年間の履修上限、9月卒業の有無から計算する。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/",
+   "name": "通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算",
+   "description": "通信制高校に転入した場合の卒業の目安年月を、入学した年月と転入する年月、認定済みの単位、転入先の年間の履修上限、9月卒業の有無から計算する。",
+   "dateModified": "2026-09-27",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "進路とお金の計算帳(通信制と不登校)",
+     "item": "https://kurashi-labo.github.io/keisan/shinro/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算",
+     "item": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-tennyu-sotsugyou/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "転入すると、前の学校の単位はどのくらい引き継げますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "2年生や3年生での転入なら、一部の例外科目を除いて引き継げるとされている。1年生の途中の転入は、引き継ぐ単位が無いものとして扱われ、在籍期間だけが引き継がれる(ルネサンス高等学校のコラム、2026-09-27確認)。正確な単位数は、前の学校が発行する単位修得証明書で分かる。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "特別活動30単位時間以上とは、具体的に何をすることですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ホームルーム活動や学校行事などを指す。学習指導要領は、通信制の課程でホームルーム活動を含めて卒業までに30単位時間以上指導するとしている(文部科学省の資料、2026-09-27確認)。どの行事で満たすかは学校が決めるので、出席の見込みは転入先の学校で確かめられる。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "9月に卒業できると聞きましたが、本当ですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "学校によっては9月卒業(秋季卒業)の制度があるが、すべての通信制高校にあるわけではない(ygh.ed.jp、2026-09-27確認)。この計算では、チェック欄で制度の有無を切り替えられるようにしている。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "体調が理由で学校に通えない期間があります。どう入力すればよいですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "今の学校で休学した月数だけを入れる。休学期間は在籍期間に含まれないが、休学せずに欠席していた期間は在籍期間に数えるので入れなくてよい。この計算は在籍期間と単位の目安を出すもので、体調や治療についての判断はできない。起立性調節障害など体調が理由の場合は、まず医療機関やかかりつけ医に相談してほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "この計算どおりに卒業できますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "できるとは限らない。単位の認定や特別活動の扱いは学校の規定が優先され、最終的な判定は転入先の学校が行う。この計算で分かるのは、卒業の時期の大まかな見当までだ。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+<script>
+/* kl_date.js: くらしラボ計算帳の日付部品。グローバル KL_DATE(ブラウザは window、calc_test.js の vm は context)。
+   日付は Date か "YYYY-MM-DD" で受け取り、その端末の0時の Date で返す(文字列にするときは fmt)。
+   内部は 1970-01-01 からの通し日数で数えるので、タイムゾーンと夏時間の影響を受けない。
+   条文: 民法140条〜143条、国税通則法10条2項と同法施行令2条2項、祝日法(国民の祝日に関する法律)2条・3条。 */
+(function (root) {
+  "use strict";
+  var DAY_MS = 86400000;
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  var HOLIDAY_REF = /holiday|shukujitsu|syukujitsu/i;
+  var UNITS = ["days", "weeks", "months", "years"];
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function serialOf(y, m, d) { return Math.round(Date.UTC(y, m - 1, d) / DAY_MS); }
+  function partsOf(s) {
+    var t = new Date(s * DAY_MS);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+  }
+  function iso(y, m, d) { return y + "-" + pad(m) + "-" + pad(d); }
+  function isoOf(s) { var p = partsOf(s); return iso(p.y, p.m, p.d); }
+  function compact(s) { return isoOf(s).replace(/-/g, ""); }
+  function dow(s) { return ((s + 4) % 7 + 7) % 7; } // 1970-01-01 は木曜
+  function daysInMonth(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function isDate(v) { return Object.prototype.toString.call(v) === "[object Date]"; }
+
+  // Date(0時ちょうどなら端末の日付、UTC の0時ちょうどなら UTC の日付)、"YYYY-MM-DD"、"YYYY/M/D"、"YYYY年M月D日"、
+  // taxDeadline などの結果({date})を通し日数にする。読めなければ NaN
+  function toSerial(v) {
+    if (v === null || v === undefined || v === "") { return NaN; }
+    if (isDate(v)) {
+      if (isNaN(v.getTime())) { return NaN; }
+      if (v.getHours() === 0 && v.getMinutes() === 0 && v.getSeconds() === 0 && v.getMilliseconds() === 0) {
+        return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+      }
+      if (v.getUTCHours() === 0 && v.getUTCMinutes() === 0 && v.getUTCSeconds() === 0 && v.getUTCMilliseconds() === 0) {
+        return serialOf(v.getUTCFullYear(), v.getUTCMonth() + 1, v.getUTCDate());
+      }
+      return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+    }
+    if (typeof v === "object") { return v.date !== undefined && v.date !== v ? toSerial(v.date) : NaN; }
+    var m = /^\s*(\d{4})\s*[-\/.年]\s*(\d{1,2})\s*[-\/.月]\s*(\d{1,2})\s*日?\s*(?:$|T)/.exec(String(v));
+    if (!m) { return NaN; }
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y < 1000 || mo < 1 || mo > 12 || d < 1 || d > daysInMonth(y, mo)) { return NaN; }
+    return serialOf(y, mo, d);
+  }
+  function need(v, fn) {
+    var s = toSerial(v);
+    if (isNaN(s)) { throw new Error("KL_DATE." + fn + ": 日付を読めません(" + String(v) + ")"); }
+    return s;
+  }
+  function int(n, fn, what) {
+    var x = Number(n);
+    if (n === null || n === "" || !isFinite(x) || Math.floor(x) !== x) {
+      throw new Error("KL_DATE." + fn + ": " + what + "は整数で指定してください(" + String(n) + ")");
+    }
+    return x;
+  }
+  function toDate(s) {
+    var p = partsOf(s);
+    var t = new Date(2000, 0, 1);
+    t.setFullYear(p.y, p.m - 1, p.d);
+    t.setHours(0, 0, 0, 0);
+    return t;
+  }
+  function shiftMonths(s, n) {
+    var p = partsOf(s);
+    var idx = p.y * 12 + (p.m - 1) + n;
+    var y = Math.floor(idx / 12), m = idx - y * 12 + 1;
+    return { y: y, m: m, d: p.d, last: daysInMonth(y, m) };
+  }
+
+  function parse(v) { var s = toSerial(v); return isNaN(s) ? null : toDate(s); }
+  function fmt(v) { var s = toSerial(v); return isNaN(s) ? "" : isoOf(s); }
+  function weekdayJa(v) { return WEEKDAY_JA[dow(need(v, "weekdayJa"))]; }
+  function addDays(date, n) { return toDate(need(date, "addDays") + int(n, "addDays", "日数")); }
+  // 月の足し引き。応当日が無い月は月末にする(民法143条2項ただし書と同じ考え方。1月31日の1か月後は2月末日)
+  function addMonths(date, n) {
+    var t = shiftMonths(need(date, "addMonths"), int(n, "addMonths", "月数"));
+    return toDate(serialOf(t.y, t.m, Math.min(t.d, t.last)));
+  }
+  function addYears(date, n) { return addMonths(date, 12 * int(n, "addYears", "年数")); }
+  function endOfMonth(date) {
+    var p = partsOf(need(date, "endOfMonth"));
+    return toDate(serialOf(p.y, p.m, daysInMonth(p.y, p.m)));
+  }
+  function diffDays(from, to) { return need(to, "diffDays") - need(from, "diffDays"); }
+
+  // 期間の末日。spec は {days:n} {weeks:n} {months:n} {years:n} のどれか1つ
+  function periodEnd(start, spec, opts) {
+    var s = need(start, "periodEnd"), found = [];
+    for (var i = 0; i < UNITS.length; i++) {
+      if (spec && spec[UNITS[i]] !== undefined && spec[UNITS[i]] !== null) { found.push(UNITS[i]); }
+    }
+    if (found.length !== 1) {
+      throw new Error("KL_DATE.periodEnd: 期間は days、weeks、months、years のどれか1つで指定してください");
+    }
+    var unit = found[0], n = int(spec[unit], "periodEnd", unit);
+    if (n < 1) { throw new Error("KL_DATE.periodEnd: " + unit + "は1以上にしてください"); }
+    // 民法140条: 初日は算入しない(起算日は翌日)。午前0時から始まる期間だけ initialDayCounted:true で初日を数える
+    var first = s + (opts && opts.initialDayCounted === true ? 0 : 1);
+    // 民法141条: 期間は末日の終了をもって満了する。返すのはその末日
+    if (unit === "days") { return toDate(first + n - 1); }
+    // 民法143条: 週・月・年は暦に従い、最後の週・月・年で起算日に応当する日の前日に満了する(2項本文)
+    if (unit === "weeks") { return toDate(first + 7 * n - 1); }
+    var t = shiftMonths(first, unit === "years" ? 12 * n : n);
+    // 143条2項ただし書: 最後の月に応当する日が無いときは、その月の末日に満了する
+    if (t.d > t.last) { return toDate(serialOf(t.y, t.m, t.last)); }
+    return toDate(serialOf(t.y, t.m, t.d) - 1);
+  }
+
+  // ---- 祝日(祝日法)
+  // 春分・秋分の日は前年2月の官報で決まる。ここでは広く使われている近似式で出す(1980〜2150年)
+  function equinoxDay(year, spring) {
+    var base;
+    if (year >= 1980 && year <= 2099) { base = spring ? 20.8431 : 23.2488; }
+    else if (year >= 2100 && year <= 2150) { base = spring ? 21.8510 : 24.2488; }
+    else { return 0; }
+    return Math.floor(base + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function nthMonday(y, m, n) { return 1 + ((8 - dow(serialOf(y, m, 1))) % 7) + 7 * (n - 1); }
+
+  var ruleCache = {};
+  function ruleHolidays(year) {
+    if (ruleCache[year]) { return ruleCache[year]; }
+    var sai = {}, map = {}, k, s, t;
+    function put(m, d, name) { if (d) { sai[iso(year, m, d)] = name; } }
+    // 祝日法2条
+    put(1, 1, "元日");
+    put(1, nthMonday(year, 1, 2), "成人の日");
+    put(2, 11, "建国記念の日");
+    if (year >= 2020) { put(2, 23, "天皇誕生日"); }
+    put(3, equinoxDay(year, true), "春分の日");
+    put(4, 29, "昭和の日");
+    put(5, 3, "憲法記念日");
+    put(5, 4, "みどりの日");
+    put(5, 5, "こどもの日");
+    if (year === 2020) { put(7, 23, "海の日"); put(7, 24, "スポーツの日"); put(8, 10, "山の日"); }
+    else if (year === 2021) { put(7, 22, "海の日"); put(7, 23, "スポーツの日"); put(8, 8, "山の日"); }
+    else { put(7, nthMonday(year, 7, 3), "海の日"); put(8, 11, "山の日"); put(10, nthMonday(year, 10, 2), "スポーツの日"); }
+    put(9, nthMonday(year, 9, 3), "敬老の日");
+    put(9, equinoxDay(year, false), "秋分の日");
+    put(11, 3, "文化の日");
+    put(11, 23, "勤労感謝の日");
+    for (k in sai) { if (hasOwn.call(sai, k)) { map[k] = sai[k]; } }
+    for (k in sai) {
+      if (!hasOwn.call(sai, k)) { continue; }
+      s = toSerial(k);
+      // 3条2項(振替休日): 祝日が日曜日に当たるときは、その日後で最も近い祝日でない日を休日とする
+      if (dow(s) === 0) {
+        t = s + 1;
+        while (hasOwn.call(sai, isoOf(t))) { t += 1; }
+        map[isoOf(t)] = "振替休日";
+      }
+      // 3条3項(国民の休日): 前日と翌日が祝日である日(祝日でない日に限る)は休日とする
+      if (hasOwn.call(sai, isoOf(s + 2)) && !hasOwn.call(sai, isoOf(s + 1)) && !hasOwn.call(map, isoOf(s + 1))) {
+        map[isoOf(s + 1)] = "国民の休日";
+      }
+    }
+    var note = year < 2020 ? "2019年以前は祝日の決まりが今と違うため、参考の値です"
+      : (equinoxDay(year, true) ? "内閣府の祝日データに無い年のため、祝日法の決まりと春分・秋分の近似式で出しました"
+        : "春分と秋分の日を近似式で出せない年です(1980〜2150年のみ)");
+    ruleCache[year] = { map: map, note: note };
+    return ruleCache[year];
+  }
+
+  // refdata のうち、名前か出典URLに holiday / shukujitsu を含むものを祝日データとして読む。
+  // 形は {"rows": [{"date": "YYYY-MM-DD", "name": "…"}]}(taishoku-gyakusan__holidays_jp と shikaku-gyakusan__shukujitsu)
+  var refCache = { src: undefined, idx: null };
+  function holidayRows(source) {
+    if (Array.isArray(source)) { return source; }
+    var out = [];
+    if (source && typeof source === "object") {
+      for (var k in source) {
+        if (!hasOwn.call(source, k) || !Array.isArray(source[k])) { continue; }
+        var first = source[k][0];
+        if (HOLIDAY_REF.test(k) || (first && typeof first === "object" && HOLIDAY_REF.test(String(first.source_url || "")))) {
+          out = out.concat(source[k]);
+        }
+      }
+    }
+    return out;
+  }
+  function refIndex(source) {
+    if (source === undefined || source === null) { source = root.KL_REFDATA; }
+    if (refCache.idx && refCache.src === source) { return refCache.idx; }
+    var rows = holidayRows(source), map = {}, years = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+      if (isNaN(s)) { continue; }
+      k = isoOf(s);
+      map[k] = (r && typeof r === "object" && r.name) || map[k] || "祝日";
+    }
+    // 元日と勤労感謝の日の両方がある年を「その年の祝日がすべて載っている」とみなす
+    for (k in map) {
+      if (hasOwn.call(map, k) && map[k.slice(0, 4) + "-01-01"] && map[k.slice(0, 4) + "-11-23"]) { years[k.slice(0, 4)] = true; }
+    }
+    refCache = { src: source, idx: { map: map, years: years } };
+    return refCache.idx;
+  }
+
+  function holidaysFor(year, source) {
+    var y = int(year, "holidaysFor", "年"), idx = refIndex(source), prefix = String(y) + "-";
+    var fromRef = hasOwn.call(idx.years, String(y)), rule = fromRef ? null : ruleHolidays(y);
+    var src = fromRef ? idx.map : rule.map, map = {}, list = [], keys = [], k, i;
+    for (k in src) { if (hasOwn.call(src, k) && k.indexOf(prefix) === 0) { keys.push(k); } }
+    keys.sort();
+    for (i = 0; i < keys.length; i++) { map[keys[i]] = src[keys[i]]; list.push({ date: keys[i], name: src[keys[i]] }); }
+    var out = { year: y, estimated: !fromRef, source: fromRef ? "refdata" : "rule", holidays: list, map: map };
+    if (rule) { out.note = rule.note; }
+    return out;
+  }
+
+  // holidays の渡し方: 省略(KL_REFDATA の祝日、無い年は祝日法で計算)/ refdata オブジェクト / 日付か {date,name} の配列 /
+  // {"YYYY-MM-DD": 名前} / holidaysFor の結果。配列と {"日付": 名前} は「それが祝日のすべて」として扱う
+  function lookup(holidays) {
+    var fixed = null, source, perYear = {}, estimated = false;
+    if (Array.isArray(holidays)) {
+      fixed = {};
+      for (var i = 0; i < holidays.length; i++) {
+        var r = holidays[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+        if (!isNaN(s)) { fixed[isoOf(s)] = (r && typeof r === "object" && r.name) || "休日"; }
+      }
+    } else if (holidays && typeof holidays === "object") {
+      if (holidays.map && typeof holidays.map === "object" && holidays.year !== undefined) { fixed = holidays.map; }
+      else {
+        for (var key in holidays) {
+          if (hasOwn.call(holidays, key)) { fixed = /^\d{4}-\d{2}-\d{2}$/.test(key) ? holidays : null; break; }
+        }
+        if (!fixed) { source = holidays; }
+      }
+    }
+    return {
+      name: function (s) {
+        var k = isoOf(s);
+        if (fixed) { return hasOwn.call(fixed, k) ? String(fixed[k] === true ? "休日" : fixed[k]) : ""; }
+        var y = k.slice(0, 4);
+        if (!perYear[y]) {
+          perYear[y] = holidaysFor(Number(y), source);
+          if (perYear[y].estimated) { estimated = true; }
+        }
+        return hasOwn.call(perYear[y].map, k) ? perYear[y].map[k] : "";
+      },
+      estimated: function () { return estimated; }
+    };
+  }
+  function yearEnd(s) { var p = partsOf(s); return (p.m === 12 && p.d >= 29) || (p.m === 1 && p.d <= 3); }
+  function closedReason(s, look, withYearEnd) {
+    var name = look.name(s), w = dow(s);
+    if (name) { return name; }
+    if (w === 0) { return "日曜日"; }
+    if (w === 6) { return "土曜日"; }
+    if (withYearEnd && yearEnd(s)) { return "年末年始"; }
+    return "";
+  }
+
+  function holidayName(date, holidays) { return lookup(holidays).name(need(date, "holidayName")); }
+  // 土日と祝日(振替休日・国民の休日を含む)なら true
+  function isHoliday(date, holidays) { return !!closedReason(need(date, "isHoliday"), lookup(holidays), false); }
+  function businessDay(date, opts, fn, step) {
+    opts = opts || {};
+    var s = need(date, fn), look = lookup(opts.holidays);
+    if (opts.strict === true) { s += step; }
+    for (var i = 0; i < 400; i++, s += step) {
+      if (!closedReason(s, look, opts.yearEnd === true)) { return toDate(s); }
+    }
+    throw new Error("KL_DATE." + fn + ": 400日以内に営業日がありません");
+  }
+  // その日が営業日ならその日、休みなら次(前)の営業日。{strict:true} で必ず翌日以降(前日以前)にする。
+  // {yearEnd:true} で12月29日〜1月3日も休みとして数える
+  function nextBusinessDay(date, opts) { return businessDay(date, opts, "nextBusinessDay", 1); }
+  function prevBusinessDay(date, opts) { return businessDay(date, opts, "prevBusinessDay", -1); }
+
+  function shiftDeadline(date, opts, fn, basis) {
+    opts = opts || {};
+    var s0 = need(date, fn), s = s0, look = lookup(opts.holidays), skipped = [], why;
+    for (var i = 0; i < 400; i++) {
+      why = closedReason(s, look, true);
+      if (!why) { break; }
+      skipped.push({ date: isoOf(s), why: why });
+      s += 1;
+    }
+    return { date: toDate(s), ymd: isoOf(s), original: isoOf(s0), shifted: s !== s0, skipped: skipped,
+      estimated: look.estimated(), unconfirmed: false, basis: basis };
+  }
+  // 国税通則法10条2項: 期限が日曜日・祝日法の休日・その他一般の休日・政令で定める日に当たるときは、翌日を期限とみなす。
+  // 政令で定める日は土曜日と12月29日〜31日(施行令2条2項)。1月2日と3日は一般の休日として数える
+  function taxDeadline(date, opts) { return shiftDeadline(date, opts, "taxDeadline", "国税通則法10条2項"); }
+  // 民法142条: 期間の末日が日曜日・祝日法の休日その他の休日に当たるときは、その日に取引をしない慣習がある場合に限り翌日に満了する。
+  // 慣習の有無はここでは確かめられないので、繰り下げたときは unconfirmed:true を返す(土曜日と12月29日〜1月3日も休みとして数える)。
+  // 裁判所への申述など民事訴訟法95条3項(家事事件は家事事件手続法34条4項で準用)が使える手続は {basis:"minso"}。慣習の条件が無い
+  function courtDeadline(date, opts) {
+    var minso = !!(opts && opts.basis === "minso");
+    var r = shiftDeadline(date, opts, "courtDeadline", minso ? "民事訴訟法95条3項" : "民法142条");
+    r.unconfirmed = !minso && r.shifted;
+    return r;
+  }
+
+  // ---- カレンダー(RFC 5545)
+  function icsText(v) {
+    return String(v === undefined || v === null ? "" : v).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+      .replace(/,/g, "\\,").replace(/\r\n|\r|\n/g, "\\n");
+  }
+  // 1行75オクテット(UTF-8)を超えたら CRLF+空白で折り返す。文字の途中では切らない
+  function fold(line) {
+    var out = [], cur = "", bytes = 0, i = 0;
+    while (i < line.length) {
+      var c = line.charCodeAt(i), ch = line.charAt(i), n;
+      if (c >= 0xd800 && c <= 0xdbff && i + 1 < line.length) { ch = line.substr(i, 2); n = 4; }
+      else { n = c < 0x80 ? 1 : (c < 0x800 ? 2 : 3); }
+      if (bytes + n > 75) { out.push(cur); cur = " "; bytes = 1; }
+      cur += ch;
+      bytes += n;
+      i += ch.length;
+    }
+    out.push(cur);
+    return out.join("\r\n");
+  }
+  function hash(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul ? Math.imul(h, 0x01000193) : (h * 0x01000193) | 0; }
+    return ("0000000" + (h >>> 0).toString(16)).slice(-8);
+  }
+  function stamp(now) {
+    var t = isDate(now) ? now.getTime() : (typeof now === "string" ? Date.parse(now) : (typeof now === "number" ? now : Date.now()));
+    if (!isFinite(t)) { throw new Error("KL_DATE.toICS: now を読めません(" + String(now) + ")"); }
+    var d = new Date(t);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+  }
+  // events: [{title, date, description}]。終日の予定(DTSTART;VALUE=DATE、DTEND は翌日)。opts.now で DTSTAMP を固定できる
+  function toICS(events, calName, opts) {
+    opts = opts || {};
+    var dtstamp = stamp(opts.now), name = calName ? String(calName) : "くらしラボ計算帳";
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//kurashi-labo//keisan//JA", "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH", "X-WR-CALNAME:" + icsText(name)];
+    var list = Array.isArray(events) ? events : [];
+    for (var i = 0; i < list.length; i++) {
+      var ev = list[i] || {}, s = need(ev.date, "toICS"), title = String(ev.title || "予定"), day = compact(s);
+      lines.push("BEGIN:VEVENT",
+        "UID:" + day + "-" + (i + 1) + "-" + hash(name + "\n" + title + "\n" + day + "\n" + i) + "@kurashi-labo.github.io",
+        "DTSTAMP:" + dtstamp, "DTSTART;VALUE=DATE:" + day, "DTEND;VALUE=DATE:" + compact(s + 1),
+        "SUMMARY:" + icsText(title));
+      if (ev.description) { lines.push("DESCRIPTION:" + icsText(ev.description)); }
+      lines.push("TRANSP:TRANSPARENT", "END:VEVENT");
+    }
+    lines.push("END:VCALENDAR");
+    var out = [];
+    for (var j = 0; j < lines.length; j++) { out.push(fold(lines[j])); }
+    return out.join("\r\n") + "\r\n";
+  }
+  function icsDataUrl(ics) { return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+
+  var api = {
+    version: "1", parse: parse, fmt: fmt, weekdayJa: weekdayJa, addDays: addDays, addMonths: addMonths,
+    addYears: addYears, endOfMonth: endOfMonth, diffDays: diffDays, periodEnd: periodEnd,
+    holidaysFor: holidaysFor, holidayName: holidayName, isHoliday: isHoliday,
+    nextBusinessDay: nextBusinessDay, prevBusinessDay: prevBusinessDay,
+    taxDeadline: taxDeadline, courtDeadline: courtDeadline, toICS: toICS, icsDataUrl: icsDataUrl
+  };
+  root.KL_DATE = api;
+  if (typeof module === "object" && module && module.exports) { module.exports = api; }
+})(typeof globalThis !== "undefined" ? globalThis : this);
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../shinro/">進路とお金の計算帳(通信制と不登校)</a><span aria-hidden="true">›</span><span>通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算</span></nav>
+<article class="page">
+<h1>通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>高校の卒業には、74単位以上の修得(学校教育法施行規則)と3年以上の在学(学校教育法56条)が要り、通信制の課程では特別活動を卒業までに30単位時間以上指導することも学習指導要領に定められている(いずれも文部科学省の資料、2026-09-27確認)。転入しても前の学校の在籍期間は合算でき、修得した単位も多くの場合は引き継げるため、卒業の時期は入学した年月と転入する年月、転入先の年間の履修上限で変わる。このページでそれらを入れると、卒業の目安の年月が出る。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+<div class="kl-field"><label for="kl-enrolled">今の学校に入学した年月</label>
+<input type="month" id="kl-enrolled" name="enrolled" value="2025-04" required></div>
+<div class="kl-field"><label for="kl-transfer">転入する(した)年月</label>
+<input type="month" id="kl-transfer" name="transfer" value="2026-10" required></div>
+<div class="kl-field"><label for="kl-credits">転入時点で認定されている単位数(年度の途中の分は含めない。不明なら空欄)</label>
+<input type="number" id="kl-credits" name="credits" min="0" step="1" placeholder="不明なら空欄"></div>
+<div class="kl-field"><label for="kl-cap">転入先の年間の履修上限(単位。学校の案内で確認)</label>
+<input type="number" id="kl-cap" name="cap" min="1" step="1" value="25"></div>
+<div class="kl-field"><label for="kl-suspension">今の学校で休学した月数(欠席しただけの月は入れない)</label>
+<input type="number" id="kl-suspension" name="suspension_months" min="0" step="1" value="0"></div>
+<div class="kl-field"><label><input type="checkbox" id="kl-half-year" name="half_year"> 転入先に9月卒業(秋季卒業)の制度がある</label></div>
+<button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p><a id="kl-ics" class="kl-ics-btn" href="#" hidden>卒業の目安をカレンダーに保存(.ics)</a></p>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta"><a class="cta-link" href="../../shinro/tennyu-junbi-gyakusan/">転入したい月から、資料請求と出願の目安日を逆算する</a></div>
+<div class="kl-cta"><a class="cta-link" href="../../shinro/futoukou-manabi-getsugaku/">学校に行けない間の学び方を、月額で比べる</a></div>
+</section>
+<div class="intro"><p>2026-09-27にくらしラボが検索上位の解説記事を確かめたところ、どれも卒業要件と手計算の手順の説明までで、自分の入学年月や単位を入れて卒業の年月を出せる形にはなっていなかった。そこでくらしラボが、入学した年月と転入する年月、転入先の年間の履修上限から卒業の目安を出すこのページを作った。</p><p>入れるのは、今の学校に入学した年月、転入する(した)年月、転入時点で認定されている単位数、転入先の年間の履修上限、今の学校で休学した月数、9月卒業(秋季卒業)の制度があるかどうかの6つ。認定単位数が分からない場合は空欄のままでよく、前の学校の在籍期間から見込みで計算する(推定と表示する)。</p><p>単位の認め方や特別活動の扱いは学校ごとに違い、最終的な判定は転入先の学校が行う。この計算はあくまで目安で、転校をすすめる目的では作っていない。体調が理由で通えない期間がある場合は、まず医療機関やスクールカウンセラーに相談してほしい。</p></div>
+<section>
+<h2>卒業に必要な3つの条件</h2>
+<p>高校の卒業要件は、通信制でも全日制や定時制とほぼ共通で、(1)74単位以上の修得、(2)3年(36か月)以上の在学、(3)特別活動への参加、の3つとされている。(1)は学校教育法施行規則、(2)は学校教育法56条にあり、(3)について学習指導要領は、通信制の課程でホームルーム活動を含めて卒業までに30単位時間以上指導するとしている(文部科学省の資料、2026-09-27確認)。在学期間は前の学校での在籍も合算でき、転入しても最初からやり直しにはならない(ygh.ed.jp、2026-09-27確認)。</p><p>このページの計算は(1)の単位数と(2)の在学期間を対象にしている。(3)の特別活動は、ホームルーム活動や学校行事への出席の記録で満たすかどうかが決まるため、この計算には入れていない。出席の見込みは、転入先の学校に聞けば分かる。</p>
+</section>
+<section>
+<h2>転入時の単位と在籍期間の引き継ぎ</h2>
+<p>前の学校で修得した単位は、2年生や3年生での転入であれば、一部の例外科目を除いて引き継げるとされている。1年生の途中の転入は、引き継ぐ単位が無いものとして扱われ、在籍期間だけが引き継がれる。学年制の全日制高校から年度の途中で移る場合、その年度の単位は認定されない。前期と後期で単位を認定している学校なら、半期の分が認められることもある(いずれもルネサンス高等学校のコラム、2026-09-27確認)。このページでは、転入時点で認定されている単位数を入れる欄を用意し、分からない場合は前の学校の在籍期間から見込みで計算する。</p><p>休学した期間は在籍期間に含まれない(同コラム)。休学の手続きをしていなければ在籍は続いているので、欠席が続いていた期間も在籍期間に数える。欠席で取れなかった単位は、認定済みの単位数の少なさとして計算に入る。</p><p>正確な単位数と在籍期間は、前の学校が発行する調査書や単位修得証明書で決まる。転入前に、今の学校の担任や教務窓口で確かめておくと、このページの入力の精度が上がる。</p>
+</section>
+<section>
+<h2>9月卒業(秋季卒業)がある学校とない学校</h2>
+<p>通信制高校も3月を卒業の時期にしている学校が多いが、一部の学校は9月卒業を認めている(ygh.ed.jp、2026-09-27確認)。9月卒業ができる学校なら、単位と在学期間が9月の時点でそろえば、翌年の3月を待たずに卒業になる。ただし9月に卒業すると、大学や専門学校への進学、就職が始まる4月まで空白の期間ができる。</p><p>9月卒業の制度があるかどうかは学校ごとに違うため、このページではチェック欄で切り替える。制度の有無は、転入先の学校の募集要項か窓口で確かめられる。</p>
+</section>
+<section>
+<h2>この計算の前提とできないこと</h2>
+<p>入力した年間の履修上限を年度ごとに月割りで積み上げ、74単位と36か月の両方を満たす最も早い時期を出している。実際の単位の認定は、レポートの提出状況やスクーリングの出席、試験の結果によって前後する。この計算どおりに進むとは限らない。年度の途中で転入した人には、3年以上という要件とは別に、学校が独自の最低在籍期間を設けている場合もある(ルネサンス高等学校のコラム、2026-09-27確認)。</p><p>年間の履修上限を入力しなかった場合は25単位、認定済み単位を入力しなかった場合は前の学校の在籍期間から見込んだ値を使う。どちらも推定だ。転入した後に休学すると、その月数だけ在籍期間が足りなくなり、卒業の目安が後ろにずれることがある。正確な卒業時期は、転入先の学校が行う個別の判定による。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>卒業の目安は、卒業に必要な単位数(74単位)と在学期間(3年、36か月)の両方を満たす、最も早い学期末にしている。特別活動30単位時間以上の条件は、出席の記録で決まるためこの計算には入れていない。比べる相手の「入学時の学年のまま進級していた場合」は、入学から36か月目の月か、その後で最初の3月か9月にしている。4月入学なら3年後の3月、10月入学なら3年後の9月になる。</p><p>単位は年度ごとに、その年度に在籍する月数に応じて年間の履修上限を月割りし、切り捨てて積み上げる。転入した年度は転入した月から3月までの月数分になる。9月卒業の制度がある場合も同じ年度の中で累計するので、4〜9月の半期で上限の半分(切り捨て)、10〜3月の半期で年間の残りが入る。</p><p>休学した月数は在籍期間(36か月)からだけ差し引く。休学期間は在籍期間に含まれないとされている(ルネサンス高等学校のコラム、2026-09-27確認)。休学せずに欠席していた月は在籍期間に数えるので入れない。その間に取れなかった単位は、認定済みの単位数の入力に表れる。転入した後の休学は、この計算に入れていない。</p><p>係数の出典と推定の扱いは「計算の前提」の表にまとめた。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">卒業に必要な修得単位数</th><td class="num">74単位</td><td><a href="https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo1/002/gijiroku/04040902/003.htm" rel="noopener" target="_blank">学校教育法施行規則(資料では旧63条の2)と学習指導要領による。全日制、定時制、通信制で共通(文部科学省 資料3、2026-09-27確認)。</a></td></tr>
+<tr><th scope="row">卒業に必要な在学期間</th><td class="num">3年(36か月)以上</td><td><a href="https://www.mext.go.jp/content/20210927-mext_koukou01-000018021_5.pdf" rel="noopener" target="_blank">学校教育法56条(定時制と通信制は3年以上)。前の学校での在籍期間も合算できる(ygh.ed.jp)。休学期間は含まない(ルネサンス高等学校のコラム)。いずれも2026-09-27確認。</a></td></tr>
+<tr><th scope="row">特別活動の必要時間数</th><td class="num">30単位時間</td><td><a href="https://www.mext.go.jp/content/20210927-mext_koukou01-000018021_5.pdf" rel="noopener" target="_blank">高等学校学習指導要領(平成30年告示)第1章第2款。通信制の課程では、ホームルーム活動を含めて卒業までに30単位時間以上指導する(文部科学省 参考資料1、2026-09-27確認)。この計算には入れていない。</a></td></tr>
+<tr><th scope="row">転入先の年間履修上限の既定値(入力が無いときに使う値)</th><td class="num">25単位/年</td><td><span class="est-tag">推定</span> <a href="https://www.tsuushinsei.net/article/tuushinsei-tani.html" rel="noopener" target="_blank">年間の履修上限は25〜30単位に設定されていることが多いとする解説(ウェルカム通信制高校ナビ、2026-09-27確認)の下限を使った。一次資料の数字ではないので推定。転入先の案内に数字があれば、その値を入れる。</a></td></tr>
+<tr><th scope="row">認定済み単位が不明なときの、1年あたりの見込み値</th><td class="num">25単位/年</td><td><span class="est-tag">推定</span> 転入前の学校で年度末までに認定された単位数が分からない場合の仮の値。全日制では1年で30単位ほど修得していることが多いとする解説もあり(ウェルカム通信制高校ナビ、2026-09-27確認)、ここでは少なめの25単位で見込んだ。正確な単位数は、前の学校が発行する単位修得証明書で分かる。</td></tr>
+</tbody></table></div>
+
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. 転入すると、前の学校の単位はどのくらい引き継げますか。</dt>
+<dd>2年生や3年生での転入なら、一部の例外科目を除いて引き継げるとされている。1年生の途中の転入は、引き継ぐ単位が無いものとして扱われ、在籍期間だけが引き継がれる(ルネサンス高等学校のコラム、2026-09-27確認)。正確な単位数は、前の学校が発行する単位修得証明書で分かる。</dd>
+<dt>Q. 特別活動30単位時間以上とは、具体的に何をすることですか。</dt>
+<dd>ホームルーム活動や学校行事などを指す。学習指導要領は、通信制の課程でホームルーム活動を含めて卒業までに30単位時間以上指導するとしている(文部科学省の資料、2026-09-27確認)。どの行事で満たすかは学校が決めるので、出席の見込みは転入先の学校で確かめられる。</dd>
+<dt>Q. 9月に卒業できると聞きましたが、本当ですか。</dt>
+<dd>学校によっては9月卒業(秋季卒業)の制度があるが、すべての通信制高校にあるわけではない(ygh.ed.jp、2026-09-27確認)。この計算では、チェック欄で制度の有無を切り替えられるようにしている。</dd>
+<dt>Q. 体調が理由で学校に通えない期間があります。どう入力すればよいですか。</dt>
+<dd>今の学校で休学した月数だけを入れる。休学期間は在籍期間に含まれないが、休学せずに欠席していた期間は在籍期間に数えるので入れなくてよい。この計算は在籍期間と単位の目安を出すもので、体調や治療についての判断はできない。起立性調節障害など体調が理由の場合は、まず医療機関やかかりつけ医に相談してほしい。</dd>
+<dt>Q. この計算どおりに卒業できますか。</dt>
+<dd>できるとは限らない。単位の認定や特別活動の扱いは学校の規定が優先され、最終的な判定は転入先の学校が行う。この計算で分かるのは、卒業の時期の大まかな見当までだ。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo1/002/gijiroku/04040902/003.htm" rel="noopener" target="_blank">文部科学省 中央教育審議会 資料3「高等学校の卒業に関する法令」</a>(2026年9月27日確認)</li><li><a href="https://www.mext.go.jp/content/20210927-mext_koukou01-000018021_5.pdf" rel="noopener" target="_blank">文部科学省 参考資料1「通信制高校に関する関係法令等(抜粋)」</a>(2026年9月27日確認)</li><li><a href="https://ygh.ed.jp/blog/graduation/" rel="noopener" target="_blank">四谷学院高等学校「通信制高校は何月に卒業できる？卒業時期と転入時のポイントを解説」</a>(2026年9月27日確認)</li><li><a href="https://www.r-ac.jp/column/tsushin/tenkou/" rel="noopener" target="_blank">ルネサンス高等学校「通信制高校へ転入(転校)・編入するには？」コラム</a>(2026年9月27日確認)</li><li><a href="https://www.tsuushinsei.net/article/tuushinsei-tani.html" rel="noopener" target="_blank">ウェルカム通信制高校ナビ「通信制高校の転入はどうやって単位を引継ぐ？」</a>(2026年9月27日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../shinro/tennyu-junbi-gyakusan/">通信制高校への転入、いつ動けば間に合うか 転入したい月から資料請求と出願の目安日を逆算する</a></li><li><a href="../../shinro/futoukou-manabi-getsugaku/">学校に行けない間の学び方を月額で比べる 教育支援センター、フリースクール、オンライン教材、家庭教師</a></li><li><a href="../../shinro/tsuushin-sapo-3nen/">通信制高校にサポート校を足すと3年間でいくら? 就学支援金を引いた自己負担を、転入の時期も入れて出す</a></li><li><a href="../../shinro/shusseki-atsukai-junbi/">家で学んだ日を出席扱いにしてもらう前に 文科省の通知の要件を順に確かめ、学校に相談するメモを作る</a></li><li><a href="../../shinro/">進路とお金の計算帳(通信制と不登校)の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>
+function KL_CALC(input, refdata) {
+  refdata = refdata || {};
+  var CREDIT_REQ = 74;
+  var MONTHS_REQ = 36;
+  var DEFAULT_ANNUAL_PACE = 25;
+  var DEFAULT_CAP = 25;
+
+  function parseYm(v) {
+    if (!v || typeof v !== "string") return null;
+    var m = v.trim().match(/^(\d{4})-(\d{1,2})$/);
+    if (!m) return null;
+    var y = Number(m[1]), mo = Number(m[2]);
+    if (mo < 1 || mo > 12) return null;
+    return { y: y, m: mo };
+  }
+  function ymIndex(ym) { return ym.y * 12 + ym.m; }
+  function fmtYm(ym) {
+    var mm = ym.m < 10 ? "0" + ym.m : String(ym.m);
+    return ym.y + "-" + mm;
+  }
+  function addMonths(ym, n) {
+    var idx = ymIndex(ym) + n;
+    var y = Math.floor((idx - 1) / 12);
+    var m = idx - y * 12;
+    return { y: y, m: m };
+  }
+  function schoolYearOf(ym) { return ym.m >= 4 ? ym.y : ym.y - 1; }
+  function monthsInclusive(fromYm, toYm) { return ymIndex(toYm) - ymIndex(fromYm) + 1; }
+
+  var enrolled = parseYm(input && input.enrolled);
+  var transfer = parseYm(input && input.transfer);
+
+  var errors = [];
+  if (!enrolled) errors.push("enrolled_invalid");
+  if (!transfer) errors.push("transfer_invalid");
+  if (enrolled && transfer && ymIndex(transfer) < ymIndex(enrolled)) errors.push("transfer_before_enrolled");
+  if (errors.length) return { error: errors[0], errors: errors, graduate: null };
+
+  var suspensionMonths = Number((input && input.suspension_months) || 0);
+  if (!(suspensionMonths >= 0)) suspensionMonths = 0;
+  suspensionMonths = Math.floor(suspensionMonths);
+
+  var creditsInput = input && input.credits;
+  var creditsGiven = (creditsInput !== null && creditsInput !== undefined && creditsInput !== "" && !isNaN(Number(creditsInput)));
+  var completedYearsBeforeTransfer = Math.max(0, schoolYearOf(transfer) - schoolYearOf(enrolled) - Math.floor(suspensionMonths / 12));
+  var estimatedCredits = !creditsGiven;
+  var startCredits = creditsGiven ? Math.max(0, Number(creditsInput)) : completedYearsBeforeTransfer * DEFAULT_ANNUAL_PACE;
+
+  var capInput = Number(input && input.cap);
+  var cap = (capInput > 0) ? capInput : DEFAULT_CAP;
+  var estimatedCap = !(capInput > 0);
+
+  var halfYear = !!(input && input.half_year);
+  var periodLenMonths = halfYear ? 6 : 12;
+
+  function periodEndAfter(ym) {
+    if (!halfYear) {
+      var sy = schoolYearOf(ym);
+      return { y: sy + 1, m: 3 };
+    }
+    if (ym.m >= 4 && ym.m <= 9) return { y: ym.y, m: 9 };
+    var sy2 = schoolYearOf(ym);
+    return { y: sy2 + 1, m: 3 };
+  }
+
+  function runSchedule(transferYm) {
+    var totalCredits = startCredits;
+    var cursor = transferYm;
+    var graduate = null;
+    var guard = 0;
+    var yearKey = null, yearMonths = 0, yearCredits = 0;
+    while (guard < 40) {
+      guard++;
+      var periodEnd = periodEndAfter(cursor);
+      var months = monthsInclusive(cursor, periodEnd);
+      var sy = schoolYearOf(cursor);
+      if (sy !== yearKey) { yearKey = sy; yearMonths = 0; yearCredits = 0; }
+      yearMonths += months;
+      var upTo = Math.floor((cap * Math.min(12, yearMonths)) / 12);
+      totalCredits += upTo - yearCredits;
+      yearCredits = upTo;
+      var enrolledMonthsTotal = monthsInclusive(enrolled, periodEnd) - suspensionMonths;
+      if (totalCredits >= CREDIT_REQ && enrolledMonthsTotal >= MONTHS_REQ) {
+        graduate = periodEnd;
+        break;
+      }
+      cursor = addMonths(periodEnd, 1);
+    }
+    return { graduate: graduate, totalCredits: totalCredits };
+  }
+
+  var main = runSchedule(transfer);
+  if (!main.graduate) {
+    return { error: "no_solution_found", graduate: null };
+  }
+
+  var onTime = addMonths(enrolled, MONTHS_REQ - 1);
+  while (onTime.m !== 3 && onTime.m !== 9) onTime = addMonths(onTime, 1);
+  var delayMonths = ymIndex(main.graduate) - ymIndex(onTime);
+
+  var earlierTransfer = addMonths(transfer, -1);
+  var diffMonths = 0;
+  if (ymIndex(earlierTransfer) >= ymIndex(enrolled)) {
+    var earlierRun = runSchedule(earlierTransfer);
+    if (earlierRun.graduate) {
+      diffMonths = ymIndex(main.graduate) - ymIndex(earlierRun.graduate);
+    }
+  }
+
+  var creditsNeededAtTransfer = Math.max(0, CREDIT_REQ - startCredits);
+
+  return {
+    graduate: fmtYm(main.graduate),
+    total_credits_at_graduate: main.totalCredits,
+    credits_needed_at_transfer: creditsNeededAtTransfer,
+    start_credits: startCredits,
+    same_time_as_grade: delayMonths === 0,
+    delay_months: delayMonths,
+    on_time_graduate: fmtYm(onTime),
+    diff_if_transfer_1month_earlier: diffMonths,
+    estimated_credits: estimatedCredits,
+    estimated_cap: estimatedCap,
+    half_year: halfYear,
+    cap_used: cap,
+    suspension_months: suspensionMonths
+  };
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("kl-form");
+  var resultEl = document.getElementById("kl-result");
+  if (!form || !resultEl) return;
+  var icsLink = document.getElementById("kl-ics");
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function ymLabel(ym) {
+    if (!ym) return "-";
+    var parts = ym.split("-");
+    return parts[0] + "年" + Number(parts[1]) + "月";
+  }
+  function readInput() {
+    var fd = new FormData(form);
+    var credits = fd.get("credits");
+    return {
+      enrolled: fd.get("enrolled") || "",
+      transfer: fd.get("transfer") || "",
+      credits: (credits === null || credits === "") ? null : Number(credits),
+      cap: Number(fd.get("cap") || 0),
+      suspension_months: Number(fd.get("suspension_months") || 0),
+      half_year: !!fd.get("half_year")
+    };
+  }
+  function errorMessage(code) {
+    var map = {
+      enrolled_invalid: "入学した年月を選んでください。",
+      transfer_invalid: "転入する年月を選んでください。",
+      transfer_before_enrolled: "転入する年月は、入学した年月より後にしてください。"
+    };
+    return map[code] || "入力を見直してください。";
+  }
+  function render() {
+    var input = readInput();
+    var result;
+    try {
+      result = KL_CALC(input, (window.KL_REFDATA || {}));
+    } catch (e) {
+      resultEl.innerHTML = '<p class="kl-error">計算でエラーが発生しました。入力を見直してください。</p>';
+      if (icsLink) icsLink.hidden = true;
+      return;
+    }
+    if (!result || result.error) {
+      resultEl.innerHTML = '<p class="kl-error">' + esc(errorMessage(result && result.error)) + "</p>";
+      if (icsLink) icsLink.hidden = true;
+      return;
+    }
+    var out = "<p>卒業の目安は<strong>" + esc(ymLabel(result.graduate)) + "</strong>。";
+    out += "その時点までに修得している単位の見込みは" + result.total_credits_at_graduate + "単位。</p>";
+    if (result.same_time_as_grade) {
+      out += "<p>入学時の学年のまま進級していた場合と、同じ時期(" + esc(ymLabel(result.on_time_graduate)) + ")に卒業できる見込み。</p>";
+    } else {
+      var delayLabel = result.delay_months > 0
+        ? result.delay_months + "か月遅く"
+        : (Math.abs(result.delay_months)) + "か月早く";
+      out += "<p>入学時の学年のまま進級していた場合(" + esc(ymLabel(result.on_time_graduate)) + ")より、" + esc(delayLabel) + "なる見込み。</p>";
+    }
+    if (result.diff_if_transfer_1month_earlier > 0) {
+      out += "<p>転入を1か月早めると、卒業の目安が" + result.diff_if_transfer_1month_earlier + "か月早くなる計算になる。</p>";
+    } else {
+      out += "<p>転入を1か月早めても、この入力では卒業の目安は変わらない計算になる。</p>";
+    }
+    out += "<p>転入した時点で、卒業に必要な74単位まであと" + result.credits_needed_at_transfer + "単位。";
+    if (result.estimated_credits) {
+      out += "認定済み単位の入力が無いため、前の学校の在籍期間から見込みで計算している(推定)。";
+    }
+    out += "</p>";
+    if (result.suspension_months > 0) {
+      out += "<p>休学の" + result.suspension_months + "か月は、在籍期間から差し引いて計算している。</p>";
+    }
+    if (result.estimated_cap) {
+      out += '<p class="kl-warning">年間の履修上限は入力が無いため、既定値の25単位で計算している(推定)。転入先の学校の案内で確認してほしい。</p>';
+    }
+    out += '<p class="kl-warning">特別活動30単位時間以上という条件は、この計算に入れていない(出席の記録によるため)。単位の認め方も含め、最終的な判定は学校が行う。</p>';
+    resultEl.innerHTML = out;
+
+    if (icsLink && window.KL_DATE) {
+      try {
+        var events = [{ title: "卒業の目安(" + result.graduate + ")", date: result.graduate + "-01", description: "くらしラボ計算帳の目安。実際の卒業時期は学校の判定による。" }];
+        var ics = window.KL_DATE.toICS(events, "進路とお金の計算帳");
+        icsLink.href = window.KL_DATE.icsDataUrl(ics);
+        icsLink.download = "sotsugyou_meyasu.ics";
+        icsLink.hidden = false;
+      } catch (e) {
+        icsLink.hidden = true;
+      }
+    }
+    window.KL_UI && window.KL_UI.applyWhen(result);
+  }
+
+  form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+  form.addEventListener("change", function () { render(); });
+  render();
+});
+</script>
+</body>
+</html>
