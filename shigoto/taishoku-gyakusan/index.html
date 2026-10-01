@@ -523,15 +523,146 @@
   if (typeof module === "object" && module && module.exports) { module.exports = api; }
 })(typeof globalThis !== "undefined" ? globalThis : this);
 </script>
+<script type="application/json" id="kl-category-counts">{"bosai": 3, "jikka": 3, "kankon": 0, "shigoto": 3, "shoku": 1, "sumai": 0, "tetsuzuki": 7, "care": 7, "shinro": 5, "koikatsu": 1, "deai": 0}</script>
+<script>
+/* Presentation only: preserve calculator inputs, outputs, links and live regions. */
+(function () {
+  "use strict";
+
+  function each(root, selector, fn) {
+    Array.prototype.forEach.call(root.querySelectorAll(selector), fn);
+  }
+
+  function markNumbers(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var nodes = [], node;
+    while ((node = walker.nextNode())) {
+      if (!node.parentElement.closest("a, button, script, style, time, .kl-number") && /[0-9０-９]/.test(node.data)) {
+        nodes.push(node);
+      }
+    }
+    nodes.forEach(function (text) {
+      var pattern = /[0-9０-９]+(?:[,，.．][0-9０-９]+)*/g;
+      var fragment = document.createDocumentFragment(), start = 0, match;
+      while ((match = pattern.exec(text.data))) {
+        fragment.appendChild(document.createTextNode(text.data.slice(start, match.index)));
+        var span = document.createElement("span");
+        span.className = "kl-number";
+        span.textContent = match[0];
+        fragment.appendChild(span);
+        start = pattern.lastIndex;
+      }
+      fragment.appendChild(document.createTextNode(text.data.slice(start)));
+      text.replaceWith(fragment);
+    });
+  }
+
+  function tables(root) {
+    each(root, "table", function (table) {
+      var wrap = table.parentElement;
+      if (!wrap.classList.contains("table-wrap")) {
+        wrap = document.createElement("div");
+        wrap.className = "table-wrap";
+        table.before(wrap);
+        wrap.appendChild(table);
+      }
+      wrap.tabIndex = 0;
+      wrap.setAttribute("role", "region");
+      wrap.setAttribute("aria-label", (table.caption ? table.caption.textContent : "計算の表") + "（横にスクロールできます）");
+      each(table, "td", function (cell) {
+        var value = cell.textContent.trim();
+        if (/^[約およそ税込\s]*[¥￥+−-]?[0-9０-９]/.test(value) && !cell.querySelector("a, button, input")) {
+          cell.classList.add("num");
+        }
+      });
+    });
+  }
+
+  function countBadge(parent, count) {
+    var badge = document.createElement("span");
+    badge.className = "page-count";
+    badge.textContent = count + "件の計算";
+    parent.appendChild(badge);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    each(document, ".answer-box", markNumbers);
+    tables(document);
+
+    // Native disclosure controls; without JavaScript the original FAQ stays readable.
+    each(document, ".faq > dl", function (list) {
+      var fragment = document.createDocumentFragment();
+      Array.prototype.forEach.call(list.children, function (question) {
+        if (question.tagName !== "DT") { return; }
+        var answer = question.nextElementSibling;
+        if (!answer || answer.tagName !== "DD") { return; }
+        var details = document.createElement("details");
+        var summary = document.createElement("summary");
+        var body = document.createElement("div");
+        body.className = "faq-answer";
+        while (question.firstChild) { summary.appendChild(question.firstChild); }
+        while (answer.firstChild) { body.appendChild(answer.firstChild); }
+        details.appendChild(summary);
+        details.appendChild(body);
+        fragment.appendChild(details);
+      });
+      list.replaceWith(fragment);
+    });
+
+    each(document, ".category-grid > .cat-block", function (card) {
+      var list = card.querySelector(".page-list");
+      if (!list) { return; }
+      var count = list.querySelectorAll("li:not(.empty)").length;
+      countBadge(card, count);
+      if (!count) { return; }
+      var details = document.createElement("details");
+      var summary = document.createElement("summary");
+      summary.textContent = "計算ツールを見る";
+      details.className = "category-tools";
+      details.appendChild(summary);
+      card.appendChild(details);
+      details.appendChild(list);
+    });
+
+    each(document, ".category", function (category) {
+      countBadge(category.querySelector(".collection-heading"), category.querySelectorAll(".page-list > li:not(.empty)").length);
+    });
+    var countsElement = document.getElementById("kl-category-counts");
+    var counts = countsElement ? JSON.parse(countsElement.textContent) : {};
+    each(document, ".category-entry-list > li", function (card) {
+      var link = card.querySelector("a");
+      var parts = link ? link.getAttribute("href").split("/").filter(Boolean) : [];
+      var key = parts[parts.length - 1];
+      if (Object.prototype.hasOwnProperty.call(counts, key)) { countBadge(card, counts[key]); }
+    });
+
+    // Observe only the existing result node; never replace it or change aria-live.
+    each(document, ".tool #kl-result, .tool #result, .tool .result", function (result) {
+      function decorate() {
+        observer.disconnect();
+        each(result, ":scope > p:first-child, .kl-answer, .kl-summary", markNumbers);
+        tables(result);
+        observer.observe(result, { childList: true, subtree: true, characterData: true });
+      }
+      var observer = new MutationObserver(decorate);
+      decorate();
+    });
+  });
+})();
+
+</script>
 </head>
 <body>
-<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
-<main class="wrap">
+<a class="skip-link" href="#main">本文へ進む</a>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../"><span class="site-mark" aria-hidden="true">＝</span>くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap" id="main" tabindex="-1">
 <nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../shigoto/">資格と働き方</a><span aria-hidden="true">›</span><span>退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す</span></nav>
 <article class="page">
+<header class="page-heading">
 <h1>退職日から逆算して、最終出社日と有給消化の始まる日と伝える期限を出す</h1>
 <p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
 <p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+</header>
 <div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
 <p>退職希望日から、残りの有給日数の分だけ土日祝を除いた営業日をさかのぼると、有給消化の開始日と最終出社日が決まる。会社に伝える期限は、引き継ぎ日数からの逆算と就業規則の申し出期限(初期値は1か月前)からの逆算のうち早い方で、民法627条の2週間はあくまで参考の日付として別に示す(厚生労働省の解説ページで確認、2026-09-27)。</p>
 </div>
@@ -637,7 +768,7 @@
 <p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
 <p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
 </div></footer>
-<script>window.KL_REFDATA = {"taishoku-gyakusan__holidays_jp": [{"date": "2026-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-01-12", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-06", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-07-20", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-21", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-22", "name": "国民の休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-10-12", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-11", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-21", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-22", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-07-19", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-20", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-10-11", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}]};</script>
+<script>window.KL_REFDATA = {"taishoku-gyakusan__holidays_jp": [{"date": "2026-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-01-12", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-06", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-07-20", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-09-21", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-09-22", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-10-12", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-01-11", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-03-21", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-03-22", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-07-19", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-09-20", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-10-11", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}]};</script>
 <script>
 function KL_CALC(input, refdata) {
   refdata = refdata || {};

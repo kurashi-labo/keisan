@@ -523,15 +523,146 @@
   if (typeof module === "object" && module && module.exports) { module.exports = api; }
 })(typeof globalThis !== "undefined" ? globalThis : this);
 </script>
+<script type="application/json" id="kl-category-counts">{"bosai": 3, "jikka": 3, "kankon": 0, "shigoto": 3, "shoku": 1, "sumai": 0, "tetsuzuki": 7, "care": 7, "shinro": 5, "koikatsu": 1, "deai": 0}</script>
+<script>
+/* Presentation only: preserve calculator inputs, outputs, links and live regions. */
+(function () {
+  "use strict";
+
+  function each(root, selector, fn) {
+    Array.prototype.forEach.call(root.querySelectorAll(selector), fn);
+  }
+
+  function markNumbers(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var nodes = [], node;
+    while ((node = walker.nextNode())) {
+      if (!node.parentElement.closest("a, button, script, style, time, .kl-number") && /[0-9０-９]/.test(node.data)) {
+        nodes.push(node);
+      }
+    }
+    nodes.forEach(function (text) {
+      var pattern = /[0-9０-９]+(?:[,，.．][0-9０-９]+)*/g;
+      var fragment = document.createDocumentFragment(), start = 0, match;
+      while ((match = pattern.exec(text.data))) {
+        fragment.appendChild(document.createTextNode(text.data.slice(start, match.index)));
+        var span = document.createElement("span");
+        span.className = "kl-number";
+        span.textContent = match[0];
+        fragment.appendChild(span);
+        start = pattern.lastIndex;
+      }
+      fragment.appendChild(document.createTextNode(text.data.slice(start)));
+      text.replaceWith(fragment);
+    });
+  }
+
+  function tables(root) {
+    each(root, "table", function (table) {
+      var wrap = table.parentElement;
+      if (!wrap.classList.contains("table-wrap")) {
+        wrap = document.createElement("div");
+        wrap.className = "table-wrap";
+        table.before(wrap);
+        wrap.appendChild(table);
+      }
+      wrap.tabIndex = 0;
+      wrap.setAttribute("role", "region");
+      wrap.setAttribute("aria-label", (table.caption ? table.caption.textContent : "計算の表") + "（横にスクロールできます）");
+      each(table, "td", function (cell) {
+        var value = cell.textContent.trim();
+        if (/^[約およそ税込\s]*[¥￥+−-]?[0-9０-９]/.test(value) && !cell.querySelector("a, button, input")) {
+          cell.classList.add("num");
+        }
+      });
+    });
+  }
+
+  function countBadge(parent, count) {
+    var badge = document.createElement("span");
+    badge.className = "page-count";
+    badge.textContent = count + "件の計算";
+    parent.appendChild(badge);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    each(document, ".answer-box", markNumbers);
+    tables(document);
+
+    // Native disclosure controls; without JavaScript the original FAQ stays readable.
+    each(document, ".faq > dl", function (list) {
+      var fragment = document.createDocumentFragment();
+      Array.prototype.forEach.call(list.children, function (question) {
+        if (question.tagName !== "DT") { return; }
+        var answer = question.nextElementSibling;
+        if (!answer || answer.tagName !== "DD") { return; }
+        var details = document.createElement("details");
+        var summary = document.createElement("summary");
+        var body = document.createElement("div");
+        body.className = "faq-answer";
+        while (question.firstChild) { summary.appendChild(question.firstChild); }
+        while (answer.firstChild) { body.appendChild(answer.firstChild); }
+        details.appendChild(summary);
+        details.appendChild(body);
+        fragment.appendChild(details);
+      });
+      list.replaceWith(fragment);
+    });
+
+    each(document, ".category-grid > .cat-block", function (card) {
+      var list = card.querySelector(".page-list");
+      if (!list) { return; }
+      var count = list.querySelectorAll("li:not(.empty)").length;
+      countBadge(card, count);
+      if (!count) { return; }
+      var details = document.createElement("details");
+      var summary = document.createElement("summary");
+      summary.textContent = "計算ツールを見る";
+      details.className = "category-tools";
+      details.appendChild(summary);
+      card.appendChild(details);
+      details.appendChild(list);
+    });
+
+    each(document, ".category", function (category) {
+      countBadge(category.querySelector(".collection-heading"), category.querySelectorAll(".page-list > li:not(.empty)").length);
+    });
+    var countsElement = document.getElementById("kl-category-counts");
+    var counts = countsElement ? JSON.parse(countsElement.textContent) : {};
+    each(document, ".category-entry-list > li", function (card) {
+      var link = card.querySelector("a");
+      var parts = link ? link.getAttribute("href").split("/").filter(Boolean) : [];
+      var key = parts[parts.length - 1];
+      if (Object.prototype.hasOwnProperty.call(counts, key)) { countBadge(card, counts[key]); }
+    });
+
+    // Observe only the existing result node; never replace it or change aria-live.
+    each(document, ".tool #kl-result, .tool #result, .tool .result", function (result) {
+      function decorate() {
+        observer.disconnect();
+        each(result, ":scope > p:first-child, .kl-answer, .kl-summary", markNumbers);
+        tables(result);
+        observer.observe(result, { childList: true, subtree: true, characterData: true });
+      }
+      var observer = new MutationObserver(decorate);
+      decorate();
+    });
+  });
+})();
+
+</script>
 </head>
 <body>
-<header class="site-header"><div class="wrap"><a class="site-name" href="../../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
-<main class="wrap">
+<a class="skip-link" href="#main">本文へ進む</a>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../"><span class="site-mark" aria-hidden="true">＝</span>くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap" id="main" tabindex="-1">
 <nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../tetsuzuki/">手続き暦(介護と相続の期限)</a><span aria-hidden="true">›</span><span>亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる</span></nav>
 <article class="page">
+<header class="page-heading">
 <h1>亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる</h1>
 <p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
 <p class="updated">更新日 <time datetime="2026-09-27">2026年9月27日</time></p>
+</header>
 <div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
 <p>死亡届は死亡の事実を知った日から7日以内(戸籍法86条)、相続放棄は知った時から3か月以内(民法915条)、準確定申告は知った日の翌日から4か月以内、相続税の申告は同じく10か月以内(国税庁の説明で確認、2026年9月27日)。相続登記は不動産の取得を知った日から3年以内で、2024年4月より前の相続は2027年3月31日までの経過措置がある(法務省)。下のツールに亡くなった日を入れると、これらを含む10の手続きの期限を日付で並べる。</p>
 </div>
@@ -632,7 +763,7 @@
 <p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
 <p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
 </div></footer>
-<script>window.KL_REFDATA = {"shigo-kigen__deadline_rules": [{"key": "shibou_todoke", "label": "死亡届", "basis": "knew", "unit": "days", "amount": 7, "initial_day_counted": true, "holiday_rule": "unconfirmed", "article": "戸籍法86条(期限)・43条(初日を算入する特則)", "source_url": "https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-4.html", "checked": "2026-09-27", "note": "起算点は死亡の事実を知った日。戸籍法43条1項が「届出期間は、届出事件発生の日からこれを起算する」と定めるため、民法140条の初日不算入の原則と違い、知った日を1日目に数える(e-Gov法令APIで43条と86条の本文を確認)。市区町村への届出の期限が休日に当たるときは翌日を期限とみなす一般の決まり(地方自治法4条の2第4項)があるが、死亡届にそのまま当てはまるかを窓口の案内で確かめられていないため未確認として扱う。夜間や休日も宿直の窓口で死亡届を預かる市区町村がある。"}, {"key": "nenkin_todoke_kousei", "label": "年金受給権者死亡届(厚生年金)", "basis": "death", "unit": "days", "amount": 10, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "厚生年金保険法98条4項", "source_url": "https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html", "checked": "2026-09-27", "note": "日本年金機構のよくある質問に「10日(国民年金は14日)以内」とある。日本年金機構にマイナンバーが収録されている人は、この届出を原則として省略できる。期限が休日に当たる場合の扱いは記載が無かった(未確認)。"}, {"key": "nenkin_todoke_kokumin", "label": "年金受給権者死亡届(国民年金)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民年金法105条4項", "source_url": "https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html", "checked": "2026-09-27", "note": "日本年金機構のよくある質問で14日以内を確認。マイナンバー収録者は原則として省略できる。休日の扱いは未確認。"}, {"key": "kokuho_soshitsu", "label": "国民健康保険・後期高齢者医療の資格喪失届(加入していた場合)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民健康保険法施行規則12条(住所を有しなくなったことによる資格喪失の届出、14日以内)", "source_url": "https://laws.e-gov.go.jp/law/333M50000100053/", "checked": "2026-09-27", "note": "亡くなった人が国民健康保険か後期高齢者医療制度に入っていた場合。会社の健康保険(被用者保険)だけだったときは、この届出は要らない。休日の扱いは一次資料で確認できなかった(未確認)。"}, {"key": "setainushi_henko", "label": "世帯主変更届(残る世帯員が2人以上のとき)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "住民基本台帳法25条", "source_url": "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/05519670725081.htm", "checked": "2026-09-27", "note": "亡くなった人が世帯主で、残る世帯員が2人以上のときに必要(1人だけになる場合は世帯そのものが無くなるため原則不要)。休日の扱いは未確認。"}, {"key": "souzoku_houki", "label": "相続放棄・限定承認の申述", "basis": "knew", "unit": "months", "amount": 3, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "民法915条1項", "source_url": "https://www.courts.go.jp/saiban/syurui/syurui_kazi/kazi_06_13/index.html", "checked": "2026-09-27", "note": "起算点は自己のために相続の開始があったことを知った時(裁判所の説明ページで確認)。3か月の末日が家庭裁判所の閉まる日(土日祝、12月29日から1月3日)に当たったときに翌開庁日まで延びるという記載は、裁判所の説明ページに無かった(2026-09-27確認)。同じサイトの相続放棄の期限のページと同じく未確認として扱い、法定の末日と推奨日を両方出す。"}, {"key": "jun_kakutei", "label": "準確定申告", "basis": "knew", "unit": "months", "amount": 4, "initial_day_counted": false, "holiday_rule": "tax", "article": "所得税法124条・125条", "source_url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2022.htm", "checked": "2026-09-27", "note": "起算点は相続の開始があったことを知った日の翌日。事業収入や不動産収入があった、給与以外の所得があったなど、確定申告が必要だった人が対象。"}, {"key": "souzokuzei", "label": "相続税の申告と納税", "basis": "knew", "unit": "months", "amount": 10, "initial_day_counted": false, "holiday_rule": "tax", "article": "相続税法27条1項", "source_url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4205.htm", "checked": "2026-09-27", "note": "起算点は被相続人が死亡したことを知った日(通常は死亡の日)の翌日。遺産が基礎控除(3,000万円+600万円×法定相続人の数)を超えそうなときに申告が要る。"}, {"key": "souzoku_touki", "label": "相続登記の申請", "basis": "knew", "unit": "years", "amount": 3, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "不動産登記法76条の2第1項、令和3年の改正法の附則(2024年4月1日より前に相続を知った不動産は2027年3月31日まで)", "source_url": "https://www.moj.go.jp/MINJI/minji05_00565.html", "checked": "2026-09-27", "note": "起算点は不動産を相続で取得したことを知った日。法務省Q&Aは、2024年4月1日より前に相続したことを知った不動産の期限を2027年3月31日としている。このツールは、相続の開始が2024年4月1日より前で知った日も同日以前なら2027年3月31日を出す(知った日がちょうど2024年4月1日のときは早いほうの日付)。休日の扱いは法務省のページに記載が無く未確認。"}, {"key": "sousaihi", "label": "葬祭費・埋葬料の請求", "basis": "funeral", "unit": "years", "amount": 2, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "健康保険法193条、国民健康保険法110条1項", "source_url": "https://www.kyoukaikenpo.or.jp/application_form/benefit/012/index.html", "checked": "2026-09-27", "note": "協会けんぽの埋葬料は、死亡日の翌日から2年で時効になる(申請書のページで確認)。埋葬費は埋葬した日の翌日から2年。国民健康保険の葬祭費も葬儀の日を起点にする扱いがある(推定)。葬儀の日を入力していないときは死亡日で計算するため、埋葬費や葬祭費の実際の期限より早めの日付になる。"}, {"key": "mishikyu_nenkin", "label": "未支給年金の請求", "basis": "death", "unit": "years", "amount": 5, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民年金法102条5項、厚生年金保険法92条5項", "source_url": "https://www.nenkin.go.jp/service/jukyu/seido/kyotsu/shikyu/20140421-01.html", "checked": "2026-09-27", "note": "本来の起算日は年金の支払日の翌月の初日だが、ここでは分かりやすさのため死亡日を起点に5年で近似している(実際の時効日と数日から数十日ずれることがある、推定)。年金を受けていなかった人には出ない。"}], "taishoku-gyakusan__holidays_jp": [{"date": "2026-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-01-12", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-05-06", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-07-20", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-21", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-22", "name": "国民の休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-10-12", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2026-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-01-11", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-21", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-03-22", "name": "振替休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-07-19", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-20", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-10-11", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}, {"date": "2027-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-09-27"}]};</script>
+<script>window.KL_REFDATA = {"shigo-kigen__deadline_rules": [{"key": "shibou_todoke", "label": "死亡届", "basis": "knew", "unit": "days", "amount": 7, "initial_day_counted": true, "holiday_rule": "unconfirmed", "article": "戸籍法86条(期限)・43条(初日を算入する特則)", "source_url": "https://www.moj.go.jp/ONLINE/FAMILYREGISTER/5-4.html", "checked": "2026-10-01", "note": "起算点は死亡の事実を知った日。戸籍法43条1項が「届出期間は、届出事件発生の日からこれを起算する」と定めるため、民法140条の初日不算入の原則と違い、知った日を1日目に数える(e-Gov法令APIで43条と86条の本文を確認)。市区町村への届出の期限が休日に当たるときは翌日を期限とみなす一般の決まり(地方自治法4条の2第4項)があるが、死亡届にそのまま当てはまるかを窓口の案内で確かめられていないため未確認として扱う。夜間や休日も宿直の窓口で死亡届を預かる市区町村がある。"}, {"key": "nenkin_todoke_kousei", "label": "年金受給権者死亡届(厚生年金)", "basis": "death", "unit": "days", "amount": 10, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "厚生年金保険法98条4項", "source_url": "https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html", "checked": "2026-10-01", "note": "日本年金機構のよくある質問に「10日(国民年金は14日)以内」とある。日本年金機構にマイナンバーが収録されている人は、この届出を原則として省略できる。期限が休日に当たる場合の扱いは記載が無かった(未確認)。"}, {"key": "nenkin_todoke_kokumin", "label": "年金受給権者死亡届(国民年金)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民年金法105条4項", "source_url": "https://www.nenkin.go.jp/section/faq/jukyu/jukyushatodoke/kyotsu/shibo/20140421.html", "checked": "2026-10-01", "note": "日本年金機構のよくある質問で14日以内を確認。マイナンバー収録者は原則として省略できる。休日の扱いは未確認。"}, {"key": "kokuho_soshitsu", "label": "国民健康保険・後期高齢者医療の資格喪失届(加入していた場合)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民健康保険法施行規則12条(住所を有しなくなったことによる資格喪失の届出、14日以内)", "source_url": "https://laws.e-gov.go.jp/law/333M50000100053/", "checked": "2026-09-27", "note": "亡くなった人が国民健康保険か後期高齢者医療制度に入っていた場合。会社の健康保険(被用者保険)だけだったときは、この届出は要らない。休日の扱いは一次資料で確認できなかった(未確認)。 2026-10-01 月次確認: e-Gov法令検索がシステムメンテナンス中(403)で読めず、値は未確認(前回 2026-09-27 のまま)。"}, {"key": "setainushi_henko", "label": "世帯主変更届(残る世帯員が2人以上のとき)", "basis": "death", "unit": "days", "amount": 14, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "住民基本台帳法25条", "source_url": "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/05519670725081.htm", "checked": "2026-10-01", "note": "亡くなった人が世帯主で、残る世帯員が2人以上のときに必要(1人だけになる場合は世帯そのものが無くなるため原則不要)。休日の扱いは未確認。"}, {"key": "souzoku_houki", "label": "相続放棄・限定承認の申述", "basis": "knew", "unit": "months", "amount": 3, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "民法915条1項", "source_url": "https://www.courts.go.jp/saiban/syurui/syurui_kazi/kazi_06_13/index.html", "checked": "2026-10-01", "note": "起算点は自己のために相続の開始があったことを知った時(裁判所の説明ページで確認)。3か月の末日が家庭裁判所の閉まる日(土日祝、12月29日から1月3日)に当たったときに翌開庁日まで延びるという記載は、裁判所の説明ページに無かった(2026-09-27確認)。同じサイトの相続放棄の期限のページと同じく未確認として扱い、法定の末日と推奨日を両方出す。"}, {"key": "jun_kakutei", "label": "準確定申告", "basis": "knew", "unit": "months", "amount": 4, "initial_day_counted": false, "holiday_rule": "tax", "article": "所得税法124条・125条", "source_url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2022.htm", "checked": "2026-10-01", "note": "起算点は相続の開始があったことを知った日の翌日。事業収入や不動産収入があった、給与以外の所得があったなど、確定申告が必要だった人が対象。"}, {"key": "souzokuzei", "label": "相続税の申告と納税", "basis": "knew", "unit": "months", "amount": 10, "initial_day_counted": false, "holiday_rule": "tax", "article": "相続税法27条1項", "source_url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4205.htm", "checked": "2026-10-01", "note": "起算点は被相続人が死亡したことを知った日(通常は死亡の日)の翌日。遺産が基礎控除(3,000万円+600万円×法定相続人の数)を超えそうなときに申告が要る。"}, {"key": "souzoku_touki", "label": "相続登記の申請", "basis": "knew", "unit": "years", "amount": 3, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "不動産登記法76条の2第1項、令和3年の改正法の附則(2024年4月1日より前に相続を知った不動産は2027年3月31日まで)", "source_url": "https://www.moj.go.jp/MINJI/minji05_00565.html", "checked": "2026-10-01", "note": "起算点は不動産を相続で取得したことを知った日。法務省Q&Aは、2024年4月1日より前に相続したことを知った不動産の期限を2027年3月31日としている。このツールは、相続の開始が2024年4月1日より前で知った日も同日以前なら2027年3月31日を出す(知った日がちょうど2024年4月1日のときは早いほうの日付)。休日の扱いは法務省のページに記載が無く未確認。"}, {"key": "sousaihi", "label": "葬祭費・埋葬料の請求", "basis": "funeral", "unit": "years", "amount": 2, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "健康保険法193条、国民健康保険法110条1項", "source_url": "https://www.kyoukaikenpo.or.jp/application_form/benefit/012/index.html", "checked": "2026-10-01", "note": "協会けんぽの埋葬料は、死亡日の翌日から2年で時効になる(申請書のページで確認)。埋葬費は埋葬した日の翌日から2年。国民健康保険の葬祭費も葬儀の日を起点にする扱いがある(推定)。葬儀の日を入力していないときは死亡日で計算するため、埋葬費や葬祭費の実際の期限より早めの日付になる。"}, {"key": "mishikyu_nenkin", "label": "未支給年金の請求", "basis": "death", "unit": "years", "amount": 5, "initial_day_counted": false, "holiday_rule": "unconfirmed", "article": "国民年金法102条5項、厚生年金保険法92条5項", "source_url": "https://www.nenkin.go.jp/service/jukyu/seido/kyotsu/shikyu/20140421-01.html", "checked": "2026-10-01", "note": "本来の起算日は年金の支払日の翌月の初日だが、ここでは分かりやすさのため死亡日を起点に5年で近似している(実際の時効日と数日から数十日ずれることがある、推定)。年金を受けていなかった人には出ない。"}], "taishoku-gyakusan__holidays_jp": [{"date": "2026-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-01-12", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-03-20", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-05-06", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-07-20", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-09-21", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-09-22", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-10-12", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2026-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-01-01", "name": "元日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-01-11", "name": "成人の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-02-11", "name": "建国記念の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-02-23", "name": "天皇誕生日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-03-21", "name": "春分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-03-22", "name": "休日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-04-29", "name": "昭和の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-05-03", "name": "憲法記念日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-05-04", "name": "みどりの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-05-05", "name": "こどもの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-07-19", "name": "海の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-08-11", "name": "山の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-09-20", "name": "敬老の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-09-23", "name": "秋分の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-10-11", "name": "スポーツの日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-11-03", "name": "文化の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}, {"date": "2027-11-23", "name": "勤労感謝の日", "source_url": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv", "checked": "2026-10-01"}]};</script>
 <script>
 function KL_CALC(input, refdata) {
   refdata = refdata || {};
