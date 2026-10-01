@@ -462,14 +462,146 @@
   if (typeof module === "object" && module && module.exports) { module.exports = api; }
 })(typeof globalThis !== "undefined" ? globalThis : this);
 </script>
+<script type="application/json" id="kl-category-counts">{"bosai": 3, "jikka": 3, "kankon": 0, "shigoto": 3, "shoku": 1, "sumai": 0, "tetsuzuki": 7, "care": 7, "shinro": 5, "koikatsu": 1, "deai": 0}</script>
+<script>
+/* Presentation only: preserve calculator inputs, outputs, links and live regions. */
+(function () {
+  "use strict";
+
+  function each(root, selector, fn) {
+    Array.prototype.forEach.call(root.querySelectorAll(selector), fn);
+  }
+
+  function markNumbers(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var nodes = [], node;
+    while ((node = walker.nextNode())) {
+      if (!node.parentElement.closest("a, button, script, style, time, .kl-number") && /[0-9０-９]/.test(node.data)) {
+        nodes.push(node);
+      }
+    }
+    nodes.forEach(function (text) {
+      var pattern = /[0-9０-９]+(?:[,，.．][0-9０-９]+)*/g;
+      var fragment = document.createDocumentFragment(), start = 0, match;
+      while ((match = pattern.exec(text.data))) {
+        fragment.appendChild(document.createTextNode(text.data.slice(start, match.index)));
+        var span = document.createElement("span");
+        span.className = "kl-number";
+        span.textContent = match[0];
+        fragment.appendChild(span);
+        start = pattern.lastIndex;
+      }
+      fragment.appendChild(document.createTextNode(text.data.slice(start)));
+      text.replaceWith(fragment);
+    });
+  }
+
+  function tables(root) {
+    each(root, "table", function (table) {
+      var wrap = table.parentElement;
+      if (!wrap.classList.contains("table-wrap")) {
+        wrap = document.createElement("div");
+        wrap.className = "table-wrap";
+        table.before(wrap);
+        wrap.appendChild(table);
+      }
+      wrap.tabIndex = 0;
+      wrap.setAttribute("role", "region");
+      wrap.setAttribute("aria-label", (table.caption ? table.caption.textContent : "計算の表") + "（横にスクロールできます）");
+      each(table, "td", function (cell) {
+        var value = cell.textContent.trim();
+        if (/^[約およそ税込\s]*[¥￥+−-]?[0-9０-９]/.test(value) && !cell.querySelector("a, button, input")) {
+          cell.classList.add("num");
+        }
+      });
+    });
+  }
+
+  function countBadge(parent, count) {
+    var badge = document.createElement("span");
+    badge.className = "page-count";
+    badge.textContent = count + "件の計算";
+    parent.appendChild(badge);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    each(document, ".answer-box", markNumbers);
+    tables(document);
+
+    // Native disclosure controls; without JavaScript the original FAQ stays readable.
+    each(document, ".faq > dl", function (list) {
+      var fragment = document.createDocumentFragment();
+      Array.prototype.forEach.call(list.children, function (question) {
+        if (question.tagName !== "DT") { return; }
+        var answer = question.nextElementSibling;
+        if (!answer || answer.tagName !== "DD") { return; }
+        var details = document.createElement("details");
+        var summary = document.createElement("summary");
+        var body = document.createElement("div");
+        body.className = "faq-answer";
+        while (question.firstChild) { summary.appendChild(question.firstChild); }
+        while (answer.firstChild) { body.appendChild(answer.firstChild); }
+        details.appendChild(summary);
+        details.appendChild(body);
+        fragment.appendChild(details);
+      });
+      list.replaceWith(fragment);
+    });
+
+    each(document, ".category-grid > .cat-block", function (card) {
+      var list = card.querySelector(".page-list");
+      if (!list) { return; }
+      var count = list.querySelectorAll("li:not(.empty)").length;
+      countBadge(card, count);
+      if (!count) { return; }
+      var details = document.createElement("details");
+      var summary = document.createElement("summary");
+      summary.textContent = "計算ツールを見る";
+      details.className = "category-tools";
+      details.appendChild(summary);
+      card.appendChild(details);
+      details.appendChild(list);
+    });
+
+    each(document, ".category", function (category) {
+      countBadge(category.querySelector(".collection-heading"), category.querySelectorAll(".page-list > li:not(.empty)").length);
+    });
+    var countsElement = document.getElementById("kl-category-counts");
+    var counts = countsElement ? JSON.parse(countsElement.textContent) : {};
+    each(document, ".category-entry-list > li", function (card) {
+      var link = card.querySelector("a");
+      var parts = link ? link.getAttribute("href").split("/").filter(Boolean) : [];
+      var key = parts[parts.length - 1];
+      if (Object.prototype.hasOwnProperty.call(counts, key)) { countBadge(card, counts[key]); }
+    });
+
+    // Observe only the existing result node; never replace it or change aria-live.
+    each(document, ".tool #kl-result, .tool #result, .tool .result", function (result) {
+      function decorate() {
+        observer.disconnect();
+        each(result, ":scope > p:first-child, .kl-answer, .kl-summary", markNumbers);
+        tables(result);
+        observer.observe(result, { childList: true, subtree: true, characterData: true });
+      }
+      var observer = new MutationObserver(decorate);
+      decorate();
+    });
+  });
+})();
+
+</script>
 </head>
 <body>
-<header class="site-header"><div class="wrap"><a class="site-name" href="../">くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
-<main class="wrap">
+<a class="skip-link" href="#main">本文へ進む</a>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../"><span class="site-mark" aria-hidden="true">＝</span>くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap" id="main" tabindex="-1">
 <nav class="crumbs" aria-label="パンくずリスト"><a href="../">トップ</a><span aria-hidden="true">›</span><span>進路とお金の計算帳(通信制と不登校)</span></nav>
 <section class="category">
+<header class="collection-heading">
+<p class="eyebrow">暮らしのテーマから探す</p>
 <h1>進路とお金の計算帳(通信制と不登校)</h1>
 <p>通信制高校への転入と卒業時期、サポート校を足した3年間の費用、学校に行けない間の学び方の月額を出す</p>
+</header>
 <ul class="page-list"><li><a href="../shinro/tsuushin-tennyu-sotsugyou/">通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算</a><p>通信制高校に転入した場合の卒業の目安年月を、入学した年月と転入する年月、認定済みの単位、転入先の年間の履修上限、9月卒業の有無から計算する。</p></li>
 <li><a href="../shinro/tsuushin-sapo-3nen/">通信制高校にサポート校を足すと3年間でいくら? 就学支援金を引いた自己負担を、転入の時期も入れて出す</a><p>通信制高校とサポート校の3年間の学費を、1単位あたりの授業料と2026年度の就学支援金(私立の単位制は1単位13,668円まで)から計算し、自己負担の目安を出す。転入時の残り単位にも対応。</p></li>
 <li><a href="../shinro/tennyu-junbi-gyakusan/">通信制高校への転入、いつ動けば間に合うか 転入したい月から資料請求と出願の目安日を逆算する</a><p>転入したい月を入れると、出願締切、書類の依頼、学校見学の期間から、資料請求を始める目安日を逆算します。単位の引き継ぎの判断はしません。</p></li>
