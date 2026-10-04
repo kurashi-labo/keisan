@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>結婚相談所の成婚率は何で割った数字? 定義ごとの率と、費用を成婚率で割った額を計算 | くらしラボ計算帳</title>
+<meta name="description" content="結婚相談所の成婚率は、退会者で割るか、在籍会員で割るか、入会者で割るかで率が変わる。分子と分母を入れて3つの定義の率を出し、活動総額を成婚率で割った額も計算する。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="結婚相談所の成婚率は何で割った数字? 定義ごとの率と、費用を成婚率で割った額を計算 | くらしラボ計算帳">
+<meta property="og:description" content="結婚相談所の成婚率は、退会者で割るか、在籍会員で割るか、入会者で割るかで率が変わる。分子と分母を入れて3つの定義の率を出し、活動総額を成婚率で割った額も計算する。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/",
+   "name": "結婚相談所の成婚率は何で割った数字? 定義ごとの率と、費用を成婚率で割った額を計算",
+   "description": "結婚相談所の成婚率は、退会者で割るか、在籍会員で割るか、入会者で割るかで率が変わる。分子と分母を入れて3つの定義の率を出し、活動総額を成婚率で割った額も計算する。",
+   "dateModified": "2026-10-04",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "恋愛と婚活のお金",
+     "item": "https://kurashi-labo.github.io/keisan/koikatsu/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "結婚相談所の成婚率は何で割った数字? 定義ごとの率と、費用を成婚率で割った額を計算",
+     "item": "https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/koikatsu/seikonritsu-hiyou/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "成婚率が高い相談所を選べばよいですか",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "数字だけでは決められない。割る数が全退会者の社(IBJメンバーズ)、成婚退会者だけの社(ウェルスマ)、利用者数で割った外部調査を根拠にする社(パートナーエージェント)があり、同じ人数でも率が数倍開くためだ。公式ページで分子、分母、期間を確かめ、書かれていなければ、相談のときに聞くのが近道になる。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "成婚と結婚は同じ意味ですか",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "同じではない。IBJとパートナーエージェントは、成婚を婚約と書いている。サンマリエは、成婚退会を婚約・結婚の意思が固まっている状態、もしくはそれに近しい状態での退会と書く。結婚が成立した時点を指す社は、今回読んだ公式ページには無かった。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "リクルートの15.3%は成婚率ですか",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "成婚率ではない。2023年に結婚した人のうち、婚活サービスを通じた人の割合で、結婚相談所以外のサービスも含む。分母が結婚した人なので、入会した人が結婚する割合を表す数字でもない。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "総額を成婚率で割った額は、自分が払う額ですか",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "違う。同じ総額を払う会員全体で、成婚した1人あたりに払った額の目安になる。自分が払う額は、活動月数、月会費、成婚料の有無で決まる。姉妹ページの費用の計算で出せる。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+<script>
+/* kl_date.js: くらしラボ計算帳の日付部品。グローバル KL_DATE(ブラウザは window、calc_test.js の vm は context)。
+   日付は Date か "YYYY-MM-DD" で受け取り、その端末の0時の Date で返す(文字列にするときは fmt)。
+   内部は 1970-01-01 からの通し日数で数えるので、タイムゾーンと夏時間の影響を受けない。
+   条文: 民法140条〜143条、国税通則法10条2項と同法施行令2条2項、祝日法(国民の祝日に関する法律)2条・3条。 */
+(function (root) {
+  "use strict";
+  var DAY_MS = 86400000;
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  var HOLIDAY_REF = /holiday|shukujitsu|syukujitsu/i;
+  var UNITS = ["days", "weeks", "months", "years"];
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function serialOf(y, m, d) { return Math.round(Date.UTC(y, m - 1, d) / DAY_MS); }
+  function partsOf(s) {
+    var t = new Date(s * DAY_MS);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+  }
+  function iso(y, m, d) { return y + "-" + pad(m) + "-" + pad(d); }
+  function isoOf(s) { var p = partsOf(s); return iso(p.y, p.m, p.d); }
+  function compact(s) { return isoOf(s).replace(/-/g, ""); }
+  function dow(s) { return ((s + 4) % 7 + 7) % 7; } // 1970-01-01 は木曜
+  function daysInMonth(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function isDate(v) { return Object.prototype.toString.call(v) === "[object Date]"; }
+
+  // Date(0時ちょうどなら端末の日付、UTC の0時ちょうどなら UTC の日付)、"YYYY-MM-DD"、"YYYY/M/D"、"YYYY年M月D日"、
+  // taxDeadline などの結果({date})を通し日数にする。読めなければ NaN
+  function toSerial(v) {
+    if (v === null || v === undefined || v === "") { return NaN; }
+    if (isDate(v)) {
+      if (isNaN(v.getTime())) { return NaN; }
+      if (v.getHours() === 0 && v.getMinutes() === 0 && v.getSeconds() === 0 && v.getMilliseconds() === 0) {
+        return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+      }
+      if (v.getUTCHours() === 0 && v.getUTCMinutes() === 0 && v.getUTCSeconds() === 0 && v.getUTCMilliseconds() === 0) {
+        return serialOf(v.getUTCFullYear(), v.getUTCMonth() + 1, v.getUTCDate());
+      }
+      return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+    }
+    if (typeof v === "object") { return v.date !== undefined && v.date !== v ? toSerial(v.date) : NaN; }
+    var m = /^\s*(\d{4})\s*[-\/.年]\s*(\d{1,2})\s*[-\/.月]\s*(\d{1,2})\s*日?\s*(?:$|T)/.exec(String(v));
+    if (!m) { return NaN; }
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y < 1000 || mo < 1 || mo > 12 || d < 1 || d > daysInMonth(y, mo)) { return NaN; }
+    return serialOf(y, mo, d);
+  }
+  function need(v, fn) {
+    var s = toSerial(v);
+    if (isNaN(s)) { throw new Error("KL_DATE." + fn + ": 日付を読めません(" + String(v) + ")"); }
+    return s;
+  }
+  function int(n, fn, what) {
+    var x = Number(n);
+    if (n === null || n === "" || !isFinite(x) || Math.floor(x) !== x) {
+      throw new Error("KL_DATE." + fn + ": " + what + "は整数で指定してください(" + String(n) + ")");
+    }
+    return x;
+  }
+  function toDate(s) {
+    var p = partsOf(s);
+    var t = new Date(2000, 0, 1);
+    t.setFullYear(p.y, p.m - 1, p.d);
+    t.setHours(0, 0, 0, 0);
+    return t;
+  }
+  function shiftMonths(s, n) {
+    var p = partsOf(s);
+    var idx = p.y * 12 + (p.m - 1) + n;
+    var y = Math.floor(idx / 12), m = idx - y * 12 + 1;
+    return { y: y, m: m, d: p.d, last: daysInMonth(y, m) };
+  }
+
+  function parse(v) { var s = toSerial(v); return isNaN(s) ? null : toDate(s); }
+  function fmt(v) { var s = toSerial(v); return isNaN(s) ? "" : isoOf(s); }
+  function weekdayJa(v) { return WEEKDAY_JA[dow(need(v, "weekdayJa"))]; }
+  function addDays(date, n) { return toDate(need(date, "addDays") + int(n, "addDays", "日数")); }
+  // 月の足し引き。応当日が無い月は月末にする(民法143条2項ただし書と同じ考え方。1月31日の1か月後は2月末日)
+  function addMonths(date, n) {
+    var t = shiftMonths(need(date, "addMonths"), int(n, "addMonths", "月数"));
+    return toDate(serialOf(t.y, t.m, Math.min(t.d, t.last)));
+  }
+  function addYears(date, n) { return addMonths(date, 12 * int(n, "addYears", "年数")); }
+  function endOfMonth(date) {
+    var p = partsOf(need(date, "endOfMonth"));
+    return toDate(serialOf(p.y, p.m, daysInMonth(p.y, p.m)));
+  }
+  function diffDays(from, to) { return need(to, "diffDays") - need(from, "diffDays"); }
+
+  // 期間の末日。spec は {days:n} {weeks:n} {months:n} {years:n} のどれか1つ
+  function periodEnd(start, spec, opts) {
+    var s = need(start, "periodEnd"), found = [];
+    for (var i = 0; i < UNITS.length; i++) {
+      if (spec && spec[UNITS[i]] !== undefined && spec[UNITS[i]] !== null) { found.push(UNITS[i]); }
+    }
+    if (found.length !== 1) {
+      throw new Error("KL_DATE.periodEnd: 期間は days、weeks、months、years のどれか1つで指定してください");
+    }
+    var unit = found[0], n = int(spec[unit], "periodEnd", unit);
+    if (n < 1) { throw new Error("KL_DATE.periodEnd: " + unit + "は1以上にしてください"); }
+    // 民法140条: 初日は算入しない(起算日は翌日)。午前0時から始まる期間だけ initialDayCounted:true で初日を数える
+    var first = s + (opts && opts.initialDayCounted === true ? 0 : 1);
+    // 民法141条: 期間は末日の終了をもって満了する。返すのはその末日
+    if (unit === "days") { return toDate(first + n - 1); }
+    // 民法143条: 週・月・年は暦に従い、最後の週・月・年で起算日に応当する日の前日に満了する(2項本文)
+    if (unit === "weeks") { return toDate(first + 7 * n - 1); }
+    var t = shiftMonths(first, unit === "years" ? 12 * n : n);
+    // 143条2項ただし書: 最後の月に応当する日が無いときは、その月の末日に満了する
+    if (t.d > t.last) { return toDate(serialOf(t.y, t.m, t.last)); }
+    return toDate(serialOf(t.y, t.m, t.d) - 1);
+  }
+
+  // ---- 祝日(祝日法)
+  // 春分・秋分の日は前年2月の官報で決まる。ここでは広く使われている近似式で出す(1980〜2150年)
+  function equinoxDay(year, spring) {
+    var base;
+    if (year >= 1980 && year <= 2099) { base = spring ? 20.8431 : 23.2488; }
+    else if (year >= 2100 && year <= 2150) { base = spring ? 21.8510 : 24.2488; }
+    else { return 0; }
+    return Math.floor(base + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function nthMonday(y, m, n) { return 1 + ((8 - dow(serialOf(y, m, 1))) % 7) + 7 * (n - 1); }
+
+  var ruleCache = {};
+  function ruleHolidays(year) {
+    if (ruleCache[year]) { return ruleCache[year]; }
+    var sai = {}, map = {}, k, s, t;
+    function put(m, d, name) { if (d) { sai[iso(year, m, d)] = name; } }
+    // 祝日法2条
+    put(1, 1, "元日");
+    put(1, nthMonday(year, 1, 2), "成人の日");
+    put(2, 11, "建国記念の日");
+    if (year >= 2020) { put(2, 23, "天皇誕生日"); }
+    put(3, equinoxDay(year, true), "春分の日");
+    put(4, 29, "昭和の日");
+    put(5, 3, "憲法記念日");
+    put(5, 4, "みどりの日");
+    put(5, 5, "こどもの日");
+    if (year === 2020) { put(7, 23, "海の日"); put(7, 24, "スポーツの日"); put(8, 10, "山の日"); }
+    else if (year === 2021) { put(7, 22, "海の日"); put(7, 23, "スポーツの日"); put(8, 8, "山の日"); }
+    else { put(7, nthMonday(year, 7, 3), "海の日"); put(8, 11, "山の日"); put(10, nthMonday(year, 10, 2), "スポーツの日"); }
+    put(9, nthMonday(year, 9, 3), "敬老の日");
+    put(9, equinoxDay(year, false), "秋分の日");
+    put(11, 3, "文化の日");
+    put(11, 23, "勤労感謝の日");
+    for (k in sai) { if (hasOwn.call(sai, k)) { map[k] = sai[k]; } }
+    for (k in sai) {
+      if (!hasOwn.call(sai, k)) { continue; }
+      s = toSerial(k);
+      // 3条2項(振替休日): 祝日が日曜日に当たるときは、その日後で最も近い祝日でない日を休日とする
+      if (dow(s) === 0) {
+        t = s + 1;
+        while (hasOwn.call(sai, isoOf(t))) { t += 1; }
+        map[isoOf(t)] = "振替休日";
+      }
+      // 3条3項(国民の休日): 前日と翌日が祝日である日(祝日でない日に限る)は休日とする
+      if (hasOwn.call(sai, isoOf(s + 2)) && !hasOwn.call(sai, isoOf(s + 1)) && !hasOwn.call(map, isoOf(s + 1))) {
+        map[isoOf(s + 1)] = "国民の休日";
+      }
+    }
+    var note = year < 2020 ? "2019年以前は祝日の決まりが今と違うため、参考の値です"
+      : (equinoxDay(year, true) ? "内閣府の祝日データに無い年のため、祝日法の決まりと春分・秋分の近似式で出しました"
+        : "春分と秋分の日を近似式で出せない年です(1980〜2150年のみ)");
+    ruleCache[year] = { map: map, note: note };
+    return ruleCache[year];
+  }
+
+  // refdata のうち、名前か出典URLに holiday / shukujitsu を含むものを祝日データとして読む。
+  // 形は {"rows": [{"date": "YYYY-MM-DD", "name": "…"}]}(taishoku-gyakusan__holidays_jp と shikaku-gyakusan__shukujitsu)
+  var refCache = { src: undefined, idx: null };
+  function holidayRows(source) {
+    if (Array.isArray(source)) { return source; }
+    var out = [];
+    if (source && typeof source === "object") {
+      for (var k in source) {
+        if (!hasOwn.call(source, k) || !Array.isArray(source[k])) { continue; }
+        var first = source[k][0];
+        if (HOLIDAY_REF.test(k) || (first && typeof first === "object" && HOLIDAY_REF.test(String(first.source_url || "")))) {
+          out = out.concat(source[k]);
+        }
+      }
+    }
+    return out;
+  }
+  function refIndex(source) {
+    if (source === undefined || source === null) { source = root.KL_REFDATA; }
+    if (refCache.idx && refCache.src === source) { return refCache.idx; }
+    var rows = holidayRows(source), map = {}, years = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+      if (isNaN(s)) { continue; }
+      k = isoOf(s);
+      map[k] = (r && typeof r === "object" && r.name) || map[k] || "祝日";
+    }
+    // 元日と勤労感謝の日の両方がある年を「その年の祝日がすべて載っている」とみなす
+    for (k in map) {
+      if (hasOwn.call(map, k) && map[k.slice(0, 4) + "-01-01"] && map[k.slice(0, 4) + "-11-23"]) { years[k.slice(0, 4)] = true; }
+    }
+    refCache = { src: source, idx: { map: map, years: years } };
+    return refCache.idx;
+  }
+
+  function holidaysFor(year, source) {
+    var y = int(year, "holidaysFor", "年"), idx = refIndex(source), prefix = String(y) + "-";
+    var fromRef = hasOwn.call(idx.years, String(y)), rule = fromRef ? null : ruleHolidays(y);
+    var src = fromRef ? idx.map : rule.map, map = {}, list = [], keys = [], k, i;
+    for (k in src) { if (hasOwn.call(src, k) && k.indexOf(prefix) === 0) { keys.push(k); } }
+    keys.sort();
+    for (i = 0; i < keys.length; i++) { map[keys[i]] = src[keys[i]]; list.push({ date: keys[i], name: src[keys[i]] }); }
+    var out = { year: y, estimated: !fromRef, source: fromRef ? "refdata" : "rule", holidays: list, map: map };
+    if (rule) { out.note = rule.note; }
+    return out;
+  }
+
+  // holidays の渡し方: 省略(KL_REFDATA の祝日、無い年は祝日法で計算)/ refdata オブジェクト / 日付か {date,name} の配列 /
+  // {"YYYY-MM-DD": 名前} / holidaysFor の結果。配列と {"日付": 名前} は「それが祝日のすべて」として扱う
+  function lookup(holidays) {
+    var fixed = null, source, perYear = {}, estimated = false;
+    if (Array.isArray(holidays)) {
+      fixed = {};
+      for (var i = 0; i < holidays.length; i++) {
+        var r = holidays[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+        if (!isNaN(s)) { fixed[isoOf(s)] = (r && typeof r === "object" && r.name) || "休日"; }
+      }
+    } else if (holidays && typeof holidays === "object") {
+      if (holidays.map && typeof holidays.map === "object" && holidays.year !== undefined) { fixed = holidays.map; }
+      else {
+        for (var key in holidays) {
+          if (hasOwn.call(holidays, key)) { fixed = /^\d{4}-\d{2}-\d{2}$/.test(key) ? holidays : null; break; }
+        }
+        if (!fixed) { source = holidays; }
+      }
+    }
+    return {
+      name: function (s) {
+        var k = isoOf(s);
+        if (fixed) { return hasOwn.call(fixed, k) ? String(fixed[k] === true ? "休日" : fixed[k]) : ""; }
+        var y = k.slice(0, 4);
+        if (!perYear[y]) {
+          perYear[y] = holidaysFor(Number(y), source);
+          if (perYear[y].estimated) { estimated = true; }
+        }
+        return hasOwn.call(perYear[y].map, k) ? perYear[y].map[k] : "";
+      },
+      estimated: function () { return estimated; }
+    };
+  }
+  function yearEnd(s) { var p = partsOf(s); return (p.m === 12 && p.d >= 29) || (p.m === 1 && p.d <= 3); }
+  function closedReason(s, look, withYearEnd) {
+    var name = look.name(s), w = dow(s);
+    if (name) { return name; }
+    if (w === 0) { return "日曜日"; }
+    if (w === 6) { return "土曜日"; }
+    if (withYearEnd && yearEnd(s)) { return "年末年始"; }
+    return "";
+  }
+
+  function holidayName(date, holidays) { return lookup(holidays).name(need(date, "holidayName")); }
+  // 土日と祝日(振替休日・国民の休日を含む)なら true
+  function isHoliday(date, holidays) { return !!closedReason(need(date, "isHoliday"), lookup(holidays), false); }
+  function businessDay(date, opts, fn, step) {
+    opts = opts || {};
+    var s = need(date, fn), look = lookup(opts.holidays);
+    if (opts.strict === true) { s += step; }
+    for (var i = 0; i < 400; i++, s += step) {
+      if (!closedReason(s, look, opts.yearEnd === true)) { return toDate(s); }
+    }
+    throw new Error("KL_DATE." + fn + ": 400日以内に営業日がありません");
+  }
+  // その日が営業日ならその日、休みなら次(前)の営業日。{strict:true} で必ず翌日以降(前日以前)にする。
+  // {yearEnd:true} で12月29日〜1月3日も休みとして数える
+  function nextBusinessDay(date, opts) { return businessDay(date, opts, "nextBusinessDay", 1); }
+  function prevBusinessDay(date, opts) { return businessDay(date, opts, "prevBusinessDay", -1); }
+
+  function shiftDeadline(date, opts, fn, basis) {
+    opts = opts || {};
+    var s0 = need(date, fn), s = s0, look = lookup(opts.holidays), skipped = [], why;
+    for (var i = 0; i < 400; i++) {
+      why = closedReason(s, look, true);
+      if (!why) { break; }
+      skipped.push({ date: isoOf(s), why: why });
+      s += 1;
+    }
+    return { date: toDate(s), ymd: isoOf(s), original: isoOf(s0), shifted: s !== s0, skipped: skipped,
+      estimated: look.estimated(), unconfirmed: false, basis: basis };
+  }
+  // 国税通則法10条2項: 期限が日曜日・祝日法の休日・その他一般の休日・政令で定める日に当たるときは、翌日を期限とみなす。
+  // 政令で定める日は土曜日と12月29日〜31日(施行令2条2項)。1月2日と3日は一般の休日として数える
+  function taxDeadline(date, opts) { return shiftDeadline(date, opts, "taxDeadline", "国税通則法10条2項"); }
+  // 民法142条: 期間の末日が日曜日・祝日法の休日その他の休日に当たるときは、その日に取引をしない慣習がある場合に限り翌日に満了する。
+  // 慣習の有無はここでは確かめられないので、繰り下げたときは unconfirmed:true を返す(土曜日と12月29日〜1月3日も休みとして数える)。
+  // 裁判所への申述など民事訴訟法95条3項(家事事件は家事事件手続法34条4項で準用)が使える手続は {basis:"minso"}。慣習の条件が無い
+  function courtDeadline(date, opts) {
+    var minso = !!(opts && opts.basis === "minso");
+    var r = shiftDeadline(date, opts, "courtDeadline", minso ? "民事訴訟法95条3項" : "民法142条");
+    r.unconfirmed = !minso && r.shifted;
+    return r;
+  }
+
+  // ---- カレンダー(RFC 5545)
+  function icsText(v) {
+    return String(v === undefined || v === null ? "" : v).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+      .replace(/,/g, "\\,").replace(/\r\n|\r|\n/g, "\\n");
+  }
+  // 1行75オクテット(UTF-8)を超えたら CRLF+空白で折り返す。文字の途中では切らない
+  function fold(line) {
+    var out = [], cur = "", bytes = 0, i = 0;
+    while (i < line.length) {
+      var c = line.charCodeAt(i), ch = line.charAt(i), n;
+      if (c >= 0xd800 && c <= 0xdbff && i + 1 < line.length) { ch = line.substr(i, 2); n = 4; }
+      else { n = c < 0x80 ? 1 : (c < 0x800 ? 2 : 3); }
+      if (bytes + n > 75) { out.push(cur); cur = " "; bytes = 1; }
+      cur += ch;
+      bytes += n;
+      i += ch.length;
+    }
+    out.push(cur);
+    return out.join("\r\n");
+  }
+  function hash(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul ? Math.imul(h, 0x01000193) : (h * 0x01000193) | 0; }
+    return ("0000000" + (h >>> 0).toString(16)).slice(-8);
+  }
+  function stamp(now) {
+    var t = isDate(now) ? now.getTime() : (typeof now === "string" ? Date.parse(now) : (typeof now === "number" ? now : Date.now()));
+    if (!isFinite(t)) { throw new Error("KL_DATE.toICS: now を読めません(" + String(now) + ")"); }
+    var d = new Date(t);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+  }
+  // events: [{title, date, description}]。終日の予定(DTSTART;VALUE=DATE、DTEND は翌日)。opts.now で DTSTAMP を固定できる
+  function toICS(events, calName, opts) {
+    opts = opts || {};
+    var dtstamp = stamp(opts.now), name = calName ? String(calName) : "くらしラボ計算帳";
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//kurashi-labo//keisan//JA", "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH", "X-WR-CALNAME:" + icsText(name)];
+    var list = Array.isArray(events) ? events : [];
+    for (var i = 0; i < list.length; i++) {
+      var ev = list[i] || {}, s = need(ev.date, "toICS"), title = String(ev.title || "予定"), day = compact(s);
+      lines.push("BEGIN:VEVENT",
+        "UID:" + day + "-" + (i + 1) + "-" + hash(name + "\n" + title + "\n" + day + "\n" + i) + "@kurashi-labo.github.io",
+        "DTSTAMP:" + dtstamp, "DTSTART;VALUE=DATE:" + day, "DTEND;VALUE=DATE:" + compact(s + 1),
+        "SUMMARY:" + icsText(title));
+      if (ev.description) { lines.push("DESCRIPTION:" + icsText(ev.description)); }
+      lines.push("TRANSP:TRANSPARENT", "END:VEVENT");
+    }
+    lines.push("END:VCALENDAR");
+    var out = [];
+    for (var j = 0; j < lines.length; j++) { out.push(fold(lines[j])); }
+    return out.join("\r\n") + "\r\n";
+  }
+  function icsDataUrl(ics) { return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+
+  var api = {
+    version: "1", parse: parse, fmt: fmt, weekdayJa: weekdayJa, addDays: addDays, addMonths: addMonths,
+    addYears: addYears, endOfMonth: endOfMonth, diffDays: diffDays, periodEnd: periodEnd,
+    holidaysFor: holidaysFor, holidayName: holidayName, isHoliday: isHoliday,
+    nextBusinessDay: nextBusinessDay, prevBusinessDay: prevBusinessDay,
+    taxDeadline: taxDeadline, courtDeadline: courtDeadline, toICS: toICS, icsDataUrl: icsDataUrl
+  };
+  root.KL_DATE = api;
+  if (typeof module === "object" && module && module.exports) { module.exports = api; }
+})(typeof globalThis !== "undefined" ? globalThis : this);
+</script>
+<script type="application/json" id="kl-category-counts">{"bosai": 4, "jikka": 4, "kankon": 0, "shigoto": 3, "shoku": 1, "sumai": 0, "tetsuzuki": 7, "care": 7, "shinro": 5, "koikatsu": 6, "deai": 2}</script>
+<script>
+/* Presentation only: preserve calculator inputs, outputs, links and live regions. */
+(function () {
+  "use strict";
+
+  function each(root, selector, fn) {
+    Array.prototype.forEach.call(root.querySelectorAll(selector), fn);
+  }
+
+  function markNumbers(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var nodes = [], node;
+    while ((node = walker.nextNode())) {
+      if (!node.parentElement.closest("a, button, script, style, time, .kl-number") && /[0-9０-９]/.test(node.data)) {
+        nodes.push(node);
+      }
+    }
+    nodes.forEach(function (text) {
+      var pattern = /[0-9０-９]+(?:[,，.．][0-9０-９]+)*/g;
+      var fragment = document.createDocumentFragment(), start = 0, match;
+      while ((match = pattern.exec(text.data))) {
+        fragment.appendChild(document.createTextNode(text.data.slice(start, match.index)));
+        var span = document.createElement("span");
+        span.className = "kl-number";
+        span.textContent = match[0];
+        fragment.appendChild(span);
+        start = pattern.lastIndex;
+      }
+      fragment.appendChild(document.createTextNode(text.data.slice(start)));
+      text.replaceWith(fragment);
+    });
+  }
+
+  function tables(root) {
+    each(root, "table", function (table) {
+      var wrap = table.parentElement;
+      if (!wrap.classList.contains("table-wrap")) {
+        wrap = document.createElement("div");
+        wrap.className = "table-wrap";
+        table.before(wrap);
+        wrap.appendChild(table);
+      }
+      wrap.tabIndex = 0;
+      wrap.setAttribute("role", "region");
+      wrap.setAttribute("aria-label", (table.caption ? table.caption.textContent : "計算の表") + "（横にスクロールできます）");
+      each(table, "td", function (cell) {
+        var value = cell.textContent.trim();
+        if (/^[約およそ税込\s]*[¥￥+−-]?[0-9０-９]/.test(value) && !cell.querySelector("a, button, input")) {
+          cell.classList.add("num");
+        }
+      });
+    });
+  }
+
+  function countBadge(parent, count) {
+    var badge = document.createElement("span");
+    badge.className = "page-count";
+    badge.textContent = count + "件の計算";
+    parent.appendChild(badge);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    each(document, ".answer-box", markNumbers);
+    tables(document);
+
+    // Native disclosure controls; without JavaScript the original FAQ stays readable.
+    each(document, ".faq > dl", function (list) {
+      var fragment = document.createDocumentFragment();
+      Array.prototype.forEach.call(list.children, function (question) {
+        if (question.tagName !== "DT") { return; }
+        var answer = question.nextElementSibling;
+        if (!answer || answer.tagName !== "DD") { return; }
+        var details = document.createElement("details");
+        var summary = document.createElement("summary");
+        var body = document.createElement("div");
+        body.className = "faq-answer";
+        while (question.firstChild) { summary.appendChild(question.firstChild); }
+        while (answer.firstChild) { body.appendChild(answer.firstChild); }
+        details.appendChild(summary);
+        details.appendChild(body);
+        fragment.appendChild(details);
+      });
+      list.replaceWith(fragment);
+    });
+
+    each(document, ".category-grid > .cat-block", function (card) {
+      var list = card.querySelector(".page-list");
+      if (!list) { return; }
+      var count = list.querySelectorAll("li:not(.empty)").length;
+      countBadge(card, count);
+      if (!count) { return; }
+      var details = document.createElement("details");
+      var summary = document.createElement("summary");
+      summary.textContent = "計算ツールを見る";
+      details.className = "category-tools";
+      details.appendChild(summary);
+      card.appendChild(details);
+      details.appendChild(list);
+    });
+
+    each(document, ".category", function (category) {
+      countBadge(category.querySelector(".collection-heading"), category.querySelectorAll(".page-list > li:not(.empty)").length);
+    });
+    var countsElement = document.getElementById("kl-category-counts");
+    var counts = countsElement ? JSON.parse(countsElement.textContent) : {};
+    each(document, ".category-entry-list > li", function (card) {
+      var link = card.querySelector("a");
+      var parts = link ? link.getAttribute("href").split("/").filter(Boolean) : [];
+      var key = parts[parts.length - 1];
+      if (Object.prototype.hasOwnProperty.call(counts, key)) { countBadge(card, counts[key]); }
+    });
+
+    // Observe only the existing result node; never replace it or change aria-live.
+    each(document, ".tool #kl-result, .tool #result, .tool .result", function (result) {
+      function decorate() {
+        observer.disconnect();
+        each(result, ":scope > p:first-child, .kl-answer, .kl-summary", markNumbers);
+        tables(result);
+        observer.observe(result, { childList: true, subtree: true, characterData: true });
+      }
+      var observer = new MutationObserver(decorate);
+      decorate();
+    });
+  });
+})();
+
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ進む</a>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../"><span class="site-mark" aria-hidden="true">＝</span>くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap" id="main" tabindex="-1">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../koikatsu/">恋愛と婚活のお金</a><span aria-hidden="true">›</span><span>結婚相談所の成婚率は何で割った数字? 定義ごとの率と、費用を成婚率で割った額を計算</span></nav>
+<article class="page">
+<header class="page-heading">
+<h1>結婚相談所の成婚率は何で割った数字? 定義ごとの率と、費用を成婚率で割った額を計算</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-10-04">2026年10月4日</time></p>
+</header>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>18歳未満の方は利用できません。成婚率に決まった計算式はなく、何で割るかは社によって違う。退会者100人のうち成婚退会が50人、在籍1,000人、入会200人なら、全退会者で割ると50%、在籍会員で割ると5%、入会者で割ると25%になる。2026年10月4日に11サービスの公式ページを読むと、トップページの本文に成婚率の%を載せていたのはサンマリエ(86.3%)とウェルスマ(86.1%)の2社で、割る数の説明はサンマリエが記載なし、ウェルスマが成婚退会者だけだった。IBJメンバーズは実績ページに、全退会者で割った成婚率を1/2以上と載せている。下のフォームに分子と分母を入れると、3つの定義の率と、活動総額を成婚率で割った額が出る。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+  <div class="kl-field">
+    <label for="q_leavers">期間中の退会者数(人)</label>
+    <input type="number" id="q_leavers" name="leavers" min="0" step="1" value="100" inputmode="numeric">
+    <p class="kl-hint">成婚退会と、それ以外の理由の退会を合わせた人数。</p>
+  </div>
+  <div class="kl-field">
+    <label for="q_seikon">そのうち成婚退会者数(人)</label>
+    <input type="number" id="q_seikon" name="seikon" min="0" step="1" value="50" inputmode="numeric">
+  </div>
+  <div class="kl-field">
+    <label for="q_members">期間中の在籍会員数(人。年間平均か期首のどちらか)</label>
+    <input type="number" id="q_members" name="members" min="0" step="1" value="1000" inputmode="numeric">
+  </div>
+  <div class="kl-field">
+    <label for="q_joined">期間中の入会者数(人)</label>
+    <input type="number" id="q_joined" name="joined" min="0" step="1" value="200" inputmode="numeric">
+    <p class="kl-hint">初期値の4つの人数は計算例で、実在の相談所の数字ではない。</p>
+  </div>
+  <div class="kl-field">
+    <label for="q_total">自分が払う予定の活動総額(円)</label>
+    <input type="number" id="q_total" name="total_yen" min="0" step="1000" value="231000" inputmode="numeric">
+    <p class="kl-hint">初期値は入会時33,000円と月会費16,500円の12か月分(エン婚活エージェントの料金ページ、2026年10月1日確認)。</p>
+  </div>
+  <button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta"><a class="cta-link" href="../../koikatsu/soudanjo-hiyou/">結婚相談所9社の公式料金から活動総額を計算する</a></div>
+<div class="kl-cta"><a class="cta-link" href="../../koikatsu/konkatsu-sougaku/">マッチングアプリやパーティーも含めた婚活の総額を計算する</a></div>
+<div class="kl-cta"><a class="cta-link" href="https://px.a8.net/svt/ejp?a8mat=4BE70M+CTF2GQ+1PJA+2BFH02" rel="sponsored noopener" target="_blank">結婚相談所比較ネットの無料体験診断</a><span class="cta-pr">PR</span><span class="cta-note">成婚率の定義を聞いてから入る相談所を選びたい人向けに、表の11サービス以外も候補に入れられる診断ページ。</span></div>
+<div class="kl-cta"><a class="cta-link" href="https://px.a8.net/svt/ejp?a8mat=4BE70M+CSTMUY+5BUE+5YJRM" rel="sponsored noopener" target="_blank">ウェルスマの無料相談</a><span class="cta-pr">PR</span><span class="cta-note">ウェルスマの成婚率86.1%は割る数が成婚退会者だけの書き方なので、その定義を契約前に担当者へ聞くための窓口。</span></div>
+</section>
+<div class="intro"><p>このページは18歳以上の人に向けて作っている。</p><p>結婚相談所の公式ページには成婚率が大きな数字で載ることがあるが、注記を読むと、分子が成婚退会者の社、成婚数の社があり、分母も全退会者、利用者数、成婚退会者だけと分かれている。パートナーエージェントは、成婚率は定義や計算方法が各社で違うので比較に注意が必要と、自社のページに書いている。</p><p>くらしラボは個人で運営していて、本文はAIが下書きし、計算式はプログラムで検算してから公開している。公式ページに書かれた数字と定義だけを使い、書かれていない社は記載なしとした。特定の相談所をすすめる内容ではない。</p></div>
+<section>
+<h2>成婚率の分母になる3つの数</h2>
+<p>成婚率は、成婚した人の数を、ある数で割った割合になる。何で割るかは相談所ごとに決まっていて、このページのフォームは次の3通りで計算する。Aは成婚退会者を期間中の全退会者で割る。Bは期間中の在籍会員数で割る。Cは期間中の入会者数で割る。</p><p>退会者100人のうち成婚退会が50人、在籍会員1,000人、入会200人という例では、Aが50%、Bが5%、Cが25%になる。成婚退会した人は50人で変わらず、割る数だけで率は10倍開く。Aは成婚せずに辞めた人が分母に入るので、辞めた人の中の割合になる。Bは活動を続けている人まで分母に入るため、低く出やすい。Cは、その期間に入会していない人の成婚も分子に入りうる。</p>
+</section>
+<section>
+<h2>公式ページに書かれた成婚率と定義</h2>
+<p>2026年10月4日に、結婚相談所11サービスの公式トップページ(IBJは公式データページ、IBJメンバーズはトップから1クリックの実績ページも)を読んだ。トップページの本文に成婚率の%を表示していたのは、サンマリエの86.3%とウェルスマの86.1%の2社だった。サンマリエは「1年以内の成婚率」と表示し、注記は2023年1月〜2024年12月の成婚退会者実績と成婚退会の説明で、割る数の記載はない。ウェルスマの注記は、2025年1月〜12月の成婚退会者のうち1年以内に成婚した割合と読める文面で、文面どおりなら成婚せずに退会した人は割る数に入らない。上のAからCのどれとも、割る数が違う。</p><p>IBJメンバーズは実績ページに、2人に1人以上が婚約まで進んだと書き、注記で、一定期間内の全退会者のうち成婚退会者の割合(2025年1月〜12月の主要コース実績、IBJシステム外での成婚を含む)と説明している。割る数がこのページのAと同じ全退会者だと読めたのは、11サービスでここだけだった。エン婚活エージェントはトップページの本文に成婚率が無く、検索結果に出る説明文(meta description)にだけ、6か月以上活動を続けた人の成婚率は30%とある。割る数を6か月以上続けた人に絞った率で、集計期間は書かれていない。同じ説明文の登録料は料金ページの33,000円と額が違い、説明文が古いままの可能性もある。</p><p>パートナーエージェントのトップページは、成婚率を他社と比べた表示の根拠として、株式会社デジタルライツコンサルティングが2026年5月に結婚相談所の利用経験者へ行ったインターネット調査を注記している。その調査では成婚率を成婚数÷利用者数で出し、成婚は婚約を指す。自社会員の成婚率の%は載っていない。成婚者数35,953名(2007年〜2026年6月)は、会員同士の成婚を2名、他社会員との成婚を1名と数えるという注記もある。同じページに、成婚率は定義や計算方法が各社で違うので、比較には注意が必要と書かれている。IBJも成婚は婚約と定義するが、公式データページに成婚率の数字は無い。ツヴァイ、オーネット、naco-do、リトマリ、ヒーローマリッジは、公式トップページに成婚率の記載がなかった(2026年10月4日時点)。</p><p>リクルートブライダル総研の調査にある15.3%は、2023年に結婚した人のうち婚活サービスを通じた人の割合で、結婚相談所の成婚率とは別の数字になる。分母は結婚した人で、アプリなども含む。</p>
+</section>
+<section>
+<h2>総額を成婚率で割った額の読み方</h2>
+<p>フォームは、活動総額を成婚率で割った額も出す。総額231,000円を成婚率50%で割ると462,000円、5%で割ると4,620,000円になる。同じ額を払う会員が、成婚率の割合だけ成婚するとしたとき、成婚した1人あたりに会員全体が払った額の目安になる。割る数が違えば額も変わるので、数字を見るときは、どの割る数で出した率かを添えて読む必要がある。</p><p>この額は、自分がこれから払う額ではない。実際に払うのは、活動月数に応じた月会費と、成婚料のあるプランなら成婚退会のときの成婚料になる(料金は姉妹ページの結婚相談所の費用の計算で出せる)。成婚率も、これから入会する人が成婚する確率とは別の数字で、期間中に退会した人や在籍した人の集計になる。</p>
+</section>
+<section>
+<h2>相談所に聞いておく4つの確認事項</h2>
+<p>成婚率の数字を見かけたら、次の4つを公式ページの注記か、相談のときの質問で確かめられる。分子が成婚退会者か、成婚した人か、組数か。成婚が婚約か、それに近い状態の退会までを含むか。分母が全退会者か、在籍会員か、入会者か、成婚退会者だけか。期間が年度か暦年か、何年分か。</p><p>経済産業省の令和3年度の業界動向調査報告書(2022年3月)も読んだが、結婚相談業の章は市場規模と業界動向の説明で、成婚率の定義や計算方法の記述は無かった。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>成婚率は、成婚退会者数を割る数で割って100を掛けた値で、小数第2位を四捨五入した。割る数は、Aが期間中の全退会者数、Bが期間中の在籍会員数、Cが期間中の入会者数。総額÷成婚率は、活動総額に割る数を掛けて成婚退会者数で割った額で、1円未満を四捨五入した(総額を成婚率で割るのと同じ式)。</p><p>3つの定義はくらしラボが置いた分け方で、各社の定義を網羅していない。期間の取り方(年度か暦年か)や、成婚退会の判定(婚約か、それに近い状態か)は計算に入れていない。成婚退会者が0人のときは、総額÷成婚率は出さない。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">活動総額の初期値</th><td class="num">231,000円</td><td><a href="https://en-konkatsu.com/price/" rel="noopener" target="_blank">エン婚活エージェント 料金ページ(2026年10月1日確認)の入会時33,000円と月会費16,500円×12か月。姉妹ページの結婚相談所の費用の計算と同じ額</a></td></tr>
+<tr><th scope="row">人数の初期値(退会者100、成婚退会50、在籍1,000、入会200)</th><td class="num">計算例</td><td><span class="est-tag">推定</span> 手計算しやすい数にくらしラボが置いた。実在の相談所の数字ではない。フォームで変えられる</td></tr>
+<tr><th scope="row">3つの定義(A 全退会者、B 在籍会員数、C 入会者数)</th><td class="num">A、B、C</td><td><span class="est-tag">推定</span> 各社の公式ページに書かれた割る数を、くらしラボが3つに分けた。社ごとの定義を網羅していない</td></tr>
+<tr><th scope="row">サンマリエの成婚率</th><td class="num">86.3%(1年以内の成婚率)</td><td><a href="https://www.sunmarie.co.jp/" rel="noopener" target="_blank">トップページの表示(2026年10月4日確認)。割る数の記載なし</a></td></tr>
+<tr><th scope="row">ウェルスマの成婚率</th><td class="num">86.1%(成婚退会者のうち1年以内に成婚した割合)</td><td><a href="https://www.wealsma.com/" rel="noopener" target="_blank">トップページの注記(2026年10月4日確認)</a></td></tr>
+<tr><th scope="row">パートナーエージェントの成婚率の比較表示の根拠にある定義</th><td class="num">成婚数÷利用者数(成婚は婚約)</td><td><a href="https://www.p-a.jp/" rel="noopener" target="_blank">トップページの注記(2026年10月4日確認)。株式会社デジタルライツコンサルティングのインターネット調査(2026年5月1日〜8日)の定義で、自社会員の%の数字は載っていない</a></td></tr>
+<tr><th scope="row">婚活サービスを通じて結婚した人の割合</th><td class="num">15.3%</td><td><a href="https://www.recruit.co.jp/newsroom/pressrelease/2024/0924_14733.html" rel="noopener" target="_blank">リクルートブライダル総研の調査、2023年婚姻者(2024年9月発表)。結婚相談所の成婚率ではない</a></td></tr>
+<tr><th scope="row">IBJメンバーズの成婚率</th><td class="num">1/2以上(全退会者のうち成婚退会者の割合)</td><td><a href="https://www.loungemembers.com/result" rel="noopener" target="_blank">実績ページの注記(2026年10月4日確認)。2025年1月〜12月の主要コース実績、IBJシステム外での成婚を含む</a></td></tr>
+<tr><th scope="row">エン婚活エージェントの成婚率</th><td class="num">30%(6か月以上活動を続けた人)</td><td><a href="https://en-konkatsu.com/" rel="noopener" target="_blank">トップページの meta description(2026年10月4日確認)。本文には無く、集計期間の記載なし</a></td></tr>
+</tbody></table></div>
+
+</section>
+<section class="compare-table" id="table">
+<h2>各社の公表値と定義の一覧</h2>
+<div class="table-wrap"><table><caption>結婚相談所の公式ページに載る成婚率と、その分子、分母、期間(2026年10月4日確認。記載なしは公式トップページ(IBJは公式データページ、IBJメンバーズは実績ページも)に記載が無いこと。最後の行は結婚相談所の成婚率ではない参考値)</caption><thead><tr><th scope="col">サービス</th><th scope="col">公表の成婚率</th><th scope="col">分子</th><th scope="col">分母</th><th scope="col">期間</th><th scope="col">取得日</th></tr></thead>
+<tbody>
+<tr><th scope="row">サンマリエ</th><td>86.3%</td><td>成婚退会者(婚約・結婚の意思が固まった状態か、それに近い状態での退会)</td><td>記載なし</td><td>2023年1月〜2024年12月の成婚退会者実績</td><td>2026-10-04</td></tr>
+<tr><th scope="row">ウェルスマ</th><td>86.1%</td><td>1年以内に成婚した人</td><td>成婚退会者</td><td>2025年1月〜12月</td><td>2026-10-04</td></tr>
+<tr><th scope="row">パートナーエージェント</th><td>%の公表なし(他社比較の表示のみ)</td><td>成婚数(成婚は婚約)</td><td>利用者数(外部のインターネット調査の回答者)</td><td>調査は2026年5月1日〜8日</td><td>2026-10-04</td></tr>
+<tr><th scope="row">IBJ</th><td>公表なし</td><td>成婚者数の掲載のみ(成婚は婚約)</td><td>記載なし</td><td>記載なし</td><td>2026-10-04</td></tr>
+<tr><th scope="row">ツヴァイ</th><td>公表なし</td><td>成婚組数(2025年3,628組)の掲載のみ</td><td>記載なし</td><td>2021年〜2025年の推移</td><td>2026-10-04</td></tr>
+<tr><th scope="row">オーネット</th><td>公表なし</td><td>記載なし</td><td>記載なし</td><td>記載なし</td><td>2026-10-04</td></tr>
+<tr><th scope="row">エン婚活エージェント</th><td>30%(検索結果用の説明文のみ)</td><td>記載なし</td><td>6か月以上活動を続けた人</td><td>記載なし</td><td>2026-10-04</td></tr>
+<tr><th scope="row">naco-do</th><td>公表なし</td><td>記載なし</td><td>記載なし</td><td>記載なし</td><td>2026-10-04</td></tr>
+<tr><th scope="row">リトマリ</th><td>公表なし</td><td>記載なし</td><td>記載なし</td><td>記載なし</td><td>2026-10-04</td></tr>
+<tr><th scope="row">ヒーローマリッジ</th><td>公表なし</td><td>記載なし</td><td>記載なし</td><td>記載なし</td><td>2026-10-04</td></tr>
+<tr><th scope="row">IBJメンバーズ</th><td>1/2以上(実績ページ)</td><td>成婚退会者(IBJシステム外での成婚を含む)</td><td>一定期間内の全退会者</td><td>2025年1月〜12月の主要コース実績</td><td>2026-10-04</td></tr>
+<tr><th scope="row">リクルートブライダル総研(参考)</th><td>15.3%</td><td>婚活サービスを通じて結婚した人</td><td>2023年の婚姻者(調査対象は20〜49歳の男女50,000サンプル)</td><td>調査は2024年5月24日〜6月4日</td><td>2026-10-04</td></tr>
+</tbody></table></div>
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. 成婚率が高い相談所を選べばよいですか</dt>
+<dd>数字だけでは決められない。割る数が全退会者の社(IBJメンバーズ)、成婚退会者だけの社(ウェルスマ)、利用者数で割った外部調査を根拠にする社(パートナーエージェント)があり、同じ人数でも率が数倍開くためだ。公式ページで分子、分母、期間を確かめ、書かれていなければ、相談のときに聞くのが近道になる。</dd>
+<dt>Q. 成婚と結婚は同じ意味ですか</dt>
+<dd>同じではない。IBJとパートナーエージェントは、成婚を婚約と書いている。サンマリエは、成婚退会を婚約・結婚の意思が固まっている状態、もしくはそれに近しい状態での退会と書く。結婚が成立した時点を指す社は、今回読んだ公式ページには無かった。</dd>
+<dt>Q. リクルートの15.3%は成婚率ですか</dt>
+<dd>成婚率ではない。2023年に結婚した人のうち、婚活サービスを通じた人の割合で、結婚相談所以外のサービスも含む。分母が結婚した人なので、入会した人が結婚する割合を表す数字でもない。</dd>
+<dt>Q. 総額を成婚率で割った額は、自分が払う額ですか</dt>
+<dd>違う。同じ総額を払う会員全体で、成婚した1人あたりに払った額の目安になる。自分が払う額は、活動月数、月会費、成婚料の有無で決まる。姉妹ページの費用の計算で出せる。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.sunmarie.co.jp/" rel="noopener" target="_blank">サンマリエ 公式トップ(1年以内の成婚率と成婚退会の定義)</a>(2026年10月4日確認)</li><li><a href="https://www.wealsma.com/" rel="noopener" target="_blank">ウェルスマ 公式トップ(1年以内に成婚した割合)</a>(2026年10月4日確認)</li><li><a href="https://www.p-a.jp/" rel="noopener" target="_blank">パートナーエージェント 公式トップ(成婚率の比較表示の根拠の調査と定義、成婚者数の数え方)</a>(2026年10月4日確認)</li><li><a href="https://www.ibjapan.com/ibj/data/" rel="noopener" target="_blank">IBJ 公式データ(成婚の定義)</a>(2026年10月4日確認)</li><li><a href="https://www.zwei.com/" rel="noopener" target="_blank">ツヴァイ 公式トップ</a>(2026年10月4日確認)</li><li><a href="https://www.onet.co.jp/" rel="noopener" target="_blank">オーネット 公式トップ</a>(2026年10月4日確認)</li><li><a href="https://en-konkatsu.com/" rel="noopener" target="_blank">エン婚活エージェント 公式トップ(説明文の成婚率30%)</a>(2026年10月4日確認)</li><li><a href="https://en-konkatsu.com/price/" rel="noopener" target="_blank">エン婚活エージェント 料金</a>(2026年10月4日確認)</li><li><a href="https://naco-do.com/" rel="noopener" target="_blank">naco-do 公式トップ</a>(2026年10月4日確認)</li><li><a href="https://ritomari.com/" rel="noopener" target="_blank">リトマリ 公式トップ</a>(2026年10月4日確認)</li><li><a href="https://heromarriage.jp/" rel="noopener" target="_blank">ヒーローマリッジ 公式トップ</a>(2026年10月4日確認)</li><li><a href="https://www.loungemembers.com/" rel="noopener" target="_blank">IBJメンバーズ 公式トップ</a>(2026年10月4日確認)</li><li><a href="https://www.loungemembers.com/result" rel="noopener" target="_blank">IBJメンバーズ 実績(全退会者のうち成婚退会者の割合)</a>(2026年10月4日確認)</li><li><a href="https://www.recruit.co.jp/newsroom/pressrelease/2024/0924_14733.html" rel="noopener" target="_blank">リクルート 婚活実態調査2024(婚活サービスを通じた結婚の割合)</a>(2026年10月4日確認)</li><li><a href="https://www.meti.go.jp/meti_lib/report/2021FY/040377.pdf" rel="noopener" target="_blank">経済産業省 令和3年度 各種サービス業に係る業界動向調査 報告書</a>(2026年10月4日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../koikatsu/soudanjo-hiyou/">結婚相談所の費用はいくら? 初期費用・月会費・成婚料を活動月数で計算</a></li><li><a href="../../koikatsu/konkatsu-sougaku/">婚活にかかるお金の総額は? アプリ・結婚相談所・婚活パーティーを期間で計算</a></li><li><a href="../../koikatsu/party-sougaku/">婚活パーティーの参加費はいくらかかる? 回数と月数で総額を計算</a></li><li><a href="../../koikatsu/app-ryokin-sougaku/">マッチングアプリの月額はいくら? 1か月から12か月プランの総額と1日あたりで計算</a></li><li><a href="../../koikatsu/app-koushin-kigen/">マッチングアプリの自動更新はいつ止める? 更新日と解約の締切を日付で計算</a></li><li><a href="../../koikatsu/">恋愛と婚活のお金の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>window.KL_REFDATA = {"koikatsu_seikonritsu": [{"key": "sunmarie", "service": "サンマリエ", "kind": "company", "rate_pct": 86.3, "numerator": "成婚退会者(婚約・結婚の意思が固まった状態か、それに近い状態での退会)", "denominator": "記載なし", "period": "2023年1月〜2024年12月の成婚退会者実績", "definition_quote": "婚約・結婚の意思が固まっている状態。もしくはそれに近しい状態で退会", "source_url": "https://www.sunmarie.co.jp/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページに「1年以内の成婚率」86.3%と表示。注記は成婚退会の説明と集計期間だけで、割る数の記載なし。"}, {"key": "wealsma", "service": "ウェルスマ", "kind": "company", "rate_pct": 86.1, "numerator": "1年以内に成婚した人", "denominator": "成婚退会者", "period": "2025年1月〜12月", "definition_quote": "成婚退会者のうち1年以内に成婚した割合", "source_url": "https://www.wealsma.com/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページの注記どおりなら、成婚せずに退会した人は割る数に入らない。平均在籍期間7.9か月も同じ集計期間。"}, {"key": "partner-agent", "service": "パートナーエージェント", "kind": "company", "rate_pct": null, "rate_text": "%の公表なし(他社比較の表示のみ)", "numerator": "成婚数(成婚は婚約)", "denominator": "利用者数(外部のインターネット調査の回答者)", "period": "調査は2026年5月1日〜8日", "definition_quote": "「成婚率」は、成婚数÷利用者数で算出", "source_url": "https://www.p-a.jp/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページの成婚率の他社比較の表示の根拠として、株式会社デジタルライツコンサルティングのインターネット調査(回答者は結婚相談所の利用経験者、2026年5月1日〜8日)を注記し、その調査の定義が成婚数÷利用者数。自社会員の成婚率の%は載っていない。成婚者数35,953名(2007年〜2026年6月)は会員同士の成婚を2名、他社会員との成婚を1名と数える。同ページに、成婚率は定義や計算方法が各社で違うので比較に注意が必要との記載がある。"}, {"key": "ibj", "service": "IBJ", "kind": "company", "rate_pct": null, "numerator": "成婚者数の掲載のみ(成婚は婚約)", "denominator": "記載なし", "period": "記載なし", "definition_quote": "結婚に向けて二人の意思が固まり婚約したことを指します", "source_url": "https://www.ibjapan.com/ibj/data/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "公式データページに成婚率の数字は無い。成婚の定義だけ書かれている。"}, {"key": "zwei", "service": "ツヴァイ", "kind": "company", "rate_pct": null, "numerator": "成婚組数(2025年3,628組)の掲載のみ", "denominator": "記載なし", "period": "2021年〜2025年の推移", "definition_quote": "(成婚率の記載なし)", "source_url": "https://www.zwei.com/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページに成婚率と成婚の定義の記載なし。"}, {"key": "onet", "service": "オーネット", "kind": "company", "rate_pct": null, "numerator": "記載なし", "denominator": "記載なし", "period": "記載なし", "definition_quote": "(成婚率の記載なし)", "source_url": "https://www.onet.co.jp/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページに成婚率の記載なし。"}, {"key": "en-konkatsu", "service": "エン婚活エージェント", "kind": "company", "rate_pct": null, "rate_text": "30%(検索結果用の説明文のみ)", "numerator": "記載なし", "denominator": "6か月以上活動を続けた人", "period": "記載なし", "definition_quote": "6ヵ月以上活動を続けたお客様の成婚率は業界トップクラスの30％", "source_url": "https://en-konkatsu.com/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページの本文には成婚率の記載なし。meta description にだけ30%とあり、集計期間の記載なし。同じ説明文の登録料9,800円は料金ページの33,000円と違い、説明文が古い可能性がある。"}, {"key": "nacodo", "service": "naco-do", "kind": "company", "rate_pct": null, "numerator": "記載なし", "denominator": "記載なし", "period": "記載なし", "definition_quote": "(成婚率の記載なし)", "source_url": "https://naco-do.com/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページに成婚率の記載なし。平均6.6か月で成婚という表示のみ(集計期間と数え方は記載なし)。"}, {"key": "ritomari", "service": "リトマリ", "kind": "company", "rate_pct": null, "numerator": "記載なし", "denominator": "記載なし", "period": "記載なし", "definition_quote": "(成婚率の記載なし)", "source_url": "https://ritomari.com/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページに成婚率と成婚数の記載なし。"}, {"key": "heromarriage", "service": "ヒーローマリッジ", "kind": "company", "rate_pct": null, "numerator": "記載なし", "denominator": "記載なし", "period": "記載なし", "definition_quote": "(成婚率の記載なし)", "source_url": "https://heromarriage.jp/", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページに成婚率の記載なし。"}, {"key": "ibj-members", "service": "IBJメンバーズ", "kind": "company", "rate_pct": null, "rate_text": "1/2以上(実績ページ)", "numerator": "成婚退会者(IBJシステム外での成婚を含む)", "denominator": "一定期間内の全退会者", "period": "2025年1月〜12月の主要コース実績", "definition_quote": "一定期間内における全退会者のうち成婚退会者の割合", "source_url": "https://www.loungemembers.com/result", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "トップページの本文に成婚率の数字は無い(説明文に他社比較の表示のみ)。トップから1クリックの実績ページに、2人に1人以上が婚約まで進んだと表示し、注記で全退会者のうち成婚退会者の割合と定義している。"}, {"key": "recruit-2023", "service": "リクルートブライダル総研(参考)", "kind": "survey", "rate_pct": 15.3, "numerator": "婚活サービスを通じて結婚した人", "denominator": "2023年の婚姻者(調査対象は20〜49歳の男女50,000サンプル)", "period": "調査は2024年5月24日〜6月4日", "definition_quote": "2023年婚姻者のうち、婚活サービスを通じて結婚した人の割合は15.3%", "source_url": "https://www.recruit.co.jp/newsroom/pressrelease/2024/0924_14733.html", "accessed": "2026-10-04", "checked": "2026-10-04", "note": "結婚相談所の成婚率ではない。婚活サービス全体(アプリなどを含む)を通じて結婚した人の割合で、分母は結婚した人。"}]};</script>
+<script>
+function KL_CALC(input, refdata) {
+  input = input || {};
+  var rows = (refdata && refdata.koikatsu_seikonritsu) || [];
+
+  function toNum(v) {
+    if (v === null || v === undefined || v === "") return null;
+    var n = Number(v);
+    return isNaN(n) ? null : n;
+  }
+  function round1(x) { return Math.round(x * 10) / 10; }
+
+  var members = toNum(input.members);
+  var joined = toNum(input.joined);
+  var leavers = toNum(input.leavers);
+  var seikon = toNum(input.seikon);
+  var total = toNum(input.total_yen);
+
+  if (seikon === null || seikon < 0) return { error: "seikon_invalid" };
+  if (total === null || total < 0) return { error: "total_invalid" };
+  if (leavers !== null && leavers > 0 && seikon > leavers) return { error: "seikon_exceeds_leavers" };
+
+  function rate(den) {
+    if (den === null || den <= 0) return null;
+    return seikon / den * 100;
+  }
+  function cost(den) {
+    if (den === null || den <= 0 || seikon <= 0) return null;
+    return Math.round(total * den / seikon);
+  }
+
+  var ra = rate(leavers), rb = rate(members), rc = rate(joined);
+  var list = [["A", ra], ["B", rb], ["C", rc]];
+  var hi = null, lo = null;
+  for (var i = 0; i < list.length; i++) {
+    var v = list[i][1];
+    if (v === null || v <= 0) continue;
+    if (hi === null || v > hi[1]) hi = list[i];
+    if (lo === null || v < lo[1]) lo = list[i];
+  }
+  var usable = 0;
+  for (var j = 0; j < list.length; j++) { if (list[j][1] !== null && list[j][1] > 0) usable++; }
+
+  var withRate = 0, noRate = 0, companyWithRate = 0;
+  var view = [];
+  for (var k = 0; k < rows.length; k++) {
+    var r = rows[k];
+    if (!r) continue;
+    var has = typeof r.rate_pct === "number";
+    if (has) { withRate++; if (r.kind === "company") companyWithRate++; } else { noRate++; }
+    view.push({
+      key: r.key,
+      service: r.service,
+      kind: r.kind,
+      rate_pct: has ? r.rate_pct : null,
+      rate_text: r.rate_text || null,
+      numerator: r.numerator,
+      denominator: r.denominator,
+      period: r.period,
+      checked: r.checked
+    });
+  }
+
+  return {
+    seikon: seikon,
+    leavers: leavers,
+    members: members,
+    joined: joined,
+    total_yen: total,
+    rate_a_pct: ra === null ? null : round1(ra),
+    rate_b_pct: rb === null ? null : round1(rb),
+    rate_c_pct: rc === null ? null : round1(rc),
+    cost_a_yen: cost(leavers),
+    cost_b_yen: cost(members),
+    cost_c_yen: cost(joined),
+    usable_rates: usable,
+    no_seikon: seikon === 0,
+    highest: hi ? hi[0] : null,
+    lowest: lo ? lo[0] : null,
+    ratio_max_min: usable >= 2 ? round1(hi[1] / lo[1]) : null,
+    gap_points: usable >= 2 ? round1(hi[1] - lo[1]) : null,
+    row_count: view.length,
+    with_rate_count: withRate,
+    no_rate_count: noRate,
+    company_with_rate_count: companyWithRate,
+    rows_view: view
+  };
+}
+</script>
+<script>
+(function () {
+  var STORE_KEY = "kl_seikonritsu_hiyou_v1";
+  var IDS = { leavers: "q_leavers", seikon: "q_seikon", members: "q_members", joined: "q_joined", total_yen: "q_total" };
+
+  function onReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c];
+    });
+  }
+  function yen(n) {
+    if (typeof n !== "number" || isNaN(n)) return "計算できない";
+    return Math.round(n).toLocaleString("ja-JP") + "円";
+  }
+  function pct(n) {
+    if (typeof n !== "number" || isNaN(n)) return "計算できない";
+    return String(n) + "%";
+  }
+  function val(id) {
+    var el = document.getElementById(id);
+    if (!el || el.value === "") return null;
+    var n = Number(el.value);
+    return isNaN(n) ? null : n;
+  }
+  function readInput() {
+    var o = {};
+    for (var k in IDS) { if (IDS.hasOwnProperty(k)) o[k] = val(IDS[k]); }
+    return o;
+  }
+
+  function render(r) {
+    var box = document.getElementById("kl-result");
+    if (!box) return;
+    if (!r || r.error) {
+      var msg = "入力を確かめてください。";
+      if (r && r.error === "seikon_exceeds_leavers") msg = "成婚退会者数が退会者数より多くなっている。成婚退会者は退会者の一部なので、退会者数以下の数を入れてください。";
+      if (r && r.error === "seikon_invalid") msg = "成婚退会者数を0以上の数で入れてください。";
+      if (r && r.error === "total_invalid") msg = "活動総額を0以上の数で入れてください。";
+      box.innerHTML = "<p>" + esc(msg) + "</p>";
+      return;
+    }
+    var html = "";
+    if (r.no_seikon) {
+      html += "<p>成婚退会者が0人なので、どの割り方でも成婚率は0%になり、総額を成婚率で割った額は出せない。</p>";
+    } else if (r.usable_rates >= 2) {
+      html += "<p>成婚退会者" + r.seikon + "人は同じでも、割る数を変えると成婚率は" + pct(r.rate_a_pct) + "、" + pct(r.rate_b_pct) + "、" + pct(r.rate_c_pct) +
+        "になる。いちばん高い" + r.highest + "と、いちばん低い" + r.lowest + "では" + r.ratio_max_min + "倍、" + r.gap_points + "ポイントの開きがある。</p>";
+    } else {
+      html += "<p>割る数が2つ以上入っていないので、率の開きは出せない。</p>";
+    }
+    html += "<div class=\"table-wrap\"><table class=\"kl-table\"><thead><tr><th scope=\"col\">定義</th><th scope=\"col\">割る数</th><th scope=\"col\">成婚率</th><th scope=\"col\">総額÷成婚率</th></tr></thead><tbody>";
+    html += "<tr><th scope=\"row\">A 成婚退会者÷全退会者</th><td class=\"num\">" + (r.leavers === null ? "入力なし" : r.leavers + "人") + "</td><td class=\"num\">" + pct(r.rate_a_pct) + "</td><td class=\"num\">" + yen(r.cost_a_yen) + "</td></tr>";
+    html += "<tr><th scope=\"row\">B 成婚退会者÷在籍会員数</th><td class=\"num\">" + (r.members === null ? "入力なし" : r.members + "人") + "</td><td class=\"num\">" + pct(r.rate_b_pct) + "</td><td class=\"num\">" + yen(r.cost_b_yen) + "</td></tr>";
+    html += "<tr><th scope=\"row\">C 成婚退会者÷入会者数</th><td class=\"num\">" + (r.joined === null ? "入力なし" : r.joined + "人") + "</td><td class=\"num\">" + pct(r.rate_c_pct) + "</td><td class=\"num\">" + yen(r.cost_c_yen) + "</td></tr>";
+    html += "</tbody></table></div>";
+    html += "<p class=\"kl-note\">総額÷成婚率は、同じ" + yen(r.total_yen) + "を払う会員が成婚率の割合だけ成婚するとしたとき、成婚した1人あたりに会員全体が払った額の目安。自分が払う額ではなく、成婚の見込みを表す数でもない。</p>";
+
+    html += "<h3>公式ページに載る成婚率と、割る数の書き方</h3>";
+    html += "<div class=\"table-wrap\"><table class=\"kl-table\"><thead><tr><th scope=\"col\">サービス</th><th scope=\"col\">公表の成婚率</th><th scope=\"col\">分子</th><th scope=\"col\">分母</th><th scope=\"col\">期間</th><th scope=\"col\">取得日</th></tr></thead><tbody>";
+    for (var i = 0; i < r.rows_view.length; i++) {
+      var x = r.rows_view[i];
+      html += "<tr><td>" + esc(x.service) + "</td><td class=\"num\">" + (x.rate_pct === null ? (x.rate_text ? esc(x.rate_text) : "公表なし") : x.rate_pct + "%") + "</td><td>" + esc(x.numerator) + "</td><td>" + esc(x.denominator) + "</td><td>" + esc(x.period) + "</td><td>" + esc(x.checked) + "</td></tr>";
+    }
+    html += "</tbody></table></div>";
+    html += "<p class=\"kl-note\">トップページの本文に成婚率の%を載せていたのは" + r.company_with_rate_count + "サービスで、割る数の書き方が違うため、数字は並べて比べられない。</p>";
+    box.innerHTML = html;
+    if (window.KL_UI && typeof window.KL_UI.applyWhen === "function") {
+      window.KL_UI.applyWhen(r);
+    }
+  }
+
+  onReady(function () {
+    var form = document.getElementById("kl-form");
+    if (!form) return;
+    var refdata = window.KL_REFDATA || {};
+    try {
+      var saved = JSON.parse(window.localStorage.getItem(STORE_KEY) || "null");
+      if (saved) {
+        for (var k in IDS) {
+          if (IDS.hasOwnProperty(k) && saved[k] !== undefined && saved[k] !== null) {
+            var el = document.getElementById(IDS[k]);
+            if (el) el.value = saved[k];
+          }
+        }
+      }
+    } catch (e) {}
+
+    function run(ev) {
+      if (ev && ev.preventDefault) ev.preventDefault();
+      var input = readInput();
+      render(window.KL_CALC(input, refdata));
+      try { window.localStorage.setItem(STORE_KEY, JSON.stringify(input)); } catch (e) {}
+    }
+    form.addEventListener("submit", run);
+    run();
+  });
+})();
+</script>
+</body>
+</html>
