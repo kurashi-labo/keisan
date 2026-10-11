@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://kurashi-labo.github.io/keisan/</loc><lastmod>2026-10-04</lastmod></url>
+<url><loc>https://kurashi-labo.github.io/keisan/</loc><lastmod>2026-10-11</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/bosai/</loc><lastmod>2026-10-04</lastmod></url>
-<url><loc>https://kurashi-labo.github.io/keisan/jikka/</loc><lastmod>2026-10-04</lastmod></url>
+<url><loc>https://kurashi-labo.github.io/keisan/jikka/</loc><lastmod>2026-10-11</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/shigoto/</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/shoku/</loc><lastmod>2026-09-27</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/tetsuzuki/</loc><lastmod>2026-09-27</lastmod></url>
@@ -24,10 +24,12 @@
 <url><loc>https://kurashi-labo.github.io/keisan/care/oreibouko-hensai/</loc><lastmod>2026-09-27</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/deai/anzen-check/</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/deai/point-tanka/</loc><lastmod>2026-10-01</lastmod></url>
+<url><loc>https://kurashi-labo.github.io/keisan/jikka/fuyouhin-kaishu-ryokin/</loc><lastmod>2026-10-11</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/jikka/fuyouhin-shobun-shindan/</loc><lastmod>2026-10-04</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/jikka/ihin-seiri-hiyou/</loc><lastmod>2026-09-27</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/jikka/jibun-vs-gyousha/</loc><lastmod>2026-09-27</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/jikka/kaitori-shindan/</loc><lastmod>2026-09-27</lastmod></url>
+<url><loc>https://kurashi-labo.github.io/keisan/jikka/oya-no-kuruma/</loc><lastmod>2026-10-11</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/koikatsu/app-koushin-kigen/</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/koikatsu/app-ryokin-sougaku/</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://kurashi-labo.github.io/keisan/koikatsu/konkatsu-sougaku/</loc><lastmod>2026-10-04</lastmod></url>
