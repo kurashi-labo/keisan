@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宅食と生協の宅配、実質1食いくら? 送料と初回割引と続けた回数まで入れて計算 | くらしラボ計算帳</title>
+<meta name="description" content="宅食や生協の宅配を、1セットの価格、食数、送料、初回割引、続けた回数から実質1食の値段に直す計算ツール。初回だけ安く見える差と月額も出ます。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宅食と生協の宅配、実質1食いくら? 送料と初回割引と続けた回数まで入れて計算 | くらしラボ計算帳">
+<meta property="og:description" content="宅食や生協の宅配を、1セットの価格、食数、送料、初回割引、続けた回数から実質1食の値段に直す計算ツール。初回だけ安く見える差と月額も出ます。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/",
+   "name": "宅食と生協の宅配、実質1食いくら? 送料と初回割引と続けた回数まで入れて計算",
+   "description": "宅食や生協の宅配を、1セットの価格、食数、送料、初回割引、続けた回数から実質1食の値段に直す計算ツール。初回だけ安く見える差と月額も出ます。",
+   "dateModified": "2026-10-18",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "食費と運動",
+     "item": "https://kurashi-labo.github.io/keisan/shoku/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "宅食と生協の宅配、実質1食いくら? 送料と初回割引と続けた回数まで入れて計算",
+     "item": "https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shoku/takushoku-tanka/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "初回限定の価格で比べてもよいですか?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "初回だけの値段は、続けたときの値段とは別物になる。割引が終わった2回目以降の1食と、続ける回数での平均を見て比べるほうが、実際の支払いに近い。この計算は初回、2回目以降、平均の3つを並べて出す。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "送料はどこで確かめればよいですか?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "各サービスの公式ページにある送料表か、申し込み画面で郵便番号を入れたときの表示で確かめる。地域で金額が変わるサービスがある。このページのひな形の金額は、読み取った日の公式ページの表記だ。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "1食の食数はどう数えればよいですか?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "サービスごとに、おかず1パックを1食とするか、大人1人分の夕食を1食とするかが違う。公式ページの説明で、1セットで何人分の何日分と書かれているかを見て、自分の家で食べる回数に直して入れる。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "生協の宅配もこの計算で比べられますか?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "比べられる。送料の欄に週の配送手数料、価格の欄にその週の注文額、食数の欄にまかなう食数を入れる。入会時の出資金は計算に入っていないので、加入案内で確かめてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "表のサービスは、どれをすすめているのですか?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "どれもすすめていない。くらしラボは個人運営で、サービスを使った経験は書いていない。公式ページに載っていた金額を、計算の入力に使いやすい形に並べているだけだ。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+<script>
+/* kl_date.js: くらしラボ計算帳の日付部品。グローバル KL_DATE(ブラウザは window、calc_test.js の vm は context)。
+   日付は Date か "YYYY-MM-DD" で受け取り、その端末の0時の Date で返す(文字列にするときは fmt)。
+   内部は 1970-01-01 からの通し日数で数えるので、タイムゾーンと夏時間の影響を受けない。
+   条文: 民法140条〜143条、国税通則法10条2項と同法施行令2条2項、祝日法(国民の祝日に関する法律)2条・3条。 */
+(function (root) {
+  "use strict";
+  var DAY_MS = 86400000;
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  var HOLIDAY_REF = /holiday|shukujitsu|syukujitsu/i;
+  var UNITS = ["days", "weeks", "months", "years"];
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function serialOf(y, m, d) { return Math.round(Date.UTC(y, m - 1, d) / DAY_MS); }
+  function partsOf(s) {
+    var t = new Date(s * DAY_MS);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+  }
+  function iso(y, m, d) { return y + "-" + pad(m) + "-" + pad(d); }
+  function isoOf(s) { var p = partsOf(s); return iso(p.y, p.m, p.d); }
+  function compact(s) { return isoOf(s).replace(/-/g, ""); }
+  function dow(s) { return ((s + 4) % 7 + 7) % 7; } // 1970-01-01 は木曜
+  function daysInMonth(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function isDate(v) { return Object.prototype.toString.call(v) === "[object Date]"; }
+
+  // Date(0時ちょうどなら端末の日付、UTC の0時ちょうどなら UTC の日付)、"YYYY-MM-DD"、"YYYY/M/D"、"YYYY年M月D日"、
+  // taxDeadline などの結果({date})を通し日数にする。読めなければ NaN
+  function toSerial(v) {
+    if (v === null || v === undefined || v === "") { return NaN; }
+    if (isDate(v)) {
+      if (isNaN(v.getTime())) { return NaN; }
+      if (v.getHours() === 0 && v.getMinutes() === 0 && v.getSeconds() === 0 && v.getMilliseconds() === 0) {
+        return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+      }
+      if (v.getUTCHours() === 0 && v.getUTCMinutes() === 0 && v.getUTCSeconds() === 0 && v.getUTCMilliseconds() === 0) {
+        return serialOf(v.getUTCFullYear(), v.getUTCMonth() + 1, v.getUTCDate());
+      }
+      return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+    }
+    if (typeof v === "object") { return v.date !== undefined && v.date !== v ? toSerial(v.date) : NaN; }
+    var m = /^\s*(\d{4})\s*[-\/.年]\s*(\d{1,2})\s*[-\/.月]\s*(\d{1,2})\s*日?\s*(?:$|T)/.exec(String(v));
+    if (!m) { return NaN; }
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y < 1000 || mo < 1 || mo > 12 || d < 1 || d > daysInMonth(y, mo)) { return NaN; }
+    return serialOf(y, mo, d);
+  }
+  function need(v, fn) {
+    var s = toSerial(v);
+    if (isNaN(s)) { throw new Error("KL_DATE." + fn + ": 日付を読めません(" + String(v) + ")"); }
+    return s;
+  }
+  function int(n, fn, what) {
+    var x = Number(n);
+    if (n === null || n === "" || !isFinite(x) || Math.floor(x) !== x) {
+      throw new Error("KL_DATE." + fn + ": " + what + "は整数で指定してください(" + String(n) + ")");
+    }
+    return x;
+  }
+  function toDate(s) {
+    var p = partsOf(s);
+    var t = new Date(2000, 0, 1);
+    t.setFullYear(p.y, p.m - 1, p.d);
+    t.setHours(0, 0, 0, 0);
+    return t;
+  }
+  function shiftMonths(s, n) {
+    var p = partsOf(s);
+    var idx = p.y * 12 + (p.m - 1) + n;
+    var y = Math.floor(idx / 12), m = idx - y * 12 + 1;
+    return { y: y, m: m, d: p.d, last: daysInMonth(y, m) };
+  }
+
+  function parse(v) { var s = toSerial(v); return isNaN(s) ? null : toDate(s); }
+  function fmt(v) { var s = toSerial(v); return isNaN(s) ? "" : isoOf(s); }
+  function weekdayJa(v) { return WEEKDAY_JA[dow(need(v, "weekdayJa"))]; }
+  function addDays(date, n) { return toDate(need(date, "addDays") + int(n, "addDays", "日数")); }
+  // 月の足し引き。応当日が無い月は月末にする(民法143条2項ただし書と同じ考え方。1月31日の1か月後は2月末日)
+  function addMonths(date, n) {
+    var t = shiftMonths(need(date, "addMonths"), int(n, "addMonths", "月数"));
+    return toDate(serialOf(t.y, t.m, Math.min(t.d, t.last)));
+  }
+  function addYears(date, n) { return addMonths(date, 12 * int(n, "addYears", "年数")); }
+  function endOfMonth(date) {
+    var p = partsOf(need(date, "endOfMonth"));
+    return toDate(serialOf(p.y, p.m, daysInMonth(p.y, p.m)));
+  }
+  function diffDays(from, to) { return need(to, "diffDays") - need(from, "diffDays"); }
+
+  // 期間の末日。spec は {days:n} {weeks:n} {months:n} {years:n} のどれか1つ
+  function periodEnd(start, spec, opts) {
+    var s = need(start, "periodEnd"), found = [];
+    for (var i = 0; i < UNITS.length; i++) {
+      if (spec && spec[UNITS[i]] !== undefined && spec[UNITS[i]] !== null) { found.push(UNITS[i]); }
+    }
+    if (found.length !== 1) {
+      throw new Error("KL_DATE.periodEnd: 期間は days、weeks、months、years のどれか1つで指定してください");
+    }
+    var unit = found[0], n = int(spec[unit], "periodEnd", unit);
+    if (n < 1) { throw new Error("KL_DATE.periodEnd: " + unit + "は1以上にしてください"); }
+    // 民法140条: 初日は算入しない(起算日は翌日)。午前0時から始まる期間だけ initialDayCounted:true で初日を数える
+    var first = s + (opts && opts.initialDayCounted === true ? 0 : 1);
+    // 民法141条: 期間は末日の終了をもって満了する。返すのはその末日
+    if (unit === "days") { return toDate(first + n - 1); }
+    // 民法143条: 週・月・年は暦に従い、最後の週・月・年で起算日に応当する日の前日に満了する(2項本文)
+    if (unit === "weeks") { return toDate(first + 7 * n - 1); }
+    var t = shiftMonths(first, unit === "years" ? 12 * n : n);
+    // 143条2項ただし書: 最後の月に応当する日が無いときは、その月の末日に満了する
+    if (t.d > t.last) { return toDate(serialOf(t.y, t.m, t.last)); }
+    return toDate(serialOf(t.y, t.m, t.d) - 1);
+  }
+
+  // ---- 祝日(祝日法)
+  // 春分・秋分の日は前年2月の官報で決まる。ここでは広く使われている近似式で出す(1980〜2150年)
+  function equinoxDay(year, spring) {
+    var base;
+    if (year >= 1980 && year <= 2099) { base = spring ? 20.8431 : 23.2488; }
+    else if (year >= 2100 && year <= 2150) { base = spring ? 21.8510 : 24.2488; }
+    else { return 0; }
+    return Math.floor(base + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function nthMonday(y, m, n) { return 1 + ((8 - dow(serialOf(y, m, 1))) % 7) + 7 * (n - 1); }
+
+  var ruleCache = {};
+  function ruleHolidays(year) {
+    if (ruleCache[year]) { return ruleCache[year]; }
+    var sai = {}, map = {}, k, s, t;
+    function put(m, d, name) { if (d) { sai[iso(year, m, d)] = name; } }
+    // 祝日法2条
+    put(1, 1, "元日");
+    put(1, nthMonday(year, 1, 2), "成人の日");
+    put(2, 11, "建国記念の日");
+    if (year >= 2020) { put(2, 23, "天皇誕生日"); }
+    put(3, equinoxDay(year, true), "春分の日");
+    put(4, 29, "昭和の日");
+    put(5, 3, "憲法記念日");
+    put(5, 4, "みどりの日");
+    put(5, 5, "こどもの日");
+    if (year === 2020) { put(7, 23, "海の日"); put(7, 24, "スポーツの日"); put(8, 10, "山の日"); }
+    else if (year === 2021) { put(7, 22, "海の日"); put(7, 23, "スポーツの日"); put(8, 8, "山の日"); }
+    else { put(7, nthMonday(year, 7, 3), "海の日"); put(8, 11, "山の日"); put(10, nthMonday(year, 10, 2), "スポーツの日"); }
+    put(9, nthMonday(year, 9, 3), "敬老の日");
+    put(9, equinoxDay(year, false), "秋分の日");
+    put(11, 3, "文化の日");
+    put(11, 23, "勤労感謝の日");
+    for (k in sai) { if (hasOwn.call(sai, k)) { map[k] = sai[k]; } }
+    for (k in sai) {
+      if (!hasOwn.call(sai, k)) { continue; }
+      s = toSerial(k);
+      // 3条2項(振替休日): 祝日が日曜日に当たるときは、その日後で最も近い祝日でない日を休日とする
+      if (dow(s) === 0) {
+        t = s + 1;
+        while (hasOwn.call(sai, isoOf(t))) { t += 1; }
+        map[isoOf(t)] = "振替休日";
+      }
+      // 3条3項(国民の休日): 前日と翌日が祝日である日(祝日でない日に限る)は休日とする
+      if (hasOwn.call(sai, isoOf(s + 2)) && !hasOwn.call(sai, isoOf(s + 1)) && !hasOwn.call(map, isoOf(s + 1))) {
+        map[isoOf(s + 1)] = "国民の休日";
+      }
+    }
+    var note = year < 2020 ? "2019年以前は祝日の決まりが今と違うため、参考の値です"
+      : (equinoxDay(year, true) ? "内閣府の祝日データに無い年のため、祝日法の決まりと春分・秋分の近似式で出しました"
+        : "春分と秋分の日を近似式で出せない年です(1980〜2150年のみ)");
+    ruleCache[year] = { map: map, note: note };
+    return ruleCache[year];
+  }
+
+  // refdata のうち、名前か出典URLに holiday / shukujitsu を含むものを祝日データとして読む。
+  // 形は {"rows": [{"date": "YYYY-MM-DD", "name": "…"}]}(taishoku-gyakusan__holidays_jp と shikaku-gyakusan__shukujitsu)
+  var refCache = { src: undefined, idx: null };
+  function holidayRows(source) {
+    if (Array.isArray(source)) { return source; }
+    var out = [];
+    if (source && typeof source === "object") {
+      for (var k in source) {
+        if (!hasOwn.call(source, k) || !Array.isArray(source[k])) { continue; }
+        var first = source[k][0];
+        if (HOLIDAY_REF.test(k) || (first && typeof first === "object" && HOLIDAY_REF.test(String(first.source_url || "")))) {
+          out = out.concat(source[k]);
+        }
+      }
+    }
+    return out;
+  }
+  function refIndex(source) {
+    if (source === undefined || source === null) { source = root.KL_REFDATA; }
+    if (refCache.idx && refCache.src === source) { return refCache.idx; }
+    var rows = holidayRows(source), map = {}, years = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+      if (isNaN(s)) { continue; }
+      k = isoOf(s);
+      map[k] = (r && typeof r === "object" && r.name) || map[k] || "祝日";
+    }
+    // 元日と勤労感謝の日の両方がある年を「その年の祝日がすべて載っている」とみなす
+    for (k in map) {
+      if (hasOwn.call(map, k) && map[k.slice(0, 4) + "-01-01"] && map[k.slice(0, 4) + "-11-23"]) { years[k.slice(0, 4)] = true; }
+    }
+    refCache = { src: source, idx: { map: map, years: years } };
+    return refCache.idx;
+  }
+
+  function holidaysFor(year, source) {
+    var y = int(year, "holidaysFor", "年"), idx = refIndex(source), prefix = String(y) + "-";
+    var fromRef = hasOwn.call(idx.years, String(y)), rule = fromRef ? null : ruleHolidays(y);
+    var src = fromRef ? idx.map : rule.map, map = {}, list = [], keys = [], k, i;
+    for (k in src) { if (hasOwn.call(src, k) && k.indexOf(prefix) === 0) { keys.push(k); } }
+    keys.sort();
+    for (i = 0; i < keys.length; i++) { map[keys[i]] = src[keys[i]]; list.push({ date: keys[i], name: src[keys[i]] }); }
+    var out = { year: y, estimated: !fromRef, source: fromRef ? "refdata" : "rule", holidays: list, map: map };
+    if (rule) { out.note = rule.note; }
+    return out;
+  }
+
+  // holidays の渡し方: 省略(KL_REFDATA の祝日、無い年は祝日法で計算)/ refdata オブジェクト / 日付か {date,name} の配列 /
+  // {"YYYY-MM-DD": 名前} / holidaysFor の結果。配列と {"日付": 名前} は「それが祝日のすべて」として扱う
+  function lookup(holidays) {
+    var fixed = null, source, perYear = {}, estimated = false;
+    if (Array.isArray(holidays)) {
+      fixed = {};
+      for (var i = 0; i < holidays.length; i++) {
+        var r = holidays[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+        if (!isNaN(s)) { fixed[isoOf(s)] = (r && typeof r === "object" && r.name) || "休日"; }
+      }
+    } else if (holidays && typeof holidays === "object") {
+      if (holidays.map && typeof holidays.map === "object" && holidays.year !== undefined) { fixed = holidays.map; }
+      else {
+        for (var key in holidays) {
+          if (hasOwn.call(holidays, key)) { fixed = /^\d{4}-\d{2}-\d{2}$/.test(key) ? holidays : null; break; }
+        }
+        if (!fixed) { source = holidays; }
+      }
+    }
+    return {
+      name: function (s) {
+        var k = isoOf(s);
+        if (fixed) { return hasOwn.call(fixed, k) ? String(fixed[k] === true ? "休日" : fixed[k]) : ""; }
+        var y = k.slice(0, 4);
+        if (!perYear[y]) {
+          perYear[y] = holidaysFor(Number(y), source);
+          if (perYear[y].estimated) { estimated = true; }
+        }
+        return hasOwn.call(perYear[y].map, k) ? perYear[y].map[k] : "";
+      },
+      estimated: function () { return estimated; }
+    };
+  }
+  function yearEnd(s) { var p = partsOf(s); return (p.m === 12 && p.d >= 29) || (p.m === 1 && p.d <= 3); }
+  function closedReason(s, look, withYearEnd) {
+    var name = look.name(s), w = dow(s);
+    if (name) { return name; }
+    if (w === 0) { return "日曜日"; }
+    if (w === 6) { return "土曜日"; }
+    if (withYearEnd && yearEnd(s)) { return "年末年始"; }
+    return "";
+  }
+
+  function holidayName(date, holidays) { return lookup(holidays).name(need(date, "holidayName")); }
+  // 土日と祝日(振替休日・国民の休日を含む)なら true
+  function isHoliday(date, holidays) { return !!closedReason(need(date, "isHoliday"), lookup(holidays), false); }
+  function businessDay(date, opts, fn, step) {
+    opts = opts || {};
+    var s = need(date, fn), look = lookup(opts.holidays);
+    if (opts.strict === true) { s += step; }
+    for (var i = 0; i < 400; i++, s += step) {
+      if (!closedReason(s, look, opts.yearEnd === true)) { return toDate(s); }
+    }
+    throw new Error("KL_DATE." + fn + ": 400日以内に営業日がありません");
+  }
+  // その日が営業日ならその日、休みなら次(前)の営業日。{strict:true} で必ず翌日以降(前日以前)にする。
+  // {yearEnd:true} で12月29日〜1月3日も休みとして数える
+  function nextBusinessDay(date, opts) { return businessDay(date, opts, "nextBusinessDay", 1); }
+  function prevBusinessDay(date, opts) { return businessDay(date, opts, "prevBusinessDay", -1); }
+
+  function shiftDeadline(date, opts, fn, basis) {
+    opts = opts || {};
+    var s0 = need(date, fn), s = s0, look = lookup(opts.holidays), skipped = [], why;
+    for (var i = 0; i < 400; i++) {
+      why = closedReason(s, look, true);
+      if (!why) { break; }
+      skipped.push({ date: isoOf(s), why: why });
+      s += 1;
+    }
+    return { date: toDate(s), ymd: isoOf(s), original: isoOf(s0), shifted: s !== s0, skipped: skipped,
+      estimated: look.estimated(), unconfirmed: false, basis: basis };
+  }
+  // 国税通則法10条2項: 期限が日曜日・祝日法の休日・その他一般の休日・政令で定める日に当たるときは、翌日を期限とみなす。
+  // 政令で定める日は土曜日と12月29日〜31日(施行令2条2項)。1月2日と3日は一般の休日として数える
+  function taxDeadline(date, opts) { return shiftDeadline(date, opts, "taxDeadline", "国税通則法10条2項"); }
+  // 民法142条: 期間の末日が日曜日・祝日法の休日その他の休日に当たるときは、その日に取引をしない慣習がある場合に限り翌日に満了する。
+  // 慣習の有無はここでは確かめられないので、繰り下げたときは unconfirmed:true を返す(土曜日と12月29日〜1月3日も休みとして数える)。
+  // 裁判所への申述など民事訴訟法95条3項(家事事件は家事事件手続法34条4項で準用)が使える手続は {basis:"minso"}。慣習の条件が無い
+  function courtDeadline(date, opts) {
+    var minso = !!(opts && opts.basis === "minso");
+    var r = shiftDeadline(date, opts, "courtDeadline", minso ? "民事訴訟法95条3項" : "民法142条");
+    r.unconfirmed = !minso && r.shifted;
+    return r;
+  }
+
+  // ---- カレンダー(RFC 5545)
+  function icsText(v) {
+    return String(v === undefined || v === null ? "" : v).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+      .replace(/,/g, "\\,").replace(/\r\n|\r|\n/g, "\\n");
+  }
+  // 1行75オクテット(UTF-8)を超えたら CRLF+空白で折り返す。文字の途中では切らない
+  function fold(line) {
+    var out = [], cur = "", bytes = 0, i = 0;
+    while (i < line.length) {
+      var c = line.charCodeAt(i), ch = line.charAt(i), n;
+      if (c >= 0xd800 && c <= 0xdbff && i + 1 < line.length) { ch = line.substr(i, 2); n = 4; }
+      else { n = c < 0x80 ? 1 : (c < 0x800 ? 2 : 3); }
+      if (bytes + n > 75) { out.push(cur); cur = " "; bytes = 1; }
+      cur += ch;
+      bytes += n;
+      i += ch.length;
+    }
+    out.push(cur);
+    return out.join("\r\n");
+  }
+  function hash(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul ? Math.imul(h, 0x01000193) : (h * 0x01000193) | 0; }
+    return ("0000000" + (h >>> 0).toString(16)).slice(-8);
+  }
+  function stamp(now) {
+    var t = isDate(now) ? now.getTime() : (typeof now === "string" ? Date.parse(now) : (typeof now === "number" ? now : Date.now()));
+    if (!isFinite(t)) { throw new Error("KL_DATE.toICS: now を読めません(" + String(now) + ")"); }
+    var d = new Date(t);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+  }
+  // events: [{title, date, description}]。終日の予定(DTSTART;VALUE=DATE、DTEND は翌日)。opts.now で DTSTAMP を固定できる
+  function toICS(events, calName, opts) {
+    opts = opts || {};
+    var dtstamp = stamp(opts.now), name = calName ? String(calName) : "くらしラボ計算帳";
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//kurashi-labo//keisan//JA", "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH", "X-WR-CALNAME:" + icsText(name)];
+    var list = Array.isArray(events) ? events : [];
+    for (var i = 0; i < list.length; i++) {
+      var ev = list[i] || {}, s = need(ev.date, "toICS"), title = String(ev.title || "予定"), day = compact(s);
+      lines.push("BEGIN:VEVENT",
+        "UID:" + day + "-" + (i + 1) + "-" + hash(name + "\n" + title + "\n" + day + "\n" + i) + "@kurashi-labo.github.io",
+        "DTSTAMP:" + dtstamp, "DTSTART;VALUE=DATE:" + day, "DTEND;VALUE=DATE:" + compact(s + 1),
+        "SUMMARY:" + icsText(title));
+      if (ev.description) { lines.push("DESCRIPTION:" + icsText(ev.description)); }
+      lines.push("TRANSP:TRANSPARENT", "END:VEVENT");
+    }
+    lines.push("END:VCALENDAR");
+    var out = [];
+    for (var j = 0; j < lines.length; j++) { out.push(fold(lines[j])); }
+    return out.join("\r\n") + "\r\n";
+  }
+  function icsDataUrl(ics) { return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+
+  var api = {
+    version: "1", parse: parse, fmt: fmt, weekdayJa: weekdayJa, addDays: addDays, addMonths: addMonths,
+    addYears: addYears, endOfMonth: endOfMonth, diffDays: diffDays, periodEnd: periodEnd,
+    holidaysFor: holidaysFor, holidayName: holidayName, isHoliday: isHoliday,
+    nextBusinessDay: nextBusinessDay, prevBusinessDay: prevBusinessDay,
+    taxDeadline: taxDeadline, courtDeadline: courtDeadline, toICS: toICS, icsDataUrl: icsDataUrl
+  };
+  root.KL_DATE = api;
+  if (typeof module === "object" && module && module.exports) { module.exports = api; }
+})(typeof globalThis !== "undefined" ? globalThis : this);
+</script>
+<script type="application/json" id="kl-category-counts">{"bosai": 4, "jikka": 6, "kankon": 0, "shigoto": 3, "shoku": 2, "sumai": 1, "tetsuzuki": 7, "care": 7, "shinro": 5, "koikatsu": 7, "deai": 3}</script>
+<script>
+/* Presentation only: preserve calculator inputs, outputs, links and live regions. */
+(function () {
+  "use strict";
+
+  function each(root, selector, fn) {
+    Array.prototype.forEach.call(root.querySelectorAll(selector), fn);
+  }
+
+  function markNumbers(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var nodes = [], node;
+    while ((node = walker.nextNode())) {
+      if (!node.parentElement.closest("a, button, script, style, time, .kl-number") && /[0-9０-９]/.test(node.data)) {
+        nodes.push(node);
+      }
+    }
+    nodes.forEach(function (text) {
+      var pattern = /[0-9０-９]+(?:[,，.．][0-9０-９]+)*/g;
+      var fragment = document.createDocumentFragment(), start = 0, match;
+      while ((match = pattern.exec(text.data))) {
+        fragment.appendChild(document.createTextNode(text.data.slice(start, match.index)));
+        var span = document.createElement("span");
+        span.className = "kl-number";
+        span.textContent = match[0];
+        fragment.appendChild(span);
+        start = pattern.lastIndex;
+      }
+      fragment.appendChild(document.createTextNode(text.data.slice(start)));
+      text.replaceWith(fragment);
+    });
+  }
+
+  function tables(root) {
+    each(root, "table", function (table) {
+      var wrap = table.parentElement;
+      if (!wrap.classList.contains("table-wrap")) {
+        wrap = document.createElement("div");
+        wrap.className = "table-wrap";
+        table.before(wrap);
+        wrap.appendChild(table);
+      }
+      wrap.tabIndex = 0;
+      wrap.setAttribute("role", "region");
+      wrap.setAttribute("aria-label", (table.caption ? table.caption.textContent : "計算の表") + "（横にスクロールできます）");
+      each(table, "td", function (cell) {
+        var value = cell.textContent.trim();
+        if (/^[約およそ税込\s]*[¥￥+−-]?[0-9０-９]/.test(value) && !cell.querySelector("a, button, input")) {
+          cell.classList.add("num");
+        }
+      });
+    });
+  }
+
+  function countBadge(parent, count) {
+    var badge = document.createElement("span");
+    badge.className = "page-count";
+    badge.textContent = count + "件の計算";
+    parent.appendChild(badge);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    each(document, ".answer-box", markNumbers);
+    tables(document);
+
+    // Native disclosure controls; without JavaScript the original FAQ stays readable.
+    each(document, ".faq > dl", function (list) {
+      var fragment = document.createDocumentFragment();
+      Array.prototype.forEach.call(list.children, function (question) {
+        if (question.tagName !== "DT") { return; }
+        var answer = question.nextElementSibling;
+        if (!answer || answer.tagName !== "DD") { return; }
+        var details = document.createElement("details");
+        var summary = document.createElement("summary");
+        var body = document.createElement("div");
+        body.className = "faq-answer";
+        while (question.firstChild) { summary.appendChild(question.firstChild); }
+        while (answer.firstChild) { body.appendChild(answer.firstChild); }
+        details.appendChild(summary);
+        details.appendChild(body);
+        fragment.appendChild(details);
+      });
+      list.replaceWith(fragment);
+    });
+
+    each(document, ".category-grid > .cat-block", function (card) {
+      var list = card.querySelector(".page-list");
+      if (!list) { return; }
+      var count = list.querySelectorAll("li:not(.empty)").length;
+      countBadge(card, count);
+      if (!count) { return; }
+      var details = document.createElement("details");
+      var summary = document.createElement("summary");
+      summary.textContent = "計算ツールを見る";
+      details.className = "category-tools";
+      details.appendChild(summary);
+      card.appendChild(details);
+      details.appendChild(list);
+    });
+
+    each(document, ".category", function (category) {
+      countBadge(category.querySelector(".collection-heading"), category.querySelectorAll(".page-list > li:not(.empty)").length);
+    });
+    var countsElement = document.getElementById("kl-category-counts");
+    var counts = countsElement ? JSON.parse(countsElement.textContent) : {};
+    each(document, ".category-entry-list > li", function (card) {
+      var link = card.querySelector("a");
+      var parts = link ? link.getAttribute("href").split("/").filter(Boolean) : [];
+      var key = parts[parts.length - 1];
+      if (Object.prototype.hasOwnProperty.call(counts, key)) { countBadge(card, counts[key]); }
+    });
+
+    // Observe only the existing result node; never replace it or change aria-live.
+    each(document, ".tool #kl-result, .tool #result, .tool .result", function (result) {
+      function decorate() {
+        observer.disconnect();
+        each(result, ":scope > p:first-child, .kl-answer, .kl-summary", markNumbers);
+        tables(result);
+        observer.observe(result, { childList: true, subtree: true, characterData: true });
+      }
+      var observer = new MutationObserver(decorate);
+      decorate();
+    });
+  });
+})();
+
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ進む</a>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../"><span class="site-mark" aria-hidden="true">＝</span>くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap" id="main" tabindex="-1">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../shoku/">食費と運動</a><span aria-hidden="true">›</span><span>宅食と生協の宅配、実質1食いくら? 送料と初回割引と続けた回数まで入れて計算</span></nav>
+<article class="page">
+<header class="page-heading">
+<h1>宅食と生協の宅配、実質1食いくら? 送料と初回割引と続けた回数まで入れて計算</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-10-18">2026年10月18日</time></p>
+</header>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>宅食の実質1食は、(価格+送料+クール便代)÷食数で出ます。初回だけの割引は2回目以降に付かないため、初回の1食と続けたときの1食は別の数字です。たとえば1セット5,000円で7食、送料990円、初回1,000円引きなら、初回は1食712.9円、2回目以降は855.7円、4回続けた平均は820.0円です(試算の例)。送料の金額は各社の公式ページの表記によります。シェフの無添つくりおきは2回目以降1回990円です(2026-10-18に公式ページで確認)。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form"><fieldset><legend>サービス1</legend><div class="kl-field"><label for="kl-p1">料金のひな形(公式ページで確認できたものだけ)</label><select id="kl-p1" name="preset1"><option value="">手入力</option></select></div><p id="kl-pn1"></p><div class="kl-field"><label for="kl-name1">サービス名(自由入力)</label><input type="text" id="kl-name1" name="name1" maxlength="30"></div><div class="kl-field"><label for="kl-price1">1セットの価格(円)</label><input type="number" id="kl-price1" name="price1" value="5000" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-meals1">1セットの食数</label><input type="number" id="kl-meals1" name="meals1" value="7" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-ship1">送料(1回、円。地域の料金表の金額)</label><input type="number" id="kl-ship1" name="shipping1" value="990" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-cool1">クール便代(別にかかる場合、円)</label><input type="number" id="kl-cool1" name="cool1" value="0" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-disc1">初回割引額(円)</label><input type="number" id="kl-disc1" name="first_discount1" value="1000" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-fship1">初回の送料(円。空欄なら2回目以降と同じ。初回送料無料なら0)</label><input type="number" id="kl-fship1" name="first_shipping1" value="" min="0" step="1" inputmode="numeric"></div></fieldset><fieldset><legend>サービス2(空欄なら表に出ない)</legend><div class="kl-field"><label for="kl-p2">料金のひな形(公式ページで確認できたものだけ)</label><select id="kl-p2" name="preset2"><option value="">手入力</option></select></div><p id="kl-pn2"></p><div class="kl-field"><label for="kl-name2">サービス名(自由入力)</label><input type="text" id="kl-name2" name="name2" maxlength="30"></div><div class="kl-field"><label for="kl-price2">1セットの価格(円)</label><input type="number" id="kl-price2" name="price2" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-meals2">1セットの食数</label><input type="number" id="kl-meals2" name="meals2" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-ship2">送料(1回、円。地域の料金表の金額)</label><input type="number" id="kl-ship2" name="shipping2" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-cool2">クール便代(別にかかる場合、円)</label><input type="number" id="kl-cool2" name="cool2" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-disc2">初回割引額(円)</label><input type="number" id="kl-disc2" name="first_discount2" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-fship2">初回の送料(円。空欄なら2回目以降と同じ。初回送料無料なら0)</label><input type="number" id="kl-fship2" name="first_shipping2" value="" min="0" step="1" inputmode="numeric"></div></fieldset><fieldset><legend>サービス3(空欄なら表に出ない)</legend><div class="kl-field"><label for="kl-p3">料金のひな形(公式ページで確認できたものだけ)</label><select id="kl-p3" name="preset3"><option value="">手入力</option></select></div><p id="kl-pn3"></p><div class="kl-field"><label for="kl-name3">サービス名(自由入力)</label><input type="text" id="kl-name3" name="name3" maxlength="30"></div><div class="kl-field"><label for="kl-price3">1セットの価格(円)</label><input type="number" id="kl-price3" name="price3" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-meals3">1セットの食数</label><input type="number" id="kl-meals3" name="meals3" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-ship3">送料(1回、円。地域の料金表の金額)</label><input type="number" id="kl-ship3" name="shipping3" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-cool3">クール便代(別にかかる場合、円)</label><input type="number" id="kl-cool3" name="cool3" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-disc3">初回割引額(円)</label><input type="number" id="kl-disc3" name="first_discount3" value="" min="0" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-fship3">初回の送料(円。空欄なら2回目以降と同じ。初回送料無料なら0)</label><input type="number" id="kl-fship3" name="first_shipping3" value="" min="0" step="1" inputmode="numeric"></div></fieldset><fieldset><legend>続け方</legend><div class="kl-field"><label for="kl-n">続ける回数(回)</label><input type="number" id="kl-n" name="n" value="4" min="1" step="1" inputmode="numeric"></div><div class="kl-field"><label for="kl-orders">月の注文回数(回)</label><input type="number" id="kl-orders" name="monthly_orders" value="4" min="1" step="1" inputmode="numeric"></div></fieldset><button type="submit">計算する</button></form><div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta"><a class="cta-link" href="https://px.a8.net/svt/ejp?a8mat=4BCLW5+FEW4FU+57YO+5YRHE" rel="sponsored noopener" target="_blank">シェフの無添つくりおきの公式ページで料金を見る</a><span class="cta-pr">PR</span><span class="cta-note">このページの料金のひな形に使ったサービス。価格や初回の条件は改定されるため、申し込み前の最新の金額は公式ページで確認できる</span></div>
+<div class="kl-cta"><a class="cta-link" href="../../shoku/tanpakushitsu-tanka/">食品をたんぱく質1gあたりの値段で比べる</a><span class="cta-note">宅食とは別に、食材やプロテインを同じ物差しで並べたいときの計算</span></div>
+</section>
+<div class="intro"><p>宅食のサイトには、1食あたりの値段が大きく出ている。送料や初回割引が入ると、実際に払う1食の値段は表示と変わる。くらしラボは、この差を自分の条件で出せるように、この計算を作った。</p><p>入力するのは、1セットの価格、食数、送料、クール便代、初回割引、続ける回数、月の注文回数。最大3つのサービスを横に並べられる。シェフの無添つくりおきは、公式ページで読み取れた価格と送料をひな形に入れてある。それ以外のサービスは、手入力で使える。</p><p>運営はくらしラボで、個人運営だ。金額は各社の公式ページから転記し、確認した日を付けた。サービスを利用した経験は書いていない。</p></div>
+<section>
+<h2>実質1食の出し方</h2>
+<p>宅食の1食の値段は、サイトに大きく出ている1食あたりの表示と、実際に払う額が合わないことがある。送料とクール便代が別に乗り、初回だけ割引が付くためだ。この計算は、1セットの価格に送料とクール便代を足し、食数で割る。</p><p>たとえば1セット5,000円で7食、送料990円、初回だけ1,000円引きとする(試算の例で、実在のサービスの料金ではない)。初回は(5,000−1,000+990)÷7で1食712.9円。2回目以降は(5,000+990)÷7で855.7円になる。4回続けた平均は820.0円だ。初回の値段だけを見ると、続けたときの1食より約143円低く見える。</p>
+</section>
+<section>
+<h2>初回だけ安く見える差</h2>
+<p>初回の割引には、1回目だけの値引きと、数回に分けた値引きがある。ナッシュの公式ページには、1回目に1,500円、2回目に1,000円、3回目に500円を引くクーポンの表記がある。初回特別価格との併用の可否は、ページを読み取った範囲では書かれていなかった。</p><p>割引が終わったあとの1食を見るには、2回目以降の行を使う。続ける回数が増えるほど、平均は2回目以降の値段に近づく。何回続けるか決めていない人は、1回、3回、6回と入れ替えて、平均がどこまで上がるかを見るとよい。</p>
+</section>
+<section>
+<h2>送料は地域で変わる</h2>
+<p>送料は、住んでいる地域で金額が違うサービスがある。ナッシュは地域別の送料表を公開していて、表の下にクール宅急便料金を含んだ金額という注記がある。</p><p>サービスによっては、送料が全国一律のところもある。シェフの無添つくりおきの公式ページには、2回目以降1回990円と書かれていて、地域差の記載は見当たらなかった。ただし、配達できない地域や締め切りの違う地域がある。申し込む前に、自分の郵便番号で送料と配達の可否を確かめてほしい。地域で金額が変わるサービスの送料は、ひな形に入れていない。</p>
+</section>
+<section>
+<h2>生協の宅配は手数料のかかり方が違う</h2>
+<p>生協の宅配は、1セットを買うのではなく、毎週の注文で商品を選ぶ形が多い。パルシステムの公式ページには、注文の有無にかかわらず1週間ごとに198〜275円(税込)の手数料がかかるとある。加入できるのは1都11県で、入会時の費用はこのページに載っていない。</p><p>この計算で使うときは、送料の欄に週の手数料を入れ、価格の欄にその週に買う金額、食数の欄にその買い物でまかなう食数を入れる。週の注文額が少ないほど、手数料が1食に乗る割合は大きくなる。出資金や加入手続きの費用は、各生協の加入案内で確かめる。</p>
+</section>
+<section>
+<h2>ひな形の値は公式ページを読んだ日のもの</h2>
+<p>下の表の金額は、2026年10月18日に各社の公式ページを読んだ時点のものだ。価格や送料は改定されるため、申し込む前に、公式ページの最新の金額を見てほしい。料金のひな形に入れたのは、価格と送料をページの本文で読み取れたシェフの無添つくりおきだけだ。ナッシュは送料表の列の対応を、パルシステムは商品の価格を、ページから読み取れなかった。読み取れないものはひな形に入れず、手入力で使える。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>初回の1食は、(価格−初回割引+初回の送料+クール便代)÷食数。2回目以降の1食は、(価格+送料+クール便代)÷食数。続けた回数nの平均は、(初回の支払い合計+(n−1)×2回目以降の支払い合計)÷(食数×n)で、小数第2位を四捨五入して小数第1位まで出す。月額は、2回目以降の支払い合計×月の注文回数。</p><p>続ける回数と月の注文回数の既定値は、どちらも4回だ。週1回の注文を1か月続ける想定で置いた推定で、画面で変えられる。送料は地域で変わるため、お住まいの地域の料金表の金額を入れてほしい。ひな形の金額は公式ページを読んだ日のもので、価格や送料が改定されていれば合わなくなる。</p><p>栄養や味、量の違いは入っていない。同じ「1食」でもおかずの量やメニューの数はサービスによって違うため、1食の値段は食数をどう数えるかで変わる。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">シェフの無添つくりおきの通常価格(2回目以降、食卓サポートプラン / 食卓おまかせプラン)</th><td class="num">5,173円 / 13,607円円</td><td><a href="https://lp.store.tavenal.com/tsukurioki/" rel="noopener" target="_blank">公式ランディングページの料金表の記載。2026-10-18に読み取った。ページ本文に税込の表記はない</a></td></tr>
+<tr><th scope="row">シェフの無添つくりおきの送料(2回目以降)と初回の送料</th><td class="num">2回目以降990円、初回は無料(「今だけ初回送料無料」の表記)円</td><td><a href="https://lp.store.tavenal.com/tsukurioki/" rel="noopener" target="_blank">ページに送料の地域差の記載はない。クール便代は別料金の記載がなく、ヤマト運輸のクール便で届くとだけ書かれている</a></td></tr>
+<tr><th scope="row">パルシステムの配送手数料(週ごと)</th><td class="num">198円〜275円(税込)円/週</td><td><a href="https://www.pal-system.co.jp/service/weekly-delivery/" rel="noopener" target="_blank">利用金額で変わる場合がある。商品の価格と入会時の費用はこのページに載っていないため、ひな形には入れていない</a></td></tr>
+<tr><th scope="row">続ける回数nの既定値</th><td class="num">4回</td><td><span class="est-tag">推定</span> 週1回の注文を1か月続ける想定の置き方。画面で変えられる</td></tr>
+<tr><th scope="row">月の注文回数の既定値</th><td class="num">4回</td><td><span class="est-tag">推定</span> 週1回の配送を想定した置き方。隔週なら2、月1回なら1に変える</td></tr>
+</tbody></table></div>
+
+</section>
+<section class="compare-table" id="table">
+<h2>早見表</h2>
+<div class="table-wrap"><table><caption>公式ページで確認した料金(確認日 2026-10-18)。読み取れなかった項目は載せていない</caption><thead><tr><th scope="col">サービス</th><th scope="col">確認した内容</th><th scope="col">確認日</th></tr></thead>
+<tbody>
+<tr><th scope="row">シェフの無添つくりおき</th><td>食卓サポートプラン通常5,173円、食卓おまかせプラン通常13,607円、送料は2回目以降990円、初回は送料無料の表記。初回割引の金額は本文に記載なし</td><td>2026-10-18</td></tr>
+<tr><th scope="row">パルシステム</th><td>配送手数料は週198〜275円(税込)。対象は1都11県。商品の価格と入会時の費用は記載なし</td><td>2026-10-18</td></tr>
+<tr><th scope="row">ナッシュ</th><td>8食の通常価格は1食644円の表記(税込)。送料は地域別の表で、クール便料金を含んだ金額という注記あり。送料表の列と食数の対応は確認できず</td><td>2026-10-18</td></tr>
+</tbody></table></div>
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. 初回限定の価格で比べてもよいですか?</dt>
+<dd>初回だけの値段は、続けたときの値段とは別物になる。割引が終わった2回目以降の1食と、続ける回数での平均を見て比べるほうが、実際の支払いに近い。この計算は初回、2回目以降、平均の3つを並べて出す。</dd>
+<dt>Q. 送料はどこで確かめればよいですか?</dt>
+<dd>各サービスの公式ページにある送料表か、申し込み画面で郵便番号を入れたときの表示で確かめる。地域で金額が変わるサービスがある。このページのひな形の金額は、読み取った日の公式ページの表記だ。</dd>
+<dt>Q. 1食の食数はどう数えればよいですか?</dt>
+<dd>サービスごとに、おかず1パックを1食とするか、大人1人分の夕食を1食とするかが違う。公式ページの説明で、1セットで何人分の何日分と書かれているかを見て、自分の家で食べる回数に直して入れる。</dd>
+<dt>Q. 生協の宅配もこの計算で比べられますか?</dt>
+<dd>比べられる。送料の欄に週の配送手数料、価格の欄にその週の注文額、食数の欄にまかなう食数を入れる。入会時の出資金は計算に入っていないので、加入案内で確かめてほしい。</dd>
+<dt>Q. 表のサービスは、どれをすすめているのですか?</dt>
+<dd>どれもすすめていない。くらしラボは個人運営で、サービスを使った経験は書いていない。公式ページに載っていた金額を、計算の入力に使いやすい形に並べているだけだ。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://lp.store.tavenal.com/tsukurioki/" rel="noopener" target="_blank">シェフの無添つくりおき 公式ランディングページ(料金・送料)</a>(2026年10月18日確認)</li><li><a href="https://www.pal-system.co.jp/service/weekly-delivery/" rel="noopener" target="_blank">パルシステム 定期便(配送手数料)</a>(2026年10月18日確認)</li><li><a href="https://www.nosh.jp/shipping" rel="noopener" target="_blank">ナッシュ 地域別の送料</a>(2026年10月18日確認)</li><li><a href="https://www.nosh.jp/" rel="noopener" target="_blank">ナッシュ 公式トップページ(プラン別の価格とクーポン)</a>(2026年10月18日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../shoku/tanpakushitsu-tanka/">たんぱく質1gあたりの値段 プロテインと鶏むね肉、卵、納豆、サバ缶で比べる</a></li><li><a href="../../bosai/bichiku-keisan/">防災備蓄は何をどれだけ? 家族の人数と日数で計算</a></li><li><a href="../../bosai/kan-i-toilet/">簡易トイレは何回分いる? 人数と日数から必要な回数と1回あたりの値段を出す</a></li><li><a href="../../shoku/">食費と運動の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>
+function KL_CALC(input) {
+  input = input || {};
+  function num(v) {
+    v = Number(v);
+    return isFinite(v) && v > 0 ? v : 0;
+  }
+  function blank(v) {
+    return v === undefined || v === null || v === "";
+  }
+  function r1(x) {
+    return Math.round(x * 10) / 10;
+  }
+  var n = Math.floor(num(input.n));
+  if (n < 1) n = 1;
+  var orders = blank(input.monthly_orders) ? 4 : num(input.monthly_orders);
+
+  function one(s) {
+    s = s || {};
+    var price = num(s.price);
+    var meals = num(s.meals);
+    if (price <= 0 || meals <= 0) return { valid: false };
+    var ship = num(s.shipping);
+    var cool = num(s.cool);
+    var disc = num(s.first_discount);
+    var fship = blank(s.first_shipping) ? ship : num(s.first_shipping);
+    var firstTotal = Math.max(0, price - disc) + fship + cool;
+    var regTotal = price + ship + cool;
+    var firstPer = firstTotal / meals;
+    var regPer = regTotal / meals;
+    var avg = (firstTotal + (n - 1) * regTotal) / (meals * n);
+    return {
+      valid: true,
+      first_total_yen: Math.round(firstTotal),
+      regular_total_yen: Math.round(regTotal),
+      first_per_meal: r1(firstPer),
+      regular_per_meal: r1(regPer),
+      avg_n: r1(avg),
+      monthly_yen: Math.round(regTotal * orders),
+      first_gap_per_meal: r1(regPer - firstPer),
+      first_gap_total_yen: Math.round(regTotal - firstTotal)
+    };
+  }
+
+  var result = one(input);
+  result.n = n;
+  result.monthly_orders = orders;
+  if (Array.isArray(input.services)) {
+    result.services = input.services.slice(0, 3).map(one);
+  }
+  return result;
+}
+</script>
+<script>
+(function () {
+  var PRESETS = [{"id": "chef-sapo", "label": "シェフの無添つくりおき 食卓サポートプラン(2回目以降の価格)", "price": 5173, "shipping": 990, "cool": 0, "first_discount": "", "first_shipping": "", "checked": "2026-10-18", "note": "初回送料無料は「今だけ」の表記で、期間は書かれていない。ひな形の初回送料は2回目以降と同じにしてあるので、注文時に無料なら初回の送料に0を入れる。公式ページの本文に、初回割引の金額と食数の数え方は書かれていない。割引額と食数は自分で入れる。"}, {"id": "chef-omakase", "label": "シェフの無添つくりおき 食卓おまかせプラン(2回目以降の価格)", "price": 13607, "shipping": 990, "cool": 0, "first_discount": "", "first_shipping": "", "checked": "2026-10-18", "note": "初回送料無料は「今だけ」の表記で、期間は書かれていない。ひな形の初回送料は2回目以降と同じにしてあるので、注文時に無料なら初回の送料に0を入れる。公式ページの本文に、初回割引の金額と食数の数え方は書かれていない。割引額と食数は自分で入れる。"}];
+  var PRESET_MAX_AGE_DAYS = 35;
+  var SLOTS = [1, 2, 3];
+
+  function onReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+  function el(id) { return document.getElementById(id); }
+  function val(id) {
+    var e = el(id);
+    return e ? e.value : "";
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c];
+    });
+  }
+  function yen1(n) {
+    if (typeof n !== "number" || isNaN(n)) return "-";
+    return (Math.round(n * 10) / 10).toLocaleString("ja-JP", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "円";
+  }
+  function yen0(n) {
+    if (typeof n !== "number" || isNaN(n)) return "-";
+    return Math.round(n).toLocaleString("ja-JP") + "円";
+  }
+  function presetFresh(p) {
+    var t = Date.parse(p.checked);
+    if (isNaN(t)) return false;
+    return (Date.now() - t) <= PRESET_MAX_AGE_DAYS * 86400000;
+  }
+
+  function fillPresetOptions() {
+    SLOTS.forEach(function (i) {
+      var sel = el("kl-p" + i);
+      if (!sel) return;
+      PRESETS.forEach(function (p) {
+        if (!presetFresh(p)) return;
+        var o = document.createElement("option");
+        o.value = p.id;
+        o.textContent = p.label + "(確認日 " + p.checked + ")";
+        sel.appendChild(o);
+      });
+    });
+  }
+
+  function applyPreset(i) {
+    var id = val("kl-p" + i);
+    var note = el("kl-pn" + i);
+    if (note) note.textContent = "";
+    if (!id) return;
+    for (var k = 0; k < PRESETS.length; k++) {
+      var p = PRESETS[k];
+      if (p.id !== id) continue;
+      el("kl-price" + i).value = p.price;
+      el("kl-ship" + i).value = p.shipping;
+      el("kl-cool" + i).value = p.cool;
+      el("kl-disc" + i).value = p.first_discount;
+      el("kl-fship" + i).value = p.first_shipping;
+      var nm = el("kl-name" + i);
+      if (nm && !nm.value) nm.value = p.label.split(" ")[0];
+      if (note) note.textContent = p.note + " 送料は地域で変わる。表の金額は公式ページで確認した日のもの。";
+      break;
+    }
+  }
+
+  function readSlot(i) {
+    return {
+      name: val("kl-name" + i),
+      price: val("kl-price" + i),
+      meals: val("kl-meals" + i),
+      shipping: val("kl-ship" + i),
+      cool: val("kl-cool" + i),
+      first_discount: val("kl-disc" + i),
+      first_shipping: val("kl-fship" + i)
+    };
+  }
+
+  function render(r, slots) {
+    var box = el("kl-result");
+    if (!box) return;
+    var cols = [];
+    slots.forEach(function (s, idx) {
+      var one = r.services[idx];
+      if (one && one.valid) cols.push({ name: s.name || ("サービス" + (idx + 1)), r: one });
+    });
+    if (!cols.length) {
+      box.innerHTML = "<p>1セットの価格と食数を入れると、実質1食の値段が出る。</p>";
+      return;
+    }
+    var head = "<tr><th scope=\"col\">項目</th>";
+    cols.forEach(function (c) { head += "<th scope=\"col\">" + esc(c.name) + "</th>"; });
+    head += "</tr>";
+    function row(label, fn) {
+      var h = "<tr><th scope=\"row\">" + label + "</th>";
+      cols.forEach(function (c) { h += "<td>" + fn(c.r) + "</td>"; });
+      return h + "</tr>";
+    }
+    var body = "";
+    body += row("初回の1食", function (x) { return yen1(x.first_per_meal); });
+    body += row("2回目以降の1食", function (x) { return yen1(x.regular_per_meal); });
+    body += row(r.n + "回続けた平均の1食", function (x) { return yen1(x.avg_n); });
+    body += row("初回の割引などで安く見える差(1食あたり)", function (x) { return yen1(x.first_gap_per_meal); });
+    body += row("初回の支払い合計", function (x) { return yen0(x.first_total_yen); });
+    body += row("2回目以降の1回の支払い合計", function (x) { return yen0(x.regular_total_yen); });
+    body += row("初回と2回目以降の支払いの差", function (x) { return yen0(x.first_gap_total_yen); });
+    body += row("月額(月" + r.monthly_orders + "回注文した場合)", function (x) { return yen0(x.monthly_yen); });
+    var html = "<table class=\"kl-result-table\"><caption>実質1食の値段(送料とクール便代を含む)</caption><thead>" + head + "</thead><tbody>" + body + "</tbody></table>";
+    html += "<p>初回だけの割引や送料無料を外した2回目以降の1食と、" + r.n + "回続けた平均を並べている。見る列は平均の行で、初回の行は最初の1回だけの値段になる。</p>";
+    box.innerHTML = html;
+    if (window.KL_UI && typeof window.KL_UI.applyWhen === "function") {
+      window.KL_UI.applyWhen(r);
+    }
+  }
+
+  function compute() {
+    try {
+      var slots = SLOTS.map(readSlot);
+      var input = {
+        n: val("kl-n"),
+        monthly_orders: val("kl-orders"),
+        services: slots,
+        price: slots[0].price,
+        meals: slots[0].meals,
+        shipping: slots[0].shipping,
+        cool: slots[0].cool,
+        first_discount: slots[0].first_discount,
+        first_shipping: slots[0].first_shipping
+      };
+      var r = window.KL_CALC(input);
+      render(r, slots);
+    } catch (e) {
+      var box = el("kl-result");
+      if (box) box.textContent = "計算でエラーが発生しました。入力値を確認してください。";
+    }
+  }
+
+  onReady(function () {
+    var form = el("kl-form");
+    if (!form) return;
+    fillPresetOptions();
+    SLOTS.forEach(function (i) {
+      var sel = el("kl-p" + i);
+      if (sel) sel.addEventListener("change", function () { applyPreset(i); compute(); });
+    });
+    form.addEventListener("submit", function (e) { e.preventDefault(); compute(); });
+    form.addEventListener("input", compute);
+    compute();
+  });
+})();
+</script>
+</body>
+</html>
