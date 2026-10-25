@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>通信制大学と通学の大学の4年間の費用を、スクーリングの交通費と宿泊まで入れて比べる | くらしラボ計算帳</title>
+<meta name="description" content="通信制大学と通学の大学の4年間の総額を、入学金・授業料・スクーリング(回数×交通費と宿泊)から計算し、差額と1年あたり、スクーリングの割合を出す。">
+<link rel="canonical" href="https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通信制大学と通学の大学の4年間の費用を、スクーリングの交通費と宿泊まで入れて比べる | くらしラボ計算帳">
+<meta property="og:description" content="通信制大学と通学の大学の4年間の総額を、入学金・授業料・スクーリング(回数×交通費と宿泊)から計算し、差額と1年あたり、スクーリングの割合を出す。">
+<meta property="og:url" content="https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/">
+<meta property="og:site_name" content="くらしラボ計算帳">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="../../css/site.css">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/#webpage",
+   "url": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/",
+   "name": "通信制大学と通学の大学の4年間の費用を、スクーリングの交通費と宿泊まで入れて比べる",
+   "description": "通信制大学と通学の大学の4年間の総額を、入学金・授業料・スクーリング(回数×交通費と宿泊)から計算し、差額と1年あたり、スクーリングの割合を出す。",
+   "dateModified": "2026-10-25",
+   "inLanguage": "ja",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "くらしラボ計算帳",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "くらしラボ",
+    "url": "https://kurashi-labo.github.io/keisan/"
+   },
+   "breadcrumb": {
+    "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "トップ",
+     "item": "https://kurashi-labo.github.io/keisan/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "進路とお金の計算帳(通信制と不登校)",
+     "item": "https://kurashi-labo.github.io/keisan/shinro/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "通信制大学と通学の大学の4年間の費用を、スクーリングの交通費と宿泊まで入れて比べる",
+     "item": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://kurashi-labo.github.io/keisan/shinro/tsuushin-daigaku-4nen/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "スクーリングは4年間で何回必要ですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "大学と学部、コースで違い、このページでは決められない。卒業に要る124単位のうち30単位以上を面接授業かメディアを利用する授業で修得すると大学通信教育設置基準に定められているが、会場へ出向く回数や日数は大学ごとに決まる(文部科学省の基準、2026-10-25確認)。募集要項や学習の手引で確かめてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "国立大学の授業料は、どの大学でも同じ額ですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "同じとは限らない。省令の標準額は授業料の年額535,800円、入学料282,000円だが、各大学は特別の事情があるとき標準額の120%までの範囲で定められる(国立大学等の授業料その他の費用に関する省令2条・10条、2026-10-25確認)。実際の額は大学の募集要項で確かめる。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "私立大学の平均を、通信制の比較に使ってよいですか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "平均は学部を問わない全体の値で、通学の私立大学の負担の目安にとどまる。学部によって大きく違うため、志望校が決まっていれば「自分で入力する」で、その大学の額を入れるほうが実情に近い。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "4年で卒業できなかった場合の費用はどうなりますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "このページの計算は4年分で固定している。在籍が延びた場合の費用は、大学の学則や募集要項で、延長した年の授業料などの扱いを確かめてほしい。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "通学の定期代や下宿の費用は入りますか。",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "比較値には入っていない。定期代や教材費は、通学の追加費用の欄に1年分を入れると4年分が総額に加わる。下宿の家賃や生活費は計算の対象にしていない。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<script>
+/* KL_UI: 全ページ共通。ui_js は計算結果を得たあと KL_UI.applyWhen(result) を呼ぶ */
+(function () {
+  "use strict";
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function field(obj, path) {
+    var cur = obj;
+    String(path).split(".").forEach(function (k) { cur = (cur === null || cur === undefined) ? undefined : cur[k]; });
+    return cur;
+  }
+  function parse(v) { try { return JSON.parse(v); } catch (e) { return v; } }
+  function match(actual, op, expected) {
+    if (actual === undefined || actual === null || actual === "") { return false; }
+    if (op === ">=" || op === "<=") {
+      var a = Number(actual), b = Number(expected);
+      if (!isFinite(a) || !isFinite(b)) { return false; }
+      return op === ">=" ? a >= b : a <= b;
+    }
+    if (op === "==") { return String(actual) === String(expected); }
+    if (op === "in") {
+      return Array.isArray(expected) && expected.some(function (v) { return String(v) === String(actual); });
+    }
+    return false;
+  }
+  function refreshBlocks() {
+    each("[data-kl-cta-block]", function (block) {
+      block.hidden = !block.querySelector(".kl-cta:not([hidden])");
+    });
+  }
+  function applyWhen(result) {
+    each(".kl-cta[data-when-field]", function (el) {
+      el.hidden = !(result && match(field(result, el.getAttribute("data-when-field")),
+        el.getAttribute("data-when-op"), parse(el.getAttribute("data-when-value"))));
+    });
+    refreshBlocks();
+  }
+  function hideStalePrices() {
+    /* 楽天の価格は取得から24時間を超えたら出さない(ビルドが止まった日の保険) */
+    each("[data-kl-fetched]", function (el) {
+      var t = Date.parse(el.getAttribute("data-kl-fetched"));
+      if (!isFinite(t) || Date.now() - t > DAY_MS) { el.textContent = "更新待ち"; el.classList.add("kl-stale"); }
+    });
+  }
+  window.KL_UI = { applyWhen: applyWhen, match: match, refresh: refreshBlocks };
+  document.addEventListener("DOMContentLoaded", function () { hideStalePrices(); refreshBlocks(); });
+})();
+</script>
+<script>
+/* kl_date.js: くらしラボ計算帳の日付部品。グローバル KL_DATE(ブラウザは window、calc_test.js の vm は context)。
+   日付は Date か "YYYY-MM-DD" で受け取り、その端末の0時の Date で返す(文字列にするときは fmt)。
+   内部は 1970-01-01 からの通し日数で数えるので、タイムゾーンと夏時間の影響を受けない。
+   条文: 民法140条〜143条、国税通則法10条2項と同法施行令2条2項、祝日法(国民の祝日に関する法律)2条・3条。 */
+(function (root) {
+  "use strict";
+  var DAY_MS = 86400000;
+  var WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
+  var HOLIDAY_REF = /holiday|shukujitsu|syukujitsu/i;
+  var UNITS = ["days", "weeks", "months", "years"];
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function serialOf(y, m, d) { return Math.round(Date.UTC(y, m - 1, d) / DAY_MS); }
+  function partsOf(s) {
+    var t = new Date(s * DAY_MS);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+  }
+  function iso(y, m, d) { return y + "-" + pad(m) + "-" + pad(d); }
+  function isoOf(s) { var p = partsOf(s); return iso(p.y, p.m, p.d); }
+  function compact(s) { return isoOf(s).replace(/-/g, ""); }
+  function dow(s) { return ((s + 4) % 7 + 7) % 7; } // 1970-01-01 は木曜
+  function daysInMonth(y, m) { return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+  function isDate(v) { return Object.prototype.toString.call(v) === "[object Date]"; }
+
+  // Date(0時ちょうどなら端末の日付、UTC の0時ちょうどなら UTC の日付)、"YYYY-MM-DD"、"YYYY/M/D"、"YYYY年M月D日"、
+  // taxDeadline などの結果({date})を通し日数にする。読めなければ NaN
+  function toSerial(v) {
+    if (v === null || v === undefined || v === "") { return NaN; }
+    if (isDate(v)) {
+      if (isNaN(v.getTime())) { return NaN; }
+      if (v.getHours() === 0 && v.getMinutes() === 0 && v.getSeconds() === 0 && v.getMilliseconds() === 0) {
+        return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+      }
+      if (v.getUTCHours() === 0 && v.getUTCMinutes() === 0 && v.getUTCSeconds() === 0 && v.getUTCMilliseconds() === 0) {
+        return serialOf(v.getUTCFullYear(), v.getUTCMonth() + 1, v.getUTCDate());
+      }
+      return serialOf(v.getFullYear(), v.getMonth() + 1, v.getDate());
+    }
+    if (typeof v === "object") { return v.date !== undefined && v.date !== v ? toSerial(v.date) : NaN; }
+    var m = /^\s*(\d{4})\s*[-\/.年]\s*(\d{1,2})\s*[-\/.月]\s*(\d{1,2})\s*日?\s*(?:$|T)/.exec(String(v));
+    if (!m) { return NaN; }
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y < 1000 || mo < 1 || mo > 12 || d < 1 || d > daysInMonth(y, mo)) { return NaN; }
+    return serialOf(y, mo, d);
+  }
+  function need(v, fn) {
+    var s = toSerial(v);
+    if (isNaN(s)) { throw new Error("KL_DATE." + fn + ": 日付を読めません(" + String(v) + ")"); }
+    return s;
+  }
+  function int(n, fn, what) {
+    var x = Number(n);
+    if (n === null || n === "" || !isFinite(x) || Math.floor(x) !== x) {
+      throw new Error("KL_DATE." + fn + ": " + what + "は整数で指定してください(" + String(n) + ")");
+    }
+    return x;
+  }
+  function toDate(s) {
+    var p = partsOf(s);
+    var t = new Date(2000, 0, 1);
+    t.setFullYear(p.y, p.m - 1, p.d);
+    t.setHours(0, 0, 0, 0);
+    return t;
+  }
+  function shiftMonths(s, n) {
+    var p = partsOf(s);
+    var idx = p.y * 12 + (p.m - 1) + n;
+    var y = Math.floor(idx / 12), m = idx - y * 12 + 1;
+    return { y: y, m: m, d: p.d, last: daysInMonth(y, m) };
+  }
+
+  function parse(v) { var s = toSerial(v); return isNaN(s) ? null : toDate(s); }
+  function fmt(v) { var s = toSerial(v); return isNaN(s) ? "" : isoOf(s); }
+  function weekdayJa(v) { return WEEKDAY_JA[dow(need(v, "weekdayJa"))]; }
+  function addDays(date, n) { return toDate(need(date, "addDays") + int(n, "addDays", "日数")); }
+  // 月の足し引き。応当日が無い月は月末にする(民法143条2項ただし書と同じ考え方。1月31日の1か月後は2月末日)
+  function addMonths(date, n) {
+    var t = shiftMonths(need(date, "addMonths"), int(n, "addMonths", "月数"));
+    return toDate(serialOf(t.y, t.m, Math.min(t.d, t.last)));
+  }
+  function addYears(date, n) { return addMonths(date, 12 * int(n, "addYears", "年数")); }
+  function endOfMonth(date) {
+    var p = partsOf(need(date, "endOfMonth"));
+    return toDate(serialOf(p.y, p.m, daysInMonth(p.y, p.m)));
+  }
+  function diffDays(from, to) { return need(to, "diffDays") - need(from, "diffDays"); }
+
+  // 期間の末日。spec は {days:n} {weeks:n} {months:n} {years:n} のどれか1つ
+  function periodEnd(start, spec, opts) {
+    var s = need(start, "periodEnd"), found = [];
+    for (var i = 0; i < UNITS.length; i++) {
+      if (spec && spec[UNITS[i]] !== undefined && spec[UNITS[i]] !== null) { found.push(UNITS[i]); }
+    }
+    if (found.length !== 1) {
+      throw new Error("KL_DATE.periodEnd: 期間は days、weeks、months、years のどれか1つで指定してください");
+    }
+    var unit = found[0], n = int(spec[unit], "periodEnd", unit);
+    if (n < 1) { throw new Error("KL_DATE.periodEnd: " + unit + "は1以上にしてください"); }
+    // 民法140条: 初日は算入しない(起算日は翌日)。午前0時から始まる期間だけ initialDayCounted:true で初日を数える
+    var first = s + (opts && opts.initialDayCounted === true ? 0 : 1);
+    // 民法141条: 期間は末日の終了をもって満了する。返すのはその末日
+    if (unit === "days") { return toDate(first + n - 1); }
+    // 民法143条: 週・月・年は暦に従い、最後の週・月・年で起算日に応当する日の前日に満了する(2項本文)
+    if (unit === "weeks") { return toDate(first + 7 * n - 1); }
+    var t = shiftMonths(first, unit === "years" ? 12 * n : n);
+    // 143条2項ただし書: 最後の月に応当する日が無いときは、その月の末日に満了する
+    if (t.d > t.last) { return toDate(serialOf(t.y, t.m, t.last)); }
+    return toDate(serialOf(t.y, t.m, t.d) - 1);
+  }
+
+  // ---- 祝日(祝日法)
+  // 春分・秋分の日は前年2月の官報で決まる。ここでは広く使われている近似式で出す(1980〜2150年)
+  function equinoxDay(year, spring) {
+    var base;
+    if (year >= 1980 && year <= 2099) { base = spring ? 20.8431 : 23.2488; }
+    else if (year >= 2100 && year <= 2150) { base = spring ? 21.8510 : 24.2488; }
+    else { return 0; }
+    return Math.floor(base + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function nthMonday(y, m, n) { return 1 + ((8 - dow(serialOf(y, m, 1))) % 7) + 7 * (n - 1); }
+
+  var ruleCache = {};
+  function ruleHolidays(year) {
+    if (ruleCache[year]) { return ruleCache[year]; }
+    var sai = {}, map = {}, k, s, t;
+    function put(m, d, name) { if (d) { sai[iso(year, m, d)] = name; } }
+    // 祝日法2条
+    put(1, 1, "元日");
+    put(1, nthMonday(year, 1, 2), "成人の日");
+    put(2, 11, "建国記念の日");
+    if (year >= 2020) { put(2, 23, "天皇誕生日"); }
+    put(3, equinoxDay(year, true), "春分の日");
+    put(4, 29, "昭和の日");
+    put(5, 3, "憲法記念日");
+    put(5, 4, "みどりの日");
+    put(5, 5, "こどもの日");
+    if (year === 2020) { put(7, 23, "海の日"); put(7, 24, "スポーツの日"); put(8, 10, "山の日"); }
+    else if (year === 2021) { put(7, 22, "海の日"); put(7, 23, "スポーツの日"); put(8, 8, "山の日"); }
+    else { put(7, nthMonday(year, 7, 3), "海の日"); put(8, 11, "山の日"); put(10, nthMonday(year, 10, 2), "スポーツの日"); }
+    put(9, nthMonday(year, 9, 3), "敬老の日");
+    put(9, equinoxDay(year, false), "秋分の日");
+    put(11, 3, "文化の日");
+    put(11, 23, "勤労感謝の日");
+    for (k in sai) { if (hasOwn.call(sai, k)) { map[k] = sai[k]; } }
+    for (k in sai) {
+      if (!hasOwn.call(sai, k)) { continue; }
+      s = toSerial(k);
+      // 3条2項(振替休日): 祝日が日曜日に当たるときは、その日後で最も近い祝日でない日を休日とする
+      if (dow(s) === 0) {
+        t = s + 1;
+        while (hasOwn.call(sai, isoOf(t))) { t += 1; }
+        map[isoOf(t)] = "振替休日";
+      }
+      // 3条3項(国民の休日): 前日と翌日が祝日である日(祝日でない日に限る)は休日とする
+      if (hasOwn.call(sai, isoOf(s + 2)) && !hasOwn.call(sai, isoOf(s + 1)) && !hasOwn.call(map, isoOf(s + 1))) {
+        map[isoOf(s + 1)] = "国民の休日";
+      }
+    }
+    var note = year < 2020 ? "2019年以前は祝日の決まりが今と違うため、参考の値です"
+      : (equinoxDay(year, true) ? "内閣府の祝日データに無い年のため、祝日法の決まりと春分・秋分の近似式で出しました"
+        : "春分と秋分の日を近似式で出せない年です(1980〜2150年のみ)");
+    ruleCache[year] = { map: map, note: note };
+    return ruleCache[year];
+  }
+
+  // refdata のうち、名前か出典URLに holiday / shukujitsu を含むものを祝日データとして読む。
+  // 形は {"rows": [{"date": "YYYY-MM-DD", "name": "…"}]}(taishoku-gyakusan__holidays_jp と shikaku-gyakusan__shukujitsu)
+  var refCache = { src: undefined, idx: null };
+  function holidayRows(source) {
+    if (Array.isArray(source)) { return source; }
+    var out = [];
+    if (source && typeof source === "object") {
+      for (var k in source) {
+        if (!hasOwn.call(source, k) || !Array.isArray(source[k])) { continue; }
+        var first = source[k][0];
+        if (HOLIDAY_REF.test(k) || (first && typeof first === "object" && HOLIDAY_REF.test(String(first.source_url || "")))) {
+          out = out.concat(source[k]);
+        }
+      }
+    }
+    return out;
+  }
+  function refIndex(source) {
+    if (source === undefined || source === null) { source = root.KL_REFDATA; }
+    if (refCache.idx && refCache.src === source) { return refCache.idx; }
+    var rows = holidayRows(source), map = {}, years = {}, i, k;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+      if (isNaN(s)) { continue; }
+      k = isoOf(s);
+      map[k] = (r && typeof r === "object" && r.name) || map[k] || "祝日";
+    }
+    // 元日と勤労感謝の日の両方がある年を「その年の祝日がすべて載っている」とみなす
+    for (k in map) {
+      if (hasOwn.call(map, k) && map[k.slice(0, 4) + "-01-01"] && map[k.slice(0, 4) + "-11-23"]) { years[k.slice(0, 4)] = true; }
+    }
+    refCache = { src: source, idx: { map: map, years: years } };
+    return refCache.idx;
+  }
+
+  function holidaysFor(year, source) {
+    var y = int(year, "holidaysFor", "年"), idx = refIndex(source), prefix = String(y) + "-";
+    var fromRef = hasOwn.call(idx.years, String(y)), rule = fromRef ? null : ruleHolidays(y);
+    var src = fromRef ? idx.map : rule.map, map = {}, list = [], keys = [], k, i;
+    for (k in src) { if (hasOwn.call(src, k) && k.indexOf(prefix) === 0) { keys.push(k); } }
+    keys.sort();
+    for (i = 0; i < keys.length; i++) { map[keys[i]] = src[keys[i]]; list.push({ date: keys[i], name: src[keys[i]] }); }
+    var out = { year: y, estimated: !fromRef, source: fromRef ? "refdata" : "rule", holidays: list, map: map };
+    if (rule) { out.note = rule.note; }
+    return out;
+  }
+
+  // holidays の渡し方: 省略(KL_REFDATA の祝日、無い年は祝日法で計算)/ refdata オブジェクト / 日付か {date,name} の配列 /
+  // {"YYYY-MM-DD": 名前} / holidaysFor の結果。配列と {"日付": 名前} は「それが祝日のすべて」として扱う
+  function lookup(holidays) {
+    var fixed = null, source, perYear = {}, estimated = false;
+    if (Array.isArray(holidays)) {
+      fixed = {};
+      for (var i = 0; i < holidays.length; i++) {
+        var r = holidays[i], s = toSerial(typeof r === "string" ? r : (r && r.date));
+        if (!isNaN(s)) { fixed[isoOf(s)] = (r && typeof r === "object" && r.name) || "休日"; }
+      }
+    } else if (holidays && typeof holidays === "object") {
+      if (holidays.map && typeof holidays.map === "object" && holidays.year !== undefined) { fixed = holidays.map; }
+      else {
+        for (var key in holidays) {
+          if (hasOwn.call(holidays, key)) { fixed = /^\d{4}-\d{2}-\d{2}$/.test(key) ? holidays : null; break; }
+        }
+        if (!fixed) { source = holidays; }
+      }
+    }
+    return {
+      name: function (s) {
+        var k = isoOf(s);
+        if (fixed) { return hasOwn.call(fixed, k) ? String(fixed[k] === true ? "休日" : fixed[k]) : ""; }
+        var y = k.slice(0, 4);
+        if (!perYear[y]) {
+          perYear[y] = holidaysFor(Number(y), source);
+          if (perYear[y].estimated) { estimated = true; }
+        }
+        return hasOwn.call(perYear[y].map, k) ? perYear[y].map[k] : "";
+      },
+      estimated: function () { return estimated; }
+    };
+  }
+  function yearEnd(s) { var p = partsOf(s); return (p.m === 12 && p.d >= 29) || (p.m === 1 && p.d <= 3); }
+  function closedReason(s, look, withYearEnd) {
+    var name = look.name(s), w = dow(s);
+    if (name) { return name; }
+    if (w === 0) { return "日曜日"; }
+    if (w === 6) { return "土曜日"; }
+    if (withYearEnd && yearEnd(s)) { return "年末年始"; }
+    return "";
+  }
+
+  function holidayName(date, holidays) { return lookup(holidays).name(need(date, "holidayName")); }
+  // 土日と祝日(振替休日・国民の休日を含む)なら true
+  function isHoliday(date, holidays) { return !!closedReason(need(date, "isHoliday"), lookup(holidays), false); }
+  function businessDay(date, opts, fn, step) {
+    opts = opts || {};
+    var s = need(date, fn), look = lookup(opts.holidays);
+    if (opts.strict === true) { s += step; }
+    for (var i = 0; i < 400; i++, s += step) {
+      if (!closedReason(s, look, opts.yearEnd === true)) { return toDate(s); }
+    }
+    throw new Error("KL_DATE." + fn + ": 400日以内に営業日がありません");
+  }
+  // その日が営業日ならその日、休みなら次(前)の営業日。{strict:true} で必ず翌日以降(前日以前)にする。
+  // {yearEnd:true} で12月29日〜1月3日も休みとして数える
+  function nextBusinessDay(date, opts) { return businessDay(date, opts, "nextBusinessDay", 1); }
+  function prevBusinessDay(date, opts) { return businessDay(date, opts, "prevBusinessDay", -1); }
+
+  function shiftDeadline(date, opts, fn, basis) {
+    opts = opts || {};
+    var s0 = need(date, fn), s = s0, look = lookup(opts.holidays), skipped = [], why;
+    for (var i = 0; i < 400; i++) {
+      why = closedReason(s, look, true);
+      if (!why) { break; }
+      skipped.push({ date: isoOf(s), why: why });
+      s += 1;
+    }
+    return { date: toDate(s), ymd: isoOf(s), original: isoOf(s0), shifted: s !== s0, skipped: skipped,
+      estimated: look.estimated(), unconfirmed: false, basis: basis };
+  }
+  // 国税通則法10条2項: 期限が日曜日・祝日法の休日・その他一般の休日・政令で定める日に当たるときは、翌日を期限とみなす。
+  // 政令で定める日は土曜日と12月29日〜31日(施行令2条2項)。1月2日と3日は一般の休日として数える
+  function taxDeadline(date, opts) { return shiftDeadline(date, opts, "taxDeadline", "国税通則法10条2項"); }
+  // 民法142条: 期間の末日が日曜日・祝日法の休日その他の休日に当たるときは、その日に取引をしない慣習がある場合に限り翌日に満了する。
+  // 慣習の有無はここでは確かめられないので、繰り下げたときは unconfirmed:true を返す(土曜日と12月29日〜1月3日も休みとして数える)。
+  // 裁判所への申述など民事訴訟法95条3項(家事事件は家事事件手続法34条4項で準用)が使える手続は {basis:"minso"}。慣習の条件が無い
+  function courtDeadline(date, opts) {
+    var minso = !!(opts && opts.basis === "minso");
+    var r = shiftDeadline(date, opts, "courtDeadline", minso ? "民事訴訟法95条3項" : "民法142条");
+    r.unconfirmed = !minso && r.shifted;
+    return r;
+  }
+
+  // ---- カレンダー(RFC 5545)
+  function icsText(v) {
+    return String(v === undefined || v === null ? "" : v).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+      .replace(/,/g, "\\,").replace(/\r\n|\r|\n/g, "\\n");
+  }
+  // 1行75オクテット(UTF-8)を超えたら CRLF+空白で折り返す。文字の途中では切らない
+  function fold(line) {
+    var out = [], cur = "", bytes = 0, i = 0;
+    while (i < line.length) {
+      var c = line.charCodeAt(i), ch = line.charAt(i), n;
+      if (c >= 0xd800 && c <= 0xdbff && i + 1 < line.length) { ch = line.substr(i, 2); n = 4; }
+      else { n = c < 0x80 ? 1 : (c < 0x800 ? 2 : 3); }
+      if (bytes + n > 75) { out.push(cur); cur = " "; bytes = 1; }
+      cur += ch;
+      bytes += n;
+      i += ch.length;
+    }
+    out.push(cur);
+    return out.join("\r\n");
+  }
+  function hash(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul ? Math.imul(h, 0x01000193) : (h * 0x01000193) | 0; }
+    return ("0000000" + (h >>> 0).toString(16)).slice(-8);
+  }
+  function stamp(now) {
+    var t = isDate(now) ? now.getTime() : (typeof now === "string" ? Date.parse(now) : (typeof now === "number" ? now : Date.now()));
+    if (!isFinite(t)) { throw new Error("KL_DATE.toICS: now を読めません(" + String(now) + ")"); }
+    var d = new Date(t);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+  }
+  // events: [{title, date, description}]。終日の予定(DTSTART;VALUE=DATE、DTEND は翌日)。opts.now で DTSTAMP を固定できる
+  function toICS(events, calName, opts) {
+    opts = opts || {};
+    var dtstamp = stamp(opts.now), name = calName ? String(calName) : "くらしラボ計算帳";
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//kurashi-labo//keisan//JA", "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH", "X-WR-CALNAME:" + icsText(name)];
+    var list = Array.isArray(events) ? events : [];
+    for (var i = 0; i < list.length; i++) {
+      var ev = list[i] || {}, s = need(ev.date, "toICS"), title = String(ev.title || "予定"), day = compact(s);
+      lines.push("BEGIN:VEVENT",
+        "UID:" + day + "-" + (i + 1) + "-" + hash(name + "\n" + title + "\n" + day + "\n" + i) + "@kurashi-labo.github.io",
+        "DTSTAMP:" + dtstamp, "DTSTART;VALUE=DATE:" + day, "DTEND;VALUE=DATE:" + compact(s + 1),
+        "SUMMARY:" + icsText(title));
+      if (ev.description) { lines.push("DESCRIPTION:" + icsText(ev.description)); }
+      lines.push("TRANSP:TRANSPARENT", "END:VEVENT");
+    }
+    lines.push("END:VCALENDAR");
+    var out = [];
+    for (var j = 0; j < lines.length; j++) { out.push(fold(lines[j])); }
+    return out.join("\r\n") + "\r\n";
+  }
+  function icsDataUrl(ics) { return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+
+  var api = {
+    version: "1", parse: parse, fmt: fmt, weekdayJa: weekdayJa, addDays: addDays, addMonths: addMonths,
+    addYears: addYears, endOfMonth: endOfMonth, diffDays: diffDays, periodEnd: periodEnd,
+    holidaysFor: holidaysFor, holidayName: holidayName, isHoliday: isHoliday,
+    nextBusinessDay: nextBusinessDay, prevBusinessDay: prevBusinessDay,
+    taxDeadline: taxDeadline, courtDeadline: courtDeadline, toICS: toICS, icsDataUrl: icsDataUrl
+  };
+  root.KL_DATE = api;
+  if (typeof module === "object" && module && module.exports) { module.exports = api; }
+})(typeof globalThis !== "undefined" ? globalThis : this);
+</script>
+<script type="application/json" id="kl-category-counts">{"bosai": 4, "jikka": 6, "kankon": 0, "shigoto": 3, "shoku": 2, "sumai": 1, "tetsuzuki": 8, "care": 7, "shinro": 6, "koikatsu": 8, "deai": 3}</script>
+<script>
+/* Presentation only: preserve calculator inputs, outputs, links and live regions. */
+(function () {
+  "use strict";
+
+  function each(root, selector, fn) {
+    Array.prototype.forEach.call(root.querySelectorAll(selector), fn);
+  }
+
+  function markNumbers(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var nodes = [], node;
+    while ((node = walker.nextNode())) {
+      if (!node.parentElement.closest("a, button, script, style, time, .kl-number") && /[0-9０-９]/.test(node.data)) {
+        nodes.push(node);
+      }
+    }
+    nodes.forEach(function (text) {
+      var pattern = /[0-9０-９]+(?:[,，.．][0-9０-９]+)*/g;
+      var fragment = document.createDocumentFragment(), start = 0, match;
+      while ((match = pattern.exec(text.data))) {
+        fragment.appendChild(document.createTextNode(text.data.slice(start, match.index)));
+        var span = document.createElement("span");
+        span.className = "kl-number";
+        span.textContent = match[0];
+        fragment.appendChild(span);
+        start = pattern.lastIndex;
+      }
+      fragment.appendChild(document.createTextNode(text.data.slice(start)));
+      text.replaceWith(fragment);
+    });
+  }
+
+  function tables(root) {
+    each(root, "table", function (table) {
+      var wrap = table.parentElement;
+      if (!wrap.classList.contains("table-wrap")) {
+        wrap = document.createElement("div");
+        wrap.className = "table-wrap";
+        table.before(wrap);
+        wrap.appendChild(table);
+      }
+      wrap.tabIndex = 0;
+      wrap.setAttribute("role", "region");
+      wrap.setAttribute("aria-label", (table.caption ? table.caption.textContent : "計算の表") + "（横にスクロールできます）");
+      each(table, "td", function (cell) {
+        var value = cell.textContent.trim();
+        if (/^[約およそ税込\s]*[¥￥+−-]?[0-9０-９]/.test(value) && !cell.querySelector("a, button, input")) {
+          cell.classList.add("num");
+        }
+      });
+    });
+  }
+
+  function countBadge(parent, count) {
+    var badge = document.createElement("span");
+    badge.className = "page-count";
+    badge.textContent = count + "件の計算";
+    parent.appendChild(badge);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    each(document, ".answer-box", markNumbers);
+    tables(document);
+
+    // Native disclosure controls; without JavaScript the original FAQ stays readable.
+    each(document, ".faq > dl", function (list) {
+      var fragment = document.createDocumentFragment();
+      Array.prototype.forEach.call(list.children, function (question) {
+        if (question.tagName !== "DT") { return; }
+        var answer = question.nextElementSibling;
+        if (!answer || answer.tagName !== "DD") { return; }
+        var details = document.createElement("details");
+        var summary = document.createElement("summary");
+        var body = document.createElement("div");
+        body.className = "faq-answer";
+        while (question.firstChild) { summary.appendChild(question.firstChild); }
+        while (answer.firstChild) { body.appendChild(answer.firstChild); }
+        details.appendChild(summary);
+        details.appendChild(body);
+        fragment.appendChild(details);
+      });
+      list.replaceWith(fragment);
+    });
+
+    each(document, ".category-grid > .cat-block", function (card) {
+      var list = card.querySelector(".page-list");
+      if (!list) { return; }
+      var count = list.querySelectorAll("li:not(.empty)").length;
+      countBadge(card, count);
+      if (!count) { return; }
+      var details = document.createElement("details");
+      var summary = document.createElement("summary");
+      summary.textContent = "計算ツールを見る";
+      details.className = "category-tools";
+      details.appendChild(summary);
+      card.appendChild(details);
+      details.appendChild(list);
+    });
+
+    each(document, ".category", function (category) {
+      countBadge(category.querySelector(".collection-heading"), category.querySelectorAll(".page-list > li:not(.empty)").length);
+    });
+    var countsElement = document.getElementById("kl-category-counts");
+    var counts = countsElement ? JSON.parse(countsElement.textContent) : {};
+    each(document, ".category-entry-list > li", function (card) {
+      var link = card.querySelector("a");
+      var parts = link ? link.getAttribute("href").split("/").filter(Boolean) : [];
+      var key = parts[parts.length - 1];
+      if (Object.prototype.hasOwnProperty.call(counts, key)) { countBadge(card, counts[key]); }
+    });
+
+    // Observe only the existing result node; never replace it or change aria-live.
+    each(document, ".tool #kl-result, .tool #result, .tool .result", function (result) {
+      function decorate() {
+        observer.disconnect();
+        each(result, ":scope > p:first-child, .kl-answer, .kl-summary", markNumbers);
+        tables(result);
+        observer.observe(result, { childList: true, subtree: true, characterData: true });
+      }
+      var observer = new MutationObserver(decorate);
+      decorate();
+    });
+  });
+})();
+
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ進む</a>
+<header class="site-header"><div class="wrap"><a class="site-name" href="../../"><span class="site-mark" aria-hidden="true">＝</span>くらしラボ計算帳</a><span class="site-tagline">人生の節目で出てくる数字を、出典つきの式で計算する</span></div></header>
+<main class="wrap" id="main" tabindex="-1">
+<nav class="crumbs" aria-label="パンくずリスト"><a href="../../">トップ</a><span aria-hidden="true">›</span><a href="../../shinro/">進路とお金の計算帳(通信制と不登校)</a><span aria-hidden="true">›</span><span>通信制大学と通学の大学の4年間の費用を、スクーリングの交通費と宿泊まで入れて比べる</span></nav>
+<article class="page">
+<header class="page-heading">
+<h1>通信制大学と通学の大学の4年間の費用を、スクーリングの交通費と宿泊まで入れて比べる</h1>
+<p class="pr-notice">本ページはアフィリエイト広告(PR)を含みます</p>
+<p class="updated">更新日 <time datetime="2026-10-25">2026年10月25日</time></p>
+</header>
+<div class="answer-box" id="answer"><span class="answer-label">答えの目安</span>
+<p>国立大学の学部(昼間)の標準額は、入学料282,000円と授業料の年額535,800円で、4年分は2,425,200円になる(国立大学等の授業料その他の費用に関する省令、2026-10-25確認)。私立大学学部(昼間部)の令和7年度入学者の平均(入学定員で加重)は、授業料968,069円、入学料240,365円、施設設備費172,550円で、4年分は4,802,841円(文部科学省の調査、同日確認)。通信制大学は授業料の決め方が大学ごとに違い、会場へ出向くスクーリングの交通費と宿泊費が別にかかる。このページで募集要項の額と回数を入れると、4年の総額、通学との差額、1年あたり、総額のうちスクーリングが占める割合が出る。</p>
+</div>
+<section class="tool" id="tool">
+<h2>計算ツール</h2>
+<noscript>計算ツールはJavaScriptを有効にすると動きます。</noscript>
+<form id="kl-form">
+<p class="kl-note">初期値は計算例の数字で、特定の大学の額ではない。募集要項の額に書き換えて使う。</p>
+<fieldset class="kl-field">
+<legend>通信制大学の費用(募集要項の額を入れる)</legend>
+<label for="kl-tsu-nyugaku">入学金(円。最初の年だけにかかる分)</label>
+<input type="number" id="kl-tsu-nyugaku" name="tsu_nyugaku" min="0" step="1000" value="30000" required>
+<label for="kl-tsu-nenkan">1年間の授業料・登録料・教材費などの合計(円)</label>
+<input type="number" id="kl-tsu-nenkan" name="tsu_nenkan" min="0" step="1000" value="150000" required>
+<label for="kl-scl-kaisu">4年間のスクーリングの回数(会場へ出向く回数の合計)</label>
+<input type="number" id="kl-scl-kaisu" name="scl_kaisu" min="0" step="1" value="20" required>
+<label for="kl-scl-koutsu">1回あたりの往復の交通費(円)</label>
+<input type="number" id="kl-scl-koutsu" name="scl_koutsu" min="0" step="500" value="15000" required>
+<label for="kl-scl-haku">1回あたりの宿泊数(泊。日帰りは0)</label>
+<input type="number" id="kl-scl-haku" name="scl_haku" min="0" step="1" value="1" required>
+<label for="kl-scl-hakuhi">1泊あたりの宿泊費(円)</label>
+<input type="number" id="kl-scl-hakuhi" name="scl_hakuhi" min="0" step="500" value="8000" required>
+</fieldset>
+<fieldset class="kl-field">
+<legend>比べる通学の大学</legend>
+<label><input type="radio" name="tsg_preset" value="kokuritsu" checked> 国立大学の標準額(入学料282,000円、授業料の年額535,800円)</label>
+<label><input type="radio" name="tsg_preset" value="shiritsu"> 私立大学(学部)の平均(令和7年度入学者の入学料・授業料・施設設備費)</label>
+<label><input type="radio" name="tsg_preset" value="jibun"> 自分で入力する</label>
+</fieldset>
+<fieldset class="kl-field" id="kl-jibun-fields" hidden>
+<legend>通学の大学の額を自分で入れる</legend>
+<label for="kl-tsg-nyugaku">入学料(円)</label>
+<input type="number" id="kl-tsg-nyugaku" name="tsg_nyugaku" min="0" step="1000" value="250000">
+<label for="kl-tsg-nenkan">1年間の授業料と施設設備費などの合計(円)</label>
+<input type="number" id="kl-tsg-nenkan" name="tsg_nenkan" min="0" step="1000" value="1100000">
+</fieldset>
+<div class="kl-field"><label for="kl-tsg-sonota">通学の大学の追加費用(通学定期、教材費など。1年分の円。無ければ0)</label>
+<input type="number" id="kl-tsg-sonota" name="tsg_sonota" min="0" step="1000" value="0"></div>
+<button type="submit">計算する</button>
+</form>
+<div id="kl-result" aria-live="polite"></div>
+<p class="tool-formula-link"><a href="#formula">計算の前提と式を見る</a></p>
+</section>
+<section class="next-step" id="next" data-kl-cta-block>
+<h2>次の一歩</h2>
+<p class="cta-order">計算結果の条件に合うリンクだけを表示しています。並びはこのページの掲載順です。</p>
+<div class="kl-cta"><a class="cta-link" href="https://px.a8.net/svt/ejp?a8mat=4BE9CR+BYGJ0A+22BU+15RK36" rel="sponsored noopener" target="_blank">通信制大学の資料を取り寄せて、入学金と年間費用を確かめる</a><span class="cta-pr">PR</span><span class="cta-note">募集要項に載る入学金や授業料、スクーリングの会場と日数を、このページの欄に入れるための資料請求の窓口。</span></div>
+</section>
+<div class="intro"><p>通信制大学の費用は、募集要項の授業料だけを見ると通学の大学との差が大きく見える。会場へ出向くスクーリングの交通費と宿泊費は、居住地と回数で変わる分で、募集要項の表には載らない。そこで、くらしラボが入学金と年間費用、スクーリングの回数と1回の内訳を入れて4年の総額を出すこのページを作った。</p><p>入れるのは、通信制大学の入学金、1年間の費用、スクーリングの回数、1回あたりの往復交通費、宿泊数、1泊の宿泊費の6つ。比べる通学の大学は、国立の標準額、私立大学学部の平均、自分で入力した額から選ぶ。大学名は載せておらず、初期値の数字は計算例で、特定の大学の額ではない。</p><p>大学の教育内容や進路の比較は、このページでは扱わない。実際の学費と回数は、各大学の募集要項や学習の手引で確かめてほしい。</p></div>
+<section>
+<h2>通学の大学の比較値は、国立の標準額と私立の平均を4年分にして出している</h2>
+<p>国立大学の学部(昼間)は、省令で入学料が282,000円、授業料の年額が535,800円と定められている(標準額。各大学は標準額の120%までの範囲で定められる)。4年分は、282,000円に535,800円の4倍を足した2,425,200円になる。</p><p>私立大学は、文部科学省が入学者に係る初年度の学生納付金を調べていて、令和7年度入学者の私立大学学部(昼間部)の平均(入学定員で加重)は、授業料968,069円、入学料240,365円、施設設備費172,550円で、この3項目の合計は1,380,983円だった(実験実習料などを含む総計は1,507,647円)。この平均は学部を問わない全体の値で、学部によって大きく違う(同じ調査で医歯系学部の授業料の平均は2,825,359円)。このページは、授業料と施設設備費を毎年同じ額として4倍し、入学料を1回足している。4年分は4,802,841円になる。</p><p>どちらも特定の大学の額ではない。志望する大学が決まっている場合は、「自分で入力する」を選んで、その大学の募集要項の額を入れてほしい。</p>
+</section>
+<section>
+<h2>スクーリングの費用は、回数に「交通費と宿泊費」をかけて数える</h2>
+<p>通信制大学のスクーリングは、会場へ出向いて受ける面接授業を指す。1回あたりの費用は、往復の交通費に、泊まる日数と1泊の宿泊費をかけた額を足して出す。計算例の1回あたり23,000円は、交通費15,000円と、1泊8,000円の宿泊を足した額だ。</p><p>卒業に要る124単位のうち30単位以上は、面接授業かメディアを利用して行う授業で修得すると、大学通信教育設置基準に定められている。30単位のうち10単位までは、放送授業で代えられる(文部科学省の基準、2026-10-25確認)。必要なスクーリングの回数と日数、会場は大学ごとに違い、この基準だけでは決まらない。回数は募集要項や学習の手引で確かめて入れてほしい。</p><p>スクーリングの割合は、スクーリングの費用を通信制の4年総額で割って出している。居住地から会場までの距離で、この割合は大きく動く。</p>
+</section>
+<section>
+<h2>このページの総額に入っていない費用</h2>
+<p>通学の大学の比較値には、下宿の家賃や生活費は入っていない。通学の定期代や教材費は「追加費用」の欄に入れると総額に加わる。通信制の側も、スクーリングの食事代や休日の移動の費用は計算に入っていない。必要なら、交通費か宿泊費の欄に上乗せして入れる。</p><p>奨学金や授業料の減免、大学独自の給付は、どちらの側にも入れていない。利用できる制度と条件は、大学の窓口や学生支援の担当で確かめてほしい。大学の教育内容や進路については、このページでは扱わない。</p>
+</section>
+<section class="formula" id="formula">
+<h2>計算の前提</h2>
+<p>通信制の4年総額は、入学金に、1年間の費用の4年分と、スクーリングの費用(回数×(往復の交通費+宿泊数×1泊の宿泊費))を足した額。通学の4年総額は、入学料に、授業料と施設設備費の年額の4年分と、追加費用の4年分を足した額。差額は通信制から通学を引き、1年あたりは総額を4で割る。スクーリングの割合は、スクーリングの費用を通信制の4年総額で割って小数第1位に丸めている。国立と私立の比較値は参照データ(refdata)から読み、年額が4年同じと仮定している(推定)。</p><div class="table-wrap assumptions"><table><caption>計算に使う数字と根拠</caption><thead><tr><th scope="col">項目</th><th scope="col">値</th><th scope="col">根拠</th></tr></thead>
+<tbody>
+<tr><th scope="row">国立大学(昼間の学部)の授業料の標準額</th><td class="num">535,800円/年</td><td><a href="https://laws.e-gov.go.jp/law/416M60000080016" rel="noopener" target="_blank">『国立大学等の授業料その他の費用に関する省令』2条の表、大学の学部(夜間において授業を行う学部を除く)の行(2026-10-25確認)。各大学は特別の事情があるとき標準額の120%までの範囲で定められる(10条)ため、実際の額は大学ごとに確かめる。</a></td></tr>
+<tr><th scope="row">国立大学(昼間の学部)の入学料の標準額</th><td class="num">282,000円</td><td><a href="https://laws.e-gov.go.jp/law/416M60000080016" rel="noopener" target="_blank">同じ省令2条の表(2026-10-25確認)。</a></td></tr>
+<tr><th scope="row">私立大学(学部)の授業料の平均額</th><td class="num">968,069円/年</td><td><a href="https://www.mext.go.jp/content/20251226-mxt_sigakujo-000046463_1.pdf" rel="noopener" target="_blank">文部科学省「私立大学等の令和7年度入学者に係る学生納付金等調査結果」の私立大学学部(昼間部)の全平均の行、令和7年度入学定員で加重(2026-10-25確認)。大学名や学部を指さない平均で、医歯薬など学部によって大きく違う。</a></td></tr>
+<tr><th scope="row">私立大学(学部)の入学料の平均額</th><td class="num">240,365円</td><td><a href="https://www.mext.go.jp/content/20251226-mxt_sigakujo-000046463_1.pdf" rel="noopener" target="_blank">同じ資料(2026-10-25確認)。</a></td></tr>
+<tr><th scope="row">私立大学(学部)の施設設備費の平均額</th><td class="num">172,550円/年</td><td><a href="https://www.mext.go.jp/content/20251226-mxt_sigakujo-000046463_1.pdf" rel="noopener" target="_blank">同じ資料(2026-10-25確認)。授業料と施設設備費の合計は1年あたり1,140,619円。</a></td></tr>
+<tr><th scope="row">2年目以降も、1年目と同じ年額が続く</th><td class="num">4年分</td><td><span class="est-tag">推定</span> 年額に1年目の額をそのまま4年分かけている(推定)。実際は学年が上がって額が変わる大学もある。入力欄の額を書き換えれば変えられる。</td></tr>
+<tr><th scope="row">卒業に要る単位のうち、面接授業かメディアを使う授業で修得する単位</th><td class="num">30単位以上</td><td><a href="https://laws.e-gov.go.jp/law/356M50000080033" rel="noopener" target="_blank">『大学通信教育設置基準』6条2項。卒業要件124単位のうち30単位以上で、30単位のうち10単位までは放送授業で代えられる(2026-10-25確認)。スクーリングの実際の回数や日数は、この基準では決まらず大学ごとに違う。計算には入れず、利用者が入れた回数を使う。</a></td></tr>
+</tbody></table></div>
+
+</section>
+<section class="compare-table" id="table">
+<h2>早見表</h2>
+<div class="table-wrap"><table><caption>計算例の4年総額(円)。左から通信制の計算例、国立の標準額、私立の平均の順に並べた。大学名は載せていない</caption><thead><tr><th scope="col">項目</th><th scope="col">通信制(計算例)</th><th scope="col">国立(標準額)</th><th scope="col">私立(平均)</th></tr></thead>
+<tbody>
+<tr><th scope="row">入学金・入学料</th><td>30,000</td><td>282,000</td><td>240,365</td></tr>
+<tr><th scope="row">授業料など(4年分)</th><td>600,000</td><td>2,143,200</td><td>3,872,276</td></tr>
+<tr><th scope="row">施設設備費(4年分)</th><td>授業料などに含む</td><td>標準額に定めなし</td><td>690,200</td></tr>
+<tr><th scope="row">スクーリング(20回、1回23,000円)</th><td>460,000</td><td>-</td><td>-</td></tr>
+<tr><th scope="row">4年の総額</th><td>1,090,000</td><td>2,425,200</td><td>4,802,841</td></tr>
+</tbody></table></div>
+</section>
+<section class="faq" id="faq">
+<h2>よくある質問</h2>
+<dl>
+<dt>Q. スクーリングは4年間で何回必要ですか。</dt>
+<dd>大学と学部、コースで違い、このページでは決められない。卒業に要る124単位のうち30単位以上を面接授業かメディアを利用する授業で修得すると大学通信教育設置基準に定められているが、会場へ出向く回数や日数は大学ごとに決まる(文部科学省の基準、2026-10-25確認)。募集要項や学習の手引で確かめてほしい。</dd>
+<dt>Q. 国立大学の授業料は、どの大学でも同じ額ですか。</dt>
+<dd>同じとは限らない。省令の標準額は授業料の年額535,800円、入学料282,000円だが、各大学は特別の事情があるとき標準額の120%までの範囲で定められる(国立大学等の授業料その他の費用に関する省令2条・10条、2026-10-25確認)。実際の額は大学の募集要項で確かめる。</dd>
+<dt>Q. 私立大学の平均を、通信制の比較に使ってよいですか。</dt>
+<dd>平均は学部を問わない全体の値で、通学の私立大学の負担の目安にとどまる。学部によって大きく違うため、志望校が決まっていれば「自分で入力する」で、その大学の額を入れるほうが実情に近い。</dd>
+<dt>Q. 4年で卒業できなかった場合の費用はどうなりますか。</dt>
+<dd>このページの計算は4年分で固定している。在籍が延びた場合の費用は、大学の学則や募集要項で、延長した年の授業料などの扱いを確かめてほしい。</dd>
+<dt>Q. 通学の定期代や下宿の費用は入りますか。</dt>
+<dd>比較値には入っていない。定期代や教材費は、通学の追加費用の欄に1年分を入れると4年分が総額に加わる。下宿の家賃や生活費は計算の対象にしていない。</dd>
+</dl>
+</section>
+<section class="sources" id="sources">
+<h2>出典</h2>
+<ul><li><a href="https://www.mext.go.jp/content/20251226-mxt_sigakujo-000046463_1.pdf" rel="noopener" target="_blank">文部科学省「私立大学等の令和7年度入学者に係る学生納付金等調査結果」(私立大学学部の授業料・入学料・施設設備費)</a>(2026年10月25日確認)</li><li><a href="https://laws.e-gov.go.jp/law/416M60000080016" rel="noopener" target="_blank">e-Gov法令検索 国立大学等の授業料その他の費用に関する省令(2条の標準額、10条の120%)</a>(2026年10月25日確認)</li><li><a href="https://laws.e-gov.go.jp/law/356M50000080033" rel="noopener" target="_blank">e-Gov法令検索 大学通信教育設置基準(6条2項の30単位以上)</a>(2026年10月25日確認)</li></ul>
+</section>
+<section class="related" id="related">
+<h2>関連する計算</h2>
+<ul><li><a href="../../shinro/futoukou-manabi-getsugaku/">学校に行けない間の学び方を月額で比べる 教育支援センター、フリースクール、オンライン教材、家庭教師</a></li><li><a href="../../shinro/tsuushin-sapo-3nen/">通信制高校にサポート校を足すと3年間でいくら? 就学支援金を引いた自己負担を、転入の時期も入れて出す</a></li><li><a href="../../shinro/tsuushin-tennyu-sotsugyou/">通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算</a></li><li><a href="../../shinro/tennyu-junbi-gyakusan/">通信制高校への転入、いつ動けば間に合うか 転入したい月から資料請求と出願の目安日を逆算する</a></li><li><a href="../../shinro/shusseki-atsukai-junbi/">家で学んだ日を出席扱いにしてもらう前に 文科省の通知の要件を順に確かめ、学校に相談するメモを作る</a></li><li><a href="../../shinro/">進路とお金の計算帳(通信制と不登校)の計算の一覧</a></li></ul>
+</section>
+<section class="operator-box" id="operator">
+<h2>運営者</h2>
+<p>このページはくらしラボ(個人運営)が作っています。文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典のページから書き写しています。誤りの報告と問い合わせは<a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシー</a>に載せた窓口で受け付けています。作り方と広告の方針は<a href="../../about/">運営者と作り方</a>にまとめています。</p>
+</section>
+</article>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p class="operator">運営者はくらしラボ(個人運営)です。</p>
+<p>ページの文章は生成AIで下書きし、計算式は自動の検算テストを通してから公開しています。数値は出典から書き写し、出典ごとに確認日を付けています。</p>
+<p><a href="../../">トップ</a> / <a href="../../about/">運営者と作り方</a> / <a href="https://kurashi-labo.github.io/privacy.html">プライバシーポリシーと問い合わせ窓口</a></p>
+</div></footer>
+<script>window.KL_REFDATA = {"tsuushin-daigaku-4nen__gakuhi_toukei": [{"key": "kokuritsu", "label": "国立大学(昼間の学部)の標準額: 入学料282,000円、授業料の年額535,800円", "nyugaku": 282000, "nenkan": 535800, "jugyo": 535800, "shisetsu": 0, "source_url": "https://laws.e-gov.go.jp/law/416M60000080016", "checked": "2026-10-25"}, {"key": "shiritsu", "label": "私立大学(学部)の平均: 入学料240,365円、授業料968,069円、施設設備費172,550円(令和7年度入学者)", "nyugaku": 240365, "nenkan": 1140619, "jugyo": 968069, "shisetsu": 172550, "source_url": "https://www.mext.go.jp/content/20251226-mxt_sigakujo-000046463_1.pdf", "checked": "2026-10-25"}]};</script>
+<script>
+function KL_CALC(input, refdata) {
+  refdata = refdata || {};
+  var REFNAME = "tsuushin-daigaku-4nen__gakuhi_toukei";
+  var rows = refdata[REFNAME] || [];
+  var YEARS = 4;
+
+  function num(v) {
+    if (v === null || v === undefined || v === "") { return 0; }
+    return Number(v);
+  }
+  function findRow(key) {
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i] && rows[i].key === key) { return rows[i]; }
+    }
+    return null;
+  }
+
+  var preset = (input && input.tsg_preset) || "jibun";
+  var tsuNyugaku = num(input && input.tsu_nyugaku);
+  var tsuNenkan = num(input && input.tsu_nenkan);
+  var kaisu = num(input && input.scl_kaisu);
+  var koutsu = num(input && input.scl_koutsu);
+  var haku = num(input && input.scl_haku);
+  var hakuhi = num(input && input.scl_hakuhi);
+  var tsgSonota = num(input && input.tsg_sonota);
+
+  var tsgNyugaku;
+  var tsgNenkan;
+  var presetLabel = "自分で入力した額";
+  var errors = [];
+
+  if (preset === "kokuritsu" || preset === "shiritsu") {
+    var row = findRow(preset);
+    if (!row) {
+      errors.push("preset_missing");
+      tsgNyugaku = 0;
+      tsgNenkan = 0;
+    } else {
+      tsgNyugaku = Number(row.nyugaku);
+      tsgNenkan = Number(row.nenkan);
+      presetLabel = row.label;
+    }
+  } else {
+    preset = "jibun";
+    tsgNyugaku = num(input && input.tsg_nyugaku);
+    tsgNenkan = num(input && input.tsg_nenkan);
+  }
+
+  if (!(tsuNyugaku >= 0)) { errors.push("tsu_nyugaku_invalid"); }
+  if (!(tsuNenkan >= 0)) { errors.push("tsu_nenkan_invalid"); }
+  if (!(kaisu >= 0) || Math.floor(kaisu) !== kaisu) { errors.push("kaisu_invalid"); }
+  if (!(koutsu >= 0)) { errors.push("koutsu_invalid"); }
+  if (!(haku >= 0) || Math.floor(haku) !== haku) { errors.push("haku_invalid"); }
+  if (!(hakuhi >= 0)) { errors.push("hakuhi_invalid"); }
+  if (!(tsgNyugaku >= 0)) { errors.push("tsg_nyugaku_invalid"); }
+  if (!(tsgNenkan >= 0)) { errors.push("tsg_nenkan_invalid"); }
+  if (!(tsgSonota >= 0)) { errors.push("tsg_sonota_invalid"); }
+
+  if (errors.length) {
+    return {
+      error: errors.join(","), preset: preset, preset_label: presetLabel,
+      tsu_total: null, tsg_total: null, diff: null, direction: null,
+      tsu_per_year: null, tsg_per_year: null, sch_per_time: null, sch_total: null,
+      sch_share_pct: null, tsu_nyugaku: null, tsu_gakuhi_total: null,
+      tsg_nyugaku: null, tsg_gakuhi_total: null, tsg_sonota_total: null, years: YEARS
+    };
+  }
+
+  var schPerTime = Math.round(koutsu + haku * hakuhi);
+  var schTotal = Math.round(kaisu * schPerTime);
+  var tsuGakuhiTotal = Math.round(tsuNenkan * YEARS);
+  var tsuTotal = Math.round(tsuNyugaku + tsuGakuhiTotal + schTotal);
+
+  var tsgGakuhiTotal = Math.round(tsgNenkan * YEARS);
+  var tsgSonotaTotal = Math.round(tsgSonota * YEARS);
+  var tsgTotal = Math.round(tsgNyugaku + tsgGakuhiTotal + tsgSonotaTotal);
+
+  var diff = tsuTotal - tsgTotal;
+  var direction = diff > 0 ? "tsu_more" : (diff < 0 ? "tsg_more" : "same");
+  var share = tsuTotal > 0 ? Math.round((schTotal / tsuTotal) * 1000) / 10 : null;
+
+  return {
+    error: null,
+    preset: preset,
+    preset_label: presetLabel,
+    years: YEARS,
+    tsu_total: tsuTotal,
+    tsg_total: tsgTotal,
+    diff: diff,
+    direction: direction,
+    tsu_per_year: Math.round(tsuTotal / YEARS),
+    tsg_per_year: Math.round(tsgTotal / YEARS),
+    sch_per_time: schPerTime,
+    sch_total: schTotal,
+    sch_share_pct: share,
+    tsu_nyugaku: tsuNyugaku,
+    tsu_gakuhi_total: tsuGakuhiTotal,
+    tsg_nyugaku: tsgNyugaku,
+    tsg_gakuhi_total: tsgGakuhiTotal,
+    tsg_sonota_total: tsgSonotaTotal
+  };
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("kl-form");
+  var resultEl = document.getElementById("kl-result");
+  if (!form || !resultEl) { return; }
+  var jibunFields = document.getElementById("kl-jibun-fields");
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function yen(n) {
+    if (n === null || n === undefined) { return "-"; }
+    return Number(n).toLocaleString("ja-JP") + "円";
+  }
+  function currentPreset() {
+    var checked = form.querySelector('input[name="tsg_preset"]:checked');
+    return checked ? checked.value : "kokuritsu";
+  }
+  function syncFields() {
+    if (jibunFields) { jibunFields.hidden = (currentPreset() !== "jibun"); }
+  }
+  function readInput() {
+    var fd = new FormData(form);
+    return {
+      tsg_preset: fd.get("tsg_preset") || "kokuritsu",
+      tsu_nyugaku: fd.get("tsu_nyugaku"),
+      tsu_nenkan: fd.get("tsu_nenkan"),
+      scl_kaisu: fd.get("scl_kaisu"),
+      scl_koutsu: fd.get("scl_koutsu"),
+      scl_haku: fd.get("scl_haku"),
+      scl_hakuhi: fd.get("scl_hakuhi"),
+      tsg_nyugaku: fd.get("tsg_nyugaku"),
+      tsg_nenkan: fd.get("tsg_nenkan"),
+      tsg_sonota: fd.get("tsg_sonota")
+    };
+  }
+  function errorMessage(code) {
+    var map = {
+      preset_missing: "通学の比較値を読み込めませんでした。「自分で入力する」を選んでください。",
+      tsu_nyugaku_invalid: "通信制の入学金は0円以上で入れてください。",
+      tsu_nenkan_invalid: "通信制の年間費用は0円以上で入れてください。",
+      kaisu_invalid: "スクーリングの回数は0以上の整数で入れてください。",
+      koutsu_invalid: "1回あたりの交通費は0円以上で入れてください。",
+      haku_invalid: "1回あたりの宿泊数は0以上の整数で入れてください。",
+      hakuhi_invalid: "1泊あたりの宿泊費は0円以上で入れてください。",
+      tsg_nyugaku_invalid: "通学の入学料は0円以上で入れてください。",
+      tsg_nenkan_invalid: "通学の年間の学費は0円以上で入れてください。",
+      tsg_sonota_invalid: "通学の年間の追加費用は0円以上で入れてください。"
+    };
+    var codes = String(code).split(",");
+    var msgs = [];
+    for (var i = 0; i < codes.length; i++) { if (map[codes[i]]) { msgs.push(map[codes[i]]); } }
+    return msgs.length ? msgs.join(" ") : "入力を見直してください。";
+  }
+  function render() {
+    var result;
+    try {
+      result = KL_CALC(readInput(), (window.KL_REFDATA || {}));
+    } catch (e) {
+      resultEl.innerHTML = '<p class="kl-error">計算でエラーが発生しました。入力を見直してください。</p>';
+      return;
+    }
+    if (!result || result.error) {
+      resultEl.innerHTML = '<p class="kl-error">' + esc(errorMessage(result && result.error)) + "</p>";
+      return;
+    }
+    var rows = "";
+    rows += "<tr><th>入学金・入学料</th><td>" + yen(result.tsu_nyugaku) + "</td><td>" + yen(result.tsg_nyugaku) + "</td></tr>";
+    rows += "<tr><th>授業料などの4年分</th><td>" + yen(result.tsu_gakuhi_total) + "</td><td>" + yen(result.tsg_gakuhi_total) + "</td></tr>";
+    rows += "<tr><th>スクーリングの交通費と宿泊費</th><td>" + yen(result.sch_total) + "</td><td>-</td></tr>";
+    rows += "<tr><th>通学の年間追加費用の4年分</th><td>-</td><td>" + yen(result.tsg_sonota_total) + "</td></tr>";
+    rows += "<tr><th>4年の総額</th><td>" + yen(result.tsu_total) + "</td><td>" + yen(result.tsg_total) + "</td></tr>";
+    rows += "<tr><th>1年あたり(総額を4で割った額)</th><td>" + yen(result.tsu_per_year) + "</td><td>" + yen(result.tsg_per_year) + "</td></tr>";
+    var diffText;
+    if (result.direction === "same") {
+      diffText = "<p>4年の総額は、通信制と通学で同じ額になった。</p>";
+    } else if (result.direction === "tsu_more") {
+      diffText = "<p>差額は" + yen(Math.abs(result.diff)) + "で、入れた条件では通信制の4年総額のほうが多い。</p>";
+    } else {
+      diffText = "<p>差額は" + yen(Math.abs(result.diff)) + "で、入れた条件では通学の4年総額のほうが多い。</p>";
+    }
+    var shareText = "";
+    if (result.sch_share_pct !== null) {
+      shareText = "<p>通信制の総額のうち、スクーリング(1回" + yen(result.sch_per_time) + "、合計" + yen(result.sch_total) + ")が占める割合は" + result.sch_share_pct + "%。</p>";
+    }
+    var presetText = "<p>通学側の比較値: " + esc(result.preset_label) + "。</p>";
+    resultEl.innerHTML = '<table class="kl-table"><thead><tr><th>項目</th><th>通信制大学</th><th>通学の大学</th></tr></thead><tbody>' +
+      rows + "</tbody></table>" + diffText + shareText + presetText;
+    window.KL_UI && window.KL_UI.applyWhen(result);
+  }
+
+  form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+  form.addEventListener("change", function () { syncFields(); render(); });
+  syncFields();
+  render();
+});
+</script>
+</body>
+</html>

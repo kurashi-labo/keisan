@@ -444,7 +444,7 @@
   if (typeof module === "object" && module && module.exports) { module.exports = api; }
 })(typeof globalThis !== "undefined" ? globalThis : this);
 </script>
-<script type="application/json" id="kl-category-counts">{"bosai": 4, "jikka": 6, "kankon": 0, "shigoto": 3, "shoku": 2, "sumai": 1, "tetsuzuki": 7, "care": 7, "shinro": 5, "koikatsu": 8, "deai": 3}</script>
+<script type="application/json" id="kl-category-counts">{"bosai": 4, "jikka": 6, "kankon": 0, "shigoto": 3, "shoku": 2, "sumai": 1, "tetsuzuki": 8, "care": 7, "shinro": 6, "koikatsu": 8, "deai": 3}</script>
 <script>
 /* Presentation only: preserve calculator inputs, outputs, links and live regions. */
 (function () {
@@ -643,6 +643,7 @@
 <h2><a href="./tetsuzuki/">手続き暦(介護と相続の期限)</a></h2>
 <p>親の介護休業や、亡くなったあとの手続き、相続登記、空き家特例の期限を、起点の日付から日付つきの一覧にする</p>
 <ul class="page-list">
+<li><a href="./tetsuzuki/sousaihi-ichiran/">葬祭費・埋葬料の額と申請期限を日付で出す(政令指定都市17市と協会けんぽ)</a><p>亡くなった人が入っていた保険と住んでいた市を選ぶと、葬祭費・埋葬料として申請できる額の目安と、申請期限の日付を出します。政令指定都市17市の国保と後期高齢者医療、協会けんぽに対応。</p></li>
 <li><a href="./tetsuzuki/souzoku-touki-kigen/">相続登記はいつまで? 不動産の相続を知った日から期限を出す(2024年4月より前の相続は2027年3月31日まで)</a><p>相続登記はいつまでにする必要があるか、相続が始まった日と知った日を入れて計算する。2024年4月より前の相続は2027年3月31日の経過措置も反映する(法務省の資料をもとに算出)。</p></li>
 <li><a href="./tetsuzuki/souzoku-houki-kigen/">相続放棄の3か月はいつまで? 自分が相続人になったと知った日から期限を出す</a><p>自分が相続人になったと知った日を入れると、相続放棄の期限(民法915条、3か月)を計算する。休日が絡むときは法律どおりの期限と推奨日を両方出す。</p></li>
 <li><a href="./tetsuzuki/shigo-kigen/">亡くなった日から、死亡届や相続放棄など10の手続きの期限を並べる</a><p>亡くなった日と知った日を入れると、死亡届、年金と国保の届出、相続放棄、準確定申告、相続税、相続登記、葬祭費、未支給年金の期限を計算します。</p></li>
@@ -669,6 +670,7 @@
 <h2><a href="./shinro/">進路とお金の計算帳(通信制と不登校)</a></h2>
 <p>通信制高校への転入と卒業時期、サポート校を足した3年間の費用、学校に行けない間の学び方の月額を出す</p>
 <ul class="page-list">
+<li><a href="./shinro/tsuushin-daigaku-4nen/">通信制大学と通学の大学の4年間の費用を、スクーリングの交通費と宿泊まで入れて比べる</a><p>通信制大学と通学の大学の4年間の総額を、入学金・授業料・スクーリング(回数×交通費と宿泊)から計算し、差額と1年あたり、スクーリングの割合を出す。</p></li>
 <li><a href="./shinro/tsuushin-tennyu-sotsugyou/">通信制高校に転入したら卒業はいつ? 入学した年月と単位から目安を計算</a><p>通信制高校に転入した場合の卒業の目安年月を、入学した年月と転入する年月、認定済みの単位、転入先の年間の履修上限、9月卒業の有無から計算する。</p></li>
 <li><a href="./shinro/tsuushin-sapo-3nen/">通信制高校にサポート校を足すと3年間でいくら? 就学支援金を引いた自己負担を、転入の時期も入れて出す</a><p>通信制高校とサポート校の3年間の学費を、1単位あたりの授業料と2026年度の就学支援金(私立の単位制は1単位13,668円まで)から計算し、自己負担の目安を出す。転入時の残り単位にも対応。</p></li>
 <li><a href="./shinro/tennyu-junbi-gyakusan/">通信制高校への転入、いつ動けば間に合うか 転入したい月から資料請求と出願の目安日を逆算する</a><p>転入したい月を入れると、出願締切、書類の依頼、学校見学の期間から、資料請求を始める目安日を逆算します。単位の引き継ぎの判断はしません。</p></li>
